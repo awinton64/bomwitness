@@ -271,6 +271,36 @@ def test_cli_never_takes_trust_from_a_snapshot_file_and_shows_it_in_the_compact_
     assert "official" not in text and "(authenticated:" not in text
 
 
+def test_cli_names_an_alternate_release_and_its_signing_key_in_the_trust_block(signer, tmp_path, monkeypatch, capsys):
+    """--alt-release is one more reference input: the compact output and the report list it with the key that signed it."""
+    monkeypatch.setattr(usign, "PINNED_KEYS", signer.keys)
+    pk = dict(fakefeed.DEFAULT_PACKAGES)
+    old = dict(pk)
+    old["gamma"] = ("base", "2023.12.01~aaa-r1", {"usr/bin/gamma": fakefeed.elf(b"gamma tool older build")}, "")
+    root = tmp_path / "releases"
+    fakefeed.make_release(root, signer, packages=pk)
+    fakefeed.make_release(root, signer, release="98.01.0", packages=old)
+    names = ["base-files", "kmod-foo", "alpha", "gamma"]
+    fw = fakefeed.make_rootfs(tmp_path / "fw", names, old)
+    bom = tmp_path / "bom.json"
+    bom.write_text(json.dumps(bomio.sbom(fakefeed.claims(names, old), "fw")))
+    capsys.readouterr()
+    assert cli.main(["verify", "--rootfs", str(fw), "--cache", str(tmp_path / "cache"), "--base", root.as_uri(), "--sbom", str(bom),
+                     "--alt-release", "98.01.0", "--json", str(tmp_path / "r.json"), "--md", str(tmp_path / "r.md")]) == 0
+    out = capsys.readouterr().out.splitlines()
+    key = fakefeed.KEY_ID.hex()
+    assert out[1] == f"  reference: OpenWrt 99.01.0 fake/generic, checksum file signed by pinned usign key {key}"
+    assert out[2] == f"  reference input: alternate release OpenWrt 98.01.0 fake/generic: checksum file signed by pinned usign key {key}"
+    rep = json.loads((tmp_path / "r.json").read_text())
+    assert rep["inputs"]["reference_inputs"][0]["kind"] == "alternate release" and rep["inputs"]["reference_inputs"][0]["signed_by"] == key
+    gamma = next(c for c in rep["sbom"]["components"] if c["name"] == "gamma")
+    assert gamma["verdict"] == "verified_A" and gamma["evidence"]["input"] == "release 98.01.0 feed"
+    md = (tmp_path / "r.md").read_text()
+    assert f"- alternate release OpenWrt 98.01.0 fake/generic: authenticated, its checksum file is signed by pinned usign key {key}" in md
+    assert "verified against the release 98.01.0 feed (signed reference of that release)" in md
+    assert "in the extreme on none" in md and "names that input" in md
+
+
 def test_cli_sibling_image_trust_follows_the_hash_pinned_image_list(tmp_path, monkeypatch, capsys):
     """A sibling image is authenticated only when its SHA-256 is in the image list; an unlisted one is used as supplied."""
     import hashlib

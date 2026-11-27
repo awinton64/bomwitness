@@ -3,7 +3,7 @@
   "name": "bomwitness",
   "version": "0.2.0"
  },
- "generated": "2026-11-27T05:55:41+00:00",
+ "generated": "2026-11-27T06:40:51+00:00",
  "subject": {
   "name": "openwrt-24.10.8-ath79-generic-tplink_archer-c7-v5-squashfs-sysupgrade.bin",
   "kind": "directory",
@@ -65,7 +65,7 @@
    "code_files": 161,
    "orphan_code_files": 0,
    "hard_findings": 0,
-   "seconds": 0.2
+   "seconds": 0.11
   },
   "options": {
    "use_hashes": true,
@@ -308,7 +308,13 @@
     "label_source": "release snapshot",
     "feed_version": "20260816-r2",
     "snapshot": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
-    "reason": "1 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) (20260601-r1; configuration files not compared); the shared feed has since moved to 20260816-r2"
+    "evidence": {
+     "input": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+     "trust": "authenticated",
+     "version": "20260601-r1",
+     "files": 1
+    },
+    "reason": "1 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin] (20260601-r1; configuration files not compared; 1 file(s) recorded for the package); the shared feed has since moved to 20260816-r2"
    },
    {
     "name": "cgi-io",
@@ -2011,7 +2017,13 @@
     "label_source": "release snapshot",
     "feed_version": "3.6.7-r1",
     "snapshot": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
-    "reason": "3 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) (3.6.6-r2; configuration files not compared); the shared feed has since moved to 3.6.7-r1"
+    "evidence": {
+     "input": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+     "trust": "authenticated",
+     "version": "3.6.6-r2",
+     "files": 3
+    },
+    "reason": "3 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin] (3.6.6-r2; configuration files not compared; 3 file(s) recorded for the package); the shared feed has since moved to 3.6.7-r1"
    },
    {
     "name": "libmnl0",
@@ -2433,7 +2445,13 @@
     "label_source": "release snapshot",
     "feed_version": "26.301.70438~aa4865e",
     "snapshot": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
-    "reason": "72 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) (26.205.85413~cac97ed; configuration files not compared); the shared feed has since moved to 26.301.70438~aa4865e"
+    "evidence": {
+     "input": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+     "trust": "authenticated",
+     "version": "26.205.85413~cac97ed",
+     "files": 72
+    },
+    "reason": "72 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin] (26.205.85413~cac97ed; configuration files not compared; 72 file(s) recorded for the package); the shared feed has since moved to 26.301.70438~aa4865e"
    },
    {
     "name": "luci-light",
@@ -2507,7 +2525,13 @@
     "label_source": "release snapshot",
     "feed_version": "26.301.70438~aa4865e",
     "snapshot": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
-    "reason": "16 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) (26.205.85413~cac97ed; configuration files not compared); the shared feed has since moved to 26.301.70438~aa4865e"
+    "evidence": {
+     "input": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+     "trust": "authenticated",
+     "version": "26.205.85413~cac97ed",
+     "files": 16
+    },
+    "reason": "16 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin] (26.205.85413~cac97ed; configuration files not compared; 16 file(s) recorded for the package); the shared feed has since moved to 26.301.70438~aa4865e"
    },
    {
     "name": "luci-mod-status",
@@ -2706,7 +2730,13 @@
     "label_source": "release snapshot",
     "feed_version": "26.301.70438~aa4865e",
     "snapshot": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
-    "reason": "10 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) (26.205.85413~cac97ed; configuration files not compared); the shared feed has since moved to 26.301.70438~aa4865e"
+    "evidence": {
+     "input": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+     "trust": "authenticated",
+     "version": "26.205.85413~cac97ed",
+     "files": 10
+    },
+    "reason": "10 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin] (26.205.85413~cac97ed; configuration files not compared; 10 file(s) recorded for the package); the shared feed has since moved to 26.301.70438~aa4865e"
    },
    {
     "name": "mtd",
@@ -3363,7 +3393,13 @@
     "label_source": "release snapshot",
     "feed_version": "2025.07.18~3f64c808-r2",
     "snapshot": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
-    "reason": "1 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) (2025.07.18~3f64c808-r1; configuration files not compared); the shared feed has since moved to 2025.07.18~3f64c808-r2"
+    "evidence": {
+     "input": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+     "trust": "authenticated",
+     "version": "2025.07.18~3f64c808-r1",
+     "files": 1
+    },
+    "reason": "1 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin] (2025.07.18~3f64c808-r1; configuration files not compared; 1 file(s) recorded for the package); the shared feed has since moved to 2025.07.18~3f64c808-r2"
    },
    {
     "name": "ucode-mod-html",
@@ -3703,13 +3739,25 @@
     "class": "stale",
     "component": "ca-bundle",
     "grade": "A",
-    "detail": "firmware has 20260601-r1; the reference feed now ships 20260816-r2"
+    "detail": "firmware has 20260601-r1, verified against the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin]; the reference feed now ships 20260816-r2",
+    "evidence": {
+     "input": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+     "trust": "authenticated",
+     "version": "20260601-r1",
+     "files": 1
+    }
    },
    {
     "class": "stale",
     "component": "libmbedtls21",
     "grade": "A",
-    "detail": "firmware has 3.6.6-r2; the reference feed now ships 3.6.7-r1"
+    "detail": "firmware has 3.6.6-r2, verified against the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin]; the reference feed now ships 3.6.7-r1",
+    "evidence": {
+     "input": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+     "trust": "authenticated",
+     "version": "3.6.6-r2",
+     "files": 3
+    }
    },
    {
     "class": "stale",
@@ -3733,13 +3781,25 @@
     "class": "stale",
     "component": "luci-base",
     "grade": "A",
-    "detail": "firmware has 26.205.85413~cac97ed; the reference feed now ships 26.301.70438~aa4865e"
+    "detail": "firmware has 26.205.85413~cac97ed, verified against the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin]; the reference feed now ships 26.301.70438~aa4865e",
+    "evidence": {
+     "input": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+     "trust": "authenticated",
+     "version": "26.205.85413~cac97ed",
+     "files": 72
+    }
    },
    {
     "class": "stale",
     "component": "luci-mod-network",
     "grade": "A",
-    "detail": "firmware has 26.205.85413~cac97ed; the reference feed now ships 26.301.70438~aa4865e"
+    "detail": "firmware has 26.205.85413~cac97ed, verified against the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin]; the reference feed now ships 26.301.70438~aa4865e",
+    "evidence": {
+     "input": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+     "trust": "authenticated",
+     "version": "26.205.85413~cac97ed",
+     "files": 16
+    }
    },
    {
     "class": "stale",
@@ -3769,7 +3829,13 @@
     "class": "stale",
     "component": "luci-theme-bootstrap",
     "grade": "A",
-    "detail": "firmware has 26.205.85413~cac97ed; the reference feed now ships 26.301.70438~aa4865e"
+    "detail": "firmware has 26.205.85413~cac97ed, verified against the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin]; the reference feed now ships 26.301.70438~aa4865e",
+    "evidence": {
+     "input": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+     "trust": "authenticated",
+     "version": "26.205.85413~cac97ed",
+     "files": 10
+    }
    },
    {
     "class": "stale",
@@ -3781,7 +3847,13 @@
     "class": "stale",
     "component": "ucode-mod-fs",
     "grade": "A",
-    "detail": "firmware has 2025.07.18~3f64c808-r1; the reference feed now ships 2025.07.18~3f64c808-r2"
+    "detail": "firmware has 2025.07.18~3f64c808-r1, verified against the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin]; the reference feed now ships 2025.07.18~3f64c808-r2",
+    "evidence": {
+     "input": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+     "trust": "authenticated",
+     "version": "2025.07.18~3f64c808-r1",
+     "files": 1
+    }
    },
    {
     "class": "stale",

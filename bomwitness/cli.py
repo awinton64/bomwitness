@@ -85,13 +85,25 @@ def _snapshots(args, stack: list, ref: Reference) -> tuple[list[dict], list[dict
     return snaps, trust
 
 
+def _alt_trust(alts: list[Reference]) -> list[dict]:
+    """A record for each --alt-release: another release's reference, authenticated like the primary one."""
+    out = []
+    for a in alts:
+        key = a.provenance().get("sha256sums_signed_by")
+        out.append({"kind": "alternate release", "name": f"OpenWrt {a.release} {a.target}", "authenticated": True, "trust": "signed",
+                    "signed_by": key, "note": f"its checksum file is signed by pinned usign key {key}; its builds are compared when a "
+                                              "file differs from the primary release's reference"})
+    return out
+
+
 def _trust_lines(trust: list[dict]) -> list[str]:
     """One line per reference input for the compact output: was it authenticated, or used as supplied."""
     out = []
     for t in trust:
         state = {"authenticated": "authenticated (SHA-256 in the image list pinned by the signed sha256sums)",
                  "unlisted": "NOT authenticated (not in the image list pinned by the signed sha256sums), used as supplied",
-                 "supplied": "NOT authenticated (local file), used as supplied"}[t["trust"]]
+                 "supplied": "NOT authenticated (local file), used as supplied",
+                 "signed": f"checksum file signed by pinned usign key {t.get('signed_by')}"}[t["trust"]]
         out.append(f"  reference input: {t['kind']} {t['name']}: {state}")
     return out
 
@@ -105,6 +117,7 @@ def cmd_verify(args) -> int:
     alts = [Reference(r, ref.target, Path(args.cache), offline=args.offline, **_base(args)) for r in args.alt_release or []]
     manifest = None if args.no_manifest else ref.manifest()
     snaps, trust = _snapshots(args, stack, ref)
+    trust = _alt_trust(alts) + trust
     sbom = verify(rootfs, claims, ref, alts, manifest=manifest, snapshots=snaps,
                   use_markers=not args.no_markers, normalize_timestamps=not args.no_normalize)
     db = devicedb.compare(rootfs, claims, sbom["components"]) if args.db == "compare" else None
@@ -197,12 +210,13 @@ def _common(p):
     p.add_argument("--offline", action="store_true", help="use only cached reference data")
     p.add_argument("--base", help="base URL of a release mirror (default: downloads.openwrt.org/releases)")
     p.add_argument("--no-manifest", action="store_true", help="do not use the publisher's release manifest for version labels")
-    p.add_argument("--snapshot", action="append", help="release snapshot JSON made by `bomwitness snapshot` (repeatable); a local file, trusted as supplied "
-                                                         "and described as not authenticated in every finding")
+    p.add_argument("--snapshot", action="append", help="release snapshot JSON made by `bomwitness snapshot` (repeatable); a local file, trusted as supplied; "
+                                                         "every finding that rests on it names the file, says it was not authenticated and reports "
+                                                         "the version the file records")
     p.add_argument("--sibling-image", action="append", help="official image of another device of the same release and target (repeatable); its SHA-256 is "
                                                               "looked up in the image list (profiles.json, pinned by hash in the signed sha256sums) and "
-                                                              "the output says whether it was found; an unlisted image is used as supplied and is "
-                                                              "described that way in every finding")
+                                                              "the output says whether it was found; an unlisted image is used as supplied; every finding "
+                                                              "that rests on a sibling names the image and says whether it was authenticated")
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -218,7 +232,9 @@ def main(argv: list[str] | None = None) -> int:
     v.add_argument("--sbom", required=True, help="CycloneDX 1.4 to 1.6 or SPDX 2.3 JSON")
     v.add_argument("--cbom", help="CycloneDX CBOM (defaults to cryptographic assets inside --sbom)")
     v.add_argument("--aibom", help="CycloneDX AI-BOM (defaults to model components inside --sbom)")
-    v.add_argument("--alt-release", action="append", help="another release whose builds may be compared (repeatable)")
+    v.add_argument("--alt-release", action="append", help="another release of the same target whose builds may be compared (repeatable); its "
+                                                          "reference is authenticated like the primary one, the output names the key that "
+                                                          "signed its checksum file, and a finding that rests on it names the release")
     v.add_argument("--db", choices=("compare", "ignore"), default="compare",
                    help="report where the device's own package database disagrees (never used for verdicts)")
     v.add_argument("--no-markers", action="store_true", help="disable grade B version-marker evidence")

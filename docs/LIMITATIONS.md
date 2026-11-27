@@ -44,12 +44,18 @@ Read these before relying on a result.
    entry, no sibling, no marker in the bytes), a wrong version on files that match the reference cannot be
    refuted and is reported as `label_unconfirmed`.
 8. **Partial presence passes, and grade A is a verdict under stated rules, not byte identity of a
-   package.** Configuration files and three account files are not compared, differences inside embedded
-   date strings are accepted, and a component is verified from the files that are present. A declared
-   package of which only a shared script with the reference SHA-256 is in the image (while its executable
-   is missing) is accepted. Three held-out phantom cases were missed this way. The reason text of every
-   grade A verdict gives the counts (files present, matched, matched only after masking, not compared,
-   missing), so a partial match can be seen in the report.
+   package.** Configuration files and three account files count as matches when they are identical and are
+   skipped when they differ, differences inside embedded date strings are accepted, and a component is
+   verified from the files that are present. A declared package of which only a shared script with the
+   reference SHA-256 is in the image (while its executable is missing) is accepted. Three held-out phantom
+   cases were missed this way. The rule asks that no compared file differs, not that a file matches: a
+   package whose only file in the image is a changed configuration file passes at grade A with zero
+   matched files. And when a file differs from the primary release's reference, one file that has the
+   SHA-256 of another release's build of the declared version is enough, even if a second file matches
+   neither build. None of this was changed after the freeze. The reason text of every grade A verdict
+   gives the counts (files present, matched, matched only after masking, not compared, missing, matching
+   another release, matching neither), and says so when no file was positively matched, so a weak pass can
+   be seen in the report.
 9. **Algorithm evidence is string-level.** A name in a binary shows the component refers to an algorithm.
    It is not proof of a working implementation, an implementation that carries no name is missed, and the
    pattern table is ours. The CBOM benchmark generates the correct CBOM with the same detector it then
@@ -67,8 +73,11 @@ Read these before relying on a result.
     verdicts. A snapshot file given on the command line is used as supplied, a sibling image is checked
     against the image list (`profiles.json`, which the signed checksum file pins by hash) but still used
     (with a warning) when it is not listed, and the reference cache is trusted after the first verified
-    download. A verdict can therefore rest on a source nobody authenticated. The report and the reason text
-    say so ("supplied", "not authenticated"); they do not stop you.
+    download. A verdict can therefore rest on a source nobody authenticated. The report and the text of
+    every verdict and finding that rests on such a source name the input and say so ("supplied", "not
+    authenticated"); they do not stop you. The CBOM and AI-BOM checks use no signed reference at all: they
+    compare the declaration with what is found in the image, and only the CBOM provider rule consults the
+    SBOM verdict.
 13. **Baselines are run outside their stated scope in two conditions.** BomTrace and the Syft-based diff
     are designed for an intact package database. With a colluding database both run and return no label.
     With a stripped database BomTrace's verifier has no usable input and returns no result at all, and the

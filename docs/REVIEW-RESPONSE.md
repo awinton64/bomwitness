@@ -126,3 +126,77 @@ is edited again without rerunning the check. The paper reports the check in sect
   although `bench/prepare.py` checked every sibling against the image list. `docs/DESIGN.md` notes this.
 - The partial-presence rule itself. It is now visible in each reason, and changing it would need a new held-out set.
 - The submission form is not open yet, so the form fields and the video upload route are still unverified.
+
+# Third review (of public head `155cb60`) and what changed
+
+A third independent read of the public repository and the submission files confirmed the benchmark numbers, the
+packaging and the earlier corrections, and returned three blocking defects with some smaller notes. All of them
+are about what a finding or a document says, not about a verdict. This section answers each one.
+
+## 1. Findings that rest on a snapshot hid their source and could name the wrong build
+
+The reviewer reused the synthetic feed of `tests/test_verify.py`: the firmware holds an older build of `gamma`
+than the feed now ships and the BOM omits it. With a local snapshot, the finding read "byte-identical to
+reference gamma 2024.01.01~abc-r1", the feed's current label, although the file matched the snapshot's record of
+`2023.12.01~aaa-r1`. A stale note for the declared case carried no trust qualifier.
+
+| What was wrong | What changed |
+|---|---|
+| The candidate merge for unexplained files kept one version per package and no source per file. | It now keeps, per file, which input matched it (the feed, or which snapshot). The candidate sets, the ranking and the grouping are the same code. The detail text is built from the per-file source: "1 file(s) present: 1 with the SHA-256 that the supplied snapshot (not authenticated by this run) [name] records for gamma 2023.12.01~aaa-r1; none of them has the SHA-256 of the feed's current gamma 2024.01.01~abc-r1". A package matched partly by the feed and partly by a snapshot reports both parts with both versions. |
+| The finding did not say which input supported it. | Every verdict and finding that rests on a snapshot, a sibling image or another release names that input (in square brackets after the trust words, or as "release X feed") and carries an `evidence` field in the JSON report: input, trust, version, number of files. |
+| The stale note had no trust qualifier. | "firmware has X, verified against the supplied snapshot (not authenticated by this run) [name]; the reference feed now ships Y". The same for a sibling image and for another release. |
+| A snapshot's own name could contain the word "official". | The word is dropped from the displayed name of any source that was not authenticated. |
+
+Tests: the reviewer's two cases are reproduced exactly (`test_omitted_component_matched_only_by_a_snapshot_names_the_snapshot_and_its_version`,
+`test_stale_note_that_rests_on_a_snapshot_names_it_and_its_trust`), plus one per trust level, one for a package
+matched by both sources with and without the file-path index, and one for the name rule.
+
+## 2. Claim scope in the paper, the slides, the video and the README
+
+| Finding | Change |
+|---|---|
+| Slide 4 and the narration at 1:19 said each claim is compared with the authenticated reference. CBOM and AI-BOM claims are checked against local artifacts. | The figure (paper Figure 1 and slide 4) now labels stage 4 "per SBOM claim", stage 5 "CBOM, AI-BOM against the image's own files; provider rule uses the SBOM verdict", and the reference box "SBOM claims only", with the sibling qualified ("if its hash is in the image list"). Narration and captions: "compare each SBOM claim with the authenticated reference. CBOM and AI-BOM claims are checked against the image's own files; a CBOM algorithm must also be provided by an SBOM component that verified." The paper's introduction says "verifies SBOM claims"; Appendix E has a paragraph "What uses no signed reference"; the README has the same paragraph. |
+| Grade A was still framed as a positive file-hash match, although zero matched files can pass. | Grade A is now described everywhere as "no compared file differs", with the consequence stated: a pass can rest on few matched files, in the extreme on none. Paper Table 1 and Appendix E, slide 3, the narration, the README table, `docs/DESIGN.md`, `docs/LIMITATIONS.md` item 8, the report's introduction and its verdict text. A grade A reason with zero matched files now ends "no file was positively matched, so grade A here means only that no compared file differs". The rule is unchanged. |
+| The paper and a slide said configuration files are not compared at all. The code counts identical ones as matches and skips those that differ. | Corrected in the paper (Table 1, Appendix E), slide 3, the narration and the documents. |
+| The other-release grade A reason was one sentence about one file, with no coverage count, while the report promises counts on every grade A line. | The reason now gives counts: differing files that match the other release's build, files that match neither build, files that match this release, files skipped and missing. It also says that the other release's reference is authenticated through its own signed checksum file. The documents state what the counts make visible: one such file is enough for grade A, even when another matches neither build. That rule is unchanged and is listed as a limit. |
+| Paper page 1 said a hash comparison finds a flipped byte wherever a reference covers the file. | "only where bytes are compared, unmasked, with a same-version reference (116 of 120 patches without a sibling snapshot, 120 with one)". Section 4.3 adds that a patch inside a skipped configuration file would not be reported either. |
+
+## 3. The harness exit contract in the paper
+
+The paper said the harness exits non-zero on fail, review, CBOM and AI-BOM findings. It does not: it calls
+`bomwitness verify --fail-on never`, compares the SBOM and CBOM findings with the expected ones, exits non-zero
+only when they differ, and does not run the AI-BOM example. Section 5 now says exactly that, and separately that
+the command line called directly exits non-zero by default on automatic-fail, `bytes_differ`, CBOM and AI-BOM
+findings, deprecated-algorithm observations excepted. The README and the two pipeline READMEs say the same.
+
+## Smaller notes
+
+- The compact output did not list `--alt-release`. It now prints one trust line per alternate release with the
+  key that signed its checksum file, and the report lists it among the reference inputs (test in
+  `tests/test_boms.py`).
+- The certificate fallback (matching by subject when the declaration has no fingerprint and the subject is
+  unique in the image) is now mentioned in the paper's Appendix E and in the README.
+
+## Check that no verdict moved
+
+`bomwitness/verify.py` changed again, so the check of the second review was repeated and a wider one added.
+
+- `bench/verdict_check.py`, previous head's code: 14 images, 2,604 rows (1,860 held-out), 0 differences.
+- `bench/verdict_check.py`, this round's code: 14 images, 2,604 rows (1,860 held-out), 0 differences.
+  Output: `results/r2/r5-verdict-check/COMPARISON.json`.
+- `bench/full_digest.py`, old code against new code directly, to cover what the case files do not record: all
+  fourteen images, six configurations, three declarations each (252 runs), 35,814 component verdict records and
+  13,365 findings compared without their text, 0 differences. Output:
+  `results/r2/r5-verdict-check/FULL-DIGEST.json`.
+
+A unit test fails if `verify.py`, `reference.py` or `bench/run_cases.py` differ from the files those checks ran.
+The frozen run's result files and the freeze tag are untouched.
+
+## Not changed
+
+- No verdict rule. In particular grade A still passes with zero matched files and with one file matching another
+  release; both are now disclosed and counted in the reason text.
+- `bomwitness inventory` still takes a component's version from the manifest or the first snapshot that lists
+  it. It reports names only in the paper (no version accuracy is claimed), and it was left alone.
+- The compact output still cuts a detail at 110 characters, so a long input name can fall outside the line. The
+  trust lines at the top name every input, and the JSON and Markdown reports carry the full text.

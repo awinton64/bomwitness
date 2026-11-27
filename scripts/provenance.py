@@ -57,6 +57,8 @@ changed = [f for f in RULE_FILES if blob(freeze, f) != blob("HEAD", f)]
 L += ["", "Changed after the freeze: " + (", ".join(f"`{f}`" for f in changed) or "none") + ". What changed and why is listed in",
       "`docs/EVALUATION.md` under \"Changes after the freeze\", with the reruns that show the scores and verdicts did not move",
       "(`results/r2/postfreeze-check/COMPARISON.json` for the first change to `verify.py`, three images with all tools;",
-      "`results/r2/r4-verdict-check/COMPARISON.json` for the second, wording-only change, all fourteen images).", ""]
+      "`results/r2/r4-verdict-check/COMPARISON.json` for the second, wording-only change, all fourteen images;",
+      "`results/r2/r5-verdict-check/COMPARISON.json` for the third, which changed what findings report about their",
+      "evidence, all fourteen images).", ""]
 (ROOT / "docs/PROVENANCE.md").write_text("\n".join(L))
 print("\n".join(L))

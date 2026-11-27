@@ -178,6 +178,20 @@ bench/summarize.py` shows every later change to the rule and scoring files. In w
    trust lines in the compact output). `bench/run_cases.py`, `baselines.py` and `summarize.py` are
    unchanged since the earlier rerun.
 
+7. After a third independent review: **`bomwitness/verify.py`, what a finding reports, no rule.** (a) The
+   attribution of files that no declared component accounts for now keeps, per file, which input matched
+   it (the feed, or which snapshot). The candidate sets, the ranking and the grouping are the same code as
+   before; only the detail text and a new `evidence` field are built from the added bookkeeping. A file
+   that only a snapshot matched is reported with the snapshot's name, trust status and version of the
+   package, where the text used to give the feed's current label. (b) Verdicts that rest on a snapshot or
+   on another release carry an `evidence` field, the stale note names that input, and a snapshot's name
+   follows its trust words in square brackets. (c) The other-release reason gives counts (differing files
+   that match that release's build, files that match neither, files that match this release) in place of
+   "a file that differs ...". (d) A grade A reason with zero matched files says that no file was positively
+   matched. `cli.py` lists each `--alt-release` with its signing key in the trust block; `report.py`
+   describes grade A as "no compared file differs". `bench/run_cases.py`, `baselines.py` and
+   `summarize.py` are unchanged.
+
 The evidence that items 1 and 2 are result-neutral: three images (two held-out, one tuning) were rerun with
 all baselines after those changes: 558 rows, identical labels and scores for every tool, identical
 clean-control findings (`results/r2/postfreeze-check/COMPARISON.json`). Eight of the ten held-out images
@@ -195,6 +209,23 @@ number of reason strings whose text changed. The same script was first run with 
 previous commit, to show that the rerun itself reproduces the committed files on this machine and date.
 The snapshot files used are byte-identical to those of the frozen run (their SHA-256 values are in the
 comparison file).
+
+The evidence that item 7 changed no verdict is the same procedure, repeated: all fourteen images rerun
+with the previous head's code and with the changed code, both compared with the committed case files.
+Result: `results/r2/r5-verdict-check/COMPARISON.json`. A unit test fails if `verify.py`, `reference.py` or
+`bench/run_cases.py` differ from the files that rerun used. What this does and does not show is unchanged:
+it covers the recorded labels, scores, seeded-target verdicts and clean-control findings of every
+configuration, not every per-component verdict under every ablation.
+
+Because of that gap a second, wider comparison was added for item 7. `bench/full_digest.py` runs the old
+code and the new code side by side on all fourteen images, in each of the six configurations and for
+three declarations (the correct BOM, the BOM with its first twenty components omitted, the BOM with every
+version changed), and compares every component's verdict, grade, actual version, actual component, label
+source and file counts, and every finding's class, component, grade, files and alternatives. Reason and
+detail text is left out, because it is what changed. Result: 252 runs, 35,814 component records, 13,365
+findings, no difference (`results/r2/r5-verdict-check/FULL-DIGEST.json`). The three declarations are not
+benchmark cases and nothing is scored on them; they make the verifier take its attribution and
+wrong-label branches on real images.
 
 ## Counting, variability and candidate pools
 

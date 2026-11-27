@@ -9,7 +9,7 @@ AUTOMATIC_PASS = ("verified_A", "verified_B")
 AUTOMATIC_FAIL = ("wrong_version", "wrong_component", "absent")
 NEEDS_REVIEW = ("bytes_differ", "label_unconfirmed")
 VERDICT_TEXT = {
-    "verified_A": "verified at grade A: the compared files match the reference build (scope and counts in the evidence column)",
+    "verified_A": "verified at grade A: no compared file differs from the reference build (scope and counts in the evidence column)",
     "verified_B": "verified by a version marker in the bytes",
     "wrong_version": "wrong version",
     "wrong_component": "wrong component",
@@ -53,12 +53,16 @@ def markdown(rep: dict) -> str:
             "their index hash when first fetched. Cached copies are trusted afterwards."]
     for item in trust or []:
         out += [f"- {item['kind']} {item['name']}: {'authenticated, ' if item['authenticated'] else 'NOT authenticated, '}{item['note']}."]
-    out += ["", "What grade A means in this report: the files of the package that are present in the image have the SHA-256 of the "
-            "reference package (or the hash recorded for that package in a sibling snapshot). Configuration files and three account "
-            "files that differ are not compared, a file that differs only inside embedded build-date strings is accepted"
+    out += ["", "What grade A means in this report: no compared file of the package differs from the reference. The files of the "
+            "package that are present in the image are compared by SHA-256 with the reference package (or with the hashes recorded "
+            "for that package in a sibling snapshot, or, for a file that differs from this release's reference, with another "
+            "release's build of the declared version). Configuration files and three account files count as matches when they "
+            "are identical and are skipped when they differ, a file that differs only inside embedded build-date strings is accepted"
             + ("" if s["options"].get("normalize_timestamps", True) else " (switched off for this run)")
-            + ", and the package need not be complete. Each grade A line below gives the counts. A verdict that rests on a "
-            "snapshot says whether that snapshot was authenticated."]
+            + ", and the package need not be complete. A grade A pass can therefore rest on few matched files, in the extreme "
+            "on none; the line then says that no file was positively matched. Each grade A line below gives the counts. A verdict "
+            "or finding that rests on a snapshot, a sibling image or another release names that input, says whether it was "
+            "authenticated, and gives the version that input records."]
     out += [""]
     out += ["## Triage", "", "| Outcome | Count | Meaning |", "|---|---|---|",
             f"| Automatic pass | {t['automatic_pass']} | claim supported by grade A or B evidence |",

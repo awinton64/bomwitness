@@ -33,26 +33,38 @@ compared by SHA-256. Files are hash-pinned through that chain. They are not sign
 
 | Grade | Evidence | Used for verdicts |
 |---|---|---|
-| A | The package's files that are present in the image have the SHA-256 of the files in the publisher's package, with three stated limits: configuration files and three account files that differ are not compared; a file that differs only inside embedded build-date strings is accepted (those strings are masked before comparison); and the package need not be complete. Each grade A line of a report gives the counts. The version label comes from the feed index, the hash-pinned release manifest, or a sibling image of the same release. | yes |
+| A | No compared file of the package differs from the publisher's package. The package's files that are present in the image are compared by SHA-256, with three stated limits: configuration files and three account files count as matches when they are identical and are skipped when they differ; a file that differs only inside embedded build-date strings is accepted (those strings are masked before comparison); and the package need not be complete. A grade A pass can therefore rest on few matched files, in the extreme on none, and the report line then says that no file was positively matched. Each grade A line of a report gives the counts. The version label comes from the feed index, the hash-pinned release manifest, or a sibling image of the same release. | yes |
 | B | Intrinsic to the bytes: the version marker that the reference build of the component carries, SONAMEs, algorithm names | yes, labelled B |
 | C | The firmware's own package database | no. Shown in its own section, labelled self-reported |
 
 Per declared component the result is `verified_A`, `verified_B`, `wrong_version`, `wrong_component`,
 `absent`, `bytes_differ` (needs review), `label_unconfirmed` (needs review) or `unverifiable`. Per image it
-reports `undeclared_component` and `undeclared_file`. The CBOM check compares the certificates, keys and
-algorithm names found in the image with the declaration (no signed reference is involved in that
-comparison; certificates are matched by fingerprint and then compared field by field, standalone keys are
-reconciled by fingerprint only) and requires every declared algorithm to name a providing SBOM component
-that verified at grade A or B. The rules are in [docs/DESIGN.md](docs/DESIGN.md).
+reports `undeclared_component` and `undeclared_file`.
+
+Only SBOM claims are compared with the authenticated reference. The CBOM check compares the certificates,
+keys and algorithm names found in the image with the declaration, and no signed reference is involved in
+that comparison: certificates are matched by fingerprint (by subject when the declaration gives no
+fingerprint and the subject is unique in the image) and then compared field by field, standalone keys are
+reconciled by fingerprint only. One CBOM rule reaches the reference indirectly: every declared algorithm
+must name a providing SBOM component, and that component's SBOM check must have ended in a grade A or B
+pass. The AI-BOM check compares the hashes of the model files found in the image with the declaration and
+uses no reference at all. The rules are in [docs/DESIGN.md](docs/DESIGN.md).
 
 A sibling image is one more input, and the report keeps apart what was authenticated and what was only
 supplied. A sibling whose SHA-256 is in the release's image list is called authenticated. A sibling that is
-not listed, or a local snapshot file, still supports verdicts, on your trust in it, and every finding that
-rests on it says "supplied" and "not authenticated". No finding calls such a source official.
+not listed, or a local snapshot file, still supports verdicts, on your trust in it. Every verdict and
+finding that rests on a sibling, a snapshot file or another release (`--alt-release`) names that input,
+says whether it was authenticated, and gives the version that input records, in its text and in an
+`evidence` field of the JSON report. A file that only a snapshot matched is reported with the snapshot's
+version of the package, not with the label the feed carries today. No finding calls an unauthenticated
+source official.
 
-Grade A is the tool's verdict under those rules. It is not a proof that a package is complete: three phantom
-packages in the held-out benchmark were accepted because one of their files was present with the right
-bytes ([docs/LIMITATIONS.md](docs/LIMITATIONS.md), item 8).
+Grade A is the tool's verdict under those rules. It is not a proof of a positive match or that a package is
+complete: three phantom packages in the held-out benchmark were accepted because one of their files was
+present with the right bytes ([docs/LIMITATIONS.md](docs/LIMITATIONS.md), item 8), and a package whose only
+file in the image is a changed configuration file passes with zero matched files. When a file differs from
+the primary release's reference, one file that matches another release's build of the declared version is
+enough for grade A; the reason gives the counts, including files that match neither build.
 
 ## Quick start
 
@@ -64,8 +76,10 @@ sh examples/aibom/unified.sh                          # SBOM, CBOM and AI-BOM in
 ```
 
 Needs Python 3.10 or newer, `curl` and about 25 MB of downloads for the second command (one official OpenWrt
-image, its sibling and the reference packages it touches). The harness takes under a minute and compares the
-run with the expected findings in `pipeline/1_analysis_object/bomwitness/expected-findings.json`. The third
+image, its sibling and the reference packages it touches). The harness takes under a minute. It calls
+`bomwitness verify` with `--fail-on never`, compares the SBOM and CBOM findings of the run with the expected
+ones in `pipeline/1_analysis_object/bomwitness/expected-findings.json`, and exits 0 when they match, so it
+ends in PASS with the seeded failing findings present. It does not run the AI-BOM example. The third
 command adds two placeholder model files to the same root filesystem and checks all three BOM types in one
 `bomwitness verify` call; the subject is synthetic and the report title says so.
 
@@ -97,7 +111,10 @@ What you must trust, and what the tool checks for you:
   sibling image that was not authenticated. Use an official image of the same release and target.
 - **`--snapshot`** (a JSON file made by `bomwitness snapshot`) is a local file and is trusted as supplied,
   whatever it says about its own origin. The output says so, and findings that rest on it say "the supplied
-  snapshot (not authenticated by this run)".
+  snapshot (not authenticated by this run)", followed by the file's name in square brackets.
+- **`--alt-release`** names another release of the same target whose builds may be compared. Its reference
+  is fetched and authenticated like the primary one, and the first lines of the output name the key that
+  signed its checksum file.
 - **The cache directory** (`--cache`) is verified when an item is first fetched and trusted afterwards. Keep
   it where only you can write, or delete it to force a fresh, verified download.
 

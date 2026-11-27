@@ -44,6 +44,16 @@ What the tool does not authenticate, and therefore assumes:
   "the supplied snapshot (not authenticated by this run)" or "the supplied sibling image (not
   authenticated ...)", and no reason calls such a source official. The benchmark passes snapshot files, so
   its recorded reasons use the "supplied" wording even though `bench/prepare.py` checked every sibling.
+- Which input supported a finding is part of the finding. A verdict or finding that rests on a snapshot or
+  a sibling image gives the trust words above followed by the input's name in square brackets, and the
+  version that input records. One that rests on another release (`--alt-release`) names the release; that
+  reference is authenticated like the primary one and the compact output names the key that signed its
+  checksum file. The JSON report carries the same facts in an `evidence` field (input, trust, version,
+  number of files). For an `undeclared_component` the source is kept per file: a file that only a snapshot
+  matched is reported with the snapshot's version of the package, a file that the feed matched with the
+  feed's, and if the feed's current build matched none of them the finding says so. The stale note
+  ("firmware has X; the reference feed now ships Y") says which input X was verified against when that
+  was a snapshot or another release.
 - The reference cache is verified when an item is first fetched and trusted afterwards. Anyone who can
   write to the cache directory can change verdicts.
 
@@ -55,7 +65,7 @@ run-time behaviour.
 
 | Grade | Evidence | Role |
 |---|---|---|
-| A | The package's files that are present in the image have the SHA-256 of the files in the publisher's package (index authenticated as above, then per-file SHA-256), or the hash recorded for that package in a sibling snapshot. Not compared: configuration files (`conffiles`) and `etc/passwd`, `etc/group`, `etc/shadow`, when they differ. Accepted as a match: a file that differs from the reference only inside embedded date and time strings, which are masked before comparison. Not required: that every file of the package is present. So grade A is a match of the compared, present files, not byte identity of the whole package; the reason text of each grade A verdict gives the counts. The label for those bytes comes from the feed index, the release manifest, or a sibling image (authenticated or supplied, as stated in the reason). | Decides verdicts |
+| A | No compared file of the package differs from the reference. The package's files that are present in the image are compared by SHA-256 with the files in the publisher's package (index authenticated as above, then per-file SHA-256), or with the hashes recorded for that package in a sibling snapshot. Configuration files (`conffiles`) and `etc/passwd`, `etc/group`, `etc/shadow` count as matches when they are identical and are skipped when they differ. Accepted as a match: a file that differs from the reference only inside embedded date and time strings, which are masked before comparison. Not required: that every file of the package is present, or that any file matches. A package whose only file in the image is a changed configuration file passes with zero matched files, and its reason says that no file was positively matched. So grade A means that nothing compared contradicts the claim, not byte identity of the whole package; the reason text of each grade A verdict gives the counts. The label for those bytes comes from the feed index, the release manifest, or a sibling image (authenticated or supplied, as stated in the reason). | Decides verdicts |
 | B | Intrinsic to the bytes: the version marker that the reference build of the same component carries, versioned file names, SONAMEs, algorithm names | Decides verdicts when A is not available; always labelled B |
 | C | The device's own package database | Shown in its own report section, never decides a verdict |
 
@@ -95,7 +105,7 @@ ABI suffix such as `libubox` for `libubox20240329`, `Provides`, or source packag
 | Bytes differ only inside embedded date and time strings | treated as a match; the reason text counts such files |
 | Every file present at the component's paths has the SHA-256 of another declared component's file | `absent` |
 | The differing files have the SHA-256 of another reference package's files | `wrong_component` |
-| A differing file has the SHA-256 of the same package's build in another release (`--alt-release`) | `verified_A` or `wrong_version`, by that build's label |
+| A differing file has the SHA-256 of the same package's build in another release (`--alt-release`). One such file is enough; the reason counts the differing files that match that build, those that match neither build, and the files that match this release | `verified_A` or `wrong_version`, by that build's label |
 | Same label as the reference, different bytes, reference build carries a version marker the firmware files lack | `wrong_version` (B) |
 | Same label as the reference (or as the sibling image), different bytes | `bytes_differ` (review) |
 | Feed moved to another version, firmware files carry the declared version marker | `verified_B` |

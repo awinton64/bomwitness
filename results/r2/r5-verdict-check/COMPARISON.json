@@ -1,0 +1,547 @@
+{
+ "changed_code": {
+  "images": {
+   "h-2305-edgerouter-x": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 84,
+    "reason_strings_same": 109,
+    "split": "heldout"
+   },
+   "h-2305-gl-b1300": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 87,
+    "reason_strings_same": 107,
+    "split": "heldout"
+   },
+   "h-2305-gl-mt3000": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 84,
+    "reason_strings_same": 112,
+    "split": "heldout"
+   },
+   "h-2305-rpi-4": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 81,
+    "reason_strings_same": 117,
+    "split": "heldout"
+   },
+   "h-2305-x86-64": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 84,
+    "reason_strings_same": 116,
+    "split": "heldout"
+   },
+   "h-2410-archer-c50-v4": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 87,
+    "reason_strings_same": 106,
+    "split": "heldout"
+   },
+   "h-2410-gl-b1300": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 87,
+    "reason_strings_same": 107,
+    "split": "heldout"
+   },
+   "h-2410-unifi-6-lr-v1": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 87,
+    "reason_strings_same": 108,
+    "split": "heldout"
+   },
+   "h-2410-wrt1900acs": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 85,
+    "reason_strings_same": 108,
+    "split": "heldout"
+   },
+   "h-2410-x86-64": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 81,
+    "reason_strings_same": 122,
+    "split": "heldout"
+   },
+   "t-2305-archer-c7-v2": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 84,
+    "reason_strings_same": 110,
+    "split": "tuning"
+   },
+   "t-2410-archer-c7-v5": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 90,
+    "reason_strings_same": 104,
+    "split": "tuning"
+   },
+   "t-2410-gl-mt6000": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 93,
+    "reason_strings_same": 104,
+    "split": "tuning"
+   },
+   "t-2410-mi-router-4a-gigabit": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 86,
+    "reason_strings_same": 107,
+    "split": "tuning"
+   }
+  },
+  "reason_text_examples": [
+   {
+    "after": "1 of the 1 package file(s) present in the image have the reference package's SHA-256; 1 of the package's 2 files are not in the image",
+    "before": "every file byte-identical to the reference package"
+   },
+   {
+    "after": "1 of the 1 compared file(s) that differ from this release's reference have the SHA-256 of the 23.05.6 release build 2.90-2 (that release's reference is authenticated through its own signed checksum file and feed indexes); 11 of the 12 package file(s) present have this release's reference SHA-256",
+    "before": "bytes are identical to the 23.05.6 release build 2.90-2"
+   },
+   {
+    "after": "1 of the 1 compared file(s) that differ from this release's reference have the SHA-256 of the 23.05.6 release build 5.19-1 (that release's reference is authenticated through its own signed checksum file and feed indexes); 0 of the 1 package file(s) present have this release's reference SHA-256",
+    "before": "bytes are identical to the 23.05.6 release build 5.19-1"
+   },
+   {
+    "after": "1 of the 1 compared file(s) that differ from this release's reference have the SHA-256 of the 24.10.8 release build 6.9-r1 (that release's reference is authenticated through its own signed checksum file and feed indexes); 0 of the 1 package file(s) present have this release's reference SHA-256",
+    "before": "bytes are identical to the 24.10.8 release build 6.9-r1"
+   },
+   {
+    "after": "2 of the 2 compared file(s) that differ from this release's reference have the SHA-256 of the 23.05.6 release build 1.0.8-1 (that release's reference is authenticated through its own signed checksum file and feed indexes); 0 of the 2 package file(s) present have this release's reference SHA-256",
+    "before": "bytes are identical to the 23.05.6 release build 1.0.8-1"
+   },
+   {
+    "after": "1 of the 1 compared file(s) that differ from this release's reference have the SHA-256 of the 23.05.6 release build 1.2.6-1 (that release's reference is authenticated through its own signed checksum file and feed indexes); 0 of the 1 package file(s) present have this release's reference SHA-256",
+    "before": "bytes are identical to the 23.05.6 release build 1.2.6-1"
+   },
+   {
+    "after": "12 of the 12 compared file(s) that differ from this release's reference have the SHA-256 of the 23.05.6 release build 2.1.5-1 (that release's reference is authenticated through its own signed checksum file and feed indexes); 4 of the 16 package file(s) present have this release's reference SHA-256",
+    "before": "bytes are identical to the 23.05.6 release build 2.1.5-1"
+   },
+   {
+    "after": "1 of the 1 compared file(s) that differ from this release's reference have the SHA-256 of the 23.05.6 release build 12.3.0-4 (that release's reference is authenticated through its own signed checksum file and feed indexes); 0 of the 1 package file(s) present have this release's reference SHA-256",
+    "before": "bytes are identical to the 23.05.6 release build 12.3.0-4"
+   },
+   {
+    "after": "1 of the 1 compared file(s) that differ from this release's reference have the SHA-256 of the 24.10.8 release build 1.2.8-r1 (that release's reference is authenticated through its own signed checksum file and feed indexes); 0 of the 1 package file(s) present have this release's reference SHA-256",
+    "before": "bytes are identical to the 24.10.8 release build 1.2.8-r1"
+   },
+   {
+    "after": "1 of the 1 compared file(s) that differ from this release's reference have the SHA-256 of the 24.10.8 release build 2.5.1-r1 (that release's reference is authenticated through its own signed checksum file and feed indexes); 8 of the 9 package file(s) present have this release's reference SHA-256",
+    "before": "bytes are identical to the 24.10.8 release build 2.5.1-r1"
+   },
+   {
+    "after": "1 of the 1 compared file(s) that differ from this release's reference have the SHA-256 of the 23.05.6 release build 2023.04-1 (that release's reference is authenticated through its own signed checksum file and feed indexes); 7 of the 8 package file(s) present have this release's reference SHA-256",
+    "before": "bytes are identical to the 23.05.6 release build 2023.04-1"
+   },
+   {
+    "after": "1 of the 1 compared file(s) that differ from this release's reference have the SHA-256 of the 24.10.8 release build 13.3.0-r4 (that release's reference is authenticated through its own signed checksum file and feed indexes); 0 of the 1 package file(s) present have this release's reference SHA-256",
+    "before": "bytes are identical to the 24.10.8 release build 13.3.0-r4"
+   }
+  ],
+  "totals": {
+   "cases": 2604,
+   "differences": 0,
+   "heldout_cases": 1860,
+   "heldout_images": 10,
+   "images": 14,
+   "reason_strings_changed": 1200,
+   "reason_strings_same": 1537
+  }
+ },
+ "compared_with": "results/r2/cases/ (frozen run, commit 0f83a98)",
+ "note": "Rerun of bench/run_cases.py (BOMwitness and its ablations, --no-baselines) on every benchmark image, compared with the committed case files of the frozen run in results/r2/cases/. See the docstring of bench/verdict_check.py for what is and is not compared. 'differences' lists every compared field that is not equal.",
+ "rule_file_blobs_at_rerun": {
+  "bench/run_cases.py": "7fe61d703053c7c63da2225565682ae45ad12444",
+  "bomwitness/reference.py": "9c7164c66511913de9c0c267105de14504d1a3fa",
+  "bomwitness/verify.py": "93c1b9c72aff56fb33349d2bca12c04deafcefb8"
+ },
+ "snapshot_files_sha256": {
+  "h-2305-edgerouter-x": "16b2cff0fa9a6e02fca172a6b8bd4c507f358b792c23460df034fefbbd34932b",
+  "h-2305-gl-b1300": "41cd6b4e7d388f53083c422d76c2ade6d7857be8f2046b0bec486cf87d64b865",
+  "h-2305-gl-mt3000": "ae9cdccee17950c5fc382d32fff8d4553261e45597934f372bf1820db9d8ef66",
+  "h-2410-archer-c50-v4": "5a310b44952c63151a191a318458340046b451fc875df189d3e06a0c8b0847ef",
+  "h-2410-gl-b1300": "84d929eefb5faf5ac86611009693652287c5ff8252e22b54f7a1d30e3343df3c",
+  "h-2410-unifi-6-lr-v1": "4a78a27f2d4f92afda4c62b215b95dc04009aad9fd240de6fdcb619c9487cc11",
+  "h-2410-wrt1900acs": "1e873c66fd949a394afed8773295745d42d8566caf28d50b4e6ad5c7f5ba684b",
+  "t-2305-archer-c7-v2": "46e3e830306631e2c31fa1e3ab6530d015a0e9fdba63216c4cdfce831bc9a727",
+  "t-2410-archer-c7-v5": "b60a587f0c1e1f3ca60762fcdd3e746c61a2c837544cb4e9054e85ecc5670947",
+  "t-2410-gl-mt6000": "fdca10fa861e7f7ecbc6f9349a410e302710d7a2f4108fde7ae11cb231f0454e",
+  "t-2410-mi-router-4a-gigabit": "20baada502c8fe6c0cbbf31fffc769e60cab904df96fcf8b9a03114a5a73fc8f"
+ },
+ "unchanged_code": {
+  "code_commit": "155cb60",
+  "images": {
+   "h-2305-edgerouter-x": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 84,
+    "reason_strings_same": 109,
+    "split": "heldout"
+   },
+   "h-2305-gl-b1300": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 87,
+    "reason_strings_same": 107,
+    "split": "heldout"
+   },
+   "h-2305-gl-mt3000": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 84,
+    "reason_strings_same": 112,
+    "split": "heldout"
+   },
+   "h-2305-rpi-4": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 81,
+    "reason_strings_same": 117,
+    "split": "heldout"
+   },
+   "h-2305-x86-64": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 84,
+    "reason_strings_same": 116,
+    "split": "heldout"
+   },
+   "h-2410-archer-c50-v4": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 87,
+    "reason_strings_same": 106,
+    "split": "heldout"
+   },
+   "h-2410-gl-b1300": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 87,
+    "reason_strings_same": 107,
+    "split": "heldout"
+   },
+   "h-2410-unifi-6-lr-v1": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 87,
+    "reason_strings_same": 108,
+    "split": "heldout"
+   },
+   "h-2410-wrt1900acs": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 85,
+    "reason_strings_same": 108,
+    "split": "heldout"
+   },
+   "h-2410-x86-64": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 81,
+    "reason_strings_same": 122,
+    "split": "heldout"
+   },
+   "t-2305-archer-c7-v2": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 84,
+    "reason_strings_same": 110,
+    "split": "tuning"
+   },
+   "t-2410-archer-c7-v5": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 90,
+    "reason_strings_same": 104,
+    "split": "tuning"
+   },
+   "t-2410-gl-mt6000": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 93,
+    "reason_strings_same": 104,
+    "split": "tuning"
+   },
+   "t-2410-mi-router-4a-gigabit": {
+    "cases": 186,
+    "configurations": [
+     "bw",
+     "bw_A_only",
+     "bw_B_only",
+     "bw_feed_only",
+     "bw_no_normalize",
+     "bw_no_snapshot",
+     "bw_with_db"
+    ],
+    "differences": [],
+    "reason_strings_changed": 86,
+    "reason_strings_same": 107,
+    "split": "tuning"
+   }
+  },
+  "totals": {
+   "cases": 2604,
+   "differences": 0,
+   "heldout_cases": 1860,
+   "heldout_images": 10,
+   "images": 14,
+   "reason_strings_changed": 1200,
+   "reason_strings_same": 1537
+  }
+ }
+}

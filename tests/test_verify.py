@@ -290,13 +290,166 @@ def test_grade_a_reason_states_masking_exclusions_and_partial_presence(rootfs, t
 def test_report_text_does_not_call_grade_a_byte_identity():
     from bomwitness import report
     assert "byte-identical" not in " ".join(report.VERDICT_TEXT.values())
-    assert "compared files" in report.VERDICT_TEXT["verified_A"]
+    assert "no compared file differs" in report.VERDICT_TEXT["verified_A"]       # not "the files match": zero matches can pass
+
+
+def test_grade_a_with_zero_matched_files_says_so(rootfs, truth, ref):
+    """The rule passes a package whose only file present is a changed configuration file. The reason must not read as a match."""
+    (rootfs / "etc/config/system").write_bytes(b"config system\n\toption hostname 'changed'\n")
+    (rootfs / "etc/banner").unlink()
+    c = next(c for c in verify(rootfs, truth, ref)["components"] if c["name"] == "base-files")
+    assert c["verdict"] == "verified_A" and c["identical"] == 0
+    assert c["reason"].startswith("0 of the 1 package file(s) present")
+    assert c["reason"].endswith("no file was positively matched, so grade A here means only that no compared file differs")
+    # and a normal match does not carry that sentence
+    assert "positively matched" not in next(c for c in verify(rootfs, truth, ref)["components"] if c["name"] == "alpha")["reason"]
 
 
 def test_snapshot_attributes_omitted_component(drifted, ref):
     fw, bom, snap = drifted
     rep = verify(fw, [c for c in bom if c["name"] != "gamma"], ref, snapshots=[snap])
     assert ("undeclared_component", "gamma") in hard(rep)
+
+
+# ---- which input supported a finding (independent review, round 4, blocking defect 1) ---------------------------
+SUPPLIED = "the supplied snapshot (not authenticated by this run) [test sibling]"
+OLD_GAMMA, FEED_GAMMA = "2023.12.01~aaa-r1", "2024.01.01~abc-r1"
+
+
+def _gamma_finding(rep, kind):
+    return next(f for f in rep["findings"] if f["class"] == kind and f["component"] == "gamma")
+
+
+def test_omitted_component_matched_only_by_a_snapshot_names_the_snapshot_and_its_version(drifted, ref):
+    """The reviewer's case. The firmware holds an older gamma than the feed now ships, and the BOM omits it.
+
+    Without the snapshot the feed can only match the path (grade B). With it the file matches the snapshot's record,
+    so the finding must name the snapshot, say it was not authenticated, and report the snapshot's version of gamma.
+    It must not present the feed's current label as the build that matched.
+    """
+    fw, bom, snap = drifted
+    bom = [c for c in bom if c["name"] != "gamma"]
+    alone = _gamma_finding(verify(fw, bom, ref), "undeclared_component")
+    assert alone["grade"] == "B" and alone["detail"] == f"1 file(s) present, path or SONAME match with reference gamma {FEED_GAMMA}"
+    assert "evidence" not in alone
+    f = _gamma_finding(verify(fw, bom, ref, snapshots=[snap]), "undeclared_component")
+    assert f["grade"] == "A"
+    assert f["detail"] == (f"1 file(s) present: 1 with the SHA-256 that {SUPPLIED} records for gamma {OLD_GAMMA}; "
+                           f"none of them has the SHA-256 of the feed's current gamma {FEED_GAMMA}")
+    assert "byte-identical to reference" not in f["detail"]
+    assert f["evidence"] == [{"input": "test sibling", "trust": "supplied", "version": OLD_GAMMA, "files": 1}]
+
+
+def test_stale_note_that_rests_on_a_snapshot_names_it_and_its_trust(drifted, ref):
+    """The reviewer's second case: gamma is declared with the older version and verifies against the snapshot."""
+    fw, bom, snap = drifted
+    rep = verify(fw, bom, ref, snapshots=[snap])
+    c = next(c for c in rep["components"] if c["name"] == "gamma")
+    assert c["verdict"] == "verified_A" and c["label_source"] == "release snapshot"
+    assert c["evidence"] == {"input": "test sibling", "trust": "supplied", "version": OLD_GAMMA, "files": 1}
+    f = _gamma_finding(rep, "stale")
+    assert f["grade"] == "A"
+    assert f["detail"] == f"firmware has {OLD_GAMMA}, verified against {SUPPLIED}; the reference feed now ships {FEED_GAMMA}"
+    assert f["evidence"] == c["evidence"]
+    # alpha verifies against the same snapshot and its stale note is qualified in the same way
+    assert SUPPLIED in next(f for f in rep["findings"] if f["class"] == "stale" and f["component"] == "alpha")["detail"]
+
+
+@pytest.mark.parametrize("trust,words", [
+    ("authenticated", "the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [dev-b.bin]"),
+    ("unlisted", "the supplied sibling image (not authenticated: it is not in the image list pinned by the signed checksum file) [dev-b.bin]"),
+    ("supplied", "the supplied snapshot (not authenticated by this run) [dev-b.bin]")])
+def test_attribution_and_stale_findings_carry_the_trust_of_the_snapshot(drifted, ref, trust, words):
+    fw, bom, snap = drifted
+    snap = dict(snap, trust=trust, source="dev-b.bin")
+    assert words in _gamma_finding(verify(fw, [c for c in bom if c["name"] != "gamma"], ref, snapshots=[snap]), "undeclared_component")["detail"]
+    rep = verify(fw, bom, ref, snapshots=[snap])
+    assert words in _gamma_finding(rep, "stale")["detail"] and _gamma_finding(rep, "stale")["evidence"]["trust"] == trust
+    for other in ("authenticated", "unlisted", "supplied"):          # and never the words of another trust level
+        if other != trust:
+            assert verify.__globals__["SNAPSHOT_TRUST"][other] not in _texts(rep)
+
+
+def test_per_file_source_is_kept_when_feed_and_snapshot_each_match_part_of_a_package(release_root, signer, tmp_path):
+    """Two files of an omitted package: one has the feed's bytes, the other only the snapshot's. Both sources are reported."""
+    pk = dict(fakefeed.DEFAULT_PACKAGES)
+    pk["duo"] = ("base", "2.0-r1", {"usr/bin/duo": fakefeed.elf(b"duo tool same in both"), "usr/lib/duo.dat": b"data, feed build\n"}, "")
+    old = dict(pk)
+    old["duo"] = ("base", "1.9-r1", {"usr/bin/duo": fakefeed.elf(b"duo tool same in both"), "usr/lib/duo.dat": b"data, older build\n"}, "")
+    root = tmp_path / "releases"
+    fakefeed.make_release(root, signer, packages=pk)
+    names = INSTALLED + ["duo"]
+    fw = fakefeed.make_rootfs(tmp_path / "fw", names, old)
+    snap = snapshot_from_rootfs(fakefeed.make_rootfs(tmp_path / "sib", names, old), "dev-b.bin", trust="authenticated")
+    bom = [c for c in fakefeed.claims(names, old) if c["name"] != "duo"]
+    auth = "the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [dev-b.bin]"
+    r = fakefeed.reference(root, signer, tmp_path / "cache-indexed")
+    f = next(f for f in verify(fw, bom, r, snapshots=[snap])["findings"] if f["class"] == "undeclared_component")
+    assert f["component"] == "duo" and f["grade"] == "A"
+    assert f["detail"] == f"2 file(s) present: 1 with the SHA-256 that {auth} records for duo 1.9-r1, 1 with the SHA-256 of the feed's reference duo 2.0-r1"
+    assert f["evidence"] == [{"input": "feed index", "trust": "signed reference", "version": "2.0-r1", "files": 1},
+                             {"input": "dev-b.bin", "trust": "authenticated", "version": "1.9-r1", "files": 2}]
+    # Without the file-path index the feed is fetched only for files the snapshot leaves unexplained. Here it explains both,
+    # so the feed's duo is never compared and the finding says nothing about it: only the snapshot and its version are named.
+    lazy = fakefeed.reference(root, signer, tmp_path / "cache-lazy", index=False)
+    f = next(f for f in verify(fw, bom, lazy, snapshots=[snap])["findings"] if f["class"] == "undeclared_component")
+    assert f["component"] == "duo" and f["grade"] == "A"
+    assert f["detail"] == f"2 file(s) present: 2 with the SHA-256 that {auth} records for duo 1.9-r1"
+    assert f["evidence"] == [{"input": "dev-b.bin", "trust": "authenticated", "version": "1.9-r1", "files": 2}]
+    # when the feed matches every file, the snapshot adds nothing to the text and the wording is the feed's
+    same = snapshot_from_rootfs(fakefeed.make_rootfs(tmp_path / "sib2", names, pk), "dev-b.bin")
+    fw2 = fakefeed.make_rootfs(tmp_path / "fw2", names, pk)
+    f = next(f for f in verify(fw2, [c for c in fakefeed.claims(names, pk) if c["name"] != "duo"], r, snapshots=[same])["findings"]
+             if f["class"] == "undeclared_component")
+    assert f["detail"] == "2 file(s) present, all byte-identical to reference duo 2.0-r1"
+    assert [e["input"] for e in f["evidence"]] == ["feed index", "dev-b.bin"]
+
+
+def test_a_snapshot_name_cannot_call_an_unauthenticated_source_official(drifted, ref):
+    fw, bom, snap = drifted
+    for trust, expect in (("supplied", "[sibling image x.bin]"), ("unlisted", "[sibling image x.bin]"), ("authenticated", "[official sibling image x.bin]")):
+        s = dict(snap, source="official sibling image x.bin", trust=trust)
+        text = _texts(verify(fw, bom, ref, snapshots=[s])) + _texts(verify(fw, [c for c in bom if c["name"] != "gamma"], ref, snapshots=[s]))
+        assert expect in text and ("official" in text) == (trust == "authenticated")
+
+
+# ---- another release as evidence: named, with coverage counts ---------------------------------------------------
+@pytest.fixture()
+def other_release(tmp_path, signer):
+    """The primary release ships duo 2.0; release 98.01.0 of the same target shipped duo 1.9 with other bytes in both files."""
+    pk = dict(fakefeed.DEFAULT_PACKAGES)
+    pk["duo"] = ("base", "2.0-r1", {"usr/bin/duo": fakefeed.elf(b"duo tool 2.0 build"), "usr/lib/duo.dat": b"data 2.0\n"}, "")
+    old = dict(pk)
+    old["duo"] = ("base", "1.9-r1", {"usr/bin/duo": fakefeed.elf(b"duo tool 1.9 build"), "usr/lib/duo.dat": b"data 1.9\n"}, "")
+    root = tmp_path / "releases"
+    fakefeed.make_release(root, signer, packages=pk)
+    fakefeed.make_release(root, signer, release="98.01.0", packages=old)
+    names = INSTALLED + ["duo"]
+    return (root, fakefeed.reference(root, signer, tmp_path / "cache"), fakefeed.reference(root, signer, tmp_path / "cache", release="98.01.0"),
+            fakefeed.make_rootfs(tmp_path / "fw", names, old), fakefeed.claims(names, old))
+
+
+def test_other_release_verdict_names_the_release_and_gives_coverage_counts(other_release):
+    _root, r, alt, fw, bom = other_release
+    rep = verify(fw, bom, r, [alt])
+    c = next(c for c in rep["components"] if c["name"] == "duo")
+    assert c["verdict"] == "verified_A" and c["label_source"] == "release 98.01.0 feed"
+    assert c["reason"] == ("2 of the 2 compared file(s) that differ from this release's reference have the SHA-256 of the 98.01.0 release build "
+                           "of this version (1.9-r1) (that release's reference is authenticated through its own signed checksum file and feed "
+                           "indexes); 0 of the 2 package file(s) present have this release's reference SHA-256")
+    assert c["evidence"] == {"input": "release 98.01.0 feed", "trust": "signed reference", "version": "1.9-r1", "files": 2}
+    stale = next(f for f in rep["findings"] if f["class"] == "stale" and f["component"] == "duo")
+    assert stale["detail"] == ("firmware has 1.9-r1, verified against the release 98.01.0 feed (signed reference of that release); "
+                               "the reference feed now ships 2.0-r1")
+    # The rule asks for one differing file to match the other release. When another file matches neither, the count shows it.
+    (fw / "usr/lib/duo.dat").write_bytes(b"data, changed\n")
+    c = next(c for c in verify(fw, bom, r, [alt])["components"] if c["name"] == "duo")
+    assert c["verdict"] == "verified_A"                      # unchanged rule, now visible in the reason
+    assert c["reason"].startswith("1 of the 2 compared file(s) that differ") and "; 1 differ from both builds" in c["reason"]
+    assert c["evidence"]["files"] == 1
+    # a wrong label is refuted by the same evidence and names the release too
+    w = next(f for f in verify(fw, swap(bom, "duo", "1.8-r1"), r, [alt])["findings"] if f["class"] == "wrong_version" and f["component"] == "duo")
+    assert "the 98.01.0 release build 1.9-r1" in w["detail"] and w["evidence"]["input"] == "release 98.01.0 feed"
 
 
 # ---- ablations -------------------------------------------------------------------------------------------

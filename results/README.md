@@ -15,6 +15,11 @@
   - `postfreeze-check/`: three images rerun after the post-freeze fixes, with `COMPARISON.json`.
   - `r4-verdict-check/COMPARISON.json`: all fourteen images rerun (BOMwitness and its ablations) after the
     reason strings and the snapshot trust field changed, compared with `cases/` by `bench/verdict_check.py`.
+  - `r5-verdict-check/COMPARISON.json`: the same rerun and comparison after findings began to name the
+    input that matched (per-file source in the attribution of undeclared files, an `evidence` field,
+    counts in the other-release reason). `docs/EVALUATION.md`, "Changes after the freeze", item 7.
+  - `r5-verdict-check/FULL-DIGEST.json`: the previous verifier code against the changed code, every
+    component verdict and finding on all fourteen images (`bench/full_digest.py`).
 
 The reason strings stored in these result files are the wording of the run that produced them. Files from
 the frozen run and the measurements before the second review still say "every file byte-identical to the
