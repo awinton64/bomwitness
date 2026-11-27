@@ -9,10 +9,13 @@ Evidence grades
      comparison with this release's reference package, configuration files
      and three account files count as matches when they are identical and are
      skipped when they differ, and a file that differs only inside embedded
-     build-date strings is accepted (normalize_timestamps); a sibling
-     snapshot's record leaves configuration and account files out, so they
-     are not compared with a snapshot at all, and snapshot and other-release
-     comparisons use the raw SHA-256; and the package need not be complete. A grade A pass can therefore rest
+     build-date strings is accepted (normalize_timestamps); a snapshot this
+     tool generates leaves configuration and account files out of a package's
+     file list, so they are not compared with it (a snapshot file supplied by
+     the caller is used as given: the files it lists for a package are
+     compared, apart from the reference package's own configuration files),
+     and snapshot and other-release comparisons use the raw SHA-256; and the
+     package need not be complete. A grade A pass can therefore rest
      on few matched files, in the extreme on none (the reason then says so).
      The label for those bytes comes from the feed index and, when available,
      from the release manifest (pinned by hash in the signed checksum file)
@@ -387,7 +390,7 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
             if use_markers and token and ref_token and token != ref_token and fw_has(ref_marked, ref_token):
                 return dict(out, verdict="wrong_version", grade="B", actual_version=vr,
                             reason=f"files carry the marker {ref_token}, not the declared {token}")
-            return dict(out, verdict="unverifiable", reason="files present; no version marker to check (hash evidence disabled)")
+            return dict(out, verdict="unverifiable", reason="files present; no version marker evidence settles which version they are (hash evidence disabled)")
 
         if not differ and not siblings:
             # No compared file differs from the reference build (see matched() for what "compared" leaves out).
@@ -426,7 +429,8 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
             marked = [p for p in present if pl["files"][p].get("marker")]
             if use_markers and token and ref_token and token != ref_token and marked:
                 return dict(out, verdict="wrong_version", grade="A", actual_version=vr,
-                            reason=f"the files present match the reference build and carry its version marker, not the declared one; {matched()}")
+                            reason=f"the files present match the reference build labelled {vr}, whose files carry a version marker that is not the declared "
+                                   f"one; {matched()}")
             return dict(out, verdict="label_unconfirmed", grade="A",
                         reason=f"the files present match the reference build labelled {vr}; {matched()}; the shared feed may have "
                                "relabelled it and no release manifest entry pins the label")
@@ -454,8 +458,9 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
             if all(twin(p, True) for p in present):
                 owner = twin(differ[0], True)[0]
                 return dict(out, verdict="absent", grade="A",
-                            reason=f"each of the {len(present)} file(s) present at this package's paths has the SHA-256 of another declared "
-                                   f"component's file ({owner}); no file at this package's paths is attributable to this package alone")
+                            reason=f"each of the {len(present)} file(s) of this package found among the image files compared has the SHA-256 of "
+                                   f"another declared component's file (for the first differing file, {owner}); none of the files "
+                                   "compared separates this package from that component")
             others = [set(twin(p, False)) for p in differ]
             common = set.intersection(*others) if others else set()
             if common:
@@ -654,7 +659,7 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
     leftover = [p for p in orphans if p not in attributed]
     code_left = [p for p in leftover if files[p]["elf"]]
     for p in code_left:
-        add("undeclared_file", p, "B", "executable code not accounted for by any declared component or reference package")
+        add("undeclared_file", p, "B", "executable code that this tool could not attribute to a declared component or to a reference package it compared")
     verdicts: dict[str, int] = {}
     for r in results:
         verdicts[r["verdict"]] = verdicts.get(r["verdict"], 0) + 1

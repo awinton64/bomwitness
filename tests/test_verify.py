@@ -659,3 +659,73 @@ def test_absence_wording_does_not_claim_more_than_the_compared_files(tmp_path, s
     text = next(c for c in rep["components"] if c["name"] == "duo")["reason"]
     assert text == "none of the reference package's files was found among the firmware files this tool compares"
     assert "exist in the firmware" not in text and "not in the image" not in text
+
+
+# ---- round 9: the reasons say what was compared and matched, nothing beyond it ------------------------------
+def test_twin_file_reason_and_label_do_not_overstate_attribution(tmp_path, signer):
+    """Round 8 reviewer's case. alpha-variant ships usr/share/twin/common.txt (byte-identical to alpha's copy, and present
+    in the image), usr/bin/alpha (the image holds alpha's build of it) and a record file under usr/lib/opkg/ that is
+    byte-identical on disk and skipped by the scan. The reason must say what was compared (two files found among the
+    compared ones, each equal to a file of another declared component) and must not say that no file at the package's
+    paths is attributable to it, which a skipped file contradicts; the Markdown label must not say no file was found."""
+    from bomwitness import report
+    pk = dict(fakefeed.DEFAULT_PACKAGES)
+    common = b"shared by both packages\n"
+    record = b"alpha-variant release record\n"
+    pk["alpha"] = ("base", "1.2.3-r1", {"usr/bin/alpha": fakefeed.elf(b"alpha version 1.2.3 ok"), "usr/share/twin/common.txt": common}, "")
+    pk["alpha-variant"] = ("base", "1.2.3-r1", {"usr/bin/alpha": fakefeed.elf(b"alpha VARIANT 1.2.3 ok"), "usr/share/twin/common.txt": common,
+                                               "usr/lib/opkg/info/alpha-variant.record": record}, "")
+    root = tmp_path / "rel6"
+    fakefeed.make_release(root, signer, packages=pk)
+    r = fakefeed.reference(root, signer, tmp_path / "c6")
+    fw = fakefeed.make_rootfs(tmp_path / "fw7", INSTALLED, pk)
+    held = fw / "usr/lib/opkg/info/alpha-variant.record"
+    held.write_bytes(record)
+    assert held.is_file() and "usr/lib/opkg/info/alpha-variant.record" not in scan_rootfs(fw)
+    bom = fakefeed.claims(INSTALLED, pk) + [{"name": "alpha-variant", "version": "1.2.3-r1"}]
+    rep = verify(fw, bom, r)
+    comp = next(c for c in rep["components"] if c["name"] == "alpha-variant")
+    assert comp["verdict"] == "absent" and comp["present"] == 2 and comp["identical"] == 1
+    assert comp["reason"] == ("each of the 2 file(s) of this package found among the image files compared has the SHA-256 of another "
+                              "declared component's file (for the first differing file, alpha); none of the files compared separates "
+                              "this package from that component")
+    assert "attributable" not in comp["reason"] and "alone" not in comp["reason"]
+    md = report.markdown(report.build({"name": "fw"}, r.provenance(), rep, None, None, {"models_found": 0, "findings": []}))
+    row = next(l for l in md.splitlines() if l.startswith("| alpha-variant |"))
+    assert report.VERDICT_TEXT["absent"] in row and comp["reason"] in row
+    assert "was found" not in report.VERDICT_TEXT["absent"] and "no file of the package" not in row
+
+
+def _supplied_snapshot(drifted_parts):
+    fw, bom, snap = drifted_parts
+    (fw / "etc").mkdir(exist_ok=True)
+    (fw / "etc/passwd").write_text("root:x:0:0:root:/root:/bin/ash\n")
+    return fw, bom, snap
+
+
+def test_supplied_snapshot_file_list_is_used_as_given_and_generated_ones_leave_account_files_out(drifted, ref, tmp_path):
+    """Round 8 reviewer's case. A snapshot this tool generates leaves configuration and account files out of a package's
+    file list. A supplied snapshot's list is used as given: an account file in it is compared, counted, and decides the
+    verdict. Documentation may scope the exclusion to generated snapshots only."""
+    fw, bom, snap = _supplied_snapshot(drifted)
+    # generated: a sibling whose gamma package owns etc/passwd records it in no package file list
+    sib = fakefeed.make_rootfs(tmp_path / "sib2", INSTALLED, {**fakefeed.DEFAULT_PACKAGES, "gamma": drifted_gamma()})
+    (sib / "etc/passwd").write_text("root:x:0:0:root:/root:/bin/ash\n")
+    with (sib / "usr/lib/opkg/info/gamma.list").open("a") as fh:
+        fh.write("/etc/passwd\n")
+    generated = snapshot_from_rootfs(sib, "generated sibling")
+    assert "etc/passwd" in generated["files"] and not any("etc/passwd" in p["files"] for p in generated["packages"].values())
+    # supplied: the same record edited by hand to list the account file for gamma
+    digest = scan_rootfs(fw)["etc/passwd"]["sha256"]
+    snap = {**snap, "files": {**snap["files"], "etc/passwd": digest}, "packages": {**snap["packages"]}}
+    snap["packages"]["gamma"] = dict(snap["packages"]["gamma"], files=snap["packages"]["gamma"]["files"] + ["etc/passwd"])
+    rep = verify(fw, bom, ref, snapshots=[snap])
+    gamma = next(c for c in rep["components"] if c["name"] == "gamma")
+    assert gamma["verdict"] == "verified_A" and "2 of them compared" in gamma["reason"]
+    snap["files"] = {**snap["files"], "etc/passwd": "0" * 64}           # change only the account file's supplied digest
+    gamma = next(c for c in verify(fw, bom, ref, snapshots=[snap])["components"] if c["name"] == "gamma")
+    assert gamma["verdict"] == "bytes_differ"
+
+
+def drifted_gamma():
+    return ("base", "2023.12.01~aaa-r1", {"usr/bin/gamma": fakefeed.elf(b"gamma tool older build")}, "")

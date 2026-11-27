@@ -288,7 +288,15 @@ def verify_cbom(rootfs: Path, cbom: dict, as_of: dt.datetime, sbom_report: dict 
         if actual is None and d["fingerprint_sha256"] is None and len(by_subject.get(d["subject"], [])) == 1:
             actual = by_subject[d["subject"]][0]
         if actual is None:
-            add("absent_certificate", d["fingerprint_sha256"] or d["subject"], "declared certificate not found among the certificates this tool extracted from the firmware")
+            n_subject = len(by_subject.get(d["subject"], []))
+            if d["fingerprint_sha256"]:
+                why = f"none of the {len(seen)} certificates this tool extracted from the firmware has the declared SHA-256"
+            elif n_subject > 1:
+                why = (f"no SHA-256 is declared and {n_subject} extracted certificates share the subject {d['subject']}, so none was "
+                       "selected (the declared expiry is not used to choose between them)")
+            else:
+                why = f"no SHA-256 is declared and none of the {len(seen)} extracted certificates has the subject {d['subject']}"
+            add("absent_certificate", d["fingerprint_sha256"] or d["subject"], why)
             continue
         fp = actual["fingerprint_sha256"]
         matched.add(fp)
@@ -312,8 +320,10 @@ def verify_cbom(rootfs: Path, cbom: dict, as_of: dt.datetime, sbom_report: dict 
     # keys
     key_fp = {k["fingerprint_sha256"]: k for k in assets["keys"]}
     declared_k = {d["fingerprint_sha256"] for d in declared_keys(cbom)}
-    for fp in sorted(declared_k - set(key_fp)):
-        add("absent_key", fp, "declared key material not found among the keys this tool extracted from the firmware")
+    for fp in sorted(declared_k - set(key_fp), key=str):
+        add("absent_key", fp, (f"none of the {len(key_fp)} key(s) this tool extracted from the firmware has the declared SHA-256" if fp else
+                               f"the declaration declares no SHA-256, which this tool matches keys by, so it was not compared with the "
+                               f"{len(key_fp)} key(s) this tool extracted"))
     for fp, k in sorted(key_fp.items()):
         if fp not in declared_k:
             add("undeclared_key", fp, f"{k['format']} {k['kind']} in {k['path']}")
@@ -337,7 +347,8 @@ def verify_cbom(rootfs: Path, cbom: dict, as_of: dt.datetime, sbom_report: dict 
             elif verdict[prov] not in VERIFIED:
                 add("provider_unverified", prov, f"the CBOM says {prov} provides {alg}; the SBOM check of {prov} ended in {verdict[prov]}")
             elif alg not in evidence.get(prov, {}):
-                add("algorithm_not_evidenced", ident, f"no file of {prov} that this tool checked carries a name of {alg}", "B")
+                add("algorithm_not_evidenced", ident, f"this tool's detection pattern for {alg} did not match in the ELF files and kernel module lists of {prov} that "
+                                                          f"it checked; the pattern is narrow, so that does not show that no file names {alg}", "B")
         for comp, algs in sorted(evidence.items()):
             missing = sorted(set(algs) - claimed.get(comp, set()))
             if comp not in claimed:

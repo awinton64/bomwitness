@@ -13,7 +13,7 @@ VERDICT_TEXT = {
     "verified_B": "verified by a version marker in the bytes",
     "wrong_version": "wrong version",
     "wrong_component": "wrong component",
-    "absent": "absent: no file of the package was found among the firmware files compared",
+    "absent": "absent: no compared file is attributed to the package (the evidence column says what was compared)",
     "bytes_differ": "bytes differ from the reference build (review)",
     "label_unconfirmed": "compared files match, version label not confirmed (review)",
     "unverifiable": "unverifiable",
@@ -60,8 +60,10 @@ def markdown(rep: dict) -> str:
             "files and three account files count as matches when they are identical and are skipped when they differ, and a file "
             "that differs only inside embedded build-date strings is accepted"
             + ("" if s["options"].get("normalize_timestamps", True) else " (switched off for this run)")
-            + ". A sibling snapshot's record of a package leaves out its configuration and account files, so those are not "
-            "compared with a snapshot at all; snapshot and other-release comparisons use the raw SHA-256, and a reason says "
+            + ". A snapshot this tool generates leaves a package's configuration and account files out of its file list, so those are "
+            "not compared with it; a snapshot file supplied by the caller is used as given (the files it lists for a package are "
+            "compared, apart from the reference package's own configuration files). Snapshot and other-release comparisons use "
+            "the raw SHA-256, and a reason says "
             "how many files matched this release's reference only after build dates were masked. The package need not be "
             "complete. A grade A pass can therefore rest on few matched files, in the extreme "
             "on none; the line then says that no file was positively matched. Each grade A line below gives the counts. A verdict "

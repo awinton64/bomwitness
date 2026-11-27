@@ -350,3 +350,69 @@ def test_aibom_example_produces_its_expected_findings():
     root = Path(__file__).resolve().parent.parent
     r = subprocess.run([sys.executable, str(root / "examples/aibom/run.py")], capture_output=True, text=True)
     assert r.returncode == 0 and r.stdout.strip().endswith("PASS"), r.stdout + r.stderr
+
+
+# ---- round 9: wording of CBOM details and the Markdown label -----------------------------------------------
+def test_certificate_detail_separates_unresolved_identity_from_not_extracted(crypto_fw):
+    """Round 8 reviewer's case: two extracted certificates share a subject and differ in expiry; a declaration with that
+    subject and one expiry but no SHA-256 selects neither. The detail must say the identity was not resolved, not that the
+    certificate is absent from the extracted ones."""
+    rootfs, rep, cbom = crypto_fw
+    (rootfs / "etc/ssl/certs/good2.crt").write_bytes(make_cert(2048, 700, "good.example"))
+    certs = [c for c in cbom["components"] if c["cryptoProperties"]["assetType"] == "certificate"]
+    declared = next(c for c in certs if "good.example" in c["name"])
+    subject = declared["name"]
+    declared["hashes"] = []
+    found = {f["asset"]: f["detail"] for f in crypto.verify_cbom(rootfs, cbom, AS_OF, rep) if f["class"] == "absent_certificate"}
+    assert list(found) == [subject]
+    detail = found[subject]
+    assert f"2 extracted certificates share the subject {subject}" in detail and "none was selected" in detail
+    assert "not found" not in detail and "absent" not in detail
+    declared["cryptoProperties"]["certificateProperties"]["subjectName"] = declared["name"] = "CN=nobody.example"
+    detail = next(f["detail"] for f in crypto.verify_cbom(rootfs, cbom, AS_OF, rep) if f["class"] == "absent_certificate")
+    assert "no SHA-256 is declared" in detail and "none of the 3 extracted certificates has the subject CN=nobody.example" in detail
+    declared["hashes"] = [{"alg": "SHA-256", "content": "ab" * 32}]
+    detail = next(f["detail"] for f in crypto.verify_cbom(rootfs, cbom, AS_OF, rep) if f["class"] == "absent_certificate")
+    assert detail == "none of the 3 certificates this tool extracted from the firmware has the declared SHA-256"
+
+
+def test_key_detail_separates_unresolved_identity_from_not_extracted(crypto_fw):
+    """Round 8 reviewer's case: an extracted PEM key declared with a SHA-512 only has no SHA-256 to match by."""
+    rootfs, rep, cbom = crypto_fw
+    pub = rsa.generate_private_key(public_exponent=65537, key_size=2048).public_key().public_bytes(
+        serialization.Encoding.PEM, serialization.PublicFormat.SubjectPublicKeyInfo)
+    (rootfs / "etc/pub.pem").write_bytes(pub)
+    keys = [c for c in cbom["components"] if c["cryptoProperties"]["assetType"] == "related-crypto-material"]
+    keys[0]["hashes"] = [{"alg": "SHA-512", "content": "cd" * 64}]
+    assert any(k["path"] == "etc/pub.pem" for k in crypto.discover_assets(rootfs)["keys"])
+    detail = next(f["detail"] for f in crypto.verify_cbom(rootfs, cbom, AS_OF, rep) if f["class"] == "absent_key")
+    assert "declares no SHA-256" in detail and "not compared with the 2 key(s) this tool extracted" in detail
+    assert "not found" not in detail and "absent" not in detail
+    other = dict(keys[0], **{"bom-ref": "key:other", "hashes": [{"alg": "SHA-256", "content": "ef" * 32}]})
+    cbom["components"].append(other)               # one declaration without a SHA-256 and one that matches no key
+    got = {f["asset"]: f["detail"] for f in crypto.verify_cbom(rootfs, cbom, AS_OF, rep) if f["class"] == "absent_key"}
+    assert set(got) == {None, "ef" * 32} and got["ef" * 32].startswith("none of the 2 key(s)")
+    cbom["components"].remove(other)
+    keys[0]["hashes"] = [{"alg": "SHA-256", "content": "ab" * 32}]
+    detail = next(f["detail"] for f in crypto.verify_cbom(rootfs, cbom, AS_OF, rep) if f["class"] == "absent_key")
+    assert detail == "none of the 2 key(s) this tool extracted from the firmware has the declared SHA-256"
+
+
+def test_algorithm_detail_says_the_pattern_did_not_match(tmp_path, signer):
+    """Round 8 reviewer's case: a checked ELF file holds the literal standalone name AES, which this tool's narrow pattern
+    (a key length or a mode after the name) does not match. The detail must not say the file carries no name of AES."""
+    pk = dict(fakefeed.DEFAULT_PACKAGES)
+    pk["alpha"] = ("base", "1.2.3-r1", {"usr/bin/alpha": fakefeed.elf(b"alpha version 1.2.3 ok AES")}, "")
+    root = tmp_path / "rel7"
+    fakefeed.make_release(root, signer, packages=pk)
+    r = fakefeed.reference(root, signer, tmp_path / "c7")
+    fw = fakefeed.make_rootfs(tmp_path / "fw8", ["alpha"], pk)
+    assert b"AES" in (fw / "usr/bin/alpha").read_bytes() and crypto.algorithms_in((fw / "usr/bin/alpha").read_bytes()) == []
+    rep = verify(fw, fakefeed.claims(["alpha"], pk), r)
+    cbom = {"components": [{"type": "cryptographic-asset", "bom-ref": "alg:AES@alpha", "name": "AES",
+                            "cryptoProperties": {"assetType": "algorithm", "algorithmProperties": {"primitive": "block-cipher"}}}],
+            "dependencies": [{"ref": "pkg:alpha", "provides": ["alg:AES@alpha"]}]}
+    f = next(f for f in crypto.verify_cbom(fw, cbom, AS_OF, rep) if f["class"] == "algorithm_not_evidenced")
+    assert f["detail"] == ("this tool's detection pattern for AES did not match in the ELF files and kernel module lists of alpha that "
+                           "it checked; the pattern is narrow, so that does not show that no file names AES")
+    assert "carries a name" not in f["detail"]
