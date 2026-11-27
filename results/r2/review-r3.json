@@ -1,0 +1,474 @@
+{
+ "baselines_without_database": {
+  "bomtrace": {
+   "colluding": {
+    "labels_found": 0,
+    "rows": 480,
+    "verifier_produced_a_result": 480
+   },
+   "honest": {
+    "labels_found": 480,
+    "rows": 480,
+    "verifier_produced_a_result": 480
+   },
+   "stripped": {
+    "labels_found": 0,
+    "rows": 480,
+    "verifier_produced_a_result": 0
+   },
+   "unaware": {
+    "labels_found": 0,
+    "rows": 420,
+    "verifier_produced_a_result": 420
+   }
+  },
+  "bomtrace_clean_control_stripped_ran": 0,
+  "bomtrace_error_messages_stripped_clean_control": [
+   "ValueError: expected one regular opkg or apk database file"
+  ],
+  "syft_diff_clean_findings_honest": {
+   "max": 76,
+   "min": 44
+  },
+  "syft_diff_clean_findings_stripped": {
+   "max": 251,
+   "min": 158
+  },
+  "syft_diff_stripped_by_class": {
+   "M1_omitted": {
+    "credited": 0,
+    "rows": 120
+   },
+   "M2_other_release_version": {
+    "credited": 0,
+    "rows": 120
+   },
+   "M2b_fabricated_version": {
+    "credited": 0,
+    "rows": 120
+   },
+   "M3_phantom": {
+    "credited": 120,
+    "rows": 120
+   }
+  },
+  "syft_diff_stripped_credited_total": 120
+ },
+ "distinct_errors": {
+  "heldout": {
+   "condition_rows": 1860,
+   "distinct_bom_level_errors": 480,
+   "distinct_errors": 900,
+   "distinct_unaware_errors": 420,
+   "how": "a BOM-level error (M1 to M3) is one (image, class, component) scored under three database states; an unaware error (M4 to M6) is scored once",
+   "images": 10,
+   "rows_by_database_condition": {
+    "colluding": 480,
+    "honest": 480,
+    "stripped": 480,
+    "unaware": 420
+   }
+  },
+  "tuning": {
+   "condition_rows": 744,
+   "distinct_bom_level_errors": 192,
+   "distinct_errors": 360,
+   "distinct_unaware_errors": 168,
+   "how": "a BOM-level error (M1 to M3) is one (image, class, component) scored under three database states; an unaware error (M4 to M6) is scored once",
+   "images": 4,
+   "rows_by_database_condition": {
+    "colluding": 192,
+    "honest": 192,
+    "stripped": 192,
+    "unaware": 168
+   }
+  }
+ },
+ "inventory": {
+  "images": 14,
+  "installed_packages": 2083,
+  "installed_packages_owning_a_regular_file": 1950,
+  "installed_packages_without_such_a_file": 133,
+  "named": 1939,
+  "note": "the measurement is eligible-package recall: a package counts only if the device database lists at least one regular, non-symlink file for it that is in the image; packages without such a file cannot be named from bytes",
+  "wrong_names": 0
+ },
+ "note": "post-freeze analysis of committed result files; nothing was rerun (bench/review_r3.py)",
+ "official_bom": {
+  "bytes_differ_components": [
+   "e2fsprogs",
+   "ucode-mod-fs"
+  ],
+  "claims": 1868,
+  "images": 14,
+  "note": "a wrong_version here is a label-granularity disagreement: the BOM gives the kernel version, the frozen feed labels the same package with the kernel version followed by the driver version. No database-reading verifier was run on these BOMs; bench/official_bom.py uses the device database only to confirm that packages beyond the BOM are installed.",
+  "verdicts": {
+   "absent": 3,
+   "bytes_differ": 4,
+   "unverifiable": 122,
+   "verified_A": 1674,
+   "verified_B": 31,
+   "wrong_version": 34
+  },
+  "verified": 1705,
+  "wrong_version_total": 34,
+  "wrong_version_where_the_reference_label_extends_the_declared_one": 34
+ },
+ "recall_per_heldout_image": {
+  "bom_level": {
+   "bw": {
+    "images": 10,
+    "images_with_every_error_found": 5,
+    "max": 1.0,
+    "median": 0.99,
+    "min": 0.958,
+    "per_image": {
+     "h-2305-edgerouter-x": {
+      "errors": 48,
+      "found": 48
+     },
+     "h-2305-gl-b1300": {
+      "errors": 48,
+      "found": 47
+     },
+     "h-2305-gl-mt3000": {
+      "errors": 48,
+      "found": 48
+     },
+     "h-2305-rpi-4": {
+      "errors": 48,
+      "found": 46
+     },
+     "h-2305-x86-64": {
+      "errors": 48,
+      "found": 48
+     },
+     "h-2410-archer-c50-v4": {
+      "errors": 48,
+      "found": 47
+     },
+     "h-2410-gl-b1300": {
+      "errors": 48,
+      "found": 48
+     },
+     "h-2410-unifi-6-lr-v1": {
+      "errors": 48,
+      "found": 47
+     },
+     "h-2410-wrt1900acs": {
+      "errors": 48,
+      "found": 48
+     },
+     "h-2410-x86-64": {
+      "errors": 48,
+      "found": 47
+     }
+    },
+    "pooled_errors": 480,
+    "pooled_found": 474
+   },
+   "bw_feed_only": {
+    "images": 10,
+    "images_with_every_error_found": 0,
+    "max": 0.958,
+    "median": 0.875,
+    "min": 0.771,
+    "per_image": {
+     "h-2305-edgerouter-x": {
+      "errors": 48,
+      "found": 43
+     },
+     "h-2305-gl-b1300": {
+      "errors": 48,
+      "found": 37
+     },
+     "h-2305-gl-mt3000": {
+      "errors": 48,
+      "found": 37
+     },
+     "h-2305-rpi-4": {
+      "errors": 48,
+      "found": 42
+     },
+     "h-2305-x86-64": {
+      "errors": 48,
+      "found": 46
+     },
+     "h-2410-archer-c50-v4": {
+      "errors": 48,
+      "found": 42
+     },
+     "h-2410-gl-b1300": {
+      "errors": 48,
+      "found": 44
+     },
+     "h-2410-unifi-6-lr-v1": {
+      "errors": 48,
+      "found": 41
+     },
+     "h-2410-wrt1900acs": {
+      "errors": 48,
+      "found": 39
+     },
+     "h-2410-x86-64": {
+      "errors": 48,
+      "found": 45
+     }
+    },
+    "pooled_errors": 480,
+    "pooled_found": 416
+   },
+   "bw_no_snapshot": {
+    "images": 10,
+    "images_with_every_error_found": 3,
+    "max": 1.0,
+    "median": 0.979,
+    "min": 0.958,
+    "per_image": {
+     "h-2305-edgerouter-x": {
+      "errors": 48,
+      "found": 48
+     },
+     "h-2305-gl-b1300": {
+      "errors": 48,
+      "found": 47
+     },
+     "h-2305-gl-mt3000": {
+      "errors": 48,
+      "found": 47
+     },
+     "h-2305-rpi-4": {
+      "errors": 48,
+      "found": 46
+     },
+     "h-2305-x86-64": {
+      "errors": 48,
+      "found": 48
+     },
+     "h-2410-archer-c50-v4": {
+      "errors": 48,
+      "found": 47
+     },
+     "h-2410-gl-b1300": {
+      "errors": 48,
+      "found": 48
+     },
+     "h-2410-unifi-6-lr-v1": {
+      "errors": 48,
+      "found": 46
+     },
+     "h-2410-wrt1900acs": {
+      "errors": 48,
+      "found": 46
+     },
+     "h-2410-x86-64": {
+      "errors": 48,
+      "found": 47
+     }
+    },
+    "pooled_errors": 480,
+    "pooled_found": 470
+   }
+  },
+  "unaware": {
+   "bw": {
+    "images": 10,
+    "images_with_every_error_found": 0,
+    "max": 0.976,
+    "median": 0.952,
+    "min": 0.929,
+    "per_image": {
+     "h-2305-edgerouter-x": {
+      "errors": 42,
+      "found": 41
+     },
+     "h-2305-gl-b1300": {
+      "errors": 42,
+      "found": 40
+     },
+     "h-2305-gl-mt3000": {
+      "errors": 42,
+      "found": 41
+     },
+     "h-2305-rpi-4": {
+      "errors": 42,
+      "found": 40
+     },
+     "h-2305-x86-64": {
+      "errors": 42,
+      "found": 39
+     },
+     "h-2410-archer-c50-v4": {
+      "errors": 42,
+      "found": 40
+     },
+     "h-2410-gl-b1300": {
+      "errors": 42,
+      "found": 40
+     },
+     "h-2410-unifi-6-lr-v1": {
+      "errors": 42,
+      "found": 41
+     },
+     "h-2410-wrt1900acs": {
+      "errors": 42,
+      "found": 40
+     },
+     "h-2410-x86-64": {
+      "errors": 42,
+      "found": 39
+     }
+    },
+    "pooled_errors": 420,
+    "pooled_found": 401
+   },
+   "bw_feed_only": {
+    "images": 10,
+    "images_with_every_error_found": 0,
+    "max": 0.976,
+    "median": 0.952,
+    "min": 0.881,
+    "per_image": {
+     "h-2305-edgerouter-x": {
+      "errors": 42,
+      "found": 41
+     },
+     "h-2305-gl-b1300": {
+      "errors": 42,
+      "found": 40
+     },
+     "h-2305-gl-mt3000": {
+      "errors": 42,
+      "found": 41
+     },
+     "h-2305-rpi-4": {
+      "errors": 42,
+      "found": 40
+     },
+     "h-2305-x86-64": {
+      "errors": 42,
+      "found": 39
+     },
+     "h-2410-archer-c50-v4": {
+      "errors": 42,
+      "found": 40
+     },
+     "h-2410-gl-b1300": {
+      "errors": 42,
+      "found": 37
+     },
+     "h-2410-unifi-6-lr-v1": {
+      "errors": 42,
+      "found": 41
+     },
+     "h-2410-wrt1900acs": {
+      "errors": 42,
+      "found": 39
+     },
+     "h-2410-x86-64": {
+      "errors": 42,
+      "found": 39
+     }
+    },
+    "pooled_errors": 420,
+    "pooled_found": 397
+   },
+   "bw_no_snapshot": {
+    "images": 10,
+    "images_with_every_error_found": 0,
+    "max": 0.976,
+    "median": 0.952,
+    "min": 0.881,
+    "per_image": {
+     "h-2305-edgerouter-x": {
+      "errors": 42,
+      "found": 41
+     },
+     "h-2305-gl-b1300": {
+      "errors": 42,
+      "found": 40
+     },
+     "h-2305-gl-mt3000": {
+      "errors": 42,
+      "found": 41
+     },
+     "h-2305-rpi-4": {
+      "errors": 42,
+      "found": 40
+     },
+     "h-2305-x86-64": {
+      "errors": 42,
+      "found": 39
+     },
+     "h-2410-archer-c50-v4": {
+      "errors": 42,
+      "found": 40
+     },
+     "h-2410-gl-b1300": {
+      "errors": 42,
+      "found": 37
+     },
+     "h-2410-unifi-6-lr-v1": {
+      "errors": 42,
+      "found": 41
+     },
+     "h-2410-wrt1900acs": {
+      "errors": 42,
+      "found": 39
+     },
+     "h-2410-x86-64": {
+      "errors": 42,
+      "found": 39
+     }
+    },
+    "pooled_errors": 420,
+    "pooled_found": 397
+   }
+  }
+ },
+ "timing": {
+  "bomtrace_seconds_median_per_image": {
+   "h-2305-edgerouter-x": 0.06,
+   "h-2305-gl-b1300": 0.058,
+   "h-2305-gl-mt3000": 0.058,
+   "h-2305-rpi-4": 0.052,
+   "h-2305-x86-64": 0.053,
+   "h-2410-archer-c50-v4": 0.067,
+   "h-2410-gl-b1300": 0.065,
+   "h-2410-unifi-6-lr-v1": 0.059,
+   "h-2410-wrt1900acs": 0.06,
+   "h-2410-x86-64": 0.064
+  },
+  "bomwitness_seconds_median_per_image": {
+   "h-2305-edgerouter-x": 0.048,
+   "h-2305-gl-b1300": 0.05,
+   "h-2305-gl-mt3000": 0.056,
+   "h-2305-rpi-4": 0.1,
+   "h-2305-x86-64": 0.086,
+   "h-2410-archer-c50-v4": 0.072,
+   "h-2410-gl-b1300": 0.063,
+   "h-2410-unifi-6-lr-v1": 0.068,
+   "h-2410-wrt1900acs": 0.061,
+   "h-2410-x86-64": 0.109
+  },
+  "comparable": false,
+  "end_to_end": "see results/r2/timing-e2e.json for the command-line run of the repository example, measured separately",
+  "syft_seconds_median_per_image": {
+   "h-2305-edgerouter-x": 0.952,
+   "h-2305-gl-b1300": 0.948,
+   "h-2305-gl-mt3000": 0.954,
+   "h-2305-rpi-4": 0.841,
+   "h-2305-x86-64": 0.867,
+   "h-2410-archer-c50-v4": 1.031,
+   "h-2410-gl-b1300": 1.037,
+   "h-2410-unifi-6-lr-v1": 0.986,
+   "h-2410-wrt1900acs": 0.961,
+   "h-2410-x86-64": 1.041
+  },
+  "what_is_timed": {
+   "bomtrace": "wall time of one run of its command line per case, including process start, writing the input BOM and archive, and, in the stripped condition, an immediate exit with no result",
+   "bomwitness": "one in-process call of verify() per case with the root filesystem already unpacked and hashed and the reference cache warm (bench/run_cases.py, bw_all); unpacking, hashing and reference downloads are outside the timer",
+   "syft": "wall time of one Syft run over the unpacked directory"
+  }
+ }
+}

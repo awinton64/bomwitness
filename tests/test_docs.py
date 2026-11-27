@@ -43,3 +43,9 @@ def test_documents_reference_existing_result_files():
             if not (RESULTS / "summary.json").exists():
                 continue
             assert (ROOT / ref.rstrip("/")).exists(), f"{doc} mentions {ref}, which is missing"
+
+
+@pytest.mark.skipif(not (RESULTS / "summary.json").exists(), reason="result files not present")
+def test_post_freeze_review_analysis_matches_the_committed_results():
+    r = subprocess.run([sys.executable, str(ROOT / "bench/review_r3.py"), "--check"], capture_output=True, text=True)
+    assert r.returncode == 0, r.stdout + r.stderr

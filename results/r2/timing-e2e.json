@@ -1,0 +1,23 @@
+{
+ "note": "post-freeze cost measurement on one machine; not part of the held-out evaluation (bench/timing_e2e.py)",
+ "command": "bomwitness verify --image <official image> --sibling-image <official sibling> --release 24.10.8 --target ath79/generic --sbom declared-with-errors.cdx.json",
+ "includes": "process start, carving and unpacking two SquashFS images, hashing every file, loading the reference, SBOM, CBOM and device-database checks, writing the report",
+ "image": "openwrt-24.10.8-ath79-generic-tplink_archer-c7-v5-squashfs-sysupgrade.bin",
+ "declared_components": 150,
+ "rootfs_files": 629,
+ "path_index": false,
+ "cold_cache_seconds": 13.74,
+ "cold_cache_includes": "network downloads of signed metadata and the reference packages the run touches",
+ "warm_cache_seconds": [
+  5.12,
+  5.14,
+  5.15,
+  5.17,
+  5.24
+ ],
+ "warm_cache_seconds_median": 5.15,
+ "runs": 5,
+ "verifier_call_seconds_inside_the_last_run": 0.13,
+ "reference_cache_megabytes": 6.0,
+ "machine": "Darwin arm64, Python 3.14.3"
+}
