@@ -158,7 +158,7 @@ Device database & Cases & signed feeds only & + signed manifest & + sibling (def
 \subsection{Setup}
 
 \textbf{Data.} \nImages{} official OpenWrt release images (23.05.6 and 24.10.8) over \nArchAll{} package architectures: MIPS big and little endian, AArch64, ARMv7 and x86-64 \cite{openwrt}. Images are fetched and checked against signed release metadata, never redistributed.
-\textbf{Split.} \nTuneImages{} tuning images were used to write and debug the rules. The \nHeldImages{} held-out images (\nArchHeld{} architectures) were not verified until the rules were frozen at commit \texttt{\freezeCommit}; the full run was started from that commit with a clean tree. Later changes touch no benchmark rule, and a rerun of \postImages{} images (\postCases{} cases) shows \postDiffs{} score differences.
+\textbf{Split.} \nTuneImages{} tuning images were used to write and debug the rules. The \nHeldImages{} held-out images (\nArchHeld{} architectures) were not verified until the rules were frozen at commit \texttt{\freezeCommit}; the full run was started from that commit with a clean tree. Later changes alter no rule the benchmark exercises, and a rerun of \postImages{} images (\postCases{} cases) shows \postDiffs{} score differences.
 \textbf{Ground truth.} The correct BOM of an unmodified official image is its package list. Each case applies one mutation with one label (Appendix~\ref{app:classes}): M1 omitted component, M2 version of the other release series, M2b fabricated version, M3 phantom component, M4 and M4u implanted package, M5 binary swapped for another release's build, M6 one byte flipped; \kPerClass{} seeded targets per class per image (\kUnindexed{} for M4u, seed \seed).
 \textbf{Database conditions.} For M1 to M3 the device database is \emph{honest} (untouched), \emph{colluding} (edited to agree with the wrong BOM) or \emph{stripped} (deleted). M4 to M6 are \emph{unaware}: neither BOM nor database mentions the change. The first three rows of Table~\ref{tab:main} are the same \nBomErrCases{} cases in three database states, not independent samples.
 \textbf{Baselines.} BomTrace's published verifier, unmodified, at commit \texttt{\bomtraceCommit}; \emph{Syft-diff}, Syft~1.57.2's inventory compared with the BOM by a script of ours; \emph{cve-bin-tool-diff}, the version scanner of cve-bin-tool~3.4 likewise. Syft and cve-bin-tool are not verifiers; the diffs are ours.
@@ -182,7 +182,7 @@ Largely yes, and three facts bound how much.
 
 \emph{Official images against their own publisher's packages are the favourable case.} Grade A needs the builder's signed binaries. \S\ref{sec:fork} shows what is left without them.
 
-Grade B alone (version markers, no hashes) reaches recall \rColBo{} on BOM-level errors and \rUnaBo{} on unaware cases, which is the realistic ceiling when no byte-identical reference exists.
+Grade B alone (version markers, no hashes) reaches recall \rColBo{} on BOM-level errors and \rUnaBo{} on unaware cases, which indicates what remains when byte identity is not available.
 
 \subsection{Reference drift}
 \label{sec:drift}
