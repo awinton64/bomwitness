@@ -3,7 +3,9 @@
 - `r2/` is the round 2 evaluation. Everything the documentation quotes comes from here.
   - `RUN.json`: commit and time window of the frozen full run.
   - `cases/<image>.json`: per-image seeded-error cases with every tool's score, the clean controls and timings.
-  - `summary.json`, `SUMMARY.md`: pooled tables (`bench/summarize.py`). `HEADLINE.md`: the README block
+  - `summary.json`, `SUMMARY.md`: pooled tables (`bench/summarize.py`). Their "all" rows pool every row. For BomTrace
+    that includes the stripped rows in which its verifier returned no result (480 held-out, 192 tuning), so its
+    pooled recall there is coverage-inclusive; the README headline gives the figure over the rows where it ran. `HEADLINE.md`: the README block
     (`bench/headline.py`). `ERROR-ANALYSIS.md`: every miss and false alarm (`bench/error_analysis.py`).
   - `cbom/<image>.json`: seeded CBOM and cross-BOM cases.
   - `drift.json`, `official-bom.json`, `inventory.json`, `sibling-overlap.json`, `reference-index.json`,

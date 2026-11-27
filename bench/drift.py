@@ -5,7 +5,7 @@ takes the same device across the point releases of two series, verifies a correc
 today's feeds, and records what each reference source can still confirm:
 
   feeds only                       frozen target feeds plus the drifting shared feeds
-  feeds + release manifest         adds the signed per-target manifest for version labels
+  feeds + release manifest         adds the per-target manifest (pinned by hash in the signed checksum file) for version labels
   feeds + manifest + snapshot      adds a frozen snapshot from one official sibling image of the same release
 
 It also measures drift at the feed level: the share of packages in the shared base feed whose file was

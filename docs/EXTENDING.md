@@ -10,7 +10,7 @@ add the key to `PINNED_KEYS` in `bomwitness/usign.py` with its source. Releases 
 ## Another device in the benchmark
 
 Add an entry to `bench/images.json` (id, split, release, target, image file name) and run
-`bench/prepare.py <id>`. The image hash comes from the signed release metadata, so no hash is typed by hand.
+`bench/prepare.py <id>`. The image hash comes from the release's image list (`profiles.json`, which the signed `sha256sums` pins by hash), so no hash is typed by hand.
 
 ## Another firmware family
 

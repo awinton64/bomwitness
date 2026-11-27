@@ -1,4 +1,7 @@
-"""Download official OpenWrt images and refuse anything whose SHA-256 differs from the signed release metadata."""
+"""Download official OpenWrt images and refuse anything whose SHA-256 differs from the release's image list.
+
+The image list is profiles.json. It carries no signature of its own: the usign-signed sha256sums pins it by hash.
+"""
 from __future__ import annotations
 
 import hashlib
