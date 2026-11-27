@@ -417,3 +417,52 @@ guards the rule files points at them; Appendix F of the paper covers the sixth r
 - Slides: they carry no reason text. Video: its replayed terminal is a recording from commit `401c018`, disclosed
   as a replay; its `tcpdump` line and its `algorithm_not_evidenced` line show the old sentences, which are true
   for that synthetic example (the reviewer confirmed the first).
+
+# Round 10: the review of round 9 (artifact wording; no code change)
+
+The reviewer confirmed the four round 8 fixes, found the verdict-selecting code unchanged, and failed three evidence
+claims in the judged artifacts (paper section 3, Appendix E and the pitch narration). Nothing under `bomwitness/` changed
+in this round, so the verdict check was not rerun.
+
+1. **Hashing coverage.** The paper said every regular file is hashed and the narration said "hash every file". The scan
+   (`scan_rootfs`) hashes the regular files it covers and skips symbolic links and the device's own package database
+   under `usr/lib/opkg/`. Paper section 3 now says the files the scan covers are hashed and names the two skips; the
+   narration and caption say "hash the files its scan covers"; `docs/DESIGN.md` and the README cost sentence (generated
+   by `bench/headline.py`) say the same.
+2. **Certificate fields.** The paper said certificates are compared "field by field". A declared certificate is selected
+   by SHA-256 fingerprint, or by subject when it declares no SHA-256 and the subject is unique. The selected certificate
+   is then compared on key algorithm and size, signature hash and expiry, each where the declaration gives it; subject
+   and issuer are not compared after selection. Paper section 3, Appendix E, the README and `docs/DESIGN.md` now say so.
+3. **Unverifiable tier.** The paper said drifted components in this tier have files with no version marker. A file can
+   carry a recognisable marker and the tier still applies, because the rule looks for evidence for the compared
+   versions. The paper and `docs/DESIGN.md` now say that no version-marker evidence settles the version, which is the
+   runtime reason.
+
+Paper length: the corrected sentences are longer than the ones they replace, so to stay at seven pages with the body
+ending on page 5 two sentences were cut: "Firmware built from any signed binary distribution fits the same reference
+interface" (Section 6; an untested claim) and the parenthetical "(the scripts use `set -e`)" in the exit-code
+description, and a few words were trimmed in Section 3, the limitations and Appendix F. The abstract is unchanged.
+
+Video: the pitch narration and caption now read "Carve the root file system and hash the files that its scan covers,
+without running any of its code" (the sentence at 1:16). That clip alone was synthesised again (same voice and rate),
+the rest of the narration audio is the same files, and the cut is 297.2 s long. Its replayed terminal is unchanged.
+
+Slides: the ten slides contain none of the three claims (checked in the extracted slide text); not rebuilt.
+
+## Known limitations (runtime text)
+
+The reviewer listed three limits of the runtime text. They are documented in the README and in
+`docs/LIMITATIONS.md` and are not changed, because the verdict-selecting code is not edited after the freeze:
+
+1. The twin-file test accepts a different other declared owner for each compared path. The reason names the first
+   differing file's owner and then reads as if all compared files were indistinguishable from that one component.
+   That is exact only when a single other component owns them all (the reviewed example).
+2. `absent_certificate` and `absent_key` also cover declarations whose identity was not resolved (no SHA-256, or a
+   subject shared by several certificates), and an extracted asset can be listed as undeclared only because no
+   declaration was reconciled to it. The detail text says which case applies.
+3. The Markdown summary's "Files in the image" is the count of files in the scan map (regular files, without symbolic
+   links and without `usr/lib/opkg/`), not every file of the root filesystem.
+
+## Not changed
+
+No verdict rule, no file under `bomwitness/`, the freeze tag (`0f83a98`) or the frozen run's result files.

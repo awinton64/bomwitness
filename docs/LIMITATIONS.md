@@ -91,3 +91,22 @@ Read these before relying on a result.
 14. **Timing figures are not a comparison.** The benchmark timed only the in-process verifier call on an
     unpacked, hashed tree; the baselines were timed as whole command-line runs. The end-to-end time of the
     command line is in `results/r2/timing-e2e.json` (one machine, one image, measured after the freeze).
+
+## Known limitations of the runtime text
+
+Found in the independent review of round 9 and left as they are, because the verdict-selecting code is not changed after the freeze.
+The reports say what they say; read them with these three points.
+
+1. **Twin-file reason names one owner.** For a package whose compared files all equal files of other declared
+   components (`absent`), the test accepts a different other declared owner for each compared path. The reason
+   then names the first differing file's owner, and its wording suggests that all compared files are
+   indistinguishable from that one component. That is exact only when a single other component owns them all,
+   as in the reviewed example (`bomwitness/verify.py`, the `absent` branch).
+2. **`absent_certificate` and `absent_key` cover more than a hash mismatch.** The class names also cover
+   declarations whose identity could not be resolved (no SHA-256 declared, or a subject shared by several
+   extracted certificates). The detail text says which case it is. An extracted certificate or key can also be
+   listed as undeclared only because no declaration was reconciled to it (`bomwitness/crypto.py`).
+3. **"Files in the image" in the Markdown summary is the scan count.** The number is the count of files in the
+   scan map: regular files, without symbolic links and without the device's own package database under
+   `usr/lib/opkg/`. It is not a count of every file in the root filesystem (`bomwitness/report.py`,
+   `bomwitness/verify.py` `scan_rootfs`).

@@ -178,7 +178,7 @@ def build(res: Path) -> str:
     L.append(f"- Cost. The benchmark timer covers only the in-process verifier call on a tree that is already unpacked and hashed, with a warm reference cache: "
              f"median {min(x['bw'] for x in secs):.2f} to {max(x['bw'] for x in secs):.2f} s per case. The baselines were timed as whole command-line runs "
              f"(BomTrace up to {max(x['bomtrace'] for x in secs):.2f} s, Syft up to {max(x['syft'] for x in secs):.1f} s), so these figures are not comparable with each other. "
-             f"End to end, the command line on the repository example (unpack two images, hash every file, verify, write the report; measured after the freeze on one machine) "
+             f"End to end, the command line on the repository example (unpack two images, hash the files its scan covers, verify, write the report; measured after the freeze on one machine) "
              f"takes {te['warm_cache_seconds_median']:.1f} s with a warm cache and {te['cold_cache_seconds']:.1f} s with an empty one. ")
     ri = json.loads((res / "reference-index.json").read_text())
     full = sorted((r for r in ri["targets"] if r["downloaded_bytes"] > 100e6), key=lambda r: r["seconds"])

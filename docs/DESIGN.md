@@ -110,10 +110,10 @@ ABI suffix such as `libubox` for `libubox20240329`, `Provides`, or source packag
 | Same label as the reference (or as the sibling image), different bytes | `bytes_differ` (review) |
 | Feed moved to another version, firmware files carry the declared version marker | `verified_B` |
 | Feed moved, reference build carries a marker, firmware files do not carry the declared one | `wrong_version` (B) |
-| Feed moved, no marker anywhere | `unverifiable` |
+| Feed moved, no version marker evidence settles the version | `unverifiable` |
 | The package ships no files (a metadata package) or no reference package has this name | `unverifiable` |
 
-Image level: every regular file not accounted for by a declared component is attributed through the
+Image level: every file of the scan (regular files; symbolic links and `usr/lib/opkg/` are not scanned) not accounted for by a declared component is attributed through the
 file-path index (or the sibling snapshot, or, for unindexed feeds, by fetching packages with similar
 names). A match is an `undeclared_component`; an executable that the tool could not attribute to a declared component or a reference package it compared is an `undeclared_file`.
 
@@ -125,8 +125,8 @@ what the CBOM declares. No signed reference is involved, except indirectly throu
 accepts a provider that the SBOM check verified at grade A or grade B. Declared CBOM entries are checked:
 
 - a declared certificate is matched to one in the image by SHA-256 fingerprint (or by subject when the
-  declaration has no fingerprint and the subject is unique) and then compared field by field: key
-  algorithm and size, signature hash, expiry. A certificate found in the image must be declared;
+  declaration has no fingerprint and the subject is unique) and then compared on key
+  algorithm and size, signature hash and expiry, each where the declaration gives it (subject and issuer are not compared after selection). A certificate found in the image must be declared;
 - a standalone key is reconciled by fingerprint only: a declared fingerprint must be in the image and a key
   in the image must be declared. No further field of a key is compared. An `absent_certificate` or
   `absent_key` finding says which case it is: no extracted certificate (key) has the declared SHA-256, or
@@ -159,5 +159,5 @@ claim is made for it.
 - Automatic pass: `verified_A`, `verified_B`.
 - Automatic fail: `wrong_version`, `wrong_component`, `absent`, `undeclared_component`, `undeclared_file`.
 - Needs a person: `bytes_differ` (rebuild or modification), `label_unconfirmed`.
-- Unverifiable: metadata packages, components whose reference has moved and that carry no marker,
+- Unverifiable: metadata packages, components whose reference has moved and for which no version marker evidence settles the version,
   components with no reference package.

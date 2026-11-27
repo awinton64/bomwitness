@@ -44,7 +44,8 @@ reports `undeclared_component` and `undeclared_file`.
 Only SBOM claims are compared with the authenticated reference. The CBOM check compares the certificates,
 keys and algorithm names found in the image with the declaration, and no signed reference is involved in
 that comparison: certificates are matched by fingerprint (by subject when the declaration gives no
-fingerprint and the subject is unique in the image) and then compared field by field, standalone keys are
+fingerprint and the subject is unique in the image) and then compared on key algorithm and size, signature hash and
+expiry, each where the declaration gives it (subject and issuer are not compared after selection); standalone keys are
 reconciled by fingerprint only. One CBOM rule reaches the reference indirectly: every declared algorithm
 must name a providing SBOM component, and that component's SBOM check must have ended in a grade A or B
 pass. The AI-BOM check compares the hashes of the model files found in the image with the declaration and
@@ -161,7 +162,7 @@ Held-out set: 10 official OpenWrt images (23.05.6 and 24.10.8, 6 package archite
 - OpenWrt's published per-target BOMs, verified unchanged against the 14 device images: 1705 of 1868 claims verified (1674 at grade A, 31 at grade B), 122 unverifiable, 34 version labels contradicted at package granularity (wireless kernel-module packages listed with the kernel version only, where the frozen feed labels the same bytes with the kernel and the driver version), 4 `bytes_differ`, 3 components absent from the device image, and 0 to 45 packages per image beyond what the per-target BOM lists. No database-reading verifier was run on these BOMs.
 - Inventory from bytes alone (no BOM, no database): of 2083 installed packages, 1950 own at least one regular, non-symlink file in the image and are therefore eligible; 1939 of those are named, with 0 wrong names. Syft on the same trees without the database lists 45 to 77 components; cve-bin-tool identifies 6 to 11 products.
 - Unmodified downstream fork (ImmortalWrt 24.10.7, same device): against its own signed download tree 183 of 190 components verify with 0 findings; against upstream OpenWrt 74 of 190 verify at grade A and 65 of 215 executables have the same SHA-256 as in the upstream image.
-- Cost. The benchmark timer covers only the in-process verifier call on a tree that is already unpacked and hashed, with a warm reference cache: median 0.05 to 0.11 s per case. The baselines were timed as whole command-line runs (BomTrace up to 0.07 s, Syft up to 1.0 s), so these figures are not comparable with each other. End to end, the command line on the repository example (unpack two images, hash every file, verify, write the report; measured after the freeze on one machine) takes 5.2 s with a warm cache and 13.7 s with an empty one. Building the reference index for one release and target, once: 29 to 40 s and 149 to 197 MB of downloads (2.1 GB for all 14 targets of the benchmark).
+- Cost. The benchmark timer covers only the in-process verifier call on a tree that is already unpacked and hashed, with a warm reference cache: median 0.05 to 0.11 s per case. The baselines were timed as whole command-line runs (BomTrace up to 0.07 s, Syft up to 1.0 s), so these figures are not comparable with each other. End to end, the command line on the repository example (unpack two images, hash the files its scan covers, verify, write the report; measured after the freeze on one machine) takes 5.2 s with a warm cache and 13.7 s with an empty one. Building the reference index for one release and target, once: 29 to 40 s and 149 to 197 MB of downloads (2.1 GB for all 14 targets of the benchmark).
 <!-- headline:end -->
 
 ### How to read this
@@ -242,6 +243,14 @@ file extension; no check of weights, licences or the runtime a model needs). Out
 images, apk-based releases, vulnerability matching, and any claim about firmware families that were not
 measured. The AI-BOM part is a presence check exercised only by synthetic fixtures (unit tests and
 [examples/aibom/](examples/aibom/)), because the evaluated router images contain no models.
+
+## Known limitations
+
+The full list is [docs/LIMITATIONS.md](docs/LIMITATIONS.md) (one firmware family, seeded errors, a drifting reference, grade A as a verdict under stated rules). Three points about the wording of reports are known and left as they are:
+
+- The `absent` reason for a package whose compared files all equal files of other declared components names the first differing file's owner; it is exact only when one other component owns all of them.
+- The classes `absent_certificate` and `absent_key` also cover declarations whose identity was not resolved (no SHA-256, or a shared subject), and an extracted certificate or key can be listed as undeclared only because no declaration was reconciled to it. The detail text says which case applies.
+- "Files in the image" in the Markdown summary is the number of files in the scan (regular files, without symbolic links and without `usr/lib/opkg/`), not every file of the root filesystem.
 
 ## AI assistance, provenance and license
 
