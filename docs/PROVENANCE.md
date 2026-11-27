@@ -59,6 +59,8 @@ commits was right and is given by git parentage in any case.)
 | `39463a1` | 2026-11-27 08:12 | Refresh docs/PROVENANCE.md |
 | `a0fdd04` | 2026-11-27 08:27 | Say what was compared or matched in twin-file, CBOM and algorithm reasons |
 | `7ccdafe` | 2026-11-27 08:39 | Record the seventh reporting change: reruns, digests, tests, docs, paper |
+| `67518d4` | 2026-11-27 08:39 | Refresh docs/PROVENANCE.md |
+| `45a526e` | 2026-11-27 08:58 | Limit three evidence claims to what the code checks; document known limitations |
 
 The commit that refreshes this file is not listed in it; `git log` is the authority.
 
