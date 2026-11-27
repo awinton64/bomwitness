@@ -352,7 +352,7 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
             if skipped:
                 t += f"; {skipped} configuration or account file(s) differ and are not compared"
             if len(present) < len(pl["files"]):
-                t += f"; {len(pl['files']) - len(present)} of the package's {len(pl['files'])} files are not in the image"
+                t += f"; {len(pl['files']) - len(present)} of the package's {len(pl['files'])} files were not found among the image files compared"
             if present and not same:
                 t += "; no file was positively matched, so grade A here means only that no compared file differs"
             return t
@@ -372,12 +372,12 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
             if skipped:
                 t += f"; {skipped} configuration or account file(s) differ and are not compared"
             if len(present) < len(pl["files"]):
-                t += f"; {len(pl['files']) - len(present)} of the package's {len(pl['files'])} files are not in the image"
+                t += f"; {len(pl['files']) - len(present)} of the package's {len(pl['files'])} files were not found among the image files compared"
             return t
         if not pl["files"]:
             return dict(out, verdict="unverifiable", reason="metadata-only package with no files to check")
         if not present and not siblings:
-            return dict(out, verdict="absent", grade="A", reason="none of the reference package's files exist in the firmware")
+            return dict(out, verdict="absent", grade="A", reason="none of the reference package's files was found among the firmware files this tool compares")
 
         if not use_hashes:      # ablation: grade B evidence only
             here = present + sib_paths
@@ -416,8 +416,8 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
             if dbd:
                 rel, aver, n_cmp, n_diff, n_alt, key = dbd
                 how = (f"has different bytes in {n_diff} of the {n_cmp} file(s) compared" if n_cmp else
-                       f"has none of its {n_alt} file(s) in the image apart from configuration and account files, "
-                       f"so no file was compared")
+                       f"has none of its {n_alt} file(s) compared: no file it ships is both present in the image and "
+                       f"among the files this tool compares")
                 return dict(out, verdict="wrong_version", grade="A", actual_version=vr,
                             evidence={"input": f"release {rel} feed", "trust": "signed reference", "version": aver, "files": n_cmp},
                             reason=f"the files present match this release's reference build {vr}; the {rel} release build of the declared "
@@ -437,15 +437,15 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
                 return dict(out, verdict="verified_A", grade="A", label_source="release snapshot",
                             reference_version=snap_hit[1], feed_version=vr, snapshot=snap_hit[0], evidence=snap_hit[4],
                             reason=f"{len(snap_hit[2])} file(s) present have the SHA-256 recorded for this package in {snap_hit[3]} "
-                                   f"({snap_hit[1]}; configuration files not compared; {snap_hit[5]} file(s) recorded for the package); "
+                                   f"({snap_hit[1]}; {snap_hit[5]} file(s) recorded for the package, {len(snap_hit[2])} of them compared); "
                                    f"the shared feed has since moved to {vr}"
                                    if not same_version(ver, vr) else
                                    f"{len(snap_hit[2])} file(s) present have the SHA-256 recorded for this package in {snap_hit[3]} "
-                                   f"(configuration files not compared; {snap_hit[5]} file(s) recorded for the package); "
+                                   f"({snap_hit[5]} file(s) recorded for the package, {len(snap_hit[2])} of them compared); "
                                    "the shared feed's copy of this version was republished with different bytes")
             return dict(out, verdict="wrong_version", grade="A", actual_version=snap_hit[1], evidence=snap_hit[4],
                         reason=f"{len(snap_hit[2])} file(s) present have the SHA-256 of the build that {snap_hit[3]} labels {snap_hit[1]} "
-                               f"(configuration files not compared; {snap_hit[5]} file(s) recorded for the package)")
+                               f"({snap_hit[5]} file(s) recorded for the package, {len(snap_hit[2])} of them compared)")
         if differ and ref.has_path_index:
             def twin(p, only_declared):
                 """Another reference package that ships this exact file at this path."""
@@ -455,7 +455,7 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
                 owner = twin(differ[0], True)[0]
                 return dict(out, verdict="absent", grade="A",
                             reason=f"each of the {len(present)} file(s) present at this package's paths has the SHA-256 of another declared "
-                                   f"component's file ({owner}); nothing of this package is present")
+                                   f"component's file ({owner}); no file at this package's paths is attributable to this package alone")
             others = [set(twin(p, False)) for p in differ]
             common = set.intersection(*others) if others else set()
             if common:
@@ -496,7 +496,7 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
             return dict(out, verdict="wrong_version", grade="B", actual_version=vr if found else None,
                         reason="declared version marker absent from files that carry one in reference builds")
         return dict(out, verdict="unverifiable",
-                    reason="the reference feed has moved to another version and the files carry no version marker")
+                    reason="the reference feed has moved to another version and no version marker evidence settles which version the files are")
 
     for c in declared:
         name, ver = c["name"], c["version"]

@@ -284,7 +284,7 @@ def test_grade_a_reason_states_masking_exclusions_and_partial_presence(rootfs, t
     # a package that is only partly present still passes at grade A, and the reason gives the missing count
     (rootfs / "etc/banner").unlink()
     r = reason(verify(rootfs, truth, ref), "base-files")
-    assert r.startswith("0 of the 1 package file(s) present") and "1 of the package's 2 files are not in the image" in r
+    assert r.startswith("0 of the 1 package file(s) present") and "1 of the package's 2 files were not found among the image files compared" in r
 
 
 def test_report_text_does_not_call_grade_a_byte_identity():
@@ -584,6 +584,10 @@ def test_snapshot_and_feed_attribution_are_merged_without_a_path_index(release_r
     assert hard(verify(fw, bom, r, snapshots=[snap])) == {("undeclared_component", "gamma")}
 
 
+NONE_COMPARED = ("has none of its {n} file(s) compared: no file it ships is both present in the image and among the files "
+                 "this tool compares")
+
+
 def test_other_release_with_no_comparable_file_says_none_compared(other_release, tmp_path, signer):
     """Round 6 reviewer's case: the only file the 98.01.0 build shares with the image is a configuration file, which is
     not compared. The detail must say no file was compared, not that none of its files is present."""
@@ -602,6 +606,56 @@ def test_other_release_with_no_comparable_file_says_none_compared(other_release,
     rep = verify(fw, swap(fakefeed.claims(names, pk), "duo", "1.9-r1"), r, [alt], use_markers=False)
     f = next(f for f in rep["findings"] if f["class"] == "wrong_version" and f["component"] == "duo")
     assert f["evidence"]["files"] == 0
-    assert ("has none of its 2 file(s) in the image apart from configuration and account files, so no file was compared"
-            in f["detail"])
+    assert NONE_COMPARED.format(n=2) in f["detail"]
     assert "has none of its 2 file(s) in the image (" not in f["detail"]     # the round 6 wording
+    assert "apart from" not in f["detail"]                                   # the round 7 wording, which listed what is excluded
+
+
+def test_other_release_detail_does_not_list_what_is_excluded(other_release, tmp_path, signer):
+    """Round 7 reviewer's case: the other release's build also ships a byte-identical regular file under usr/lib/opkg/,
+    which the image scan skips, and the image holds it. Round 7's detail said that no file was in the image apart from
+    configuration and account files; that is false here. The detail must say only that no file was compared."""
+    root = tmp_path / "rel4"
+    pk = dict(fakefeed.DEFAULT_PACKAGES)
+    pk["duo"] = ("base", "2.0-r1", {"usr/bin/duo": fakefeed.elf(b"duo tool 2.0 build"), "etc/config/duo": b"config duo\n"}, "")
+    old = dict(pk)
+    record = b"release record\n"
+    old["duo"] = ("base", "1.9-r1", {"usr/lib/old-duo.dat": b"old data\n", "etc/config/duo": b"config duo\n",
+                                    "usr/lib/opkg/info/duo.release-record": record}, "")
+    fakefeed.make_release(root, signer, packages=pk)
+    fakefeed.make_release(root, signer, release="98.01.0", packages=old)
+    r = fakefeed.reference(root, signer, tmp_path / "c4")
+    alt = fakefeed.reference(root, signer, tmp_path / "c4", release="98.01.0")
+    names = INSTALLED + ["duo"]
+    fw = fakefeed.make_rootfs(tmp_path / "fw5", names, pk)
+    held = fw / "usr/lib/opkg/info/duo.release-record"
+    held.parent.mkdir(parents=True, exist_ok=True)
+    held.write_bytes(record)
+    assert held.is_file() and not held.is_symlink() and held.read_bytes() == record     # present on disk
+    assert "usr/lib/opkg/info/duo.release-record" not in scan_rootfs(fw)               # and skipped by the scan
+    rep = verify(fw, swap(fakefeed.claims(names, pk), "duo", "1.9-r1"), r, [alt], use_markers=False)
+    f = next(f for f in rep["findings"] if f["class"] == "wrong_version" and f["component"] == "duo")
+    assert f["evidence"]["files"] == 0
+    assert NONE_COMPARED.format(n=3) in f["detail"]
+    assert "apart from" not in f["detail"] and "configuration and account" not in f["detail"]
+    assert "none of its 3 file(s) in the image" not in f["detail"]
+
+
+def test_absence_wording_does_not_claim_more_than_the_compared_files(tmp_path, signer):
+    """A reference file under a path the scan skips (usr/lib/opkg/) can be on disk. No reason may say it is not in the
+    image or the firmware; it says it was not found among the files compared."""
+    root = tmp_path / "rel5"
+    pk = dict(fakefeed.DEFAULT_PACKAGES)
+    pk["duo"] = ("base", "2.0-r1", {"usr/lib/opkg/info/duo.record": b"record\n", "usr/lib/opkg/duo-extra": b"extra\n"}, "")
+    fakefeed.make_release(root, signer, packages=pk)
+    r = fakefeed.reference(root, signer, tmp_path / "c5")
+    names = INSTALLED + ["duo"]
+    fw = fakefeed.make_rootfs(tmp_path / "fw6", names, pk)
+    for rel in ("usr/lib/opkg/info/duo.record", "usr/lib/opkg/duo-extra"):
+        (fw / rel).parent.mkdir(parents=True, exist_ok=True)
+        (fw / rel).write_bytes(b"record\n" if rel.endswith("record") else b"extra\n")
+        assert (fw / rel).is_file()
+    rep = verify(fw, fakefeed.claims(names, pk), r)
+    text = next(c for c in rep["components"] if c["name"] == "duo")["reason"]
+    assert text == "none of the reference package's files was found among the firmware files this tool compares"
+    assert "exist in the firmware" not in text and "not in the image" not in text

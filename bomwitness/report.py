@@ -13,7 +13,7 @@ VERDICT_TEXT = {
     "verified_B": "verified by a version marker in the bytes",
     "wrong_version": "wrong version",
     "wrong_component": "wrong component",
-    "absent": "absent from the firmware",
+    "absent": "absent: no file of the package was found among the firmware files compared",
     "bytes_differ": "bytes differ from the reference build (review)",
     "label_unconfirmed": "compared files match, version label not confirmed (review)",
     "unverifiable": "unverifiable",

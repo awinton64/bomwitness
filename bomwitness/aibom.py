@@ -60,7 +60,7 @@ def verify_aibom(rootfs: Path, models: list[dict]) -> list[dict]:
             matched.add(fp)
         else:
             findings.append({"class": "absent_model", "asset": m.get("name"), "grade": "A",
-                             "detail": "no model file with the declared SHA-256 is in the firmware" if fp
+                             "detail": "none of the model files this tool found in the firmware has the declared SHA-256" if fp
                              else "the declared model carries no SHA-256, so it cannot be matched to a file"})
     for fp, m in seen.items():
         if fp not in matched:
