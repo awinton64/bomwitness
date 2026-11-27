@@ -33,9 +33,17 @@ packages are not signed individually.
 What the tool does not authenticate, and therefore assumes:
 
 - A snapshot JSON file passed with `--snapshot` is a local input and is used as supplied.
-- A sibling image passed with `--sibling-image` is looked up by SHA-256 in the signed `profiles.json`. The
-  report says whether it was found; an unlisted image is still used, with a warning. The benchmark fetches
-  its siblings itself and always checks them against `profiles.json` (`bench/prepare.py`).
+- A sibling image passed with `--sibling-image` is looked up by SHA-256 in `profiles.json`, the image list.
+  The signature is on `sha256sums`; `profiles.json` is checked by its hash in that file and has no
+  signature of its own. The command's output and the report say whether the image was found; an unlisted
+  image is still used, with a warning. The benchmark fetches its siblings itself and always checks them
+  against `profiles.json` (`bench/prepare.py`).
+- The result of that lookup travels with the snapshot into the verifier as a trust flag (`authenticated`,
+  `unlisted` or `supplied`; a snapshot file is always `supplied`, whatever it says about itself). The flag
+  never changes a verdict. It changes the words: a reason that rests on an unauthenticated snapshot says
+  "the supplied snapshot (not authenticated by this run)" or "the supplied sibling image (not
+  authenticated ...)", and no reason calls such a source official. The benchmark passes snapshot files, so
+  its recorded reasons use the "supplied" wording even though `bench/prepare.py` checked every sibling.
 - The reference cache is verified when an item is first fetched and trusted afterwards. Anyone who can
   write to the cache directory can change verdicts.
 
@@ -47,7 +55,7 @@ run-time behaviour.
 
 | Grade | Evidence | Role |
 |---|---|---|
-| A | The package's files that are present in the image are byte-identical to the files in the publisher's package (index authenticated as above, then per-file SHA-256). Not compared: configuration files (`conffiles`) and `etc/passwd`, `etc/group`, `etc/shadow`. Accepted as identical: a file that differs from the reference only inside embedded date and time strings. Not required: that every file of the package is present. The label for those bytes comes from the feed index, the release manifest, or an official sibling image. | Decides verdicts |
+| A | The package's files that are present in the image have the SHA-256 of the files in the publisher's package (index authenticated as above, then per-file SHA-256), or the hash recorded for that package in a sibling snapshot. Not compared: configuration files (`conffiles`) and `etc/passwd`, `etc/group`, `etc/shadow`, when they differ. Accepted as a match: a file that differs from the reference only inside embedded date and time strings, which are masked before comparison. Not required: that every file of the package is present. So grade A is a match of the compared, present files, not byte identity of the whole package; the reason text of each grade A verdict gives the counts. The label for those bytes comes from the feed index, the release manifest, or a sibling image (authenticated or supplied, as stated in the reason). | Decides verdicts |
 | B | Intrinsic to the bytes: the version marker that the reference build of the same component carries, versioned file names, SONAMEs, algorithm names | Decides verdicts when A is not available; always labelled B |
 | C | The device's own package database | Shown in its own report section, never decides a verdict |
 
@@ -65,8 +73,10 @@ run-time behaviour.
    version of every default package at release time. It gives labels that the shared feed has since changed.
 4. **Sibling snapshot.** Another official image of the same release and target still carries the bytes the
    release was built from. Its file hashes and package lists restore grade A evidence for components whose
-   feed copy has moved on. Its package lists are the publisher's statement inside a signed artifact, not
-   the device under test describing itself.
+   feed copy has moved on. When the image's SHA-256 is in the image list that the signed checksum file
+   pins, its package lists are the publisher's statement inside a hash-pinned artifact, not the device
+   under test describing itself. An image that is not listed, or a snapshot file, is evidence only as far
+   as the person who supplied it is trusted, and the report says which case applies.
 
 `bench/drift.py` measures how much each source contributes as an image ages.
 
@@ -78,14 +88,14 @@ ABI suffix such as `libubox` for `libubox20240329`, `Provides`, or source packag
 | Situation | Verdict |
 |---|---|
 | No file of the reference package is in the firmware | `absent` |
-| Every file that is present and compared (see grade A above) is byte-identical and the declared version equals the feed label, the manifest label or the sibling image's label (a version without OpenWrt's `-rN` release suffix is accepted at upstream granularity) | `verified_A` |
-| Every file is byte-identical, the label differs, and the feed is frozen, or the manifest or the sibling image names another version, or the official build of the declared version in another release has different bytes | `wrong_version` (A) |
-| Every file is byte-identical, the label differs, and nothing pins the label | `label_unconfirmed` (review) |
+| Every file that is present and compared matches (see grade A above for what is not compared and what is masked) and the declared version equals the feed label, the manifest label or the sibling image's label (a version without OpenWrt's `-rN` release suffix is accepted at upstream granularity) | `verified_A` |
+| Every compared file matches, the label differs, and the feed is frozen, or the manifest or the sibling image names another version, or the publisher's build of the declared version in another release has different bytes | `wrong_version` (A) |
+| Every compared file matches, the label differs, and nothing pins the label | `label_unconfirmed` (review) |
 | Bytes differ from the feed copy but equal the sibling image's build | `verified_A` or `wrong_version`, by that build's label |
-| Bytes differ only inside embedded date and time strings | treated as identical, noted in the report |
-| Every file at the component's paths is byte-identical to another declared component | `absent` |
-| The differing files are byte-identical to another reference package | `wrong_component` |
-| Bytes equal another release's official build | `verified_A` or `wrong_version`, by that build's label |
+| Bytes differ only inside embedded date and time strings | treated as a match; the reason text counts such files |
+| Every file present at the component's paths has the SHA-256 of another declared component's file | `absent` |
+| The differing files have the SHA-256 of another reference package's files | `wrong_component` |
+| A differing file has the SHA-256 of the same package's build in another release (`--alt-release`) | `verified_A` or `wrong_version`, by that build's label |
 | Same label as the reference, different bytes, reference build carries a version marker the firmware files lack | `wrong_version` (B) |
 | Same label as the reference (or as the sibling image), different bytes | `bytes_differ` (review) |
 | Feed moved to another version, firmware files carry the declared version marker | `verified_B` |
@@ -104,8 +114,11 @@ Certificates and keys are found by parsing, algorithms by name inside the bytes 
 what the CBOM declares. No signed reference is involved, except indirectly through the provider rule, which
 accepts a provider that the SBOM check verified at grade A or grade B. Declared CBOM entries are checked:
 
-- a declared certificate or key must be in the image with the declared properties, and one found in the
-  image must be declared;
+- a declared certificate is matched to one in the image by SHA-256 fingerprint (or by subject when the
+  declaration has no fingerprint and the subject is unique) and then compared field by field: key
+  algorithm and size, signature hash, expiry. A certificate found in the image must be declared;
+- a standalone key is reconciled by fingerprint only: a declared fingerprint must be in the image and a key
+  in the image must be declared. No further field of a key is compared;
 - a declared algorithm must name a providing component; that component must be in the SBOM
   (`provider_not_in_sbom`), its bytes must have verified (`provider_unverified`), and one of its files must
   carry the algorithm's name (`algorithm_not_evidenced`);

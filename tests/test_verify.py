@@ -217,6 +217,82 @@ def test_patch_against_snapshot_is_bytes_differ(drifted, ref):
     assert ("bytes_differ", "gamma") in hard(verify(fw, bom, ref, snapshots=[snap]))
 
 
+# ---- trust of a snapshot: wording only ----------------------------------------------------------------------
+def _texts(rep):
+    return " | ".join([c.get("reason", "") for c in rep["components"]] + [f["detail"] for f in rep["findings"]])
+
+
+@pytest.mark.parametrize("case", ["correct", "wrong_label", "patched", "omitted"])
+def test_snapshot_trust_changes_reason_text_and_never_a_verdict(drifted, ref, case):
+    fw, bom, snap = drifted
+    if case == "wrong_label":
+        bom = swap(bom, "gamma", "2023.12.02~aaa-r1")
+    elif case == "patched":
+        (fw / "usr/bin/gamma").write_bytes(fakefeed.elf(b"gamma tool older buile"))
+    elif case == "omitted":
+        bom = [c for c in bom if c["name"] != "gamma"]
+    reps = {}
+    for trust in ("authenticated", "unlisted", "supplied", None, "official"):       # None: no field; "official": not a known value
+        s = {k: v for k, v in snap.items() if k != "trust"}
+        if trust is not None:
+            s["trust"] = trust
+        reps[trust] = verify(fw, bom, ref, snapshots=[s])
+    base = reps["authenticated"]
+    for trust, rep in reps.items():
+        assert verdicts(rep) == verdicts(base) and hard(rep) == hard(base)
+        assert [(f["class"], f["component"], f["grade"]) for f in rep["findings"]] == [(f["class"], f["component"], f["grade"]) for f in base["findings"]]
+        assert rep["summary"]["verdicts"] == base["summary"]["verdicts"]
+        text = _texts(rep)
+        assert "official" not in text                      # no source is called official, whatever the caller passes
+        if trust != "authenticated":
+            assert "(authenticated:" not in text
+    assert reps["authenticated"]["options"]["snapshot_trust"] == ["authenticated"]
+    assert reps["unlisted"]["options"]["snapshot_trust"] == ["unlisted"]
+    assert reps[None]["options"]["snapshot_trust"] == reps["official"]["options"]["snapshot_trust"] == ["supplied"]
+    if case != "omitted":                                  # gamma's verdict rests on the snapshot in these three cases
+        def reason(trust):
+            return next(c["reason"] for c in reps[trust]["components"] if c["name"] == "gamma")
+        assert "the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file)" in reason("authenticated")
+        assert "the supplied sibling image (not authenticated: it is not in the image list" in reason("unlisted")
+        for trust in ("supplied", None, "official"):
+            assert "the supplied snapshot (not authenticated by this run)" in reason(trust)
+
+
+def test_snapshot_from_rootfs_defaults_to_supplied_and_rejects_unknown_trust(rootfs):
+    assert snapshot_from_rootfs(rootfs, "a tree")["trust"] == "supplied"
+    assert snapshot_from_rootfs(rootfs, "a tree", trust="authenticated")["trust"] == "authenticated"
+    with pytest.raises(AssertionError):
+        snapshot_from_rootfs(rootfs, "a tree", trust="official")
+
+
+# ---- what a grade A reason says about its own scope ----------------------------------------------------------
+def test_grade_a_reason_states_masking_exclusions_and_partial_presence(rootfs, truth, ref):
+    def reason(rep, name):
+        c = next(c for c in rep["components"] if c["name"] == name)
+        assert c["verdict"] == "verified_A"
+        return c["reason"]
+    rep = verify(rootfs, truth, ref)
+    assert reason(rep, "alpha") == "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
+    assert "byte-identical" not in _texts(rep) and "every file" not in _texts(rep)
+    # a file accepted only because its differences are inside build-date strings is counted as such
+    (rootfs / "usr/bin/stamp").write_bytes(fakefeed.elf(b"stamp 1.0 built (2026-07-24 07:21:50 UTC) end"))
+    assert "(1 of them only after embedded build-date strings are masked)" in reason(verify(rootfs, truth, ref), "stamp")
+    # a changed configuration file is not compared, and the reason says so
+    (rootfs / "etc/config/system").write_bytes(b"config system\n\toption hostname 'changed'\n")
+    r = reason(verify(rootfs, truth, ref), "base-files")
+    assert r.startswith("1 of the 2 package file(s) present") and "1 configuration or account file(s) differ and are not compared" in r
+    # a package that is only partly present still passes at grade A, and the reason gives the missing count
+    (rootfs / "etc/banner").unlink()
+    r = reason(verify(rootfs, truth, ref), "base-files")
+    assert r.startswith("0 of the 1 package file(s) present") and "1 of the package's 2 files are not in the image" in r
+
+
+def test_report_text_does_not_call_grade_a_byte_identity():
+    from bomwitness import report
+    assert "byte-identical" not in " ".join(report.VERDICT_TEXT.values())
+    assert "compared files" in report.VERDICT_TEXT["verified_A"]
+
+
 def test_snapshot_attributes_omitted_component(drifted, ref):
     fw, bom, snap = drifted
     rep = verify(fw, [c for c in bom if c["name"] != "gamma"], ref, snapshots=[snap])

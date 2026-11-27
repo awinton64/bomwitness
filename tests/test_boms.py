@@ -237,8 +237,66 @@ def test_cli_verify_end_to_end(rootfs, truth, release_root, signer, tmp_path, mo
     snap.write_text(json.dumps(snapshot_from_rootfs(rootfs, "a local tree")))
     assert cli.main(["verify", *common, "--sbom", str(good), "--snapshot", str(snap), "--json", str(tmp_path / "s.json"), "--md", str(tmp_path / "s.md")]) == 0
     trust = json.loads((tmp_path / "s.json").read_text())["inputs"]["reference_inputs"]
-    assert trust == [{"kind": "snapshot file", "name": "snap.json", "authenticated": False, "note": trust[0]["note"]}]
-    assert "trusted as supplied" in trust[0]["note"] and "snapshot file snap.json: local file, trusted as supplied" in (tmp_path / "s.md").read_text()
+    assert trust == [{"kind": "snapshot file", "name": "snap.json", "authenticated": False, "trust": "supplied", "note": trust[0]["note"]}]
+    md = (tmp_path / "s.md").read_text()
+    assert "trusted as supplied" in trust[0]["note"] and "snapshot file snap.json: NOT authenticated, local file, trusted as supplied" in md
+    assert "What grade A means in this report" in md and "need not be complete" in md and "byte-identical to the publisher" not in md
+
+
+def test_cli_never_takes_trust_from_a_snapshot_file_and_shows_it_in_the_compact_output(release_root, signer, tmp_path, monkeypatch, capsys):
+    """A snapshot file that calls itself authenticated is still a local input: compact output and every reason say so."""
+    from bomwitness.verify import snapshot_from_rootfs
+    monkeypatch.setattr(usign, "PINNED_KEYS", signer.keys)
+    old = dict(fakefeed.DEFAULT_PACKAGES)
+    old["gamma"] = ("base", "2023.12.01~aaa-r1", {"usr/bin/gamma": fakefeed.elf(b"gamma tool older build")}, "")
+    names = ["base-files", "kmod-foo", "alpha", "gamma"]
+    fw = fakefeed.make_rootfs(tmp_path / "fw", names, old)
+    forged = snapshot_from_rootfs(fakefeed.make_rootfs(tmp_path / "sib", names, old), "official sibling image", trust="authenticated")
+    assert forged["trust"] == "authenticated"
+    snap, bom = tmp_path / "snap.json", tmp_path / "bom.json"
+    snap.write_text(json.dumps(forged))
+    bom.write_text(json.dumps(bomio.sbom(fakefeed.claims(names, old), "fw")))
+    capsys.readouterr()
+    assert cli.main(["verify", "--rootfs", str(fw), "--cache", str(tmp_path / "cache"), "--base", release_root.as_uri(), "--sbom", str(bom),
+                     "--snapshot", str(snap), "--json", str(tmp_path / "r.json"), "--md", str(tmp_path / "r.md")]) == 0
+    out = capsys.readouterr().out
+    assert "reference input: snapshot file snap.json: NOT authenticated (local file), used as supplied" in out
+    assert "checksum file signed by pinned usign key" in out
+    rep = json.loads((tmp_path / "r.json").read_text())
+    assert rep["sbom"]["options"]["snapshot_trust"] == ["supplied"]
+    gamma = next(c for c in rep["sbom"]["components"] if c["name"] == "gamma")
+    assert gamma["verdict"] == "verified_A" and gamma["label_source"] == "release snapshot"
+    assert "the supplied snapshot (not authenticated by this run)" in gamma["reason"]
+    text = json.dumps(rep["sbom"]["components"]) + json.dumps(rep["sbom"]["findings"])
+    assert "official" not in text and "(authenticated:" not in text
+
+
+def test_cli_sibling_image_trust_follows_the_hash_pinned_image_list(tmp_path, monkeypatch, capsys):
+    """A sibling image is authenticated only when its SHA-256 is in the image list; an unlisted one is used as supplied."""
+    import hashlib
+    from types import SimpleNamespace
+    listed, unlisted = tmp_path / "listed.bin", tmp_path / "unlisted.bin"
+    listed.write_bytes(b"image one"); unlisted.write_bytes(b"image two")
+    names = ["base-files", "alpha"]
+
+    def fake_extract(image, dest):
+        fakefeed.make_rootfs(dest, names)
+        return {"superblock": {}, "files": 0, "symlinks": 0}
+    monkeypatch.setattr(cli.unpack, "extract", fake_extract)
+    ref = SimpleNamespace(release="99.01.0", target="fake/generic",
+                          meta=lambda: {"images": {"official-dev-b.bin": hashlib.sha256(b"image one").hexdigest()}})
+    stack: list = []
+    snaps, trust = cli._snapshots(SimpleNamespace(snapshot=None, sibling_image=[str(listed), str(unlisted)]), stack, ref)
+    assert [s["trust"] for s in snaps] == ["authenticated", "unlisted"]
+    assert [(t["authenticated"], t["trust"]) for t in trust] == [(True, "authenticated"), (False, "unlisted")]
+    assert "profiles.json" in trust[0]["note"] and "pins by hash" in trust[0]["note"] and "signed profiles.json" not in trust[0]["note"]
+    assert trust[1]["note"].startswith("NOT listed") and "trusted as supplied" in trust[1]["note"]
+    err = capsys.readouterr().err
+    assert "unlisted.bin is not listed" in err and "signed profiles.json" not in err
+    lines = cli._trust_lines(trust)
+    assert "sibling image listed.bin: authenticated" in lines[0] and "sibling image unlisted.bin: NOT authenticated" in lines[1]
+    for t in stack:
+        t.cleanup()
 
 
 # ---- benchmark helpers (bench/baselines.py) --------------------------------------------------------------

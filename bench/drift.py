@@ -1,4 +1,4 @@
-"""Reference drift over time: how much of an older release image can still be confirmed byte for byte?
+"""Reference drift over time: how much of an older release image can still be verified at grade A?
 
 The shared package feed of a release series is rebuilt and relabelled after each point release. This script
 takes the same device across the point releases of two series, verifies a correct BOM for each image against

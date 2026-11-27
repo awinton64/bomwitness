@@ -3,8 +3,13 @@
 `bomwitness verify` checks every claim in the declared BOM against the bytes of the unpacked firmware and
 grades the evidence:
 
-- **A**: the component's files are byte-identical to the publisher's package (signed index, per-file SHA-256),
-  with the version label taken from the feed index, the release manifest (pinned by the signed checksum file) or the official sibling image.
+- **A**: the component's files that are present in the image have the SHA-256 of the publisher's package
+  (authenticated index, per-file SHA-256). Configuration files that differ are not compared, a file that
+  differs only inside embedded build-date strings is accepted, and the package need not be complete; each
+  grade A line of the report gives the counts. The version label is taken from the feed index, the release
+  manifest (pinned by the signed checksum file) or the sibling image. `analyze.sh` passes the sibling with
+  `--sibling-image`, so the run itself looks the image's SHA-256 up in the release's image list and the
+  report says it was authenticated.
 - **B**: evidence inside the bytes themselves, such as the version marker that the reference build carries.
 - **C**: the device's own package database. It is shown in its own section of the report and never decides
   a verdict, so a database that was edited to agree with a wrong BOM, or removed, changes nothing.
@@ -19,5 +24,5 @@ The verification code is the `bomwitness` Python package at the root of the BOMw
 (`bomwitness/verify.py`, `crypto.py`, `aibom.py`, `devicedb.py`). `analyze.sh` runs it on the two example
 declarations.
 
-Consumes: `.work/rootfs/`, `.work/snapshot.json`, the reference cache and the declared BOMs.
+Consumes: `.work/rootfs/`, the sibling image in `.work/objects/`, the reference cache and the declared BOMs.
 Produces: a JSON report and a Markdown report per declared BOM.

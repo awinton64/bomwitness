@@ -110,7 +110,9 @@ def build() -> dict:
     assert sum(verdicts.values()) == claims
     wrong = [x for v in ob.values() for x in v["not_verified"] if x["verdict"] == "wrong_version"]
     kernel_only = [x for x in wrong if x["name"].startswith("kmod-")
-                   and any("bytes are the reference build " + x["declared_version"] + sep in x["reason"] for sep in (".", "+"))]
+                   and any(pre + x["declared_version"] + sep in x["reason"] for sep in (".", "+")
+                           # the committed result file has the first wording; the tool now writes the second
+                           for pre in ("bytes are the reference build ", "the files present match the reference build "))]
     differ = sorted({x["name"] for v in ob.values() for x in v["not_verified"] if x["verdict"] == "bytes_differ"})
     out["official_bom"] = {
         "images": len(ob), "claims": claims, "verdicts": dict(sorted(verdicts.items())),

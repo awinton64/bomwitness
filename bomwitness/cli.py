@@ -47,35 +47,53 @@ def _base(args) -> dict:
 def _snapshots(args, stack: list, ref: Reference) -> tuple[list[dict], list[dict]]:
     """Release snapshots plus a record of how far each one was authenticated.
 
-    A sibling image is authenticated when its SHA-256 is listed for this release and target in profiles.json,
-    which the usign-signed sha256sums pins. A snapshot JSON file is a local input and is trusted as supplied.
+    The usign signature is on the target's sha256sums. That file pins profiles.json (the image list) by hash, and
+    profiles.json lists the SHA-256 of every image. A sibling image is authenticated when its SHA-256 is in that
+    list for this release and target. A snapshot JSON file is a local input and is trusted as supplied, whatever
+    it says about itself. Each snapshot's "trust" field is set here and passed into verify(), so that reason
+    text never describes an unauthenticated source as official.
     """
     snaps, trust = [], []
     official = {v: k for k, v in ref.meta().get("images", {}).items()}
+    where = f"the image list (profiles.json) of {ref.release} {ref.target}, which the signed sha256sums pins by hash"
     for p in args.snapshot or []:
         snap = json.loads(Path(p).read_text())
+        snap["trust"] = "supplied"          # never taken from the file
+        snap["source"] = f"snapshot file {Path(p).name}"        # nor is the name the file gives its own origin
         snaps.append(snap)
         note = "local file, trusted as supplied; make it with `bomwitness snapshot` from an image you have checked"
         origin = (snap.get("made_from") or {}).get("sha256")
         if origin:
             note = ("local file, trusted as supplied; it records that it was made from an image with SHA-256 " + origin[:16] + "..., which is "
-                    + (f"listed as {official[origin]} in the signed profiles.json of {ref.release} {ref.target}" if origin in official else
-                       f"NOT listed in the signed profiles.json of {ref.release} {ref.target}"))
-        trust.append({"kind": "snapshot file", "name": Path(p).name, "authenticated": False, "note": note})
+                    + (f"listed as {official[origin]} in {where}" if origin in official else f"NOT listed in {where}")
+                    + "; that record is part of the file and was not checked against an image")
+        trust.append({"kind": "snapshot file", "name": Path(p).name, "authenticated": False, "trust": "supplied", "note": note})
     for img in args.sibling_image or []:
         digest = hashlib.sha256(Path(img).read_bytes()).hexdigest()
         td = tempfile.TemporaryDirectory()
         stack.append(td)
         unpack.extract(Path(img), Path(td.name) / "rootfs")
-        snaps.append(snapshot_from_rootfs(Path(td.name) / "rootfs", f"sibling image {Path(img).name}"))
         ok = digest in official
+        snaps.append(snapshot_from_rootfs(Path(td.name) / "rootfs", f"sibling image {Path(img).name}",
+                                          trust="authenticated" if ok else "unlisted"))
         trust.append({"kind": "sibling image", "name": Path(img).name, "sha256": digest, "authenticated": ok,
-                      "note": (f"listed as {official[digest]} in the signed profiles.json of {ref.release} {ref.target}" if ok else
-                               f"NOT listed in the signed profiles.json of {ref.release} {ref.target}; trusted as supplied")})
+                      "trust": "authenticated" if ok else "unlisted",
+                      "note": (f"listed as {official[digest]} in {where}" if ok else f"NOT listed in {where}; trusted as supplied")})
         if not ok:
-            print(f"warning: sibling image {Path(img).name} is not an official image of {ref.release} {ref.target} "
-                  "according to the signed profiles.json; it is used as supplied", file=sys.stderr)
+            print(f"warning: sibling image {Path(img).name} is not listed for {ref.release} {ref.target} in the image list "
+                  "(profiles.json) that the signed sha256sums pins by hash; it is used as supplied", file=sys.stderr)
     return snaps, trust
+
+
+def _trust_lines(trust: list[dict]) -> list[str]:
+    """One line per reference input for the compact output: was it authenticated, or used as supplied."""
+    out = []
+    for t in trust:
+        state = {"authenticated": "authenticated (SHA-256 in the image list pinned by the signed sha256sums)",
+                 "unlisted": "NOT authenticated (not in the image list pinned by the signed sha256sums), used as supplied",
+                 "supplied": "NOT authenticated (local file), used as supplied"}[t["trust"]]
+        out.append(f"  reference input: {t['kind']} {t['name']}: {state}")
+    return out
 
 
 def cmd_verify(args) -> int:
@@ -111,6 +129,10 @@ def cmd_verify(args) -> int:
     t = rep["triage"]
     print(f"{subject['name']}: {len(claims)} declared; pass {t['automatic_pass']}, fail {t['automatic_fail']}, "
           f"review {t['needs_review']}, unverifiable {t['unverifiable']}")
+    print(f"  reference: OpenWrt {ref.release} {ref.target}, checksum file signed by pinned usign key "
+          f"{ref.provenance().get('sha256sums_signed_by')}")
+    for line in _trust_lines(trust):
+        print(line)
     for f in sbom["findings"]:
         if f["class"] in HARD:
             print(f"  {f['class']:22s} {f['component']:32s} [{f['grade']}] {f['detail'][:110]}")
@@ -175,9 +197,12 @@ def _common(p):
     p.add_argument("--offline", action="store_true", help="use only cached reference data")
     p.add_argument("--base", help="base URL of a release mirror (default: downloads.openwrt.org/releases)")
     p.add_argument("--no-manifest", action="store_true", help="do not use the publisher's release manifest for version labels")
-    p.add_argument("--snapshot", action="append", help="release snapshot JSON made by `bomwitness snapshot` (repeatable); a local file, trusted as supplied")
+    p.add_argument("--snapshot", action="append", help="release snapshot JSON made by `bomwitness snapshot` (repeatable); a local file, trusted as supplied "
+                                                         "and described as not authenticated in every finding")
     p.add_argument("--sibling-image", action="append", help="official image of another device of the same release and target (repeatable); its SHA-256 is "
-                                                              "looked up in the signed profiles.json and the report says whether it was found")
+                                                              "looked up in the image list (profiles.json, pinned by hash in the signed sha256sums) and "
+                                                              "the output says whether it was found; an unlisted image is used as supplied and is "
+                                                              "described that way in every finding")
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -212,7 +237,7 @@ def main(argv: list[str] | None = None) -> int:
     i.add_argument("--out", required=True)
     i.add_argument("--with-cbom", action="store_true")
     i.set_defaults(fn=cmd_inventory)
-    x = sub.add_parser("index", help="build the signed reference cache and file-path index for a release and target")
+    x = sub.add_parser("index", help="build the authenticated reference cache and file-path index for a release and target")
     x.add_argument("--release", required=True); x.add_argument("--target", required=True)
     x.add_argument("--cache", default=str(Path.home() / ".cache/bomwitness"))
     x.add_argument("--base", help="base URL of a release mirror")
@@ -220,7 +245,7 @@ def main(argv: list[str] | None = None) -> int:
     u = sub.add_parser("unpack", help="carve and extract the SquashFS root filesystem of an image")
     u.add_argument("image"); u.add_argument("dest")
     u.set_defaults(fn=cmd_unpack)
-    s = sub.add_parser("snapshot", help="make a release snapshot from an official sibling image")
+    s = sub.add_parser("snapshot", help="make a release snapshot from a sibling image (the file is a local input: verify uses it as supplied)")
     s.add_argument("--image", required=True); s.add_argument("--out", required=True)
     s.set_defaults(fn=cmd_snapshot)
     args = ap.parse_args(argv)

@@ -1,7 +1,7 @@
 {
  "checks": {
   "generated": {
-   "facts": 470,
+   "facts": 476,
    "files": [
     "fig-drift.tex",
     "numbers.json",
@@ -15,7 +15,7 @@
   },
   "source": {
    "literal_numbers_not_allowed": [],
-   "macros_used": 173,
+   "macros_used": 178,
    "allowed_identifiers_present": [
     "1.57.2",
     "2021",
@@ -52,13 +52,13 @@
    ]
   },
   "pdf": {
-   "tokens_with_digits": 589,
+   "tokens_with_digits": 610,
    "explained": {
-    "fact": 454,
-    "allowed": 64,
+    "fact": 473,
+    "allowed": 66,
     "bibliography": 71
    },
-   "distinct_fact_values_seen": 183,
+   "distinct_fact_values_seen": 186,
    "unexplained": [],
    "macros_used_but_value_not_in_pdf": [],
    "references": 25
@@ -66,7 +66,9 @@
   "pages": {
    "pages": 7,
    "body_ends_on_page": 5,
-   "references_start_on_page": null,
+   "acknowledgments_start_on_page": 5,
+   "acknowledgments_end_on_page": 5,
+   "references_start_on_page": 6,
    "limit_body": 5,
    "limit_total": 7
   }

@@ -3,7 +3,7 @@
   "name": "bomwitness",
   "version": "0.2.0"
  },
- "generated": "2026-11-27T05:12:46+00:00",
+ "generated": "2026-11-27T05:55:50+00:00",
  "subject": {
   "name": "openwrt-24.10.8-ath79-generic-tplink_archer-c7-v5-squashfs-sysupgrade.bin",
   "kind": "directory",
@@ -36,10 +36,12 @@
   },
   "reference_inputs": [
    {
-    "kind": "snapshot file",
-    "name": "snapshot.json",
-    "authenticated": false,
-    "note": "local file, trusted as supplied; it records that it was made from an image with SHA-256 f4d55cb506f1b192..., which is listed as openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin in the signed profiles.json of 24.10.8 ath79/generic"
+    "kind": "sibling image",
+    "name": "openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+    "sha256": "f4d55cb506f1b1928ff96ad4badeffcb4ba20f05569e1e731ad78aa1d0021ce9",
+    "authenticated": true,
+    "trust": "authenticated",
+    "note": "listed as openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin in the image list (profiles.json) of 24.10.8 ath79/generic, which the signed sha256sums pins by hash"
    }
   ]
  },
@@ -65,7 +67,7 @@
    "code_files": 161,
    "orphan_code_files": 0,
    "hard_findings": 4,
-   "seconds": 0.16
+   "seconds": 0.22
   },
   "options": {
    "use_hashes": true,
@@ -75,6 +77,9 @@
    "alt_releases": [],
    "snapshots": [
     "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin"
+   ],
+   "snapshot_trust": [
+    "authenticated"
    ],
    "normalize_timestamps": true
   },
@@ -98,7 +103,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "ath10k-firmware-qca988x-ct",
@@ -119,7 +124,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "base-files",
@@ -248,7 +253,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "106 of the 109 package file(s) present in the image have the reference package's SHA-256; 3 configuration or account file(s) differ and are not compared"
    },
    {
     "name": "busybox",
@@ -280,7 +285,7 @@
     "verdict": "wrong_version",
     "grade": "A",
     "actual_version": "1.36.1-r3",
-    "reason": "bytes are the build that the feed index and the official sibling image both label 1.36.1-r3"
+    "reason": "the files present match the build that the feed index and the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) both label 1.36.1-r3; 9 of the 9 package file(s) present in the image have the reference package's SHA-256 (1 of them only after embedded build-date strings are masked)"
    },
    {
     "name": "ca-bundle",
@@ -305,7 +310,7 @@
     "label_source": "release snapshot",
     "feed_version": "20260816-r2",
     "snapshot": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
-    "reason": "1 file(s) byte-identical to the build in the official sibling image (20260601-r1); the shared feed has since moved to 20260816-r2"
+    "reason": "1 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) (20260601-r1; configuration files not compared); the shared feed has since moved to 20260816-r2"
    },
    {
     "name": "cgi-io",
@@ -326,7 +331,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "dropbear",
@@ -352,7 +357,7 @@
     "verdict": "wrong_version",
     "grade": "A",
     "actual_version": "2024.86-r3",
-    "reason": "bytes are the reference build 2024.86-r3 from a feed that is frozen for this release"
+    "reason": "the files present match the reference build 2024.86-r3 from a feed that is frozen for this release; 6 of the 6 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "firewall4",
@@ -394,7 +399,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "22 of the 22 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "fstools",
@@ -417,7 +422,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "3 of the 3 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "fwtool",
@@ -438,7 +443,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "getrandom",
@@ -459,7 +464,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "hostapd-common",
@@ -484,7 +489,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "5 of the 5 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "iw",
@@ -505,7 +510,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "iwinfo",
@@ -526,7 +531,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "jansson4",
@@ -547,7 +552,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "jshn",
@@ -569,7 +574,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "jsonfilter",
@@ -590,7 +595,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kernel",
@@ -622,7 +627,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-ath10k-ct",
@@ -645,7 +650,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "3 of the 3 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-ath9k",
@@ -667,7 +672,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-ath9k-common",
@@ -689,7 +694,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-cfg80211",
@@ -711,7 +716,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-crypto-acompress",
@@ -733,7 +738,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-crypto-aead",
@@ -754,7 +759,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-crypto-ccm",
@@ -775,7 +780,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-crypto-cmac",
@@ -797,7 +802,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-crypto-crc32c",
@@ -819,7 +824,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-crypto-ctr",
@@ -840,7 +845,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-crypto-gcm",
@@ -861,7 +866,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-crypto-geniv",
@@ -883,7 +888,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-crypto-gf128",
@@ -904,7 +909,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-crypto-ghash",
@@ -925,7 +930,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-crypto-hash",
@@ -946,7 +951,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-crypto-hmac",
@@ -968,7 +973,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-crypto-manager",
@@ -989,7 +994,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-crypto-null",
@@ -1010,7 +1015,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-crypto-rng",
@@ -1034,7 +1039,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "4 of the 4 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-crypto-seqiv",
@@ -1056,7 +1061,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-crypto-sha3",
@@ -1078,7 +1083,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-crypto-sha512",
@@ -1100,7 +1105,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-gpio-button-hotplug",
@@ -1122,7 +1127,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-hwmon-core",
@@ -1143,7 +1148,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-lib-crc-ccitt",
@@ -1165,7 +1170,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-lib-crc32c",
@@ -1187,7 +1192,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-lib-lzo",
@@ -1212,7 +1217,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "5 of the 5 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-mac80211",
@@ -1233,7 +1238,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-nf-conntrack",
@@ -1258,7 +1263,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "5 of the 5 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-nf-conntrack6",
@@ -1297,7 +1302,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-nf-log",
@@ -1319,7 +1324,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-nf-log6",
@@ -1358,7 +1363,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-nf-reject",
@@ -1380,7 +1385,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-nf-reject6",
@@ -1402,7 +1407,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-nfnetlink",
@@ -1424,7 +1429,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-nft-core",
@@ -1457,7 +1462,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "13 of the 13 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-nft-fib",
@@ -1482,7 +1487,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "5 of the 5 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-nft-nat",
@@ -1506,7 +1511,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "4 of the 4 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-nft-offload",
@@ -1529,7 +1534,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "3 of the 3 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-nls-base",
@@ -1550,7 +1555,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-phy-ath79-usb",
@@ -1573,7 +1578,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "3 of the 3 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-ppp",
@@ -1596,7 +1601,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "3 of the 3 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-pppoe",
@@ -1618,7 +1623,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-pppox",
@@ -1639,7 +1644,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-random-core",
@@ -1677,7 +1682,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-usb-core",
@@ -1700,7 +1705,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "3 of the 3 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-usb-ehci",
@@ -1722,7 +1727,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-usb-ledtrig-usbport",
@@ -1744,7 +1749,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "kmod-usb2",
@@ -1768,7 +1773,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "4 of the 4 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "libblobmsg-json20240329",
@@ -1789,7 +1794,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "libc",
@@ -1821,7 +1826,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "libiwinfo-data",
@@ -1842,7 +1847,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "libiwinfo20230701",
@@ -1863,7 +1868,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "libjson-c5",
@@ -1884,7 +1889,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "libjson-script20240329",
@@ -1905,7 +1910,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "liblucihttp-ucode",
@@ -1926,7 +1931,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "liblucihttp0",
@@ -1947,7 +1952,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "libmbedtls21",
@@ -1976,7 +1981,7 @@
     "label_source": "release snapshot",
     "feed_version": "3.6.7-r1",
     "snapshot": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
-    "reason": "3 file(s) byte-identical to the build in the official sibling image (3.6.6-r2); the shared feed has since moved to 3.6.7-r1"
+    "reason": "3 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) (3.6.6-r2; configuration files not compared); the shared feed has since moved to 3.6.7-r1"
    },
    {
     "name": "libmnl0",
@@ -1997,7 +2002,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "libnftnl11",
@@ -2018,7 +2023,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "libnl-tiny1",
@@ -2039,7 +2044,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "libpthread",
@@ -2077,7 +2082,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "libubus20250102",
@@ -2098,7 +2103,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "libuci20250120",
@@ -2119,7 +2124,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "libuclient20201210",
@@ -2140,7 +2145,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "libucode20230711",
@@ -2161,7 +2166,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "release manifest",
-    "reason": "every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2)"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2)"
    },
    {
     "name": "libudebug",
@@ -2182,7 +2187,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "libustream-mbedtls20201210",
@@ -2203,7 +2208,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "logd",
@@ -2227,7 +2232,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "4 of the 4 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "luci",
@@ -2274,7 +2279,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "release manifest",
-    "reason": "every file byte-identical to the reference package; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e)"
+    "reason": "10 of the 10 package file(s) present in the image have the reference package's SHA-256; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e)"
    },
    {
     "name": "luci-app-package-manager",
@@ -2298,7 +2303,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "release manifest",
-    "reason": "every file byte-identical to the reference package; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e)"
+    "reason": "4 of the 4 package file(s) present in the image have the reference package's SHA-256; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e)"
    },
    {
     "name": "luci-base",
@@ -2398,7 +2403,7 @@
     "label_source": "release snapshot",
     "feed_version": "26.301.70438~aa4865e",
     "snapshot": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
-    "reason": "72 file(s) byte-identical to the build in the official sibling image (26.205.85413~cac97ed); the shared feed has since moved to 26.301.70438~aa4865e"
+    "reason": "72 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) (26.205.85413~cac97ed; configuration files not compared); the shared feed has since moved to 26.301.70438~aa4865e"
    },
    {
     "name": "luci-light",
@@ -2472,7 +2477,7 @@
     "label_source": "release snapshot",
     "feed_version": "26.301.70438~aa4865e",
     "snapshot": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
-    "reason": "16 file(s) byte-identical to the build in the official sibling image (26.205.85413~cac97ed); the shared feed has since moved to 26.301.70438~aa4865e"
+    "reason": "16 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) (26.205.85413~cac97ed; configuration files not compared); the shared feed has since moved to 26.301.70438~aa4865e"
    },
    {
     "name": "luci-mod-status",
@@ -2524,7 +2529,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "release manifest",
-    "reason": "every file byte-identical to the reference package; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e)"
+    "reason": "32 of the 32 package file(s) present in the image have the reference package's SHA-256; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e)"
    },
    {
     "name": "luci-mod-system",
@@ -2567,7 +2572,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "release manifest",
-    "reason": "every file byte-identical to the reference package; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e)"
+    "reason": "23 of the 23 package file(s) present in the image have the reference package's SHA-256; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e)"
    },
    {
     "name": "luci-proto-ipv6",
@@ -2595,7 +2600,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "release manifest",
-    "reason": "every file byte-identical to the reference package; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e)"
+    "reason": "8 of the 8 package file(s) present in the image have the reference package's SHA-256; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e)"
    },
    {
     "name": "luci-proto-ppp",
@@ -2620,7 +2625,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "release manifest",
-    "reason": "every file byte-identical to the reference package; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e)"
+    "reason": "5 of the 5 package file(s) present in the image have the reference package's SHA-256; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e)"
    },
    {
     "name": "luci-ssl",
@@ -2671,7 +2676,7 @@
     "label_source": "release snapshot",
     "feed_version": "26.301.70438~aa4865e",
     "snapshot": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
-    "reason": "10 file(s) byte-identical to the build in the official sibling image (26.205.85413~cac97ed); the shared feed has since moved to 26.301.70438~aa4865e"
+    "reason": "10 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) (26.205.85413~cac97ed; configuration files not compared); the shared feed has since moved to 26.301.70438~aa4865e"
    },
    {
     "name": "mtd",
@@ -2692,7 +2697,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "netifd",
@@ -2729,7 +2734,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "17 of the 17 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "nftables-json",
@@ -2751,7 +2756,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "odhcp6c",
@@ -2776,7 +2781,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "5 of the 5 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "odhcpd-ipv6only",
@@ -2800,7 +2805,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "4 of the 4 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "openwrt-keyring",
@@ -2821,7 +2826,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "opkg",
@@ -2847,7 +2852,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "6 of the 6 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "ppp",
@@ -2876,7 +2881,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "9 of the 9 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "ppp-mod-pppoe",
@@ -2897,7 +2902,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "procd",
@@ -2928,7 +2933,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "11 of the 11 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "procd-seccomp",
@@ -2951,7 +2956,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "3 of the 3 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "procd-ujail",
@@ -2972,7 +2977,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "px5g-mbedtls",
@@ -2993,7 +2998,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "rpcd",
@@ -3018,7 +3023,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "5 of the 5 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "rpcd-mod-file",
@@ -3039,7 +3044,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "rpcd-mod-iwinfo",
@@ -3060,7 +3065,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "rpcd-mod-luci",
@@ -3081,7 +3086,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "rpcd-mod-rrdns",
@@ -3102,7 +3107,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "rpcd-mod-ucode",
@@ -3123,7 +3128,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "swconfig",
@@ -3145,7 +3150,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "uboot-envtools",
@@ -3173,7 +3178,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "8 of the 8 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "ubox",
@@ -3197,7 +3202,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "4 of the 4 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "ubus",
@@ -3218,7 +3223,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "ubusd",
@@ -3239,7 +3244,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "uci",
@@ -3261,7 +3266,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "uclient-fetch",
@@ -3282,7 +3287,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "ucode",
@@ -3303,7 +3308,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "release manifest",
-    "reason": "every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2)"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2)"
    },
    {
     "name": "ucode-mod-fs",
@@ -3328,7 +3333,7 @@
     "label_source": "release snapshot",
     "feed_version": "2025.07.18~3f64c808-r2",
     "snapshot": "sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
-    "reason": "1 file(s) byte-identical to the build in the official sibling image (2025.07.18~3f64c808-r1); the shared feed has since moved to 2025.07.18~3f64c808-r2"
+    "reason": "1 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) (2025.07.18~3f64c808-r1; configuration files not compared); the shared feed has since moved to 2025.07.18~3f64c808-r2"
    },
    {
     "name": "ucode-mod-html",
@@ -3349,7 +3354,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "ucode-mod-math",
@@ -3370,7 +3375,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "release manifest",
-    "reason": "every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2)"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2)"
    },
    {
     "name": "ucode-mod-nl80211",
@@ -3391,7 +3396,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "release manifest",
-    "reason": "every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2)"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2)"
    },
    {
     "name": "ucode-mod-rtnl",
@@ -3412,7 +3417,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "release manifest",
-    "reason": "every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2)"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2)"
    },
    {
     "name": "ucode-mod-ubus",
@@ -3433,7 +3438,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "release manifest",
-    "reason": "every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2)"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2)"
    },
    {
     "name": "ucode-mod-uci",
@@ -3454,7 +3459,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "release manifest",
-    "reason": "every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2)"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2)"
    },
    {
     "name": "ucode-mod-uloop",
@@ -3475,7 +3480,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "release manifest",
-    "reason": "every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2)"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2)"
    },
    {
     "name": "uhttpd",
@@ -3499,7 +3504,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "4 of the 4 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "uhttpd-mod-ubus",
@@ -3521,7 +3526,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "urandom-seed",
@@ -3544,7 +3549,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "3 of the 3 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "urngd",
@@ -3566,7 +3571,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "2 of the 2 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "usign",
@@ -3587,7 +3592,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "wifi-scripts",
@@ -3616,7 +3621,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "9 of the 9 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "wireless-regdb",
@@ -3637,7 +3642,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "1 of the 1 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "wpad-basic-mbedtls",
@@ -3660,7 +3665,7 @@
     "verdict": "verified_A",
     "grade": "A",
     "label_source": "feed index",
-    "reason": "every file byte-identical to the reference package"
+    "reason": "3 of the 3 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "name": "tcpdump",
@@ -3686,7 +3691,7 @@
     "class": "wrong_version",
     "component": "busybox",
     "grade": "A",
-    "detail": "declared 1.36.2-r3; actual 1.36.1-r3. bytes are the build that the feed index and the official sibling image both label 1.36.1-r3"
+    "detail": "declared 1.36.2-r3; actual 1.36.1-r3. the files present match the build that the feed index and the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) both label 1.36.1-r3; 9 of the 9 package file(s) present in the image have the reference package's SHA-256 (1 of them only after embedded build-date strings are masked)"
    },
    {
     "class": "stale",
@@ -3698,7 +3703,7 @@
     "class": "wrong_version",
     "component": "dropbear",
     "grade": "A",
-    "detail": "declared 2022.82-6; actual 2024.86-r3. bytes are the reference build 2024.86-r3 from a feed that is frozen for this release"
+    "detail": "declared 2022.82-6; actual 2024.86-r3. the files present match the reference build 2024.86-r3 from a feed that is frozen for this release; 6 of the 6 package file(s) present in the image have the reference package's SHA-256"
    },
    {
     "class": "stale",
@@ -3824,7 +3829,7 @@
     "class": "undeclared_component",
     "component": "dnsmasq",
     "grade": "A",
-    "detail": "12 file(s) present, byte-identical to reference dnsmasq 2.93-r1",
+    "detail": "12 file(s) present, all byte-identical to reference dnsmasq 2.93-r1",
     "files": [
      "etc/config/dhcp",
      "etc/dnsmasq.conf",

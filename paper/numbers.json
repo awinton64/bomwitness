@@ -437,7 +437,7 @@
  "example:table": {
   "how": "sbom.findings and cbom.findings, classes and versions as reported (table only)",
   "source": "pipeline/4_analysis_output/bomwitness/report-with-errors.json",
-  "value": "SBOM & \\vd{wrong\\_version} & busybox & A & declared 1.36.2-r3; bytes are the publisher's build 1.36.1-r3 \\\\ SBOM & \\vd{wrong\\_version} & dropbear & A & declared 2022.82-6; bytes are the publisher's build 2024.86-r3 \\\\ SBOM & \\vd{absent} & tcpdump & A & no file of the reference package is in the image \\\\ SBOM & \\vd{undeclared\\_component} & dnsmasq & A & 12 files byte-identical to dnsmasq 2.93-r1, not in the BOM \\\\ CBOM & \\vd{undeclared\\_certificate} & certificate DigiCert TLS ECC P384 Root G5 & A & in the image's CA bundle, not in the CBOM \\\\ cross & \\vd{provider\\_unverified} & busybox & A & CBOM names it as provider of MD5, but its SBOM check ended in \\vd{wrong\\_version} \\\\ cross & \\vd{provider\\_unverified} & dropbear & A & CBOM names it as provider of AES, but its SBOM check ended in \\vd{wrong\\_version} \\\\ cross & \\vd{algorithm\\_not\\_evidenced} & ML-KEM in libmbedtls21 & B & no file of the named provider carries the algorithm's name \\\\"
+  "value": "SBOM & \\vd{wrong\\_version} & busybox & A & declared 1.36.2-r3; files present match the publisher's build 1.36.1-r3 \\\\ SBOM & \\vd{wrong\\_version} & dropbear & A & declared 2022.82-6; files present match the publisher's build 2024.86-r3 \\\\ SBOM & \\vd{absent} & tcpdump & A & no file of the reference package is in the image \\\\ SBOM & \\vd{undeclared\\_component} & dnsmasq & A & 12 files, all with the hashes of dnsmasq 2.93-r1; not in the BOM \\\\ CBOM & \\vd{undeclared\\_certificate} & certificate DigiCert TLS ECC P384 Root G5 & A & in the image's CA bundle, not in the CBOM \\\\ cross & \\vd{provider\\_unverified} & busybox & A & CBOM names it as provider of MD5, but its SBOM check ended in \\vd{wrong\\_version} \\\\ cross & \\vd{provider\\_unverified} & dropbear & A & CBOM names it as provider of AES, but its SBOM check ended in \\vd{wrong\\_version} \\\\ cross & \\vd{algorithm\\_not\\_evidenced} & ML-KEM in libmbedtls21 & B & no file of the named provider carries the algorithm's name \\\\"
  },
  "farColCases": {
   "how": "by_db.colluding.bw.cases",
@@ -1299,6 +1299,11 @@
   "source": "bomwitness/crypto.py",
   "value": "19"
  },
+ "nAllBomRows": {
+  "how": "both splits: honest + colluding + stripped cases",
+  "source": "results/r2/summary.json",
+  "value": "2,016"
+ },
  "nAllCases": {
   "how": "held-out plus tuning cases",
   "source": "results/r2/summary.json",
@@ -1308,6 +1313,11 @@
   "how": "distinct errors, held-out plus tuning",
   "source": "results/r2/review-r3.json",
   "value": "1,260"
+ },
+ "nAllUnawareRows": {
+  "how": "both splits: unaware cases",
+  "source": "results/r2/summary.json",
+  "value": "588"
  },
  "nArchAll": {
   "how": "distinct arch over both splits",
@@ -1323,6 +1333,11 @@
   "how": "splits.heldout.by_db.colluding.bw.cases",
   "source": "results/r2/summary.json",
   "value": "480"
+ },
+ "nBomRows": {
+  "how": "splits.heldout.by_db: honest + colluding + stripped cases (BOM-level rows in three database conditions)",
+  "source": "results/r2/summary.json",
+  "value": "1,440"
  },
  "nDistinctErr": {
   "how": "distinct_errors.heldout.distinct_errors",
@@ -2318,6 +2333,21 @@
   "how": "splits.tuning.by_db.unaware.bw.tp",
   "source": "results/r2/summary.json",
   "value": "162"
+ },
+ "verdictCheckCases": {
+  "how": "changed_code.totals.cases",
+  "source": "results/r2/r4-verdict-check/COMPARISON.json",
+  "value": "2,604"
+ },
+ "verdictCheckDiffs": {
+  "how": "changed_code.totals.differences",
+  "source": "results/r2/r4-verdict-check/COMPARISON.json",
+  "value": "0"
+ },
+ "verdictCheckImages": {
+  "how": "changed_code.totals.images",
+  "source": "results/r2/r4-verdict-check/COMPARISON.json",
+  "value": "14"
  },
  "wideAfter": {
   "how": "M4u cases named with the wide index",

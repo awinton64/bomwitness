@@ -6,7 +6,6 @@ WORK=${1:-"$HERE/../../.work"}
 BW=${BOMWITNESS:-bomwitness}
 rm -rf "$WORK/rootfs"
 $BW unpack "$WORK/objects/$IMAGE" "$WORK/rootfs" > "$WORK/unpack.json"
-$BW snapshot --image "$WORK/objects/$SIBLING" --out "$WORK/snapshot.json"
 if [ "${FULL_INDEX:-0}" = "1" ]; then
   $BW index --release "$RELEASE" --target "$TARGET" --cache "$WORK/cache" > "$WORK/index.json"
 fi

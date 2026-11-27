@@ -7,7 +7,8 @@ Four checks, all must pass:
                  so every result number in the text has to come through a generated macro;
   3. pdf         every token containing a digit in the built PDF is a generated fact, an allowed
                  identifier, part of the bibliography, or structural numbering (sections, floats, citations);
-  4. pages       the body ends on page 5 or earlier and the PDF has at most 7 pages (the track's limits).
+  4. pages       the body, acknowledgments included, ends on page 5 or earlier and the PDF has at most 7 pages
+                 (the track's limits).
 
 Usage: check_numbers.py [paper.pdf] [--json report.json]      (needs pdftotext for checks 3 and 4)
 """
@@ -167,10 +168,14 @@ def main() -> int:
     ok &= not unexplained and not missing
 
     # 4. page limits
-    ref_page = next((i + 1 for i, p in enumerate(pages) if re.search(r"^\s*REFERENCES\s*$|\sREFERENCES\s*$", p, flags=re.M)), None)
+    ref_page = next((i + 1 for i, p in enumerate(pages) if re.search(r"(^|\s)REFERENCES(\s|$)", p, flags=re.M)), None)
     ack_page = next((i + 1 for i, p in enumerate(pages) if "ACKNOWLEDGMENTS" in p), None)
-    body_end = ack_page or ref_page
-    report["checks"]["pages"] = {"pages": len(pages), "body_ends_on_page": body_end, "references_start_on_page": ref_page,
+    # The acknowledgments count as body. Their heading can sit at the foot of one page while their text runs on to
+    # the next, so the page that holds their last words ("... (MIT).") is what the limit is checked against.
+    ack_end_page = next((i + 1 for i, p in enumerate(pages) if "(MIT)." in p), None) if ack_page else None
+    body_end = (max(ack_page, ack_end_page) if ack_end_page else None) if ack_page else ref_page
+    report["checks"]["pages"] = {"pages": len(pages), "body_ends_on_page": body_end, "acknowledgments_start_on_page": ack_page,
+                                 "acknowledgments_end_on_page": ack_end_page, "references_start_on_page": ref_page,
                                  "limit_body": 5, "limit_total": 7}
     ok &= len(pages) <= 7 and body_end is not None and body_end <= 5
 

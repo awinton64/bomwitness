@@ -11,7 +11,8 @@ writes `numbers.tex`, `numbers.json` (each fact with its source file and computa
 1. the generated files on disk equal what the result files produce now;
 2. the paper source contains no literal number other than the listed identifiers (release names, tool versions, class ids);
 3. every token with a digit in the built PDF is a generated fact, a listed identifier, bibliography text or structural numbering;
-4. the body ends on page 5 or earlier and the PDF has at most 7 pages.
+4. the body ends on page 5 or earlier (the acknowledgments count as body and must end there too) and the PDF has at
+   most 7 pages.
 
 ```sh
 PYTHON=.venv/bin/python sh paper/build.sh     # needs tectonic and pdftotext

@@ -24,8 +24,8 @@ Anything changed after the freeze is listed under "Changes after the freeze" bel
 ## Ground truth and seeded errors
 
 The correct BOM for an image is its package list (name and version of every installed package, read from the
-image's own database, which we take as correct for an unmodified official image whose hash is in the signed
-image list). Each case applies one
+image's own database, which we take as correct for an unmodified official image whose hash is in the image
+list that the signed checksum file pins). Each case applies one
 mutation and has one label, `(class, component)`.
 
 | Class | What changes | Label |
@@ -161,15 +161,40 @@ bench/summarize.py` shows every later change to the rule and scoring files. In w
    produced the post-freeze check, and the benchmark does not go through the command line entry point. The
    pipeline harness, which compares the example run with its expected findings, still ends with `PASS`.
 
-5. After an independent review: the command line looks a sibling image up in the signed image list and the
-   report states how far each reference input was authenticated; report wording for grade A and for model
-   detection was narrowed; `bench/review_r3.py` and `bench/timing_e2e.py` were added. None of these touches
-   `verify.py`, `crypto.py`, `reference.py` or the benchmark scripts. See `docs/REVIEW-RESPONSE.md`.
+5. After an independent review: the command line looks a sibling image up in the image list (`profiles.json`,
+   pinned by hash in the signed checksum file) and the report states how far each reference input was
+   authenticated; report wording for grade A and for model detection was narrowed; `bench/review_r3.py` and
+   `bench/timing_e2e.py` were added. None of these touches `verify.py`, `crypto.py`, `reference.py` or the
+   benchmark scripts. See `docs/REVIEW-RESPONSE.md`.
+
+6. After a second independent review: **`bomwitness/verify.py`, wording and one pass-through field, no
+   rule.** (a) Reason and detail strings were rewritten so that a grade A match is described by what was
+   compared, with counts (files present, matched, matched only after date strings were masked,
+   configuration files not compared, files missing), and no longer as "every file byte-identical".
+   (b) A snapshot now carries a trust field (`authenticated`, `unlisted`, `supplied`) that the caller sets
+   and that selects the words a reason uses for the snapshot; no branch that picks a verdict reads it.
+   (c) The report's `options` block lists that field, and an `undeclared_component` detail says how many
+   of the attributed files have the reference hash. `report.py` and `cli.py` changed with it (wording, the
+   trust lines in the compact output). `bench/run_cases.py`, `baselines.py` and `summarize.py` are
+   unchanged since the earlier rerun.
 
 The evidence that items 1 and 2 are result-neutral: three images (two held-out, one tuning) were rerun with
 all baselines after those changes: 558 rows, identical labels and scores for every tool, identical
-clean-control findings (`results/r2/postfreeze-check/COMPARISON.json`). Seven held-out images were not
-rerun, so for them the claim rests on the frozen run itself.
+clean-control findings (`results/r2/postfreeze-check/COMPARISON.json`). Eight of the ten held-out images
+were not part of that rerun, so for them that claim rested on the frozen run itself.
+
+The evidence that item 6 changed no verdict: all fourteen images, the ten held-out ones included, were
+rerun through `bench/run_cases.py` (BOMwitness and its ablations; the baselines do not use the changed
+code and were not rerun) and compared field by field with the committed case files by
+`bench/verdict_check.py`. Compared: every case's label, every configuration's hit, false-positive count
+and extra findings, the verdict for the seeded target, and on the clean controls the hard findings, the
+verdict counts per configuration, the label sources and the list of components that did not verify. Not
+compared, because they are expected to differ: the reason text, timings, and the baselines' columns. The
+result is in `results/r2/r4-verdict-check/COMPARISON.json`, with the differences found (none) and the
+number of reason strings whose text changed. The same script was first run with the unchanged code of the
+previous commit, to show that the rerun itself reproduces the committed files on this machine and date.
+The snapshot files used are byte-identical to those of the frozen run (their SHA-256 values are in the
+comparison file).
 
 ## Counting, variability and candidate pools
 
@@ -234,7 +259,7 @@ listed in `results/r2/ERROR-ANALYSIS.md`.
   percent of the tested image's packages (`bench/far-siblings.lock.json`). The snapshot is therefore best read as "the
   publisher's frozen release root filesystem for this target", not as an independent witness. The
   no-snapshot and feeds-only columns show what remains without it.
-- **Drift.** The older the image, the less of it today's shared feed can confirm byte for byte, and the
+- **Drift.** The older the image, the less of it today's shared feed can confirm at grade A, and the
   more false alarms the feed alone produces. The release manifest recovers labels, and the snapshot recovers
   bytes.
 - **Published BOMs.** Of 1868 claims, 1674 verify at grade A and 31 at grade B, 122 are unverifiable, 34
@@ -249,7 +274,7 @@ listed in `results/r2/ERROR-ANALYSIS.md`.
   coverage observation.
 - **A second publisher and a fork.** The ImmortalWrt image verifies against its own signed download tree
   with a different key and no code change. Checked against upstream OpenWrt, fewer than half of its
-  components are upstream's bytes, which is the honest picture for rebuilt firmware: grade A evidence needs
+  components verify at grade A, which is the honest picture for rebuilt firmware: grade A evidence needs
   the builder's own packages or manifests.
 - **Not shown.** Nothing here measures real-world BOM error rates, vendor firmware rebuilt with a private
   toolchain, encrypted images, or statically linked code inside other binaries.

@@ -11,3 +11,11 @@
   - `far-sibling/`: the benchmark rerun (BOMwitness only) with the least similar sibling as snapshot source.
   - `wide-index/`: two held-out images rerun with the `packages`, `routing` and `telephony` feeds indexed as well.
   - `postfreeze-check/`: three images rerun after the post-freeze fixes, with `COMPARISON.json`.
+  - `r4-verdict-check/COMPARISON.json`: all fourteen images rerun (BOMwitness and its ablations) after the
+    reason strings and the snapshot trust field changed, compared with `cases/` by `bench/verdict_check.py`.
+
+The reason strings stored in these result files are the wording of the run that produced them. Files from
+the frozen run and the measurements before the second review still say "every file byte-identical to the
+reference package" and "official sibling image". The tool no longer writes those words: a grade A reason now
+states what was compared, with counts, and a snapshot is described by whether it was authenticated
+(`docs/EVALUATION.md`, "Changes after the freeze", item 6). Verdicts, labels and scores are unaffected.

@@ -41,18 +41,26 @@ def build(res: Path) -> str:
     de = rv["distinct_errors"]["heldout"]
     L = [f"Held-out set: {len(h['images'])} official OpenWrt images (23.05.6 and 24.10.8, {len(archs)} package architectures), "
          f"{de['distinct_errors']} distinct seeded errors scored in {h['cases']} condition rows (each of the {de['distinct_bom_level_errors']} BOM-level errors "
-         f"is scored under three database states, each of the {de['distinct_unaware_errors']} unaware errors once). "
+         f"is scored under three database states, which gives {3 * de['distinct_bom_level_errors']} BOM-level rows; each of the "
+         f"{de['distinct_unaware_errors']} unaware errors is scored once). "
          f"The verdict rules were frozen at commit `{run['commit'][:7]}` (tag `rules-frozen-r2a`) before the held-out images were scored in this primary evaluation; "
          f"the other measurements below were made afterwards. Cells are precision / recall (found/rows).", "",
          "| Device database | Cases | BOMwitness | BOMwitness, no sibling snapshot | BOMwitness, feeds only | BomTrace | Syft-diff | cve-bin-tool-diff |",
          "|---|---|---|---|---|---|---|---|"]
     names = {"honest": "honest (untouched, BOM wrong)", "colluding": "colluding (edited to agree with the BOM)", "stripped": "stripped (removed)",
              "unaware": "unaware (firmware changed, BOM and database silent)", "all": "all"}
+    bt_rows = rv["baselines_without_database"]["bomtrace"]
+    bt_unsupported = sum(v["rows"] - v["verifier_produced_a_result"] for v in bt_rows.values())
+    bt_ran_rows = sum(v["verifier_produced_a_result"] for v in bt_rows.values())
+    assert bt_unsupported + bt_ran_rows == h["by_db"]["all"]["bomtrace"]["cases"]
     for db in ("honest", "colluding", "stripped", "unaware", "all"):
         row = h["by_db"][db]
         bt_ran = rv["baselines_without_database"]["bomtrace"].get(db, {}).get("verifier_produced_a_result", 1)
+        bt_cell = pr(row.get('bomtrace'), unsupported=not bt_ran)
+        if db == "all":      # the pooled denominator counts rows where BomTrace's verifier returned no result
+            bt_cell += f"; coverage-inclusive, {bt_unsupported} of these rows are unsupported input"
         L.append(f"| {names[db]} | {row['bw']['cases']} | {pr(row['bw'])} | {pr(row['bw_no_snapshot'])} | {pr(row['bw_feed_only'])} | "
-                 f"{pr(row.get('bomtrace'), unsupported=not bt_ran)} | {pr(row.get('syft_diff'))} | {pr(row.get('cvebin_diff'))} |")
+                 f"{bt_cell} | {pr(row.get('syft_diff'))} | {pr(row.get('cvebin_diff'))} |")
     col, una = h["by_db"]["colluding"]["bw"], h["by_db"]["unaware"]["bw"]
     (c_lo, c_hi), (u_lo, u_hi) = wilson(col["tp"], col["cases"]), wilson(una["tp"], una["cases"])
     L += ["", f"- BOMwitness recall with 95% Wilson intervals: colluding and stripped {col['recall']:.3f} [{c_lo:.3f}, {c_hi:.3f}], "
@@ -76,15 +84,25 @@ def build(res: Path) -> str:
           f"{bwd['syft_diff_clean_findings_stripped']['min']} to {bwd['syft_diff_clean_findings_stripped']['max']} findings per clean image. With an honest database its "
           f"{bwd['syft_diff_clean_findings_honest']['min']} to {bwd['syft_diff_clean_findings_honest']['max']} clean findings per image are naming differences in our diff script "
           f"(Syft also lists kernel modules as components), a penalty of the adapter and not of Syft."]
+    bt_all = h["by_db"]["all"]["bomtrace"]
+    L += [f"- BomTrace's pooled recall in the last row ({bt_all['recall']:.3f}, {bt_all['tp']}/{bt_all['cases']}) is coverage-inclusive: the denominator counts all "
+          f"{bt_all['cases']} rows, including the {bt_unsupported} stripped rows in which its verifier returned no result because the input is unsupported. Over the "
+          f"{bt_ran_rows} rows in which it produced a result it found {bt_all['tp']} ({bt_all['tp'] / bt_ran_rows:.3f}). The Syft-based diff's pooled row has no such "
+          f"rows: it ran everywhere."]
     c = h["clean"]["totals"]
     L += [f"- Clean controls (held-out images, correct BOM): {c['declared']} declared components, "
               f"{c['verdicts'].get('verified_A', 0)} verified at grade A ({c['verified_A_share']:.1%}), {c['verdicts'].get('verified_B', 0)} by version marker, "
               f"{c['verdicts'].get('unverifiable', 0)} unverifiable, {c['bw_hard']} false alarms ({c['clean_false_alarm_rate_per_declared_component']:.2%} of declared components). "
               f"{c['accounted']} of {c['files']} files and {c['code'] - c['orphan_code']} of {c['code']} executables accounted for. Grade A is the tool's verdict under its rules "
-              f"(the package's files that are present match the publisher's build; configuration files and build-time strings are tolerated), not a proof that a package is complete."]
+              f"(the package's files that are present match the publisher's build; configuration files that differ are not compared and build-date strings are masked), "
+              f"not byte identity of a package and not a proof that a package is complete."]
     b, g = h["by_db"]["colluding"], h["by_db"]["all"]
     L.append(f"- Ablations on the colluding condition: grade A only {pr(b['bw_A_only'])}; grade B only {pr(b['bw_B_only'])}; "
              f"with the device database shown as grade C, honest condition {pr(h['by_db']['honest']['bw_with_db'])}.")
+    m6 = h["by_kind"]["M6_patched_binary"]["unaware"]
+    L.append(f"- One-byte patches (M6, {m6['bw']['cases']} cases) are reported only where a comparable reference covers the file: {m6['bw']['tp']} with the sibling "
+             f"snapshot, {m6['bw_no_snapshot']['tp']} with the manifest and no snapshot, {m6['bw_feed_only']['tp']} with feeds only. A change inside a masked "
+             f"build-date string or in a configuration file that is not compared would not be reported; the benchmark has no such case.")
     mg = h["errors"]["miss_groups"]
     L.append(f"- BOMwitness misses on the held-out set: {sum(mg.values())} distinct cases. " + "; ".join(f"{k} ({n})" for k, n in mg.items()) +
              f". Case-level false positives: {len(h['errors']['false_positives'])}.")
@@ -127,7 +145,7 @@ def build(res: Path) -> str:
         c = r["configs"]
         return (f"{r['release']} ({r['age_days']} days old): {c['feeds_only']['verified_A_share']:.1%} feeds only, "
                 f"{c['feeds_manifest']['verified_A_share']:.1%} with the manifest, {c['feeds_manifest_snapshot']['verified_A_share']:.1%} with a sibling snapshot")
-    L.append(f"- Reference drift, same device across 15 point releases, share of a correct BOM confirmed byte for byte: {dr(old)}; {dr(new)}. "
+    L.append(f"- Reference drift, same device across 15 point releases, share of a correct BOM verified at grade A: {dr(old)}; {dr(new)}. "
              f"False alarms on the oldest 24.10 image: {len(old['configs']['feeds_only']['hard_findings'])} feeds only, "
              f"{len(old['configs']['feeds_manifest_snapshot']['hard_findings'])} with the snapshot.")
     ob = json.loads((res / "official-bom.json").read_text())
@@ -153,8 +171,8 @@ def build(res: Path) -> str:
     p1, p2 = cs["part1_against_upstream"], cs["part2_against_own_publisher"]
     L.append(f"- Unmodified downstream fork (ImmortalWrt {cs['subject']['release']}, same device): against its own signed download tree "
              f"{p2['verdicts'].get('verified_A', 0) + p2['verdicts'].get('verified_B', 0)} of {p2['declared']} components verify with "
-             f"{sum(p2['hard_findings'].values())} findings; against upstream OpenWrt {p1['verdicts'].get('verified_A', 0)} of {p1['declared']} are upstream's bytes "
-             f"and {p1['executables_byte_identical_to_upstream_image']} of {p1['executables_total']} executables are identical to the upstream image.")
+             f"{sum(p2['hard_findings'].values())} findings; against upstream OpenWrt {p1['verdicts'].get('verified_A', 0)} of {p1['declared']} verify at grade A "
+             f"and {p1['executables_byte_identical_to_upstream_image']} of {p1['executables_total']} executables have the same SHA-256 as in the upstream image.")
     secs = [im["seconds_median"] for im in h["clean"]["images"].values()]
     te = json.loads((res / "timing-e2e.json").read_text())
     L.append(f"- Cost. The benchmark timer covers only the in-process verifier call on a tree that is already unpacked and hashed, with a warm reference cache: "

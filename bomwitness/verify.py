@@ -1,9 +1,16 @@
 """Check a declared SBOM against the bytes of an unpacked firmware root filesystem.
 
 Evidence grades
-  A  byte-identical to the publisher's reference package (signed feed index,
-     then per-file SHA-256). The label for those bytes comes from the feed
-     index and, when available, from the publisher's signed release manifest.
+  A  the files of the package that are present in the image have the SHA-256
+     of the publisher's reference package (signed checksum file or signed feed
+     index, then the package hash, then per-file SHA-256). Three things limit
+     that statement, and the reason text of every grade A verdict spells them
+     out with counts: configuration files and three account files that differ
+     are not compared; a file that differs only inside embedded build-date
+     strings is accepted (normalize_timestamps); and the package need not be
+     complete. The label for those bytes comes from the feed index and, when
+     available, from the release manifest (pinned by hash in the signed
+     checksum file) or from a sibling snapshot.
   B  intrinsic to the firmware bytes: versioned file names, SONAMEs, and the
      version marker that the reference build of the same component carries.
   C  the device's own package database. Reported separately and labelled as
@@ -17,11 +24,18 @@ Per-claim verdicts
   absent                   no file of the component is in the firmware
   bytes_differ             same label as the reference build, different bytes: a
                            rebuild or a modification; needs human review
-  label_unconfirmed        bytes identical to a reference build whose label is
-                           different, and nothing pins which label is right
+  label_unconfirmed        the files present match a reference build whose label
+                           is different, and nothing pins which label is right
   unverifiable             nothing to compare against
 
 Image-level findings: undeclared_component, undeclared_file, stale.
+
+Trust of a sibling snapshot. A snapshot carries a "trust" field that the caller
+sets: "authenticated" (the caller checked the image's SHA-256 against the image
+list that the signed checksum file pins), "unlisted" (a sibling image that is
+not in that list) or "supplied" (a local snapshot file, or unknown). The field
+changes only the wording of reasons, never a verdict: a source that was not
+authenticated is called "supplied" and is never called official.
 """
 from __future__ import annotations
 
@@ -38,6 +52,11 @@ IGNORED_PREFIXES = ("usr/lib/opkg/",)          # the device database itself (gra
 BUILD_GENERATED = ("lib/modules/%s/modules.builtin", "lib/modules/%s/modules.builtin.modinfo")
 NO_PACKAGE_HINTS = {"libc": (r"lib/libc\.so", r"lib/ld-musl-.*"), "kernel": (r"lib/modules/[^/]+/.*\.ko",)}
 MUTABLE = {"etc/passwd", "etc/group", "etc/shadow"}  # rewritten by package install scripts at image build
+SNAPSHOT_TRUST = {
+    "authenticated": "the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file)",
+    "unlisted": "the supplied sibling image (not authenticated: it is not in the image list pinned by the signed checksum file)",
+    "supplied": "the supplied snapshot (not authenticated by this run)",
+}
 HARD = ("wrong_version", "wrong_component", "absent", "bytes_differ", "undeclared_component", "undeclared_file")
 SEVERITY = ["verified_A", "verified_B", "unverifiable", "label_unconfirmed", "absent", "bytes_differ",
             "wrong_component", "wrong_version"]
@@ -64,14 +83,30 @@ def timestamp_only_diff(a: bytes, b: bytes) -> bool:
     return ma == mb
 
 
-def snapshot_from_rootfs(rootfs: Path, source: str) -> dict:
-    """A frozen release snapshot: file hashes and package ownership taken from an official sibling image.
+def snapshot_trust(snap: dict) -> str:
+    """How far the caller authenticated a snapshot: "authenticated", "unlisted" or "supplied" (the default)."""
+    t = snap.get("trust")
+    return t if t in SNAPSHOT_TRUST else "supplied"
+
+
+def snapshot_label(snap: dict) -> str:
+    """The words a reason uses for a snapshot. Only an authenticated source is described as authenticated."""
+    return SNAPSHOT_TRUST[snapshot_trust(snap)]
+
+
+def snapshot_from_rootfs(rootfs: Path, source: str, trust: str = "supplied") -> dict:
+    """A frozen release snapshot: file hashes and package ownership taken from a sibling image.
 
     The shared feeds are rebuilt after a release, so the bytes a release image
     was built from can disappear from them. Another official image of the same
-    release and target (its hash is pinned by the signed sha256sums) still
-    carries those bytes. Its package lists are the publisher's statement inside
-    a signed artifact, not the device under test describing itself.
+    release and target still carries those bytes. Its SHA-256 is listed in
+    profiles.json, which the signed sha256sums pins by hash, so an image can be
+    authenticated; its package lists are then the publisher's statement inside
+    a hash-pinned artifact, not the device under test describing itself.
+
+    `trust` records whether the caller did that check ("authenticated"), found
+    the image unlisted ("unlisted"), or did not check ("supplied", the default).
+    This function does not check anything itself.
     """
     from . import devicedb
     files = scan_rootfs(rootfs)
@@ -81,7 +116,8 @@ def snapshot_from_rootfs(rootfs: Path, source: str) -> dict:
         skip = {l.strip().lstrip("/") for l in conf.read_text(errors="replace").splitlines()} if conf.is_file() else set()
         packages[n] = {"version": r.get("Version", ""),
                        "files": [p for p in devicedb.owned_files(rootfs, n) if p in files and p not in skip and p not in MUTABLE]}
-    return {"source": source, "files": {p: m["sha256"] for p, m in files.items()}, "packages": packages}
+    assert trust in SNAPSHOT_TRUST, trust
+    return {"source": source, "trust": trust, "files": {p: m["sha256"] for p, m in files.items()}, "packages": packages}
 
 
 def scan_rootfs(rootfs: Path) -> dict[str, dict]:
@@ -165,7 +201,9 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
     """Verify `declared` ([{"name", "version"}]) against the bytes under `rootfs`.
 
     manifest      the publisher's release manifest (name to version), or None
-    snapshots     frozen release snapshots from official sibling images (snapshot_from_rootfs)
+    snapshots     frozen release snapshots from sibling images (snapshot_from_rootfs); each one's
+                  "trust" field (see snapshot_trust) says whether the caller authenticated it,
+                  and only changes how reasons describe it
     normalize_timestamps  accept a file whose only differences from the reference
                   are embedded build date or time strings
     use_hashes    grade A evidence on or off (ablation)
@@ -237,7 +275,7 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
             out["normalized_build_timestamp"] = normalized
         token, ref_token = upstream_token(ver), upstream_token(vr)
         label_ok = same_version(ver, vr)
-        snap_hit = None          # (snapshot source, version label, paths) when the bytes equal a release snapshot's build
+        snap_hit = None          # (snapshot source, version label, paths, label) when the bytes equal a release snapshot's build
         snap_miss = None         # the same, when a snapshot holds this package and some of its bytes differ here
         for snap in snapshots if use_hashes else ():
             sp = snap["packages"].get(pkg)
@@ -245,11 +283,12 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
                 continue
             here = [p for p in sp["files"] if p in files and p not in pl["conffiles"]]
             if here and all(files[p]["sha256"] == snap["files"][p] for p in here):
-                snap_hit = (snap["source"], sp["version"], here)
+                snap_hit = (snap["source"], sp["version"], here, snapshot_label(snap))
                 claimed_paths.update(here)
                 break
             if here and snap_miss is None:
-                snap_miss = (snap["source"], sp["version"], [p for p in here if files[p]["sha256"] != snap["files"][p]])
+                snap_miss = (snap["source"], sp["version"], [p for p in here if files[p]["sha256"] != snap["files"][p]],
+                             snapshot_label(snap))
                 claimed_paths.update(here)
 
         def alt_lookup():
@@ -269,6 +308,18 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
             return same_as, declared_build_differs
 
         out["files"] = sorted(set(present) | set(sib_paths) | set(snap_hit[2] if snap_hit else ()))
+
+        def matched() -> str:
+            """What a match with the reference package covers, with counts. Wording only."""
+            skipped = len(present) - len(same) - len(differ)
+            t = f"{len(same)} of the {len(present)} package file(s) present in the image have the reference package's SHA-256"
+            if normalized:
+                t += f" ({len(normalized)} of them only after embedded build-date strings are masked)"
+            if skipped:
+                t += f"; {skipped} configuration or account file(s) differ and are not compared"
+            if len(present) < len(pl["files"]):
+                t += f"; {len(pl['files']) - len(present)} of the package's {len(pl['files'])} files are not in the image"
+            return t
         if not pl["files"]:
             return dict(out, verdict="unverifiable", reason="metadata-only package with no files to check")
         if not present and not siblings:
@@ -285,49 +336,54 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
             return dict(out, verdict="unverifiable", reason="files present; no version marker to check (hash evidence disabled)")
 
         if not differ and not siblings:
-            # Every present file is byte-identical to the reference build.
+            # No compared file differs from the reference build (see matched() for what "compared" leaves out).
             if same_version(ver, vr):
-                return dict(out, verdict="verified_A", grade="A", label_source="feed index",
-                            reason="every file byte-identical to the reference package")
+                return dict(out, verdict="verified_A", grade="A", label_source="feed index", reason=matched())
             if vm and same_version(ver, vm):
                 return dict(out, verdict="verified_A", grade="A", label_source="release manifest",
-                            reason=f"every file byte-identical to the reference package; the release manifest labels it {vm} "
+                            reason=f"{matched()}; the release manifest labels it {vm} "
                                    f"(the shared feed now labels the same bytes {vr})")
             if snap_hit and same_version(ver, snap_hit[1]):
                 return dict(out, verdict="verified_A", grade="A", label_source="release snapshot",
-                            reason=f"every file byte-identical to the reference package; the official sibling image labels it {snap_hit[1]}")
+                            reason=f"{matched()}; {snap_hit[3]} labels it {snap_hit[1]}")
             if rec["frozen"]:
                 return dict(out, verdict="wrong_version", grade="A", actual_version=vr,
-                            reason=f"bytes are the reference build {vr} from a feed that is frozen for this release")
+                            reason=f"the files present match the reference build {vr} from a feed that is frozen for this release; {matched()}")
             if snap_hit:
                 return dict(out, verdict="wrong_version", grade="A", actual_version=snap_hit[1],
-                            reason=(f"bytes are the build that the feed index and the official sibling image both label {vr}" if snap_hit[1] == vr else
-                                    f"bytes are the build that the official sibling image labels {snap_hit[1]} (feed label {vr}); neither is the declared version"))
+                            reason=(f"the files present match the build that the feed index and {snap_hit[3]} both label {vr}" if snap_hit[1] == vr else
+                                    f"the files present match the build that {snap_hit[3]} labels {snap_hit[1]} (feed label {vr}); neither is the declared version")
+                                   + f"; {matched()}")
             if vm:
                 return dict(out, verdict="wrong_version", grade="A", actual_version=vm,
-                            reason=f"bytes are the reference build; the release manifest labels it {vm} and the feed {vr}, neither is the declared version")
+                            reason=f"the files present match the reference build; the release manifest labels it {vm} and the feed {vr}, "
+                                   f"neither is the declared version; {matched()}")
             _same, declared_build_differs = alt_lookup()
             if declared_build_differs:
                 return dict(out, verdict="wrong_version", grade="A", actual_version=vr,
-                            reason="files match the reference build of another version; the official build of the declared version has different bytes")
+                            reason="the files present match the reference build of another version; the publisher's build of the declared "
+                                   f"version in another release has different bytes; {matched()}")
             marked = [p for p in present if pl["files"][p].get("marker")]
             if use_markers and token and ref_token and token != ref_token and marked:
                 return dict(out, verdict="wrong_version", grade="A", actual_version=vr,
-                            reason="files are byte-identical to the reference build and carry its version marker, not the declared one")
+                            reason=f"the files present match the reference build and carry its version marker, not the declared one; {matched()}")
             return dict(out, verdict="label_unconfirmed", grade="A",
-                        reason=f"bytes identical to the reference build labelled {vr}; the shared feed may have relabelled it and no release manifest entry pins the label")
+                        reason=f"the files present match the reference build labelled {vr}; {matched()}; the shared feed may have "
+                               "relabelled it and no release manifest entry pins the label")
 
         # Some bytes differ from the reference build held for this release.
         if snap_hit:
             if same_version(ver, snap_hit[1]):
                 return dict(out, verdict="verified_A", grade="A", label_source="release snapshot",
                             reference_version=snap_hit[1], feed_version=vr, snapshot=snap_hit[0],
-                            reason=f"{len(snap_hit[2])} file(s) byte-identical to the build in the official sibling image "
-                                   f"({snap_hit[1]}); the shared feed has since moved to {vr}" if not same_version(ver, vr) else
-                                   f"{len(snap_hit[2])} file(s) byte-identical to the build in the official sibling image; "
-                                   "the shared feed's copy of this version was republished with different bytes")
+                            reason=f"{len(snap_hit[2])} file(s) present have the SHA-256 recorded for this package in {snap_hit[3]} "
+                                   f"({snap_hit[1]}; configuration files not compared); the shared feed has since moved to {vr}"
+                                   if not same_version(ver, vr) else
+                                   f"{len(snap_hit[2])} file(s) present have the SHA-256 recorded for this package in {snap_hit[3]} "
+                                   "(configuration files not compared); the shared feed's copy of this version was republished with different bytes")
             return dict(out, verdict="wrong_version", grade="A", actual_version=snap_hit[1],
-                        reason=f"bytes are identical to the build that the official sibling image labels {snap_hit[1]}")
+                        reason=f"{len(snap_hit[2])} file(s) present have the SHA-256 of the build that {snap_hit[3]} labels {snap_hit[1]} "
+                               "(configuration files not compared)")
         if differ and ref.has_path_index:
             def twin(p, only_declared):
                 """Another reference package that ships this exact file at this path."""
@@ -336,20 +392,21 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
             if all(twin(p, True) for p in present):
                 owner = twin(differ[0], True)[0]
                 return dict(out, verdict="absent", grade="A",
-                            reason=f"every file at this package's paths is byte-identical to another declared component ({owner}); nothing of this package is present")
+                            reason=f"each of the {len(present)} file(s) present at this package's paths has the SHA-256 of another declared "
+                                   f"component's file ({owner}); nothing of this package is present")
             others = [set(twin(p, False)) for p in differ]
             common = set.intersection(*others) if others else set()
             if common:
                 best = sorted(common)[0]
                 return dict(out, verdict="wrong_component", grade="A", actual_component=best,
-                            reason=f"the differing files at this package's paths are byte-identical to the reference package {best}")
+                            reason=f"the {len(differ)} differing file(s) at this package's paths have the SHA-256 of the reference package {best}")
         same_as, _dbd = alt_lookup()
         if same_as:
             if same_version(ver, same_as[1]):
                 return dict(out, verdict="verified_A", grade="A", label_source=f"release {same_as[0]} feed",
-                            reason=f"bytes are identical to the {same_as[0]} release build of this version")
+                            reason=f"a file that differs from this release's reference has the SHA-256 of the {same_as[0]} release build of this version")
             return dict(out, verdict="wrong_version", grade="A", actual_version=same_as[1],
-                        reason=f"bytes are identical to the {same_as[0]} release build {same_as[1]}")
+                        reason=f"a file that differs from this release's reference has the SHA-256 of the {same_as[0]} release build {same_as[1]}")
         changed = differ + sib_paths
         ref_changed = differ + [p for p, _s in siblings]
         ref_marker = any(pl["files"][p].get("marker") for p in ref_changed)
@@ -365,7 +422,7 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
                                + ("; the reference package file was republished after this image was built" if rebuilt else ""))
         if snap_miss and same_version(ver, snap_miss[1]):
             return dict(out, verdict="bytes_differ", grade="A", differing=snap_miss[2], reference_rebuilt_after_image=False,
-                        reason=f"the official sibling image carries this version ({snap_miss[1]}) with different bytes in "
+                        reason=f"{snap_miss[3]} carries this version ({snap_miss[1]}) with different bytes in "
                                f"{len(snap_miss[2])} file(s): a modification or a device-specific build, needs review")
         if use_markers and fw_has(changed, token):
             return dict(out, verdict="verified_B", grade="B",
@@ -415,7 +472,7 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
             add("bytes_differ", name, "A", f"{len(res['differing'])} file(s) differ from the reference build of {ver}. {res['reason']}",
                 reference_rebuilt_after_image=res.get("reference_rebuilt_after_image"))
         elif v == "label_unconfirmed":
-            add("label_unconfirmed", name, "A", f"declared {ver}; byte-identical reference is labelled {res['reference_version']}")
+            add("label_unconfirmed", name, "A", f"declared {ver}; the matching reference build is labelled {res['reference_version']}")
         feed_v = res.get("feed_version") or res.get("reference_version")
         if v in ("verified_A", "verified_B") and feed_v and not same_version(ver, feed_v):
             add("stale", name, res.get("grade", "A"), f"firmware has {ver}; the reference feed now ships {feed_v}")
@@ -488,11 +545,14 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
             attributed[p] = n
         alts = sorted(m for m in cand if m != n and cand[m]["ident"] and cand[m]["ident"] >= cand[n]["ident"]
                       and len(cand[m]["ident"]) == len(cand[n]["ident"]))
-        groups[n] = {"files": sorted(new), "identical": bool(cand[n]["ident"]), "version": cand[n]["version"], "alternatives": alts}
+        groups[n] = {"files": sorted(new), "identical": bool(cand[n]["ident"]), "version": cand[n]["version"], "alternatives": alts,
+                     "same": sum(1 for p in new if p in cand[n]["ident"])}
     for n, g in sorted(groups.items()):
+        how = ("path or SONAME match with" if not g["identical"] else "all byte-identical to" if g["same"] == len(g["files"])
+               else f"{g['same']} of them byte-identical to")
         add("undeclared_component", n, "A" if g["identical"] else "B",
-            f"{len(g['files'])} file(s) present, {'byte-identical to' if g['identical'] else 'path or SONAME match with'} "
-            f"reference {n} {g['version']}", files=g["files"][:20], alternatives=g["alternatives"][:8])
+            f"{len(g['files'])} file(s) present, {how} reference {n} {g['version']}",
+            files=g["files"][:20], alternatives=g["alternatives"][:8])
     leftover = [p for p in orphans if p not in attributed]
     code_left = [p for p in leftover if files[p]["elf"]]
     for p in code_left:
@@ -509,7 +569,8 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
                     "seconds": round(time.time() - t0, 2)},
         "options": {"use_hashes": use_hashes, "use_markers": use_markers, "release_manifest": bool(manifest),
                     "path_index": ref.has_path_index, "alt_releases": [a.release for a in alt_refs],
-                    "snapshots": [s["source"] for s in snapshots], "normalize_timestamps": normalize_timestamps},
+                    "snapshots": [s["source"] for s in snapshots], "snapshot_trust": [snapshot_trust(s) for s in snapshots],
+                    "normalize_timestamps": normalize_timestamps},
         "components": results, "findings": findings, "orphans": leftover,
     }
 

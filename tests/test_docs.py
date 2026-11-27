@@ -49,3 +49,37 @@ def test_documents_reference_existing_result_files():
 def test_post_freeze_review_analysis_matches_the_committed_results():
     r = subprocess.run([sys.executable, str(ROOT / "bench/review_r3.py"), "--check"], capture_output=True, text=True)
     assert r.returncode == 0, r.stdout + r.stderr
+
+
+@pytest.mark.skipif(not (RESULTS / "summary.json").exists(), reason="result files not present")
+def test_patch_counts_in_prose_match_the_results():
+    """The prose says how many one-byte patches are found with and without the sibling snapshot; it must not say "every time"."""
+    import json
+    m6 = json.loads((RESULTS / "summary.json").read_text())["splits"]["heldout"]["by_kind"]["M6_patched_binary"]["unaware"]
+    cases, with_snap, without = m6["bw"]["cases"], m6["bw"]["tp"], m6["bw_no_snapshot"]["tp"]
+    assert with_snap == cases and without < cases
+    readme = " ".join((ROOT / "README.md").read_text().split())
+    limits = " ".join((ROOT / "docs/LIMITATIONS.md").read_text().split())
+    assert f"all {cases} one-byte patches of the held-out set with the sibling snapshot, {without} of {cases} without it" in readme
+    assert f"every one of the {cases} one-byte patches was reported with the sibling snapshot and {without} of {cases} without it" in limits
+    for doc in ("README.md", "docs/DESIGN.md", "docs/LIMITATIONS.md", "docs/EVALUATION.md", "paper/bomwitness.tex"):
+        text = (ROOT / doc).read_text()
+        assert "flipped byte every time" not in text, doc
+        assert "signed `profiles.json`" not in text and "signed profiles.json" not in text and "signed image list" not in text, doc
+
+
+@pytest.mark.skipif(not (RESULTS / "r4-verdict-check/COMPARISON.json").exists(), reason="result files not present")
+def test_wording_change_to_the_rule_file_left_every_verdict_unchanged():
+    """verify.py changed after the freeze in wording only. The rerun that shows it is recorded, and it is a rerun of this verify.py."""
+    import json
+    c = json.loads((RESULTS / "r4-verdict-check/COMPARISON.json").read_text())
+    summary = json.loads((RESULTS / "summary.json").read_text())["splits"]
+    for run in ("unchanged_code", "changed_code"):
+        t = c[run]["totals"]
+        assert t["differences"] == 0 and all(not v["differences"] for v in c[run]["images"].values())
+        assert t["images"] == len(summary["heldout"]["images"]) + len(summary["tuning"]["images"])
+        assert t["cases"] == summary["heldout"]["cases"] + summary["tuning"]["cases"] and t["heldout_cases"] == summary["heldout"]["cases"]
+    assert c["changed_code"]["totals"]["reason_strings_changed"] > c["unchanged_code"]["totals"]["reason_strings_changed"] > 0
+    for f, blob in c["rule_file_blobs_at_rerun"].items():
+        now = subprocess.run(["git", "hash-object", f], cwd=ROOT, capture_output=True, text=True).stdout.strip()
+        assert now == blob, f"{f} changed after the verdict check in results/r2/r4-verdict-check; rerun bench/verdict_check.py"

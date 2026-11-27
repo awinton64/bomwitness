@@ -21,7 +21,7 @@ if [ ! -x "$WORK/venv/bin/bomwitness" ]; then
   "$WORK/venv/bin/pip" install -q "$REPO"
 fi
 export BOMWITNESS="$WORK/venv/bin/bomwitness"
-if [ ! -d "$WORK/rootfs" ] || [ ! -f "$WORK/snapshot.json" ]; then
+if [ ! -d "$WORK/rootfs" ] || [ ! -f "$WORK/objects/$SIBLING" ]; then
   sh "$OBJ/fetch.sh" "$WORK/objects"
   sh "$PIPE/2_preprocess/bomwitness/preprocess.sh" "$WORK"
 fi
@@ -30,7 +30,7 @@ rm -rf "$DEV"
 cp -R "$WORK/rootfs" "$DEV"
 cp -R "$HERE/rootfs/." "$DEV/"
 "$BOMWITNESS" verify --rootfs "$DEV" --name "archer-c7-v5 plus 2 synthetic model files" \
-   --release "$RELEASE" --target "$TARGET" --cache "$WORK/cache" --snapshot "$WORK/snapshot.json" \
+   --release "$RELEASE" --target "$TARGET" --cache "$WORK/cache" --sibling-image "$WORK/objects/$SIBLING" \
    --sbom "$OBJ/declared-with-errors.cdx.json" --aibom "$HERE/aibom-with-errors.cdx.json" --as-of 2026-11-27 \
    --json "$WORK/unified.json" --md "$WORK/unified.md" --fail-on never
 "$WORK/venv/bin/python" "$HERE/check_unified.py" "$WORK/unified.json" "$OBJ/expected-findings.json" "$HERE/expected-findings.json"

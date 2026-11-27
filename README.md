@@ -33,7 +33,7 @@ compared by SHA-256. Files are hash-pinned through that chain. They are not sign
 
 | Grade | Evidence | Used for verdicts |
 |---|---|---|
-| A | The package's files that are present in the image are byte-identical to the files in the publisher's package. Configuration files and three account files are not compared, differences confined to embedded build-date strings are accepted, and the package need not be complete. The version label comes from the feed index, the hash-pinned release manifest, or an official sibling image of the same release. | yes |
+| A | The package's files that are present in the image have the SHA-256 of the files in the publisher's package, with three stated limits: configuration files and three account files that differ are not compared; a file that differs only inside embedded build-date strings is accepted (those strings are masked before comparison); and the package need not be complete. Each grade A line of a report gives the counts. The version label comes from the feed index, the hash-pinned release manifest, or a sibling image of the same release. | yes |
 | B | Intrinsic to the bytes: the version marker that the reference build of the component carries, SONAMEs, algorithm names | yes, labelled B |
 | C | The firmware's own package database | no. Shown in its own section, labelled self-reported |
 
@@ -41,8 +41,14 @@ Per declared component the result is `verified_A`, `verified_B`, `wrong_version`
 `absent`, `bytes_differ` (needs review), `label_unconfirmed` (needs review) or `unverifiable`. Per image it
 reports `undeclared_component` and `undeclared_file`. The CBOM check compares the certificates, keys and
 algorithm names found in the image with the declaration (no signed reference is involved in that
-comparison) and requires every declared algorithm to name a providing SBOM component that verified at grade
-A or B. The rules are in [docs/DESIGN.md](docs/DESIGN.md).
+comparison; certificates are matched by fingerprint and then compared field by field, standalone keys are
+reconciled by fingerprint only) and requires every declared algorithm to name a providing SBOM component
+that verified at grade A or B. The rules are in [docs/DESIGN.md](docs/DESIGN.md).
+
+A sibling image is one more input, and the report keeps apart what was authenticated and what was only
+supplied. A sibling whose SHA-256 is in the release's image list is called authenticated. A sibling that is
+not listed, or a local snapshot file, still supports verdicts, on your trust in it, and every finding that
+rests on it says "supplied" and "not authenticated". No finding calls such a source official.
 
 Grade A is the tool's verdict under those rules. It is not a proof that a package is complete: three phantom
 packages in the held-out benchmark were accepted because one of their files was present with the right
@@ -84,11 +90,14 @@ What you must trust, and what the tool checks for you:
 
 - **Release metadata and packages** are fetched from `downloads.openwrt.org` (or `--base`) and authenticated
   with the pinned keys. Nothing to do.
-- **`--sibling-image`** is an input you supply. The tool looks its SHA-256 up in the signed `profiles.json`
-  of the release and target and the report says whether it was found. An image that is not listed is still
-  used, with a warning, so read that line of the report. Use an official image of the same release and
-  target.
-- **`--snapshot`** (a JSON file made by `bomwitness snapshot`) is a local file and is trusted as supplied.
+- **`--sibling-image`** is an input you supply. The tool looks its SHA-256 up in `profiles.json` (the image
+  list of the release and target). That file carries no signature of its own: the signed `sha256sums` pins
+  it by hash. The first lines of the command's output, and the report, say whether the image was found. An
+  image that is not listed is still used, with a warning, and findings that rest on it call it a supplied
+  sibling image that was not authenticated. Use an official image of the same release and target.
+- **`--snapshot`** (a JSON file made by `bomwitness snapshot`) is a local file and is trusted as supplied,
+  whatever it says about its own origin. The output says so, and findings that rest on it say "the supplied
+  snapshot (not authenticated by this run)".
 - **The cache directory** (`--cache`) is verified when an item is first fetched and trusted afterwards. Keep
   it where only you can write, or delete it to force a fresh, verified download.
 
@@ -108,7 +117,7 @@ The method, the split between tuning and held-out images, the scoring and the ba
 `bench/headline.py`; a test fails if it is edited by hand.
 
 <!-- headline:start -->
-Held-out set: 10 official OpenWrt images (23.05.6 and 24.10.8, 6 package architectures), 900 distinct seeded errors scored in 1860 condition rows (each of the 480 BOM-level errors is scored under three database states, each of the 420 unaware errors once). The verdict rules were frozen at commit `0f83a98` (tag `rules-frozen-r2a`) before the held-out images were scored in this primary evaluation; the other measurements below were made afterwards. Cells are precision / recall (found/rows).
+Held-out set: 10 official OpenWrt images (23.05.6 and 24.10.8, 6 package architectures), 900 distinct seeded errors scored in 1860 condition rows (each of the 480 BOM-level errors is scored under three database states, which gives 1440 BOM-level rows; each of the 420 unaware errors is scored once). The verdict rules were frozen at commit `0f83a98` (tag `rules-frozen-r2a`) before the held-out images were scored in this primary evaluation; the other measurements below were made afterwards. Cells are precision / recall (found/rows).
 
 | Device database | Cases | BOMwitness | BOMwitness, no sibling snapshot | BOMwitness, feeds only | BomTrace | Syft-diff | cve-bin-tool-diff |
 |---|---|---|---|---|---|---|---|
@@ -116,23 +125,25 @@ Held-out set: 10 official OpenWrt images (23.05.6 and 24.10.8, 6 package archite
 | colluding (edited to agree with the BOM) | 480 | 0.994 / 0.988 (474/480) | 0.994 / 0.979 (470/480) | 0.993 / 0.867 (416/480) | n/a / 0.000 (0/480) | 0.000 / 0.000 (0/480) | 0.342 / 0.027 (13/480) |
 | stripped (removed) | 480 | 0.994 / 0.988 (474/480) | 0.994 / 0.979 (470/480) | 0.993 / 0.867 (416/480) | unsupported input, 0 labels returned (0/480) | 0.055 / 0.250 (120/480) | 0.342 / 0.027 (13/480) |
 | unaware (firmware changed, BOM and database silent) | 420 | 0.993 / 0.955 (401/420) | 0.993 / 0.945 (397/420) | 0.993 / 0.945 (397/420) | n/a / 0.000 (0/420) | 0.000 / 0.000 (0/420) | 0.365 / 0.055 (23/420) |
-| all | 1860 | 0.994 / 0.980 (1823/1860) | 0.993 / 0.972 (1807/1860) | 0.993 / 0.884 (1645/1860) | 1.000 / 0.258 (480/1860) | 0.134 / 0.323 (600/1860) | 0.350 / 0.033 (62/1860) |
+| all | 1860 | 0.994 / 0.980 (1823/1860) | 0.993 / 0.972 (1807/1860) | 0.993 / 0.884 (1645/1860) | 1.000 / 0.258 (480/1860); coverage-inclusive, 480 of these rows are unsupported input | 0.134 / 0.323 (600/1860) | 0.350 / 0.033 (62/1860) |
 
 - BOMwitness recall with 95% Wilson intervals: colluding and stripped 0.988 [0.973, 0.994], unaware 0.955 [0.930, 0.971]. Lowest recall on any single held-out image: 0.958 (colluding), 0.929 (unaware). The honest, colluding and stripped rows are the same 480 errors with three database states, not 1440 independent cases. The intervals treat errors as independent, which errors on one image are not, so read them as a description of these cases; the unit that varies is the image.
 - Recall per held-out image, lowest to highest over the 10 images. BOM-level errors: feeds only 0.771 to 0.958 (median 0.875), with the manifest 0.958 to 1.000 (median 0.979), with the sibling 0.958 to 1.000 (median 0.990). Unaware errors: without the sibling 0.881 to 0.976 (median 0.952), with it 0.929 to 0.976 (median 0.952).
 - Baselines without a database, stated exactly. BomTrace needs the package database as input: in all 480 stripped rows its verifier exited without a result (unsupported input), which is different from running and finding nothing; with a colluding database it ran in all 480 rows and returned no label. The Syft-based diff, with no inventory to compare, reports every declared component as absent: that credits it with the 120 phantom rows and with none of the other 360, at the cost of 158 to 251 findings per clean image. With an honest database its 44 to 76 clean findings per image are naming differences in our diff script (Syft also lists kernel modules as components), a penalty of the adapter and not of Syft.
-- Clean controls (held-out images, correct BOM): 1470 declared components, 1348 verified at grade A (91.7%), 23 by version marker, 96 unverifiable, 3 false alarms (0.20% of declared components). 6134 of 6135 files and 1582 of 1582 executables accounted for. Grade A is the tool's verdict under its rules (the package's files that are present match the publisher's build; configuration files and build-time strings are tolerated), not a proof that a package is complete.
+- BomTrace's pooled recall in the last row (0.258, 480/1860) is coverage-inclusive: the denominator counts all 1860 rows, including the 480 stripped rows in which its verifier returned no result because the input is unsupported. Over the 1380 rows in which it produced a result it found 480 (0.348). The Syft-based diff's pooled row has no such rows: it ran everywhere.
+- Clean controls (held-out images, correct BOM): 1470 declared components, 1348 verified at grade A (91.7%), 23 by version marker, 96 unverifiable, 3 false alarms (0.20% of declared components). 6134 of 6135 files and 1582 of 1582 executables accounted for. Grade A is the tool's verdict under its rules (the package's files that are present match the publisher's build; configuration files that differ are not compared and build-date strings are masked), not byte identity of a package and not a proof that a package is complete.
 - Ablations on the colluding condition: grade A only 0.994 / 0.988 (474/480); grade B only 1.000 / 0.619 (297/480); with the device database shown as grade C, honest condition 0.994 / 1.000 (480/480).
+- One-byte patches (M6, 120 cases) are reported only where a comparable reference covers the file: 120 with the sibling snapshot, 116 with the manifest and no snapshot, 116 with feeds only. A change inside a masked build-date string or in a configuration file that is not compared would not be reported; the benchmark has no such case.
 - BOMwitness misses on the held-out set: 25 distinct cases. M4u_implant_unindexed_feed: flagged as undeclared code, not named (19); M3_phantom: verified_A (3); M2b_fabricated_version: verified_B (1); M2b_fabricated_version: label_unconfirmed (1); M2b_fabricated_version: unverifiable (1). Case-level false positives: 0.
 - Tuning set (4 images, 744 cases), for comparison: BOMwitness colluding 1.000 / 1.000 (192/192), unaware 0.994 / 0.964 (162/168).
 - With the least similar sibling instead of the most similar one (7 held-out images that have siblings): colluding 1.000 / 0.988 (332/336), unaware 1.000 / 0.963 (283/294).
 - Index coverage: with the large `packages`, `routing` and `telephony` feeds indexed too (2 held-out images, 390 to 400 MB more per release and architecture), implants from those feeds are named in 12 of 12 cases instead of 9 of 12.
 - Sibling snapshots: 11 of 14 images have one; for 8 of them the sibling has the same regular-file paths and contents as the tested image (symlinks, file metadata and the SquashFS container are not compared), so the no-snapshot column is the conservative reading.
 - CBOM and cross-BOM (14 images, 15 seeded classes): 994 cases, 1272 of 1274 expected findings produced, 0 extra. The correct CBOM is generated by the same detector, so this shows consistency, not detection power.
-- Reference drift, same device across 15 point releases, share of a correct BOM confirmed byte for byte: 24.10.0 (661 days old): 58.7% feeds only, 63.3% with the manifest, 93.3% with a sibling snapshot; 24.10.8 (126 days old): 80.0% feeds only, 89.3% with the manifest, 93.3% with a sibling snapshot. False alarms on the oldest 24.10 image: 3 feeds only, 0 with the snapshot.
+- Reference drift, same device across 15 point releases, share of a correct BOM verified at grade A: 24.10.0 (661 days old): 58.7% feeds only, 63.3% with the manifest, 93.3% with a sibling snapshot; 24.10.8 (126 days old): 80.0% feeds only, 89.3% with the manifest, 93.3% with a sibling snapshot. False alarms on the oldest 24.10 image: 3 feeds only, 0 with the snapshot.
 - OpenWrt's published per-target BOMs, verified unchanged against the 14 device images: 1705 of 1868 claims verified (1674 at grade A, 31 at grade B), 122 unverifiable, 34 version labels contradicted at package granularity (wireless kernel-module packages listed with the kernel version only, where the frozen feed labels the same bytes with the kernel and the driver version), 4 `bytes_differ`, 3 components absent from the device image, and 0 to 45 packages per image beyond what the per-target BOM lists. No database-reading verifier was run on these BOMs.
 - Inventory from bytes alone (no BOM, no database): of 2083 installed packages, 1950 own at least one regular, non-symlink file in the image and are therefore eligible; 1939 of those are named, with 0 wrong names. Syft on the same trees without the database lists 45 to 77 components; cve-bin-tool identifies 6 to 11 products.
-- Unmodified downstream fork (ImmortalWrt 24.10.7, same device): against its own signed download tree 183 of 190 components verify with 0 findings; against upstream OpenWrt 74 of 190 are upstream's bytes and 65 of 215 executables are identical to the upstream image.
+- Unmodified downstream fork (ImmortalWrt 24.10.7, same device): against its own signed download tree 183 of 190 components verify with 0 findings; against upstream OpenWrt 74 of 190 verify at grade A and 65 of 215 executables have the same SHA-256 as in the upstream image.
 - Cost. The benchmark timer covers only the in-process verifier call on a tree that is already unpacked and hashed, with a warm reference cache: median 0.05 to 0.11 s per case. The baselines were timed as whole command-line runs (BomTrace up to 0.07 s, Syft up to 1.0 s), so these figures are not comparable with each other. End to end, the command line on the repository example (unpack two images, hash every file, verify, write the report; measured after the freeze on one machine) takes 5.2 s with a warm cache and 13.7 s with an empty one. Building the reference index for one release and target, once: 29 to 40 s and 149 to 197 MB of downloads (2.1 GB for all 14 targets of the benchmark).
 <!-- headline:end -->
 
@@ -149,15 +160,17 @@ Held-out set: 10 official OpenWrt images (23.05.6 and 24.10.8, 6 package archite
 - **This is not a ranking of firmware tools.** Two of the three baselines are small adapters of ours around
   a generator and a scanner, the Syft adapter's naming differences cost it precision that Syft itself does
   not deserve, and no firmware-native analyser such as EMBA was run.
-- **High recall here follows from the design, not from cleverness.** Comparing hashes against a signed
-  reference finds a flipped byte every time, provided a comparable reference covers the file. The
-  informative numbers are the false alarms on clean images, the misses, the ablations and the drift
-  measurement.
+- **High recall here follows from the design, not from cleverness.** Comparing hashes against an
+  authenticated reference finds a flipped byte only where a comparable reference covers the file: all 120
+  one-byte patches of the held-out set with the sibling snapshot, 116 of 120 without it (the four misses
+  are in packages whose shared-feed copy has moved to a newer version). A change inside a masked build-date
+  string, or in a configuration file that is not compared, would not be reported. The informative numbers
+  are the false alarms on clean images, the misses, the ablations and the drift measurement.
 - **900 distinct errors, not 1860 independent cases.** Each BOM-level error is scored under three database
   states. Errors on one image share its packages and reference, so the per-image range of recall is a better
   guide to variability than a pooled interval. Seeded targets are drawn from packages the reference covers.
-- **These are official images checked against their own publisher's packages**, the case where byte
-  identity is available. Firmware that a vendor rebuilds from source will not match byte for byte; the
+- **These are official images checked against their own publisher's packages**, the case where a grade A
+  match is available. Firmware that a vendor rebuilds from source will not match byte for byte; the
   downstream-fork case study shows what is left then.
 - **The sibling snapshot is close to a copy of the tested image for most benchmark devices** (the same
   regular-file paths and contents for 8 of 11), because devices of one OpenWrt target share nearly all
@@ -195,7 +208,7 @@ Held-out set: 10 official OpenWrt images (23.05.6 and 24.10.8, 6 package archite
 
 | Path | Contents |
 |---|---|
-| `bomwitness/` | the tool: `reference.py` (signed reference layer), `verify.py` (SBOM rules), `crypto.py` (CBOM and cross-BOM), `aibom.py`, `devicedb.py` (grade C), `unpack.py`, `report.py`, `cli.py` |
+| `bomwitness/` | the tool: `reference.py` (authenticated reference layer), `verify.py` (SBOM rules), `crypto.py` (CBOM and cross-BOM), `aibom.py`, `devicedb.py` (grade C), `unpack.py`, `report.py`, `cli.py` |
 | `tests/` | unit tests; `fakefeed.py` builds a tiny signed release tree so they run offline |
 | `bench/` | benchmark harness, baselines, and the drift, official-BOM, inventory and case-study scripts |
 | `results/r2/` | every result file the documentation quotes; `SUMMARY.md` has the full tables |

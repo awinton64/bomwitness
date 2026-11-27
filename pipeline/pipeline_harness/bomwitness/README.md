@@ -8,8 +8,8 @@ image, without trusting the package database that ships inside the firmware.
 | Stage | What happens | Where |
 |---|---|---|
 | 1 analysis object | Fetch one official OpenWrt image and one sibling image, check their SHA-256; two declared BOMs are provided (one correct, one with six seeded errors) | `1_analysis_object/bomwitness/` |
-| 2 preprocess | Carve and extract the SquashFS root filesystem; fetch and signature-check the publisher's reference metadata; make the sibling snapshot | `2_preprocess/bomwitness/` |
-| 3 security analysis | `bomwitness verify` grades every claim against the bytes, cross-checks the CBOM against the SBOM verdicts, and looks for model files | `3_security_analysis/bomwitness/` |
+| 2 preprocess | Carve and extract the SquashFS root filesystem; optionally build the full reference index | `2_preprocess/bomwitness/` |
+| 3 security analysis | `bomwitness verify` fetches and signature-checks the publisher's reference metadata, authenticates the sibling image against the release's image list, grades every claim against the bytes, cross-checks the CBOM against the SBOM verdicts, and looks for model files | `3_security_analysis/bomwitness/` |
 | 4 analysis output | JSON and Markdown reports; one example run is committed | `4_analysis_output/bomwitness/` |
 
 ## Run it
