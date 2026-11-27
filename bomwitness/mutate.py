@@ -13,7 +13,7 @@ import shutil
 import subprocess
 from pathlib import Path
 
-from . import opkgdb
+from . import devicedb as opkgdb
 
 
 def clone(src: Path, dst: Path) -> Path:

@@ -1,0 +1,104 @@
+{
+ "note": "Official OpenWrt release images used by the benchmark. Images are never committed. bench/prepare.py downloads each one and checks it against profiles.json, which the usign-signed sha256sums of its target pins. 'tuning' images were used while writing the rules; 'heldout' images were first run after the rules were frozen (see docs/EVALUATION.md).",
+ "base": "https://downloads.openwrt.org/releases",
+ "images": [
+  {
+   "id": "t-2410-archer-c7-v5",
+   "split": "tuning",
+   "release": "24.10.8",
+   "target": "ath79/generic",
+   "image": "openwrt-24.10.8-ath79-generic-tplink_archer-c7-v5-squashfs-sysupgrade.bin"
+  },
+  {
+   "id": "t-2410-mi-router-4a-gigabit",
+   "split": "tuning",
+   "release": "24.10.8",
+   "target": "ramips/mt7621",
+   "image": "openwrt-24.10.8-ramips-mt7621-xiaomi_mi-router-4a-gigabit-squashfs-sysupgrade.bin"
+  },
+  {
+   "id": "t-2410-gl-mt6000",
+   "split": "tuning",
+   "release": "24.10.8",
+   "target": "mediatek/filogic",
+   "image": "openwrt-24.10.8-mediatek-filogic-glinet_gl-mt6000-squashfs-sysupgrade.bin"
+  },
+  {
+   "id": "t-2305-archer-c7-v2",
+   "split": "tuning",
+   "release": "23.05.6",
+   "target": "ath79/generic",
+   "image": "openwrt-23.05.6-ath79-generic-tplink_archer-c7-v2-squashfs-sysupgrade.bin"
+  },
+  {
+   "id": "h-2410-gl-b1300",
+   "split": "heldout",
+   "release": "24.10.8",
+   "target": "ipq40xx/generic",
+   "image": "openwrt-24.10.8-ipq40xx-generic-glinet_gl-b1300-squashfs-sysupgrade.bin"
+  },
+  {
+   "id": "h-2410-x86-64",
+   "split": "heldout",
+   "release": "24.10.8",
+   "target": "x86/64",
+   "image": "openwrt-24.10.8-x86-64-generic-squashfs-rootfs.img.gz"
+  },
+  {
+   "id": "h-2410-archer-c50-v4",
+   "split": "heldout",
+   "release": "24.10.8",
+   "target": "ramips/mt76x8",
+   "image": "openwrt-24.10.8-ramips-mt76x8-tplink_archer-c50-v4-squashfs-sysupgrade.bin"
+  },
+  {
+   "id": "h-2410-unifi-6-lr-v1",
+   "split": "heldout",
+   "release": "24.10.8",
+   "target": "mediatek/mt7622",
+   "image": "openwrt-24.10.8-mediatek-mt7622-ubnt_unifi-6-lr-v1-squashfs-sysupgrade.bin"
+  },
+  {
+   "id": "h-2410-wrt1900acs",
+   "split": "heldout",
+   "release": "24.10.8",
+   "target": "mvebu/cortexa9",
+   "image": "openwrt-24.10.8-mvebu-cortexa9-linksys_wrt1900acs-squashfs-sysupgrade.bin"
+  },
+  {
+   "id": "h-2305-edgerouter-x",
+   "split": "heldout",
+   "release": "23.05.6",
+   "target": "ramips/mt7621",
+   "image": "openwrt-23.05.6-ramips-mt7621-ubnt_edgerouter-x-squashfs-sysupgrade.bin"
+  },
+  {
+   "id": "h-2305-gl-mt3000",
+   "split": "heldout",
+   "release": "23.05.6",
+   "target": "mediatek/filogic",
+   "image": "openwrt-23.05.6-mediatek-filogic-glinet_gl-mt3000-squashfs-sysupgrade.bin"
+  },
+  {
+   "id": "h-2305-gl-b1300",
+   "split": "heldout",
+   "release": "23.05.6",
+   "target": "ipq40xx/generic",
+   "image": "openwrt-23.05.6-ipq40xx-generic-glinet_gl-b1300-squashfs-sysupgrade.bin"
+  },
+  {
+   "id": "h-2305-x86-64",
+   "split": "heldout",
+   "release": "23.05.6",
+   "target": "x86/64",
+   "image": "openwrt-23.05.6-x86-64-generic-squashfs-rootfs.img.gz"
+  },
+  {
+   "id": "h-2305-rpi-4",
+   "split": "heldout",
+   "release": "23.05.6",
+   "target": "bcm27xx/bcm2711",
+   "image": "openwrt-23.05.6-bcm27xx-bcm2711-rpi-4-squashfs-sysupgrade.img.gz"
+  }
+ ]
+}

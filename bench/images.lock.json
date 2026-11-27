@@ -1,0 +1,530 @@
+{
+ "h-2305-edgerouter-x": {
+  "arch": "mipsel_24kc",
+  "bytes": 5540494,
+  "image_source_date_epoch": 1755196060,
+  "kernel": {
+   "release": "1",
+   "vermagic": "4f2d344a1dace96707d0f22ddf55d176",
+   "version": "5.15.189"
+  },
+  "release": "23.05.6",
+  "rootfs_files": 903,
+  "rootfs_symlinks": 199,
+  "self_reported": {
+   "arch": "mipsel_24kc",
+   "release": "23.05.6",
+   "target": "ramips/mt7621"
+  },
+  "sha256": "1153fadca7fecb0d36fe1ea9dc1d54541b6a6302f693319f02db5d7462f01c96",
+  "sha256sums_sha256": "b1b6996ae53e97d64b8a40489d028ef3951cfdbd11feac224a342860811b65b9",
+  "sha256sums_signed_by": "b5043e70f9a75cde",
+  "sibling": {
+   "files": 546,
+   "image": "openwrt-23.05.6-ramips-mt7621-iptime_t5004-squashfs-sysupgrade.bin",
+   "packages": 114,
+   "profile": "iptime_t5004",
+   "sha256": "1e8fd0751da462fe89a88645e4987d8edf358377c7867409cbb43237875d7640"
+  },
+  "split": "heldout",
+  "squashfs": {
+   "block_size": 262144,
+   "bytes_used": 2714502,
+   "compressor_id": 4,
+   "inodes": 1215,
+   "mkfs_time": 1755196060,
+   "offset": 2822144
+  },
+  "target": "ramips/mt7621",
+  "url": "https://downloads.openwrt.org/releases/23.05.6/targets/ramips/mt7621/openwrt-23.05.6-ramips-mt7621-ubnt_edgerouter-x-squashfs-sysupgrade.bin"
+ },
+ "h-2305-gl-b1300": {
+  "arch": "arm_cortex-a7_neon-vfpv4",
+  "bytes": 7078471,
+  "image_source_date_epoch": 1755196060,
+  "kernel": {
+   "release": "1",
+   "vermagic": "04466ed339d77bdabcd3d44bcec6be4a",
+   "version": "5.15.189"
+  },
+  "release": "23.05.6",
+  "rootfs_files": 1039,
+  "rootfs_symlinks": 209,
+  "self_reported": {
+   "arch": "arm_cortex-a7_neon-vfpv4",
+   "release": "23.05.6",
+   "target": "ipq40xx/generic"
+  },
+  "sha256": "823b437b1402a918e41eaffb26ccdaf49eaba6be76b69e4672dd2362125c32bc",
+  "sha256sums_sha256": "b402ccc2dbaa3cd665383996c5ac5b80e507fcc43e4da684aa7a089d5ef2840c",
+  "sha256sums_signed_by": "b5043e70f9a75cde",
+  "sibling": {
+   "files": 592,
+   "image": "openwrt-23.05.6-ipq40xx-generic-8dev_habanero-dvk-squashfs-sysupgrade.bin",
+   "packages": 144,
+   "profile": "8dev_habanero-dvk",
+   "sha256": "e009364ba2b8ca57b570dbb39fdc0f3e599e34eba9f02c8616bfea1f494ae884"
+  },
+  "split": "heldout",
+  "squashfs": {
+   "block_size": 262144,
+   "bytes_used": 3975554,
+   "compressor_id": 4,
+   "inodes": 1365,
+   "mkfs_time": 1755196060,
+   "offset": 2993452
+  },
+  "target": "ipq40xx/generic",
+  "url": "https://downloads.openwrt.org/releases/23.05.6/targets/ipq40xx/generic/openwrt-23.05.6-ipq40xx-generic-glinet_gl-b1300-squashfs-sysupgrade.bin"
+ },
+ "h-2305-gl-mt3000": {
+  "arch": "aarch64_cortex-a53",
+  "bytes": 8417656,
+  "image_source_date_epoch": 1755196060,
+  "kernel": {
+   "release": "1",
+   "vermagic": "1adaf5487ea42a5cb61b480d93374975",
+   "version": "5.15.189"
+  },
+  "release": "23.05.6",
+  "rootfs_files": 1094,
+  "rootfs_symlinks": 212,
+  "self_reported": {
+   "arch": "aarch64_cortex-a53",
+   "release": "23.05.6",
+   "target": "mediatek/filogic"
+  },
+  "sha256": "ea9b59168cfaca73430519b0e57aac519cef36eb374869278aec35a8ce909e7d",
+  "sha256sums_sha256": "37c60c64693870ec80d4e431173e3cca3f7d8598652a960f004d3a4ae0b2b88c",
+  "sha256sums_signed_by": "b5043e70f9a75cde",
+  "sibling": {
+   "files": 612,
+   "image": "openwrt-23.05.6-mediatek-filogic-confiabits_mt7981-squashfs-sysupgrade.bin",
+   "packages": 154,
+   "profile": "confiabits_mt7981",
+   "sha256": "325d2bcd7683a4f703d43d00266e74ba41f3006632671a54bee3b8a673571259"
+  },
+  "split": "heldout",
+  "squashfs": {
+   "block_size": 262144,
+   "bytes_used": 4594316,
+   "compressor_id": 4,
+   "inodes": 1423,
+   "mkfs_time": 1755196060,
+   "offset": 3818496
+  },
+  "target": "mediatek/filogic",
+  "url": "https://downloads.openwrt.org/releases/23.05.6/targets/mediatek/filogic/openwrt-23.05.6-mediatek-filogic-glinet_gl-mt3000-squashfs-sysupgrade.bin"
+ },
+ "h-2305-rpi-4": {
+  "arch": "aarch64_cortex-a72",
+  "bytes": 14005528,
+  "image_source_date_epoch": 1755196060,
+  "kernel": {
+   "release": "1",
+   "vermagic": "4c55777e2cc33906a7004cd6eac7672c",
+   "version": "5.15.189"
+  },
+  "release": "23.05.6",
+  "rootfs_files": 1126,
+  "rootfs_symlinks": 230,
+  "self_reported": {
+   "arch": "aarch64_cortex-a72",
+   "release": "23.05.6",
+   "target": "bcm27xx/bcm2711"
+  },
+  "sha256": "bed37826ed2379ba840ce44a50a61800ff535289febedee2a164fd54fefdc927",
+  "sha256sums_sha256": "eb694f6a20716ce47dc68fb759c1c92e3b15c37e66bfe0b4393b4b59c55a886c",
+  "sha256sums_signed_by": "b5043e70f9a75cde",
+  "sibling": null,
+  "split": "heldout",
+  "squashfs": {
+   "block_size": 262144,
+   "bytes_used": 5185332,
+   "compressor_id": 4,
+   "inodes": 1473,
+   "mkfs_time": 1755196060,
+   "offset": 75497472
+  },
+  "target": "bcm27xx/bcm2711",
+  "url": "https://downloads.openwrt.org/releases/23.05.6/targets/bcm27xx/bcm2711/openwrt-23.05.6-bcm27xx-bcm2711-rpi-4-squashfs-sysupgrade.img.gz"
+ },
+ "h-2305-x86-64": {
+  "arch": "x86_64",
+  "bytes": 4447192,
+  "image_source_date_epoch": 1755196060,
+  "kernel": {
+   "release": "1",
+   "vermagic": "2754d960da6d6f582d53be94c2d49b0e",
+   "version": "5.15.189"
+  },
+  "release": "23.05.6",
+  "rootfs_files": 1069,
+  "rootfs_symlinks": 219,
+  "self_reported": {
+   "arch": "x86_64",
+   "release": "23.05.6",
+   "target": "x86/64"
+  },
+  "sha256": "129a487bb9fcb7a0d7a6f15690f696833c0c0854f338f860a789ea0df9c091a1",
+  "sha256sums_sha256": "b9901e6e08539fcc5f0411fa805b053733875a3744ba3b16cc4784d88832360a",
+  "sha256sums_signed_by": "b5043e70f9a75cde",
+  "sibling": null,
+  "split": "heldout",
+  "squashfs": {
+   "block_size": 262144,
+   "bytes_used": 4345022,
+   "compressor_id": 4,
+   "inodes": 1400,
+   "mkfs_time": 1755196060,
+   "offset": 0
+  },
+  "target": "x86/64",
+  "url": "https://downloads.openwrt.org/releases/23.05.6/targets/x86/64/openwrt-23.05.6-x86-64-generic-squashfs-rootfs.img.gz"
+ },
+ "h-2410-archer-c50-v4": {
+  "arch": "mipsel_24kc",
+  "bytes": 5767499,
+  "image_source_date_epoch": 1784877710,
+  "kernel": {
+   "release": "1",
+   "vermagic": "4ca73159125334b180ac4bba6dc45839",
+   "version": "6.6.144"
+  },
+  "release": "24.10.8",
+  "rootfs_files": 1031,
+  "rootfs_symlinks": 206,
+  "self_reported": {
+   "arch": "mipsel_24kc",
+   "release": "24.10.8",
+   "target": "ramips/mt76x8"
+  },
+  "sha256": "b6d301f2ec954e47017235ed39a6135ca4ee82aa6dc245b3314e1916429b030b",
+  "sha256sums_sha256": "3832968f3c0bb805ec8f74ed25b0e10c026f63f5548efdded7c0a168fa728a5b",
+  "sha256sums_signed_by": "d310c6f2833e97f7",
+  "sibling": {
+   "files": 596,
+   "image": "openwrt-24.10.8-ramips-mt76x8-buffalo_wcr-1166ds-squashfs-sysupgrade.bin",
+   "packages": 140,
+   "profile": "buffalo_wcr-1166ds",
+   "sha256": "da0eec49001475af3116ee2e5a41087dec082e91cf9ee1ac910ccd8c9283f860"
+  },
+  "split": "heldout",
+  "squashfs": {
+   "block_size": 1048576,
+   "bytes_used": 3676708,
+   "compressor_id": 4,
+   "inodes": 1354,
+   "mkfs_time": 1784877710,
+   "offset": 2035188
+  },
+  "target": "ramips/mt76x8",
+  "url": "https://downloads.openwrt.org/releases/24.10.8/targets/ramips/mt76x8/openwrt-24.10.8-ramips-mt76x8-tplink_archer-c50-v4-squashfs-sysupgrade.bin"
+ },
+ "h-2410-gl-b1300": {
+  "arch": "arm_cortex-a7_neon-vfpv4",
+  "bytes": 7602759,
+  "image_source_date_epoch": 1784877710,
+  "kernel": {
+   "release": "1",
+   "vermagic": "e0a929f035d0ba2affbea5da7d433e58",
+   "version": "6.6.144"
+  },
+  "release": "24.10.8",
+  "rootfs_files": 1081,
+  "rootfs_symlinks": 215,
+  "self_reported": {
+   "arch": "arm_cortex-a7_neon-vfpv4",
+   "release": "24.10.8",
+   "target": "ipq40xx/generic"
+  },
+  "sha256": "9d73fa1b667625138720edb4c9f547042d90deb19946cef902019fb2795f381f",
+  "sha256sums_sha256": "1ca41052328d43a047dea452b2cf85259e9ec9d36667dd1acb336a09bd5cd7e9",
+  "sha256sums_signed_by": "d310c6f2833e97f7",
+  "sibling": {
+   "files": 622,
+   "image": "openwrt-24.10.8-ipq40xx-generic-8dev_habanero-dvk-squashfs-sysupgrade.bin",
+   "packages": 148,
+   "profile": "8dev_habanero-dvk",
+   "sha256": "3e890c361c7d40f870335da8615f5798ae52182513ec0bee94923e36e2dec79e"
+  },
+  "split": "heldout",
+  "squashfs": {
+   "block_size": 262144,
+   "bytes_used": 4227510,
+   "compressor_id": 4,
+   "inodes": 1416,
+   "mkfs_time": 1784877710,
+   "offset": 3341388
+  },
+  "target": "ipq40xx/generic",
+  "url": "https://downloads.openwrt.org/releases/24.10.8/targets/ipq40xx/generic/openwrt-24.10.8-ipq40xx-generic-glinet_gl-b1300-squashfs-sysupgrade.bin"
+ },
+ "h-2410-unifi-6-lr-v1": {
+  "arch": "aarch64_cortex-a53",
+  "bytes": 9437515,
+  "image_source_date_epoch": 1784877710,
+  "kernel": {
+   "release": "1",
+   "vermagic": "2fd6ebba7d164236be638018bd983b8a",
+   "version": "6.6.144"
+  },
+  "release": "24.10.8",
+  "rootfs_files": 1080,
+  "rootfs_symlinks": 211,
+  "self_reported": {
+   "arch": "aarch64_cortex-a53",
+   "release": "24.10.8",
+   "target": "mediatek/mt7622"
+  },
+  "sha256": "a48056c0fc5e5ad77755d2b8d20218f9b63962367844b520362529f5a67bc1ce",
+  "sha256sums_sha256": "92ed21daed6febc4800fe750b583d533f17035c5245e67035f36ff5693accdbd",
+  "sha256sums_signed_by": "d310c6f2833e97f7",
+  "sibling": {
+   "files": 615,
+   "image": "openwrt-24.10.8-mediatek-mt7622-buffalo_wsr-3200ax4s-squashfs-sysupgrade.bin",
+   "packages": 147,
+   "profile": "buffalo_wsr-3200ax4s",
+   "sha256": "3b1267999f7bb80c34efe43f4207ef78685cf52da437bfdd15ffebb22bd58c11"
+  },
+  "split": "heldout",
+  "squashfs": {
+   "block_size": 262144,
+   "bytes_used": 4853936,
+   "compressor_id": 4,
+   "inodes": 1408,
+   "mkfs_time": 1784877710,
+   "offset": 4325376
+  },
+  "target": "mediatek/mt7622",
+  "url": "https://downloads.openwrt.org/releases/24.10.8/targets/mediatek/mt7622/openwrt-24.10.8-mediatek-mt7622-ubnt_unifi-6-lr-v1-squashfs-sysupgrade.bin"
+ },
+ "h-2410-wrt1900acs": {
+  "arch": "arm_cortex-a9_vfpv3-d16",
+  "bytes": 7516847,
+  "image_source_date_epoch": 1784877710,
+  "kernel": {
+   "release": "1",
+   "vermagic": "c59819919d0cd22e24d29292cb5a630d",
+   "version": "6.6.144"
+  },
+  "release": "24.10.8",
+  "rootfs_files": 1042,
+  "rootfs_symlinks": 207,
+  "self_reported": {
+   "arch": "arm_cortex-a9_vfpv3-d16",
+   "release": "24.10.8",
+   "target": "mvebu/cortexa9"
+  },
+  "sha256": "792c81a51a3cf6a6458661dc03ab947e98b7f5ffcd8f639ae78f5e4f30816b7c",
+  "sha256sums_sha256": "0b1410704cb23b19e46288c39d286065205291200ad9af400c5c9733c9f298ed",
+  "sha256sums_signed_by": "d310c6f2833e97f7",
+  "sibling": {
+   "files": 613,
+   "image": "openwrt-24.10.8-mvebu-cortexa9-linksys_wrt1200ac-squashfs-sysupgrade.bin",
+   "packages": 138,
+   "profile": "linksys_wrt1200ac",
+   "sha256": "eb862f0726707ba92b431654ce437d433eb31e910c0b8d79ce76e046763769cc"
+  },
+  "split": "heldout",
+  "squashfs": {
+   "block_size": 262144,
+   "bytes_used": 3650586,
+   "compressor_id": 4,
+   "inodes": 1366,
+   "mkfs_time": 1784877710,
+   "offset": 3857920
+  },
+  "target": "mvebu/cortexa9",
+  "url": "https://downloads.openwrt.org/releases/24.10.8/targets/mvebu/cortexa9/openwrt-24.10.8-mvebu-cortexa9-linksys_wrt1900acs-squashfs-sysupgrade.bin"
+ },
+ "h-2410-x86-64": {
+  "arch": "x86_64",
+  "bytes": 6075558,
+  "image_source_date_epoch": 1784877710,
+  "kernel": {
+   "release": "1",
+   "vermagic": "50daf8372d971124fb3519e8d87e02ae",
+   "version": "6.6.144"
+  },
+  "release": "24.10.8",
+  "rootfs_files": 1233,
+  "rootfs_symlinks": 225,
+  "self_reported": {
+   "arch": "x86_64",
+   "release": "24.10.8",
+   "target": "x86/64"
+  },
+  "sha256": "4a6a274c8ea0a351e87bafc11c250820c2120fa70235fdd66db64303395686bb",
+  "sha256sums_sha256": "5c1d5d6a7fc1acd34fd5ed8014cc28039b122569a87161889a1fa23b03a03df8",
+  "sha256sums_signed_by": "d310c6f2833e97f7",
+  "sibling": null,
+  "split": "heldout",
+  "squashfs": {
+   "block_size": 262144,
+   "bytes_used": 5974254,
+   "compressor_id": 4,
+   "inodes": 1574,
+   "mkfs_time": 1784877710,
+   "offset": 0
+  },
+  "target": "x86/64",
+  "url": "https://downloads.openwrt.org/releases/24.10.8/targets/x86/64/openwrt-24.10.8-x86-64-generic-squashfs-rootfs.img.gz"
+ },
+ "t-2305-archer-c7-v2": {
+  "arch": "mips_24kc",
+  "bytes": 6422853,
+  "image_source_date_epoch": 1755196060,
+  "kernel": {
+   "release": "1",
+   "vermagic": "08472e4058c44b683bc720c4c463d58c",
+   "version": "5.15.189"
+  },
+  "release": "23.05.6",
+  "rootfs_files": 1051,
+  "rootfs_symlinks": 207,
+  "self_reported": {
+   "arch": "mips_24kc",
+   "release": "23.05.6",
+   "target": "ath79/generic"
+  },
+  "sha256": "c2a14a43f7cde3b0b122c64ed3f8ea4e4d85eccec2d3f8d991abfc2985b3680d",
+  "sha256sums_sha256": "77b58f746c8710ab5399411126c9c9b1974045315a1ff01b224995e9727c4900",
+  "sha256sums_signed_by": "b5043e70f9a75cde",
+  "sibling": {
+   "files": 598,
+   "image": "openwrt-23.05.6-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+   "packages": 146,
+   "profile": "tplink_archer-a7-v5",
+   "sha256": "6e5a439fa14d836447d82a34ba767b3b4cef667d21b3794bb923b414b6562d11"
+  },
+  "split": "tuning",
+  "squashfs": {
+   "block_size": 262144,
+   "bytes_used": 4067124,
+   "compressor_id": 4,
+   "inodes": 1375,
+   "mkfs_time": 1755196060,
+   "offset": 2344012
+  },
+  "target": "ath79/generic",
+  "url": "https://downloads.openwrt.org/releases/23.05.6/targets/ath79/generic/openwrt-23.05.6-ath79-generic-tplink_archer-c7-v2-squashfs-sysupgrade.bin"
+ },
+ "t-2410-archer-c7-v5": {
+  "arch": "mips_24kc",
+  "bytes": 7012680,
+  "image_source_date_epoch": 1784877710,
+  "kernel": {
+   "release": "1",
+   "vermagic": "70248021204b78344d5fb62a0e7f5bea",
+   "version": "6.6.144"
+  },
+  "release": "24.10.8",
+  "rootfs_files": 1094,
+  "rootfs_symlinks": 210,
+  "self_reported": {
+   "arch": "mips_24kc",
+   "release": "24.10.8",
+   "target": "ath79/generic"
+  },
+  "sha256": "feeab4e3142feb865450ab044a42e198af9510d263e4b0f6d1cdcc701d296003",
+  "sha256sums_sha256": "2984ed26ea74569fabc0a6e8b7ea1a09e4666f57a8c560ac8030f24e65082660",
+  "sha256sums_signed_by": "d310c6f2833e97f7",
+  "sibling": {
+   "files": 629,
+   "image": "openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+   "packages": 150,
+   "profile": "tplink_archer-a7-v5",
+   "sha256": "f4d55cb506f1b1928ff96ad4badeffcb4ba20f05569e1e731ad78aa1d0021ce9"
+  },
+  "split": "tuning",
+  "squashfs": {
+   "block_size": 262144,
+   "bytes_used": 4334768,
+   "compressor_id": 4,
+   "inodes": 1425,
+   "mkfs_time": 1784877710,
+   "offset": 2627792
+  },
+  "target": "ath79/generic",
+  "url": "https://downloads.openwrt.org/releases/24.10.8/targets/ath79/generic/openwrt-24.10.8-ath79-generic-tplink_archer-c7-v5-squashfs-sysupgrade.bin"
+ },
+ "t-2410-gl-mt6000": {
+  "arch": "aarch64_cortex-a53",
+  "bytes": 10107234,
+  "image_source_date_epoch": 1784877710,
+  "kernel": {
+   "release": "1",
+   "vermagic": "43cbcde0affaaf16309bb4ab09799e9a",
+   "version": "6.6.144"
+  },
+  "release": "24.10.8",
+  "rootfs_files": 1188,
+  "rootfs_symlinks": 234,
+  "self_reported": {
+   "arch": "aarch64_cortex-a53",
+   "release": "24.10.8",
+   "target": "mediatek/filogic"
+  },
+  "sha256": "e1fb780499abc0c35e66c85fd5e2234fecd860465ac8f04e4ddeb1e6a1d46732",
+  "sha256sums_sha256": "d9e59d34840c91d7ecf44fd4c5f93beb493ce181aafd0d95db8685ef84c635ba",
+  "sha256sums_signed_by": "d310c6f2833e97f7",
+  "sibling": {
+   "files": 664,
+   "image": "openwrt-24.10.8-mediatek-filogic-acer_predator-w6-squashfs-sysupgrade.bin",
+   "packages": 171,
+   "profile": "acer_predator-w6",
+   "sha256": "4c7998b4b079ff8be880c4db191365c0f9a5782bb95d2cae71129432ed64e762"
+  },
+  "split": "tuning",
+  "squashfs": {
+   "block_size": 262144,
+   "bytes_used": 5926356,
+   "compressor_id": 4,
+   "inodes": 1543,
+   "mkfs_time": 1784877710,
+   "offset": 4172288
+  },
+  "target": "mediatek/filogic",
+  "url": "https://downloads.openwrt.org/releases/24.10.8/targets/mediatek/filogic/openwrt-24.10.8-mediatek-filogic-glinet_gl-mt6000-squashfs-sysupgrade.bin"
+ },
+ "t-2410-mi-router-4a-gigabit": {
+  "arch": "mipsel_24kc",
+  "bytes": 7275120,
+  "image_source_date_epoch": 1784877710,
+  "kernel": {
+   "release": "1",
+   "vermagic": "f31f6f85a36836e510d64a18a9a5f1bf",
+   "version": "6.6.144"
+  },
+  "release": "24.10.8",
+  "rootfs_files": 1092,
+  "rootfs_symlinks": 207,
+  "self_reported": {
+   "arch": "mipsel_24kc",
+   "release": "24.10.8",
+   "target": "ramips/mt7621"
+  },
+  "sha256": "cd01bd6c5606f71c62ef581b9027752afa5a4550cd3968497a12107786df27c7",
+  "sha256sums_sha256": "de9effa0db8f8838a7435ad68f54def9d95418189dee01e2b8c87c0d12066a4b",
+  "sha256sums_signed_by": "d310c6f2833e97f7",
+  "sibling": {
+   "files": 636,
+   "image": "openwrt-24.10.8-ramips-mt7621-buffalo_wsr-1166dhp-squashfs-sysupgrade.bin",
+   "packages": 147,
+   "profile": "buffalo_wsr-1166dhp",
+   "sha256": "4ec0e113998db5cc75cfa6a290c45f0b374837a0d45010e2f32978842524c50c"
+  },
+  "split": "tuning",
+  "squashfs": {
+   "block_size": 262144,
+   "bytes_used": 4028532,
+   "compressor_id": 4,
+   "inodes": 1417,
+   "mkfs_time": 1784877710,
+   "offset": 3196343
+  },
+  "target": "ramips/mt7621",
+  "url": "https://downloads.openwrt.org/releases/24.10.8/targets/ramips/mt7621/openwrt-24.10.8-ramips-mt7621-xiaomi_mi-router-4a-gigabit-squashfs-sysupgrade.bin"
+ }
+}
