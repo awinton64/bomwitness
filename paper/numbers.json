@@ -1,0 +1,2177 @@
+{
+ "baseFeedTwentyFour": {
+  "how": "shared_base_feed[24.10.8].base_feed_packages",
+  "source": "results/r2/drift.json",
+  "value": "697"
+ },
+ "baseFeedTwentyThree": {
+  "how": "shared_base_feed[23.05.6].base_feed_packages",
+  "source": "results/r2/drift.json",
+  "value": "670"
+ },
+ "bomtraceCommit": {
+  "how": "bomtrace_commit[:7]",
+  "source": "results/r2/summary.json",
+  "value": "64e5264"
+ },
+ "caseFp": {
+  "how": "splits.heldout.by_db.all.bw.case_fp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "casesAll": {
+  "how": "splits.heldout.by_db.all.bw.cases",
+  "source": "results/r2/summary.json",
+  "value": "1,860"
+ },
+ "casesCol": {
+  "how": "splits.heldout.by_db.colluding.bw.cases",
+  "source": "results/r2/summary.json",
+  "value": "480"
+ },
+ "casesHon": {
+  "how": "splits.heldout.by_db.honest.bw.cases",
+  "source": "results/r2/summary.json",
+  "value": "480"
+ },
+ "casesStr": {
+  "how": "splits.heldout.by_db.stripped.bw.cases",
+  "source": "results/r2/summary.json",
+  "value": "480"
+ },
+ "casesUna": {
+  "how": "splits.heldout.by_db.unaware.bw.cases",
+  "source": "results/r2/summary.json",
+  "value": "420"
+ },
+ "cbomCases": {
+  "how": "sum overall.cases",
+  "source": "results/r2/cbom/*.json",
+  "value": "994"
+ },
+ "cbomClasses": {
+  "how": "distinct by_class keys",
+  "source": "results/r2/cbom/*.json",
+  "value": "15"
+ },
+ "cbomExpected": {
+  "how": "sum overall.tp + fn",
+  "source": "results/r2/cbom/*.json",
+  "value": "1,274"
+ },
+ "cbomExtra": {
+  "how": "sum overall.fp",
+  "source": "results/r2/cbom/*.json",
+  "value": "0"
+ },
+ "cbomImages": {
+  "how": "number of files",
+  "source": "results/r2/cbom/*.json",
+  "value": "14"
+ },
+ "cbomMissed": {
+  "how": "sum overall.fn",
+  "source": "results/r2/cbom/*.json",
+  "value": "2"
+ },
+ "cbomTp": {
+  "how": "sum overall.tp",
+  "source": "results/r2/cbom/*.json",
+  "value": "1,272"
+ },
+ "cleanAccounted": {
+  "how": "clean.totals.accounted",
+  "source": "results/r2/summary.json",
+  "value": "6,134"
+ },
+ "cleanAlarmPct": {
+  "how": "clean.totals.bw_hard / declared",
+  "source": "results/r2/summary.json",
+  "value": "0.20"
+ },
+ "cleanAlarms": {
+  "how": "clean.totals.bw_hard",
+  "source": "results/r2/summary.json",
+  "value": "3"
+ },
+ "cleanCode": {
+  "how": "clean.totals.code",
+  "source": "results/r2/summary.json",
+  "value": "1,582"
+ },
+ "cleanCodeAccounted": {
+  "how": "clean.totals.code - orphan_code",
+  "source": "results/r2/summary.json",
+  "value": "1,582"
+ },
+ "cleanDeclared": {
+  "how": "splits.heldout.clean.totals.declared",
+  "source": "results/r2/summary.json",
+  "value": "1,470"
+ },
+ "cleanFiles": {
+  "how": "clean.totals.files",
+  "source": "results/r2/summary.json",
+  "value": "6,135"
+ },
+ "cleanFpNoNorm": {
+  "how": "by_db.colluding.bw_no_normalize.clean_fp",
+  "source": "results/r2/summary.json",
+  "value": "6"
+ },
+ "cleanPassPct": {
+  "how": "clean.totals.verified_share",
+  "source": "results/r2/summary.json",
+  "value": "93.3"
+ },
+ "cleanUnver": {
+  "how": "clean.totals.verdicts.unverifiable",
+  "source": "results/r2/summary.json",
+  "value": "96"
+ },
+ "cleanUnverMeta": {
+  "how": "sum of clean.images[*].unverifiable_reasons[metadata-only]",
+  "source": "results/r2/summary.json",
+  "value": "93"
+ },
+ "cleanUnverMoved": {
+  "how": "unverifiable minus metadata-only",
+  "source": "results/r2/summary.json",
+  "value": "3"
+ },
+ "cleanUnverPct": {
+  "how": "clean.totals.verdicts.unverifiable / declared",
+  "source": "results/r2/summary.json",
+  "value": "6.5"
+ },
+ "cleanVerA": {
+  "how": "clean.totals.verdicts.verified_A",
+  "source": "results/r2/summary.json",
+  "value": "1,348"
+ },
+ "cleanVerAPct": {
+  "how": "clean.totals.verified_A_share",
+  "source": "results/r2/summary.json",
+  "value": "91.7"
+ },
+ "cleanVerB": {
+  "how": "clean.totals.verdicts.verified_B",
+  "source": "results/r2/summary.json",
+  "value": "23"
+ },
+ "driftFeedAlarmsTotal": {
+  "how": "sum of hard findings, feeds only, over all releases",
+  "source": "results/r2/drift.json",
+  "value": "35"
+ },
+ "driftNewTwentyFourAge": {
+  "how": "releases[24.10.8].age_days",
+  "source": "results/r2/drift.json",
+  "value": "126"
+ },
+ "driftNewTwentyFourDeclared": {
+  "how": "releases[24.10.8].declared",
+  "source": "results/r2/drift.json",
+  "value": "150"
+ },
+ "driftNewTwentyFourFo": {
+  "how": "releases[24.10.8].configs.feeds_only.verified_A_share",
+  "source": "results/r2/drift.json",
+  "value": "80.0"
+ },
+ "driftNewTwentyFourFoAlarms": {
+  "how": "len(releases[24.10.8].configs.feeds_only.hard_findings)",
+  "source": "results/r2/drift.json",
+  "value": "0"
+ },
+ "driftNewTwentyFourMa": {
+  "how": "releases[24.10.8].configs.feeds_manifest.verified_A_share",
+  "source": "results/r2/drift.json",
+  "value": "89.3"
+ },
+ "driftNewTwentyFourMaAlarms": {
+  "how": "len(releases[24.10.8].configs.feeds_manifest.hard_findings)",
+  "source": "results/r2/drift.json",
+  "value": "0"
+ },
+ "driftNewTwentyFourRelabelled": {
+  "how": "releases[24.10.8].components_whose_feed_label_changed",
+  "source": "results/r2/drift.json",
+  "value": "24"
+ },
+ "driftNewTwentyFourSn": {
+  "how": "releases[24.10.8].configs.feeds_manifest_snapshot.verified_A_share",
+  "source": "results/r2/drift.json",
+  "value": "93.3"
+ },
+ "driftNewTwentyFourSnAlarms": {
+  "how": "len(releases[24.10.8].configs.feeds_manifest_snapshot.hard_findings)",
+  "source": "results/r2/drift.json",
+  "value": "0"
+ },
+ "driftNewTwentyThreeAge": {
+  "how": "releases[23.05.6].age_days",
+  "source": "results/r2/drift.json",
+  "value": "469"
+ },
+ "driftNewTwentyThreeDeclared": {
+  "how": "releases[23.05.6].declared",
+  "source": "results/r2/drift.json",
+  "value": "146"
+ },
+ "driftNewTwentyThreeFo": {
+  "how": "releases[23.05.6].configs.feeds_only.verified_A_share",
+  "source": "results/r2/drift.json",
+  "value": "93.2"
+ },
+ "driftNewTwentyThreeFoAlarms": {
+  "how": "len(releases[23.05.6].configs.feeds_only.hard_findings)",
+  "source": "results/r2/drift.json",
+  "value": "0"
+ },
+ "driftNewTwentyThreeMa": {
+  "how": "releases[23.05.6].configs.feeds_manifest.verified_A_share",
+  "source": "results/r2/drift.json",
+  "value": "93.2"
+ },
+ "driftNewTwentyThreeMaAlarms": {
+  "how": "len(releases[23.05.6].configs.feeds_manifest.hard_findings)",
+  "source": "results/r2/drift.json",
+  "value": "0"
+ },
+ "driftNewTwentyThreeRelabelled": {
+  "how": "releases[23.05.6].components_whose_feed_label_changed",
+  "source": "results/r2/drift.json",
+  "value": "0"
+ },
+ "driftNewTwentyThreeSn": {
+  "how": "releases[23.05.6].configs.feeds_manifest_snapshot.verified_A_share",
+  "source": "results/r2/drift.json",
+  "value": "93.2"
+ },
+ "driftNewTwentyThreeSnAlarms": {
+  "how": "len(releases[23.05.6].configs.feeds_manifest_snapshot.hard_findings)",
+  "source": "results/r2/drift.json",
+  "value": "0"
+ },
+ "driftOldTwentyFourAge": {
+  "how": "releases[24.10.0].age_days",
+  "source": "results/r2/drift.json",
+  "value": "661"
+ },
+ "driftOldTwentyFourDeclared": {
+  "how": "releases[24.10.0].declared",
+  "source": "results/r2/drift.json",
+  "value": "150"
+ },
+ "driftOldTwentyFourFo": {
+  "how": "releases[24.10.0].configs.feeds_only.verified_A_share",
+  "source": "results/r2/drift.json",
+  "value": "58.7"
+ },
+ "driftOldTwentyFourFoAlarms": {
+  "how": "len(releases[24.10.0].configs.feeds_only.hard_findings)",
+  "source": "results/r2/drift.json",
+  "value": "3"
+ },
+ "driftOldTwentyFourMa": {
+  "how": "releases[24.10.0].configs.feeds_manifest.verified_A_share",
+  "source": "results/r2/drift.json",
+  "value": "63.3"
+ },
+ "driftOldTwentyFourMaAlarms": {
+  "how": "len(releases[24.10.0].configs.feeds_manifest.hard_findings)",
+  "source": "results/r2/drift.json",
+  "value": "3"
+ },
+ "driftOldTwentyFourRelabelled": {
+  "how": "releases[24.10.0].components_whose_feed_label_changed",
+  "source": "results/r2/drift.json",
+  "value": "53"
+ },
+ "driftOldTwentyFourSn": {
+  "how": "releases[24.10.0].configs.feeds_manifest_snapshot.verified_A_share",
+  "source": "results/r2/drift.json",
+  "value": "93.3"
+ },
+ "driftOldTwentyFourSnAlarms": {
+  "how": "len(releases[24.10.0].configs.feeds_manifest_snapshot.hard_findings)",
+  "source": "results/r2/drift.json",
+  "value": "0"
+ },
+ "driftOldTwentyThreeAge": {
+  "how": "releases[23.05.0].age_days",
+  "source": "results/r2/drift.json",
+  "value": "1,144"
+ },
+ "driftOldTwentyThreeDeclared": {
+  "how": "releases[23.05.0].declared",
+  "source": "results/r2/drift.json",
+  "value": "146"
+ },
+ "driftOldTwentyThreeFo": {
+  "how": "releases[23.05.0].configs.feeds_only.verified_A_share",
+  "source": "results/r2/drift.json",
+  "value": "67.8"
+ },
+ "driftOldTwentyThreeFoAlarms": {
+  "how": "len(releases[23.05.0].configs.feeds_only.hard_findings)",
+  "source": "results/r2/drift.json",
+  "value": "5"
+ },
+ "driftOldTwentyThreeMa": {
+  "how": "releases[23.05.0].configs.feeds_manifest.verified_A_share",
+  "source": "results/r2/drift.json",
+  "value": "69.9"
+ },
+ "driftOldTwentyThreeMaAlarms": {
+  "how": "len(releases[23.05.0].configs.feeds_manifest.hard_findings)",
+  "source": "results/r2/drift.json",
+  "value": "5"
+ },
+ "driftOldTwentyThreeRelabelled": {
+  "how": "releases[23.05.0].components_whose_feed_label_changed",
+  "source": "results/r2/drift.json",
+  "value": "36"
+ },
+ "driftOldTwentyThreeSn": {
+  "how": "releases[23.05.0].configs.feeds_manifest_snapshot.verified_A_share",
+  "source": "results/r2/drift.json",
+  "value": "92.5"
+ },
+ "driftOldTwentyThreeSnAlarms": {
+  "how": "len(releases[23.05.0].configs.feeds_manifest_snapshot.hard_findings)",
+  "source": "results/r2/drift.json",
+  "value": "1"
+ },
+ "driftReleases": {
+  "how": "len(releases)",
+  "source": "results/r2/drift.json",
+  "value": "15"
+ },
+ "driftSnapAlarmsTotal": {
+  "how": "sum of hard findings with a snapshot over all releases",
+  "source": "results/r2/drift.json",
+  "value": "1"
+ },
+ "driftSnapMaxPct": {
+  "how": "max verified_A_share with a snapshot",
+  "source": "results/r2/drift.json",
+  "value": "93.3"
+ },
+ "driftSnapMinPct": {
+  "how": "min verified_A_share with a snapshot",
+  "source": "results/r2/drift.json",
+  "value": "92.5"
+ },
+ "exDbDisagree": {
+  "how": "len(device_db.findings)",
+  "source": "pipeline/4_analysis_output/bomwitness/report-with-errors.json",
+  "value": "4"
+ },
+ "exDeclared": {
+  "how": "sbom.summary.declared",
+  "source": "pipeline/4_analysis_output/bomwitness/report-with-errors.json",
+  "value": "150"
+ },
+ "exDeprecated": {
+  "how": "cbom.findings with class deprecated_algorithm",
+  "source": "pipeline/4_analysis_output/bomwitness/report-with-errors.json",
+  "value": "31"
+ },
+ "exFail": {
+  "how": "triage.automatic_fail",
+  "source": "pipeline/4_analysis_output/bomwitness/report-with-errors.json",
+  "value": "4"
+ },
+ "exFiles": {
+  "how": "sbom.summary.rootfs_files",
+  "source": "pipeline/4_analysis_output/bomwitness/report-with-errors.json",
+  "value": "629"
+ },
+ "exFilesAccounted": {
+  "how": "sbom.summary.files_accounted",
+  "source": "pipeline/4_analysis_output/bomwitness/report-with-errors.json",
+  "value": "629"
+ },
+ "exPass": {
+  "how": "triage.automatic_pass",
+  "source": "pipeline/4_analysis_output/bomwitness/report-with-errors.json",
+  "value": "139"
+ },
+ "exReview": {
+  "how": "triage.needs_review",
+  "source": "pipeline/4_analysis_output/bomwitness/report-with-errors.json",
+  "value": "0"
+ },
+ "exUnver": {
+  "how": "triage.unverifiable",
+  "source": "pipeline/4_analysis_output/bomwitness/report-with-errors.json",
+  "value": "8"
+ },
+ "example:table": {
+  "how": "sbom.findings and cbom.findings, classes and versions as reported (table only)",
+  "source": "pipeline/4_analysis_output/bomwitness/report-with-errors.json",
+  "value": "SBOM & \\vd{wrong\\_version} & busybox & A & declared 1.36.2-r3; bytes are the publisher's build 1.36.1-r3 \\\\ SBOM & \\vd{wrong\\_version} & dropbear & A & declared 2022.82-6; bytes are the publisher's build 2024.86-r3 \\\\ SBOM & \\vd{absent} & tcpdump & A & no file of the reference package is in the image \\\\ SBOM & \\vd{undeclared\\_component} & dnsmasq & A & 12 files byte-identical to dnsmasq 2.93-r1, not in the BOM \\\\ cross & \\vd{provider\\_unverified} & busybox & A & CBOM names it as provider of MD5, but its SBOM check ended in \\vd{wrong\\_version} \\\\ cross & \\vd{provider\\_unverified} & dropbear & A & CBOM names it as provider of AES, but its SBOM check ended in \\vd{wrong\\_version} \\\\ cross & \\vd{algorithm\\_not\\_evidenced} & ML-KEM in libmbedtls21 & B & no file of the named provider carries the algorithm's name \\\\"
+ },
+ "farColCases": {
+  "how": "by_db.colluding.bw.cases",
+  "source": "results/r2/far-sibling/summary.json",
+  "value": "336"
+ },
+ "farColP": {
+  "how": "by_db.colluding.bw.precision",
+  "source": "results/r2/far-sibling/summary.json",
+  "value": "1.000"
+ },
+ "farColR": {
+  "how": "by_db.colluding.bw.recall",
+  "source": "results/r2/far-sibling/summary.json",
+  "value": "0.988"
+ },
+ "farColTp": {
+  "how": "by_db.colluding.bw.tp",
+  "source": "results/r2/far-sibling/summary.json",
+  "value": "332"
+ },
+ "farImages": {
+  "how": "len(splits.heldout.images)",
+  "source": "results/r2/far-sibling/summary.json",
+  "value": "7"
+ },
+ "farUnaCases": {
+  "how": "by_db.unaware.bw.cases",
+  "source": "results/r2/far-sibling/summary.json",
+  "value": "294"
+ },
+ "farUnaP": {
+  "how": "by_db.unaware.bw.precision",
+  "source": "results/r2/far-sibling/summary.json",
+  "value": "1.000"
+ },
+ "farUnaR": {
+  "how": "by_db.unaware.bw.recall",
+  "source": "results/r2/far-sibling/summary.json",
+  "value": "0.963"
+ },
+ "farUnaTp": {
+  "how": "by_db.unaware.bw.tp",
+  "source": "results/r2/far-sibling/summary.json",
+  "value": "283"
+ },
+ "forkDeclared": {
+  "how": "part1_against_upstream.declared",
+  "source": "results/r2/case-study-immortalwrt.json",
+  "value": "190"
+ },
+ "forkExeSame": {
+  "how": "part1.executables_byte_identical_to_upstream_image",
+  "source": "results/r2/case-study-immortalwrt.json",
+  "value": "65"
+ },
+ "forkExeTotal": {
+  "how": "part1.executables_total",
+  "source": "results/r2/case-study-immortalwrt.json",
+  "value": "215"
+ },
+ "forkFilesSame": {
+  "how": "part1.files_byte_identical_to_upstream_image",
+  "source": "results/r2/case-study-immortalwrt.json",
+  "value": "480"
+ },
+ "forkFilesTotal": {
+  "how": "part1.files_total",
+  "source": "results/r2/case-study-immortalwrt.json",
+  "value": "830"
+ },
+ "forkOmitted": {
+  "how": "len(part2.omitted_component_found_by_database_condition)",
+  "source": "results/r2/case-study-immortalwrt.json",
+  "value": "5"
+ },
+ "forkOmittedFound": {
+  "how": "omitted components found in all three database conditions",
+  "source": "results/r2/case-study-immortalwrt.json",
+  "value": "5"
+ },
+ "forkOwnFindings": {
+  "how": "sum part2.hard_findings",
+  "source": "results/r2/case-study-immortalwrt.json",
+  "value": "0"
+ },
+ "forkOwnUnver": {
+  "how": "part2.verdicts.unverifiable",
+  "source": "results/r2/case-study-immortalwrt.json",
+  "value": "7"
+ },
+ "forkOwnVerified": {
+  "how": "part2 verified_A + verified_B",
+  "source": "results/r2/case-study-immortalwrt.json",
+  "value": "183"
+ },
+ "forkRelease": {
+  "how": "subject.release",
+  "source": "results/r2/case-study-immortalwrt.json",
+  "value": "24.10.7"
+ },
+ "forkUpAbsent": {
+  "how": "part1.verdicts.absent",
+  "source": "results/r2/case-study-immortalwrt.json",
+  "value": "9"
+ },
+ "forkUpBytesDiffer": {
+  "how": "part1.verdicts.bytes_differ",
+  "source": "results/r2/case-study-immortalwrt.json",
+  "value": "17"
+ },
+ "forkUpOrphans": {
+  "how": "part1.hard_findings.undeclared_file",
+  "source": "results/r2/case-study-immortalwrt.json",
+  "value": "110"
+ },
+ "forkUpVerA": {
+  "how": "part1.verdicts.verified_A",
+  "source": "results/r2/case-study-immortalwrt.json",
+  "value": "74"
+ },
+ "forkUpVerAPct": {
+  "how": "part1 verified_A / declared",
+  "source": "results/r2/case-study-immortalwrt.json",
+  "value": "39"
+ },
+ "forkUpWrongVersion": {
+  "how": "part1.verdicts.wrong_version",
+  "source": "results/r2/case-study-immortalwrt.json",
+  "value": "55"
+ },
+ "freezeCommit": {
+  "how": "commit[:7]",
+  "source": "results/r2/RUN.json",
+  "value": "0f83a98"
+ },
+ "hiColBw": {
+  "how": "Wilson 95% upper bound from by_db.colluding.bw.tp and cases",
+  "source": "results/r2/summary.json",
+  "value": "0.994"
+ },
+ "hiColFo": {
+  "how": "Wilson 95% upper bound from by_db.colluding.bw_feed_only.tp and cases",
+  "source": "results/r2/summary.json",
+  "value": "0.894"
+ },
+ "hiColNs": {
+  "how": "Wilson 95% upper bound from by_db.colluding.bw_no_snapshot.tp and cases",
+  "source": "results/r2/summary.json",
+  "value": "0.989"
+ },
+ "hiUnaBw": {
+  "how": "Wilson 95% upper bound from by_db.unaware.bw.tp and cases",
+  "source": "results/r2/summary.json",
+  "value": "0.971"
+ },
+ "hiUnaFo": {
+  "how": "Wilson 95% upper bound from by_db.unaware.bw_feed_only.tp and cases",
+  "source": "results/r2/summary.json",
+  "value": "0.963"
+ },
+ "hiUnaNs": {
+  "how": "Wilson 95% upper bound from by_db.unaware.bw_no_snapshot.tp and cases",
+  "source": "results/r2/summary.json",
+  "value": "0.963"
+ },
+ "images:table": {
+  "how": "splits.heldout.clean.images[*] verdicts; sibling-overlap share_of_files_identical (table only)",
+  "source": "results/r2/summary.json and results/r2/sibling-overlap.json",
+  "value": "edgerouter-x & 23.05.6 & mipsel\\_24kc & 114 & 105 & 2 & 7 & 0 & twin \\\\ gl-b1300 & 23.05.6 & arm\\_cortex-a7\\_neon-vfpv4 & 144 & 134 & 2 & 8 & 0 & twin \\\\ gl-mt3000 & 23.05.6 & aarch64\\_cortex-a53 & 155 & 143 & 2 & 10 & 0 & 99.7\\% \\\\ rpi-4 & 23.05.6 & aarch64\\_cortex-a72 & 157 & 143 & 2 & 11 & 1 & none \\\\ x86-64 & 23.05.6 & x86\\_64 & 150 & 134 & 2 & 13 & 1 & none \\\\ archer-c50-v4 & 24.10.8 & mipsel\\_24kc & 140 & 131 & 2 & 7 & 0 & twin \\\\ gl-b1300 & 24.10.8 & arm\\_cortex-a7\\_neon-vfpv4 & 148 & 138 & 2 & 8 & 0 & twin \\\\ unifi-6-lr-v1 & 24.10.8 & aarch64\\_cortex-a53 & 149 & 138 & 2 & 9 & 0 & 99.5\\% \\\\ wrt1900acs & 24.10.8 & arm\\_cortex-a9\\_vfpv3-d16 & 138 & 129 & 2 & 7 & 0 & twin \\\\ x86-64 & 24.10.8 & x86\\_64 & 175 & 153 & 5 & 16 & 1 & none \\\\"
+ },
+ "indexGbTotal": {
+  "how": "total_downloaded_bytes / 1e9",
+  "source": "results/r2/reference-index.json",
+  "value": "2.1"
+ },
+ "indexMbMax": {
+  "how": "max downloaded_bytes / 1e6",
+  "source": "results/r2/reference-index.json",
+  "value": "197"
+ },
+ "indexMbMin": {
+  "how": "min downloaded_bytes / 1e6",
+  "source": "results/r2/reference-index.json",
+  "value": "149"
+ },
+ "indexPkgsMax": {
+  "how": "max path_index_packages",
+  "source": "results/r2/reference-index.json",
+  "value": "2,086"
+ },
+ "indexPkgsMin": {
+  "how": "min path_index_packages",
+  "source": "results/r2/reference-index.json",
+  "value": "1,839"
+ },
+ "indexSecMax": {
+  "how": "max seconds over full index builds",
+  "source": "results/r2/reference-index.json",
+  "value": "40"
+ },
+ "indexSecMin": {
+  "how": "min seconds over full index builds",
+  "source": "results/r2/reference-index.json",
+  "value": "29"
+ },
+ "indexTargets": {
+  "how": "len(targets)",
+  "source": "results/r2/reference-index.json",
+  "value": "14"
+ },
+ "invCveMax": {
+  "how": "max cvebin_products",
+  "source": "results/r2/inventory.json",
+  "value": "11"
+ },
+ "invCveMin": {
+  "how": "min cvebin_products",
+  "source": "results/r2/inventory.json",
+  "value": "6"
+ },
+ "invInstalled": {
+  "how": "sum installed_packages_with_files",
+  "source": "results/r2/inventory.json",
+  "value": "1,950"
+ },
+ "invNamed": {
+  "how": "sum correct_names",
+  "source": "results/r2/inventory.json",
+  "value": "1,939"
+ },
+ "invSyftMax": {
+  "how": "max syft_components_database_removed",
+  "source": "results/r2/inventory.json",
+  "value": "77"
+ },
+ "invSyftMin": {
+  "how": "min syft_components_database_removed",
+  "source": "results/r2/inventory.json",
+  "value": "45"
+ },
+ "invWrong": {
+  "how": "sum len(extra)",
+  "source": "results/r2/inventory.json",
+  "value": "0"
+ },
+ "kMFiveBtUna": {
+  "how": "by_kind.M5_swapped_binary.unaware.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMFiveBw": {
+  "how": "by_kind.M5_swapped_binary.unaware.bw.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMFiveCases": {
+  "how": "by_kind.M5_swapped_binary.unaware.bw.cases",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMFiveCvUna": {
+  "how": "by_kind.M5_swapped_binary.unaware.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "9"
+ },
+ "kMFiveFo": {
+  "how": "by_kind.M5_swapped_binary.unaware.bw_feed_only.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMFiveNs": {
+  "how": "by_kind.M5_swapped_binary.unaware.bw_no_snapshot.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMFiveSyUna": {
+  "how": "by_kind.M5_swapped_binary.unaware.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMFourBtUna": {
+  "how": "by_kind.M4_implant.unaware.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMFourBw": {
+  "how": "by_kind.M4_implant.unaware.bw.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMFourCases": {
+  "how": "by_kind.M4_implant.unaware.bw.cases",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMFourCvUna": {
+  "how": "by_kind.M4_implant.unaware.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "8"
+ },
+ "kMFourFo": {
+  "how": "by_kind.M4_implant.unaware.bw_feed_only.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMFourNs": {
+  "how": "by_kind.M4_implant.unaware.bw_no_snapshot.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMFourSyUna": {
+  "how": "by_kind.M4_implant.unaware.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMFourUBtUna": {
+  "how": "by_kind.M4u_implant_unindexed_feed.unaware.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMFourUBw": {
+  "how": "by_kind.M4u_implant_unindexed_feed.unaware.bw.tp",
+  "source": "results/r2/summary.json",
+  "value": "41"
+ },
+ "kMFourUCases": {
+  "how": "by_kind.M4u_implant_unindexed_feed.unaware.bw.cases",
+  "source": "results/r2/summary.json",
+  "value": "60"
+ },
+ "kMFourUCvUna": {
+  "how": "by_kind.M4u_implant_unindexed_feed.unaware.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "6"
+ },
+ "kMFourUFo": {
+  "how": "by_kind.M4u_implant_unindexed_feed.unaware.bw_feed_only.tp",
+  "source": "results/r2/summary.json",
+  "value": "41"
+ },
+ "kMFourUNs": {
+  "how": "by_kind.M4u_implant_unindexed_feed.unaware.bw_no_snapshot.tp",
+  "source": "results/r2/summary.json",
+  "value": "41"
+ },
+ "kMFourUSyUna": {
+  "how": "by_kind.M4u_implant_unindexed_feed.unaware.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMOneBtCol": {
+  "how": "by_kind.M1_omitted.colluding.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMOneBtHon": {
+  "how": "by_kind.M1_omitted.honest.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMOneBtStr": {
+  "how": "by_kind.M1_omitted.stripped.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMOneBw": {
+  "how": "by_kind.M1_omitted.colluding.bw.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMOneCases": {
+  "how": "by_kind.M1_omitted.colluding.bw.cases",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMOneCvCol": {
+  "how": "by_kind.M1_omitted.colluding.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "5"
+ },
+ "kMOneCvHon": {
+  "how": "by_kind.M1_omitted.honest.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "5"
+ },
+ "kMOneCvStr": {
+  "how": "by_kind.M1_omitted.stripped.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "5"
+ },
+ "kMOneFo": {
+  "how": "by_kind.M1_omitted.colluding.bw_feed_only.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMOneNs": {
+  "how": "by_kind.M1_omitted.colluding.bw_no_snapshot.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMOneSyCol": {
+  "how": "by_kind.M1_omitted.colluding.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMOneSyHon": {
+  "how": "by_kind.M1_omitted.honest.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMOneSyStr": {
+  "how": "by_kind.M1_omitted.stripped.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMSixBtUna": {
+  "how": "by_kind.M6_patched_binary.unaware.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMSixBw": {
+  "how": "by_kind.M6_patched_binary.unaware.bw.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMSixCases": {
+  "how": "by_kind.M6_patched_binary.unaware.bw.cases",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMSixCvUna": {
+  "how": "by_kind.M6_patched_binary.unaware.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMSixFo": {
+  "how": "by_kind.M6_patched_binary.unaware.bw_feed_only.tp",
+  "source": "results/r2/summary.json",
+  "value": "116"
+ },
+ "kMSixNs": {
+  "how": "by_kind.M6_patched_binary.unaware.bw_no_snapshot.tp",
+  "source": "results/r2/summary.json",
+  "value": "116"
+ },
+ "kMSixSyUna": {
+  "how": "by_kind.M6_patched_binary.unaware.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMThreeBtCol": {
+  "how": "by_kind.M3_phantom.colluding.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMThreeBtHon": {
+  "how": "by_kind.M3_phantom.honest.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMThreeBtStr": {
+  "how": "by_kind.M3_phantom.stripped.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMThreeBw": {
+  "how": "by_kind.M3_phantom.colluding.bw.tp",
+  "source": "results/r2/summary.json",
+  "value": "117"
+ },
+ "kMThreeCases": {
+  "how": "by_kind.M3_phantom.colluding.bw.cases",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMThreeCvCol": {
+  "how": "by_kind.M3_phantom.colluding.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMThreeCvHon": {
+  "how": "by_kind.M3_phantom.honest.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMThreeCvStr": {
+  "how": "by_kind.M3_phantom.stripped.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMThreeFo": {
+  "how": "by_kind.M3_phantom.colluding.bw_feed_only.tp",
+  "source": "results/r2/summary.json",
+  "value": "117"
+ },
+ "kMThreeNs": {
+  "how": "by_kind.M3_phantom.colluding.bw_no_snapshot.tp",
+  "source": "results/r2/summary.json",
+  "value": "117"
+ },
+ "kMThreeSyCol": {
+  "how": "by_kind.M3_phantom.colluding.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMThreeSyHon": {
+  "how": "by_kind.M3_phantom.honest.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMThreeSyStr": {
+  "how": "by_kind.M3_phantom.stripped.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMTwoBBtCol": {
+  "how": "by_kind.M2b_fabricated_version.colluding.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMTwoBBtHon": {
+  "how": "by_kind.M2b_fabricated_version.honest.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMTwoBBtStr": {
+  "how": "by_kind.M2b_fabricated_version.stripped.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMTwoBBw": {
+  "how": "by_kind.M2b_fabricated_version.colluding.bw.tp",
+  "source": "results/r2/summary.json",
+  "value": "117"
+ },
+ "kMTwoBCases": {
+  "how": "by_kind.M2b_fabricated_version.colluding.bw.cases",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMTwoBCvCol": {
+  "how": "by_kind.M2b_fabricated_version.colluding.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "2"
+ },
+ "kMTwoBCvHon": {
+  "how": "by_kind.M2b_fabricated_version.honest.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "2"
+ },
+ "kMTwoBCvStr": {
+  "how": "by_kind.M2b_fabricated_version.stripped.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "2"
+ },
+ "kMTwoBFo": {
+  "how": "by_kind.M2b_fabricated_version.colluding.bw_feed_only.tp",
+  "source": "results/r2/summary.json",
+  "value": "60"
+ },
+ "kMTwoBNs": {
+  "how": "by_kind.M2b_fabricated_version.colluding.bw_no_snapshot.tp",
+  "source": "results/r2/summary.json",
+  "value": "114"
+ },
+ "kMTwoBSyCol": {
+  "how": "by_kind.M2b_fabricated_version.colluding.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMTwoBSyHon": {
+  "how": "by_kind.M2b_fabricated_version.honest.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMTwoBSyStr": {
+  "how": "by_kind.M2b_fabricated_version.stripped.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMTwoBtCol": {
+  "how": "by_kind.M2_other_release_version.colluding.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMTwoBtHon": {
+  "how": "by_kind.M2_other_release_version.honest.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMTwoBtStr": {
+  "how": "by_kind.M2_other_release_version.stripped.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMTwoBw": {
+  "how": "by_kind.M2_other_release_version.colluding.bw.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMTwoCases": {
+  "how": "by_kind.M2_other_release_version.colluding.bw.cases",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMTwoCvCol": {
+  "how": "by_kind.M2_other_release_version.colluding.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "6"
+ },
+ "kMTwoCvHon": {
+  "how": "by_kind.M2_other_release_version.honest.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "6"
+ },
+ "kMTwoCvStr": {
+  "how": "by_kind.M2_other_release_version.stripped.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "6"
+ },
+ "kMTwoFo": {
+  "how": "by_kind.M2_other_release_version.colluding.bw_feed_only.tp",
+  "source": "results/r2/summary.json",
+  "value": "119"
+ },
+ "kMTwoNs": {
+  "how": "by_kind.M2_other_release_version.colluding.bw_no_snapshot.tp",
+  "source": "results/r2/summary.json",
+  "value": "119"
+ },
+ "kMTwoSyCol": {
+  "how": "by_kind.M2_other_release_version.colluding.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kMTwoSyHon": {
+  "how": "by_kind.M2_other_release_version.honest.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "kMTwoSyStr": {
+  "how": "by_kind.M2_other_release_version.stripped.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "kPerClass": {
+  "how": "k",
+  "source": "results/r2/summary.json",
+  "value": "12"
+ },
+ "kUnindexed": {
+  "how": "M4u cases per held-out image",
+  "source": "results/r2/summary.json",
+  "value": "6"
+ },
+ "loColBw": {
+  "how": "Wilson 95% lower bound from by_db.colluding.bw.tp and cases",
+  "source": "results/r2/summary.json",
+  "value": "0.973"
+ },
+ "loColFo": {
+  "how": "Wilson 95% lower bound from by_db.colluding.bw_feed_only.tp and cases",
+  "source": "results/r2/summary.json",
+  "value": "0.833"
+ },
+ "loColNs": {
+  "how": "Wilson 95% lower bound from by_db.colluding.bw_no_snapshot.tp and cases",
+  "source": "results/r2/summary.json",
+  "value": "0.962"
+ },
+ "loUnaBw": {
+  "how": "Wilson 95% lower bound from by_db.unaware.bw.tp and cases",
+  "source": "results/r2/summary.json",
+  "value": "0.930"
+ },
+ "loUnaFo": {
+  "how": "Wilson 95% lower bound from by_db.unaware.bw_feed_only.tp and cases",
+  "source": "results/r2/summary.json",
+  "value": "0.919"
+ },
+ "loUnaNs": {
+  "how": "Wilson 95% lower bound from by_db.unaware.bw_no_snapshot.tp and cases",
+  "source": "results/r2/summary.json",
+  "value": "0.919"
+ },
+ "minColBw": {
+  "how": "by_db.colluding.bw.recall_per_image_min",
+  "source": "results/r2/summary.json",
+  "value": "0.958"
+ },
+ "minColFo": {
+  "how": "by_db.colluding.bw_feed_only.recall_per_image_min",
+  "source": "results/r2/summary.json",
+  "value": "0.771"
+ },
+ "minColNs": {
+  "how": "by_db.colluding.bw_no_snapshot.recall_per_image_min",
+  "source": "results/r2/summary.json",
+  "value": "0.958"
+ },
+ "minUnaBw": {
+  "how": "by_db.unaware.bw.recall_per_image_min",
+  "source": "results/r2/summary.json",
+  "value": "0.929"
+ },
+ "minUnaFo": {
+  "how": "by_db.unaware.bw_feed_only.recall_per_image_min",
+  "source": "results/r2/summary.json",
+  "value": "0.881"
+ },
+ "minUnaNs": {
+  "how": "by_db.unaware.bw_no_snapshot.recall_per_image_min",
+  "source": "results/r2/summary.json",
+  "value": "0.881"
+ },
+ "missFabricated": {
+  "how": "miss_groups M2b*",
+  "source": "results/r2/summary.json",
+  "value": "3"
+ },
+ "missImplant": {
+  "how": "miss_groups M4u*",
+  "source": "results/r2/summary.json",
+  "value": "19"
+ },
+ "missPhantom": {
+  "how": "miss_groups M3*",
+  "source": "results/r2/summary.json",
+  "value": "3"
+ },
+ "nAlgPatterns": {
+  "how": "len(ALGORITHMS)",
+  "source": "bomwitness/crypto.py",
+  "value": "19"
+ },
+ "nAllCases": {
+  "how": "held-out plus tuning cases",
+  "source": "results/r2/summary.json",
+  "value": "2,604"
+ },
+ "nArchAll": {
+  "how": "distinct arch over both splits",
+  "source": "results/r2/summary.json",
+  "value": "7"
+ },
+ "nArchHeld": {
+  "how": "distinct splits.heldout.clean.images[*].arch",
+  "source": "results/r2/summary.json",
+  "value": "6"
+ },
+ "nBomErrCases": {
+  "how": "splits.heldout.by_db.colluding.bw.cases",
+  "source": "results/r2/summary.json",
+  "value": "480"
+ },
+ "nErrFalsePositives": {
+  "how": "len(splits.heldout.errors.false_positives)",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "nHeldCases": {
+  "how": "splits.heldout.cases",
+  "source": "results/r2/summary.json",
+  "value": "1,860"
+ },
+ "nHeldImages": {
+  "how": "len(splits.heldout.images)",
+  "source": "results/r2/summary.json",
+  "value": "10"
+ },
+ "nImages": {
+  "how": "held-out plus tuning images",
+  "source": "results/r2/summary.json",
+  "value": "14"
+ },
+ "nMFourUCases": {
+  "how": "by_kind.M4u.unaware.bw.cases",
+  "source": "results/r2/summary.json",
+  "value": "60"
+ },
+ "nMisses": {
+  "how": "sum(splits.heldout.errors.miss_groups)",
+  "source": "results/r2/summary.json",
+  "value": "25"
+ },
+ "nTargetsHeld": {
+  "how": "distinct (release, target), held-out",
+  "source": "results/r2/summary.json",
+  "value": "10"
+ },
+ "nTuneCases": {
+  "how": "splits.tuning.cases",
+  "source": "results/r2/summary.json",
+  "value": "744"
+ },
+ "nTuneImages": {
+  "how": "len(splits.tuning.images)",
+  "source": "results/r2/summary.json",
+  "value": "4"
+ },
+ "nUnawareCases": {
+  "how": "splits.heldout.by_db.unaware.bw.cases",
+  "source": "results/r2/summary.json",
+  "value": "420"
+ },
+ "obAbsent": {
+  "how": "sum verdicts.absent",
+  "source": "results/r2/official-bom.json",
+  "value": "3"
+ },
+ "obBeyondFiles": {
+  "how": "sum their_files",
+  "source": "results/r2/official-bom.json",
+  "value": "477"
+ },
+ "obBeyondImages": {
+  "how": "images with at least one package beyond the BOM",
+  "source": "results/r2/official-bom.json",
+  "value": "11"
+ },
+ "obBeyondMax": {
+  "how": "max len(components_in_image_not_in_bom)",
+  "source": "results/r2/official-bom.json",
+  "value": "45"
+ },
+ "obBeyondMin": {
+  "how": "min len(components_in_image_not_in_bom)",
+  "source": "results/r2/official-bom.json",
+  "value": "0"
+ },
+ "obBeyondTotal": {
+  "how": "sum len(components_in_image_not_in_bom)",
+  "source": "results/r2/official-bom.json",
+  "value": "211"
+ },
+ "obBytesDiffer": {
+  "how": "sum verdicts.bytes_differ",
+  "source": "results/r2/official-bom.json",
+  "value": "4"
+ },
+ "obClaims": {
+  "how": "sum bom_components",
+  "source": "results/r2/official-bom.json",
+  "value": "1,868"
+ },
+ "obImages": {
+  "how": "number of images",
+  "source": "results/r2/official-bom.json",
+  "value": "14"
+ },
+ "obOrphanCode": {
+  "how": "sum executable_files_unaccounted",
+  "source": "results/r2/official-bom.json",
+  "value": "0"
+ },
+ "obUnverifiable": {
+  "how": "sum verdicts.unverifiable",
+  "source": "results/r2/official-bom.json",
+  "value": "122"
+ },
+ "obVerified": {
+  "how": "sum verified_A + verified_B",
+  "source": "results/r2/official-bom.json",
+  "value": "1,705"
+ },
+ "obWrongVersion": {
+  "how": "sum verdicts.wrong_version",
+  "source": "results/r2/official-bom.json",
+  "value": "34"
+ },
+ "obWrongVersionImages": {
+  "how": "images with a wrong_version verdict",
+  "source": "results/r2/official-bom.json",
+  "value": "7"
+ },
+ "pAllBt": {
+  "how": "splits.heldout.by_db.all.bomtrace.precision",
+  "source": "results/r2/summary.json",
+  "value": "1.000"
+ },
+ "pAllBw": {
+  "how": "splits.heldout.by_db.all.bw.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.994"
+ },
+ "pAllCv": {
+  "how": "splits.heldout.by_db.all.cvebin_diff.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.350"
+ },
+ "pAllFo": {
+  "how": "splits.heldout.by_db.all.bw_feed_only.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.993"
+ },
+ "pAllNs": {
+  "how": "splits.heldout.by_db.all.bw_no_snapshot.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.993"
+ },
+ "pAllSy": {
+  "how": "splits.heldout.by_db.all.syft_diff.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.134"
+ },
+ "pColAo": {
+  "how": "by_db.colluding.bw_A_only.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.994"
+ },
+ "pColBo": {
+  "how": "by_db.colluding.bw_B_only.precision",
+  "source": "results/r2/summary.json",
+  "value": "1.000"
+ },
+ "pColBw": {
+  "how": "splits.heldout.by_db.colluding.bw.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.994"
+ },
+ "pColCv": {
+  "how": "splits.heldout.by_db.colluding.cvebin_diff.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.342"
+ },
+ "pColFo": {
+  "how": "splits.heldout.by_db.colluding.bw_feed_only.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.993"
+ },
+ "pColNoNorm": {
+  "how": "by_db.colluding.bw_no_normalize.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.988"
+ },
+ "pColNs": {
+  "how": "splits.heldout.by_db.colluding.bw_no_snapshot.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.994"
+ },
+ "pColSy": {
+  "how": "splits.heldout.by_db.colluding.syft_diff.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.000"
+ },
+ "pHonBt": {
+  "how": "splits.heldout.by_db.honest.bomtrace.precision",
+  "source": "results/r2/summary.json",
+  "value": "1.000"
+ },
+ "pHonBw": {
+  "how": "splits.heldout.by_db.honest.bw.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.994"
+ },
+ "pHonCv": {
+  "how": "splits.heldout.by_db.honest.cvebin_diff.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.342"
+ },
+ "pHonFo": {
+  "how": "splits.heldout.by_db.honest.bw_feed_only.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.993"
+ },
+ "pHonNs": {
+  "how": "splits.heldout.by_db.honest.bw_no_snapshot.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.994"
+ },
+ "pHonSy": {
+  "how": "splits.heldout.by_db.honest.syft_diff.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.442"
+ },
+ "pStrBw": {
+  "how": "splits.heldout.by_db.stripped.bw.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.994"
+ },
+ "pStrCv": {
+  "how": "splits.heldout.by_db.stripped.cvebin_diff.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.342"
+ },
+ "pStrFo": {
+  "how": "splits.heldout.by_db.stripped.bw_feed_only.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.993"
+ },
+ "pStrNs": {
+  "how": "splits.heldout.by_db.stripped.bw_no_snapshot.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.994"
+ },
+ "pStrSy": {
+  "how": "splits.heldout.by_db.stripped.syft_diff.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.055"
+ },
+ "pUnaBw": {
+  "how": "splits.heldout.by_db.unaware.bw.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.993"
+ },
+ "pUnaCv": {
+  "how": "splits.heldout.by_db.unaware.cvebin_diff.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.365"
+ },
+ "pUnaFo": {
+  "how": "splits.heldout.by_db.unaware.bw_feed_only.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.993"
+ },
+ "pUnaNs": {
+  "how": "splits.heldout.by_db.unaware.bw_no_snapshot.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.993"
+ },
+ "pUnaSy": {
+  "how": "splits.heldout.by_db.unaware.syft_diff.precision",
+  "source": "results/r2/summary.json",
+  "value": "0.000"
+ },
+ "patchMissNoSnap": {
+  "how": "by_kind.M6.unaware: cases - bw_no_snapshot.tp",
+  "source": "results/r2/summary.json",
+  "value": "4"
+ },
+ "plot:23.05.0:feeds_manifest": {
+  "how": "releases[23.05.0].configs.feeds_manifest.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "69.9"
+ },
+ "plot:23.05.0:feeds_manifest_snapshot": {
+  "how": "releases[23.05.0].configs.feeds_manifest_snapshot.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "92.5"
+ },
+ "plot:23.05.0:feeds_only": {
+  "how": "releases[23.05.0].configs.feeds_only.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "67.8"
+ },
+ "plot:23.05.2:feeds_manifest": {
+  "how": "releases[23.05.2].configs.feeds_manifest.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "74.7"
+ },
+ "plot:23.05.2:feeds_manifest_snapshot": {
+  "how": "releases[23.05.2].configs.feeds_manifest_snapshot.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "93.2"
+ },
+ "plot:23.05.2:feeds_only": {
+  "how": "releases[23.05.2].configs.feeds_only.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "71.9"
+ },
+ "plot:23.05.3:feeds_manifest": {
+  "how": "releases[23.05.3].configs.feeds_manifest.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "77.4"
+ },
+ "plot:23.05.3:feeds_manifest_snapshot": {
+  "how": "releases[23.05.3].configs.feeds_manifest_snapshot.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "93.2"
+ },
+ "plot:23.05.3:feeds_only": {
+  "how": "releases[23.05.3].configs.feeds_only.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "74.0"
+ },
+ "plot:23.05.4:feeds_manifest": {
+  "how": "releases[23.05.4].configs.feeds_manifest.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "84.9"
+ },
+ "plot:23.05.4:feeds_manifest_snapshot": {
+  "how": "releases[23.05.4].configs.feeds_manifest_snapshot.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "93.2"
+ },
+ "plot:23.05.4:feeds_only": {
+  "how": "releases[23.05.4].configs.feeds_only.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "76.0"
+ },
+ "plot:23.05.5:feeds_manifest": {
+  "how": "releases[23.05.5].configs.feeds_manifest.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "86.3"
+ },
+ "plot:23.05.5:feeds_manifest_snapshot": {
+  "how": "releases[23.05.5].configs.feeds_manifest_snapshot.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "93.2"
+ },
+ "plot:23.05.5:feeds_only": {
+  "how": "releases[23.05.5].configs.feeds_only.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "83.6"
+ },
+ "plot:23.05.6:feeds_manifest": {
+  "how": "releases[23.05.6].configs.feeds_manifest.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "93.2"
+ },
+ "plot:23.05.6:feeds_manifest_snapshot": {
+  "how": "releases[23.05.6].configs.feeds_manifest_snapshot.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "93.2"
+ },
+ "plot:23.05.6:feeds_only": {
+  "how": "releases[23.05.6].configs.feeds_only.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "93.2"
+ },
+ "plot:24.10.0:feeds_manifest": {
+  "how": "releases[24.10.0].configs.feeds_manifest.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "63.3"
+ },
+ "plot:24.10.0:feeds_manifest_snapshot": {
+  "how": "releases[24.10.0].configs.feeds_manifest_snapshot.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "93.3"
+ },
+ "plot:24.10.0:feeds_only": {
+  "how": "releases[24.10.0].configs.feeds_only.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "58.7"
+ },
+ "plot:24.10.1:feeds_manifest": {
+  "how": "releases[24.10.1].configs.feeds_manifest.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "66.7"
+ },
+ "plot:24.10.1:feeds_manifest_snapshot": {
+  "how": "releases[24.10.1].configs.feeds_manifest_snapshot.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "93.3"
+ },
+ "plot:24.10.1:feeds_only": {
+  "how": "releases[24.10.1].configs.feeds_only.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "59.3"
+ },
+ "plot:24.10.2:feeds_manifest": {
+  "how": "releases[24.10.2].configs.feeds_manifest.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "69.3"
+ },
+ "plot:24.10.2:feeds_manifest_snapshot": {
+  "how": "releases[24.10.2].configs.feeds_manifest_snapshot.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "93.3"
+ },
+ "plot:24.10.2:feeds_only": {
+  "how": "releases[24.10.2].configs.feeds_only.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "60.7"
+ },
+ "plot:24.10.3:feeds_manifest": {
+  "how": "releases[24.10.3].configs.feeds_manifest.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "72.7"
+ },
+ "plot:24.10.3:feeds_manifest_snapshot": {
+  "how": "releases[24.10.3].configs.feeds_manifest_snapshot.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "93.3"
+ },
+ "plot:24.10.3:feeds_only": {
+  "how": "releases[24.10.3].configs.feeds_only.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "64.0"
+ },
+ "plot:24.10.4:feeds_manifest": {
+  "how": "releases[24.10.4].configs.feeds_manifest.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "74.0"
+ },
+ "plot:24.10.4:feeds_manifest_snapshot": {
+  "how": "releases[24.10.4].configs.feeds_manifest_snapshot.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "93.3"
+ },
+ "plot:24.10.4:feeds_only": {
+  "how": "releases[24.10.4].configs.feeds_only.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "66.0"
+ },
+ "plot:24.10.5:feeds_manifest": {
+  "how": "releases[24.10.5].configs.feeds_manifest.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "75.3"
+ },
+ "plot:24.10.5:feeds_manifest_snapshot": {
+  "how": "releases[24.10.5].configs.feeds_manifest_snapshot.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "93.3"
+ },
+ "plot:24.10.5:feeds_only": {
+  "how": "releases[24.10.5].configs.feeds_only.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "66.7"
+ },
+ "plot:24.10.6:feeds_manifest": {
+  "how": "releases[24.10.6].configs.feeds_manifest.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "78.7"
+ },
+ "plot:24.10.6:feeds_manifest_snapshot": {
+  "how": "releases[24.10.6].configs.feeds_manifest_snapshot.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "93.3"
+ },
+ "plot:24.10.6:feeds_only": {
+  "how": "releases[24.10.6].configs.feeds_only.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "69.3"
+ },
+ "plot:24.10.7:feeds_manifest": {
+  "how": "releases[24.10.7].configs.feeds_manifest.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "80.0"
+ },
+ "plot:24.10.7:feeds_manifest_snapshot": {
+  "how": "releases[24.10.7].configs.feeds_manifest_snapshot.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "93.3"
+ },
+ "plot:24.10.7:feeds_only": {
+  "how": "releases[24.10.7].configs.feeds_only.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "70.7"
+ },
+ "plot:24.10.8:feeds_manifest": {
+  "how": "releases[24.10.8].configs.feeds_manifest.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "89.3"
+ },
+ "plot:24.10.8:feeds_manifest_snapshot": {
+  "how": "releases[24.10.8].configs.feeds_manifest_snapshot.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "93.3"
+ },
+ "plot:24.10.8:feeds_only": {
+  "how": "releases[24.10.8].configs.feeds_only.verified_A_share (figure only)",
+  "source": "results/r2/drift.json",
+  "value": "80.0"
+ },
+ "postCases": {
+  "how": "sum images[*].cases",
+  "source": "results/r2/postfreeze-check/COMPARISON.json",
+  "value": "558"
+ },
+ "postDiffs": {
+  "how": "sum len(score_differences)",
+  "source": "results/r2/postfreeze-check/COMPARISON.json",
+  "value": "0"
+ },
+ "postImages": {
+  "how": "len(images)",
+  "source": "results/r2/postfreeze-check/COMPARISON.json",
+  "value": "3"
+ },
+ "rAllBt": {
+  "how": "splits.heldout.by_db.all.bomtrace.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.258"
+ },
+ "rAllBw": {
+  "how": "splits.heldout.by_db.all.bw.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.980"
+ },
+ "rAllCv": {
+  "how": "splits.heldout.by_db.all.cvebin_diff.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.033"
+ },
+ "rAllFo": {
+  "how": "splits.heldout.by_db.all.bw_feed_only.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.884"
+ },
+ "rAllNs": {
+  "how": "splits.heldout.by_db.all.bw_no_snapshot.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.972"
+ },
+ "rAllSy": {
+  "how": "splits.heldout.by_db.all.syft_diff.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.323"
+ },
+ "rColAo": {
+  "how": "by_db.colluding.bw_A_only.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.988"
+ },
+ "rColBo": {
+  "how": "by_db.colluding.bw_B_only.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.619"
+ },
+ "rColBt": {
+  "how": "splits.heldout.by_db.colluding.bomtrace.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.000"
+ },
+ "rColBw": {
+  "how": "splits.heldout.by_db.colluding.bw.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.988"
+ },
+ "rColCv": {
+  "how": "splits.heldout.by_db.colluding.cvebin_diff.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.027"
+ },
+ "rColFo": {
+  "how": "splits.heldout.by_db.colluding.bw_feed_only.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.867"
+ },
+ "rColNs": {
+  "how": "splits.heldout.by_db.colluding.bw_no_snapshot.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.979"
+ },
+ "rColSy": {
+  "how": "splits.heldout.by_db.colluding.syft_diff.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.000"
+ },
+ "rHonBt": {
+  "how": "splits.heldout.by_db.honest.bomtrace.recall",
+  "source": "results/r2/summary.json",
+  "value": "1.000"
+ },
+ "rHonBw": {
+  "how": "splits.heldout.by_db.honest.bw.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.988"
+ },
+ "rHonCv": {
+  "how": "splits.heldout.by_db.honest.cvebin_diff.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.027"
+ },
+ "rHonFo": {
+  "how": "splits.heldout.by_db.honest.bw_feed_only.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.867"
+ },
+ "rHonNs": {
+  "how": "splits.heldout.by_db.honest.bw_no_snapshot.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.979"
+ },
+ "rHonSy": {
+  "how": "splits.heldout.by_db.honest.syft_diff.recall",
+  "source": "results/r2/summary.json",
+  "value": "1.000"
+ },
+ "rHonWithDb": {
+  "how": "by_db.honest.bw_with_db.recall",
+  "source": "results/r2/summary.json",
+  "value": "1.000"
+ },
+ "rStrBt": {
+  "how": "splits.heldout.by_db.stripped.bomtrace.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.000"
+ },
+ "rStrBw": {
+  "how": "splits.heldout.by_db.stripped.bw.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.988"
+ },
+ "rStrCv": {
+  "how": "splits.heldout.by_db.stripped.cvebin_diff.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.027"
+ },
+ "rStrFo": {
+  "how": "splits.heldout.by_db.stripped.bw_feed_only.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.867"
+ },
+ "rStrNs": {
+  "how": "splits.heldout.by_db.stripped.bw_no_snapshot.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.979"
+ },
+ "rStrSy": {
+  "how": "splits.heldout.by_db.stripped.syft_diff.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.250"
+ },
+ "rUnaBo": {
+  "how": "by_db.unaware.bw_B_only.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.383"
+ },
+ "rUnaBt": {
+  "how": "splits.heldout.by_db.unaware.bomtrace.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.000"
+ },
+ "rUnaBw": {
+  "how": "splits.heldout.by_db.unaware.bw.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.955"
+ },
+ "rUnaCv": {
+  "how": "splits.heldout.by_db.unaware.cvebin_diff.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.055"
+ },
+ "rUnaFo": {
+  "how": "splits.heldout.by_db.unaware.bw_feed_only.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.945"
+ },
+ "rUnaNs": {
+  "how": "splits.heldout.by_db.unaware.bw_no_snapshot.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.945"
+ },
+ "rUnaSy": {
+  "how": "splits.heldout.by_db.unaware.syft_diff.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.000"
+ },
+ "republishedTwentyFour": {
+  "how": "shared_base_feed[24.10.8].republished_after_release_build",
+  "source": "results/r2/drift.json",
+  "value": "219"
+ },
+ "republishedTwentyFourPct": {
+  "how": "shared_base_feed[24.10.8].share_republished",
+  "source": "results/r2/drift.json",
+  "value": "31.4"
+ },
+ "republishedTwentyThree": {
+  "how": "shared_base_feed[23.05.6].republished_after_release_build",
+  "source": "results/r2/drift.json",
+  "value": "57"
+ },
+ "republishedTwentyThreePct": {
+  "how": "shared_base_feed[23.05.6].share_republished",
+  "source": "results/r2/drift.json",
+  "value": "8.5"
+ },
+ "secBomtrace": {
+  "how": "max seconds_median.bomtrace",
+  "source": "results/r2/summary.json",
+  "value": "0.07"
+ },
+ "secMax": {
+  "how": "max clean.images[*].seconds_median.bw",
+  "source": "results/r2/summary.json",
+  "value": "0.11"
+ },
+ "secMin": {
+  "how": "min clean.images[*].seconds_median.bw",
+  "source": "results/r2/summary.json",
+  "value": "0.05"
+ },
+ "secSyft": {
+  "how": "max seconds_median.syft",
+  "source": "results/r2/summary.json",
+  "value": "1.0"
+ },
+ "seed": {
+  "how": "seed",
+  "source": "results/r2/summary.json",
+  "value": "20261127"
+ },
+ "sibHave": {
+  "how": "entries with a sibling",
+  "source": "results/r2/sibling-overlap.json",
+  "value": "11"
+ },
+ "sibNone": {
+  "how": "entries without a sibling",
+  "source": "results/r2/sibling-overlap.json",
+  "value": "3"
+ },
+ "sibRest": {
+  "how": "siblings that are not identical",
+  "source": "results/r2/sibling-overlap.json",
+  "value": "3"
+ },
+ "sibRestMaxPct": {
+  "how": "max share_of_files_identical among the rest",
+  "source": "results/r2/sibling-overlap.json",
+  "value": "99.9"
+ },
+ "sibRestMinPct": {
+  "how": "min share_of_files_identical among the rest",
+  "source": "results/r2/sibling-overlap.json",
+  "value": "99.5"
+ },
+ "sibTwins": {
+  "how": "identical_root_filesystem_contents",
+  "source": "results/r2/sibling-overlap.json",
+  "value": "8"
+ },
+ "syftCleanMax": {
+  "how": "max clean.images[*].clean_findings_honest.syft_diff",
+  "source": "results/r2/summary.json",
+  "value": "76"
+ },
+ "syftCleanMin": {
+  "how": "min clean.images[*].clean_findings_honest.syft_diff",
+  "source": "results/r2/summary.json",
+  "value": "44"
+ },
+ "syftCleanStrMax": {
+  "how": "max clean.images[*].clean_findings_stripped.syft_diff",
+  "source": "results/r2/summary.json",
+  "value": "251"
+ },
+ "syftCleanStrMin": {
+  "how": "min clean.images[*].clean_findings_stripped.syft_diff",
+  "source": "results/r2/summary.json",
+  "value": "158"
+ },
+ "tpAllBt": {
+  "how": "splits.heldout.by_db.all.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "480"
+ },
+ "tpAllBw": {
+  "how": "splits.heldout.by_db.all.bw.tp",
+  "source": "results/r2/summary.json",
+  "value": "1,823"
+ },
+ "tpAllCv": {
+  "how": "splits.heldout.by_db.all.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "62"
+ },
+ "tpAllFo": {
+  "how": "splits.heldout.by_db.all.bw_feed_only.tp",
+  "source": "results/r2/summary.json",
+  "value": "1,645"
+ },
+ "tpAllNs": {
+  "how": "splits.heldout.by_db.all.bw_no_snapshot.tp",
+  "source": "results/r2/summary.json",
+  "value": "1,807"
+ },
+ "tpAllSy": {
+  "how": "splits.heldout.by_db.all.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "600"
+ },
+ "tpColAo": {
+  "how": "by_db.colluding.bw_A_only.tp",
+  "source": "results/r2/summary.json",
+  "value": "474"
+ },
+ "tpColBo": {
+  "how": "by_db.colluding.bw_B_only.tp",
+  "source": "results/r2/summary.json",
+  "value": "297"
+ },
+ "tpColBt": {
+  "how": "splits.heldout.by_db.colluding.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "tpColBw": {
+  "how": "splits.heldout.by_db.colluding.bw.tp",
+  "source": "results/r2/summary.json",
+  "value": "474"
+ },
+ "tpColCv": {
+  "how": "splits.heldout.by_db.colluding.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "13"
+ },
+ "tpColFo": {
+  "how": "splits.heldout.by_db.colluding.bw_feed_only.tp",
+  "source": "results/r2/summary.json",
+  "value": "416"
+ },
+ "tpColNs": {
+  "how": "splits.heldout.by_db.colluding.bw_no_snapshot.tp",
+  "source": "results/r2/summary.json",
+  "value": "470"
+ },
+ "tpColSy": {
+  "how": "splits.heldout.by_db.colluding.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "tpHonBt": {
+  "how": "splits.heldout.by_db.honest.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "480"
+ },
+ "tpHonBw": {
+  "how": "splits.heldout.by_db.honest.bw.tp",
+  "source": "results/r2/summary.json",
+  "value": "474"
+ },
+ "tpHonCv": {
+  "how": "splits.heldout.by_db.honest.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "13"
+ },
+ "tpHonFo": {
+  "how": "splits.heldout.by_db.honest.bw_feed_only.tp",
+  "source": "results/r2/summary.json",
+  "value": "416"
+ },
+ "tpHonNs": {
+  "how": "splits.heldout.by_db.honest.bw_no_snapshot.tp",
+  "source": "results/r2/summary.json",
+  "value": "470"
+ },
+ "tpHonSy": {
+  "how": "splits.heldout.by_db.honest.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "480"
+ },
+ "tpHonWithDb": {
+  "how": "by_db.honest.bw_with_db.tp",
+  "source": "results/r2/summary.json",
+  "value": "480"
+ },
+ "tpStrBt": {
+  "how": "splits.heldout.by_db.stripped.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "tpStrBw": {
+  "how": "splits.heldout.by_db.stripped.bw.tp",
+  "source": "results/r2/summary.json",
+  "value": "474"
+ },
+ "tpStrCv": {
+  "how": "splits.heldout.by_db.stripped.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "13"
+ },
+ "tpStrFo": {
+  "how": "splits.heldout.by_db.stripped.bw_feed_only.tp",
+  "source": "results/r2/summary.json",
+  "value": "416"
+ },
+ "tpStrNs": {
+  "how": "splits.heldout.by_db.stripped.bw_no_snapshot.tp",
+  "source": "results/r2/summary.json",
+  "value": "470"
+ },
+ "tpStrSy": {
+  "how": "splits.heldout.by_db.stripped.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "120"
+ },
+ "tpUnaBt": {
+  "how": "splits.heldout.by_db.unaware.bomtrace.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "tpUnaBw": {
+  "how": "splits.heldout.by_db.unaware.bw.tp",
+  "source": "results/r2/summary.json",
+  "value": "401"
+ },
+ "tpUnaCv": {
+  "how": "splits.heldout.by_db.unaware.cvebin_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "23"
+ },
+ "tpUnaFo": {
+  "how": "splits.heldout.by_db.unaware.bw_feed_only.tp",
+  "source": "results/r2/summary.json",
+  "value": "397"
+ },
+ "tpUnaNs": {
+  "how": "splits.heldout.by_db.unaware.bw_no_snapshot.tp",
+  "source": "results/r2/summary.json",
+  "value": "397"
+ },
+ "tpUnaSy": {
+  "how": "splits.heldout.by_db.unaware.syft_diff.tp",
+  "source": "results/r2/summary.json",
+  "value": "0"
+ },
+ "tuneColCases": {
+  "how": "splits.tuning.by_db.colluding.bw.cases",
+  "source": "results/r2/summary.json",
+  "value": "192"
+ },
+ "tuneColR": {
+  "how": "splits.tuning.by_db.colluding.bw.recall",
+  "source": "results/r2/summary.json",
+  "value": "1.000"
+ },
+ "tuneColTp": {
+  "how": "splits.tuning.by_db.colluding.bw.tp",
+  "source": "results/r2/summary.json",
+  "value": "192"
+ },
+ "tuneUnaCases": {
+  "how": "splits.tuning.by_db.unaware.bw.cases",
+  "source": "results/r2/summary.json",
+  "value": "168"
+ },
+ "tuneUnaR": {
+  "how": "splits.tuning.by_db.unaware.bw.recall",
+  "source": "results/r2/summary.json",
+  "value": "0.964"
+ },
+ "tuneUnaTp": {
+  "how": "splits.tuning.by_db.unaware.bw.tp",
+  "source": "results/r2/summary.json",
+  "value": "162"
+ },
+ "wideAfter": {
+  "how": "M4u cases named with the wide index",
+  "source": "results/r2/wide-index/cases/*.json",
+  "value": "12"
+ },
+ "wideBefore": {
+  "how": "the same M4u cases with the default index",
+  "source": "results/r2/cases/*.json",
+  "value": "9"
+ },
+ "wideCases": {
+  "how": "M4u cases",
+  "source": "results/r2/wide-index/cases/*.json",
+  "value": "12"
+ },
+ "wideImages": {
+  "how": "number of files",
+  "source": "results/r2/wide-index/cases/*.json",
+  "value": "2"
+ },
+ "wideMbMax": {
+  "how": "max downloaded_bytes / 1e6",
+  "source": "results/r2/wide-index/index.json",
+  "value": "400"
+ },
+ "wideMbMin": {
+  "how": "min downloaded_bytes / 1e6",
+  "source": "results/r2/wide-index/index.json",
+  "value": "390"
+ }
+}

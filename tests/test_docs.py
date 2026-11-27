@@ -27,7 +27,7 @@ def test_no_em_dashes_or_private_paths_in_tracked_text():
     bad = []
     for f in files:
         p = ROOT / f
-        if p.suffix not in (".md", ".py", ".sh", ".yml", ".toml", ".json", ".env", ".txt") or not p.is_file() or p.name == "test_docs.py":
+        if p.suffix not in (".md", ".py", ".sh", ".yml", ".toml", ".json", ".env", ".txt", ".tex", ".bib") or not p.is_file() or p.name == "test_docs.py":
             continue
         text = p.read_text(errors="replace")
         if chr(0x2014) in text:
