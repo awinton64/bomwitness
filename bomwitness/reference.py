@@ -141,7 +141,7 @@ class Reference:
                 return blob
             except (urllib.error.URLError, TimeoutError, ConnectionError, OSError) as e:
                 err = e
-                if isinstance(e, urllib.error.HTTPError) and e.code in (403, 404):
+                if (isinstance(e, urllib.error.HTTPError) and e.code in (403, 404)) or url.startswith("file:"):
                     break
                 time.sleep(1.5 * (attempt + 1))
         raise ReferenceError(f"cannot fetch {url}: {err}")

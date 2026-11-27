@@ -144,15 +144,18 @@ def name_candidates(path: str, index: dict[str, dict], so: str | None = None) ->
         if stem.startswith("lib"):
             stems.add(stem[3:])
     stems = {s.lower() for s in stems if len(s) >= 3}
-    out = []
+    base = path.rsplit("/", 1)[-1]
+    out = [base] if base in index else []          # a file named exactly like a package, however short ("pv")
     for n in index:
+        if n == base:
+            continue
         parts = {x for x in n.split("-") if len(x) >= 3} | {n}
         core = re.sub(r"\d+$", "", n)
         if any(s == n or s == core or s in parts or n.startswith(s) or (len(s) >= 5 and s in n)
                or any(s.startswith(x) for x in parts if x not in ("lib", "kmod", "utils", "tools", "mod"))
                for s in stems):
             out.append(n)
-    return sorted(out, key=len)[:40]
+    return out[:1] + sorted(out[1:], key=len)[:40] if out and out[0] == base else sorted(out, key=len)[:40]
 
 
 def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Reference] = (), *,
@@ -265,6 +268,7 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
                     declared_build_differs = True
             return same_as, declared_build_differs
 
+        out["files"] = sorted(set(present) | set(sib_paths) | set(snap_hit[2] if snap_hit else ()))
         if not pl["files"]:
             return dict(out, verdict="unverifiable", reason="metadata-only package with no files to check")
         if not present and not siblings:
@@ -381,7 +385,9 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
         if not names:
             hint = sorted(p for p in files if any(re.fullmatch(h, p) for h in NO_PACKAGE_HINTS.get(name, ())))
             token = upstream_token(ver)
-            claimed_paths.update(hint[:1] if name == "kernel" else hint)
+            if name != "kernel":        # kernel modules belong to their kmod packages; the kernel claim only reads a marker from them
+                claimed_paths.update(hint)
+            res["files"] = ([f"lib/modules/{kver}/modules.builtin"] if kver else []) if name == "kernel" else hint
             if not use_markers or not hint or not token:
                 res.update(verdict="unverifiable", reason="no reference package of this name in the feeds")
             elif any(has_token(fw(p), token) for p in hint[:5]):
@@ -500,3 +506,24 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
                     "snapshots": [s["source"] for s in snapshots], "normalize_timestamps": normalize_timestamps},
         "components": results, "findings": findings, "orphans": leftover,
     }
+
+
+def inventory(rootfs: Path, ref: Reference, *, manifest: dict[str, str] | None = None, snapshots: list[dict] = ()) -> dict:
+    """A component list derived from the bytes alone: every file is attributed to the reference package that ships it.
+
+    This is what BOMwitness can say about an image that comes with no BOM and no package database.
+    """
+    rep = verify(rootfs, [], ref, manifest=manifest, snapshots=snapshots)
+    comps = []
+    for f in rep["findings"]:
+        if f["class"] != "undeclared_component":
+            continue
+        name = f["component"]
+        version = (manifest or {}).get(name) if f["grade"] == "A" else None
+        for snap in snapshots:
+            if name in snap["packages"] and f["grade"] == "A":
+                version = version or snap["packages"][name]["version"]
+        comps.append({"name": name, "version": version or ref.index()[name]["version"] if name in ref.index() else version or "",
+                      "grade": f["grade"], "files": f.get("files", []), "alternatives": f.get("alternatives", [])})
+    return {"components": comps, "unattributed_code": [f["component"] for f in rep["findings"] if f["class"] == "undeclared_file"],
+            "unattributed_files": rep["orphans"], "summary": rep["summary"]}

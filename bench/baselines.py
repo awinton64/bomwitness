@@ -82,8 +82,8 @@ class CveBin:
     def __init__(self, cache_path: Path):
         self.cache_path = cache_path
         self.cache = json.loads(cache_path.read_text()) if cache_path.exists() else {}
-        self.home = ROOT / "work/baselines/cvebin-home"
-        self.home.mkdir(parents=True, exist_ok=True)
+        self.home = cache_path.with_suffix(".home")       # cve-bin-tool keeps a small sqlite cache under $HOME
+        (self.home / ".cache/cve-bin-tool").mkdir(parents=True, exist_ok=True)
 
     def scan(self, rootfs: Path) -> dict[str, set[str]]:
         keys, todo = {}, {}

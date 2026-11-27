@@ -131,7 +131,8 @@ def run(image_id: str, k: int, out_dir: Path, use_baselines: bool) -> dict:
             control["syft_components_db_stripped"] = len(views["stripped"].get("syft", {}))
     cases = []
 
-    def case(kind: str, target: str, db: str, label: tuple[str, str], declared: list[dict], rootfs: Path, view: dict | None):
+    def case(kind: str, target: str, db: str, label: tuple[str, str], declared: list[dict], rootfs: Path, view: dict | None,
+             implanted: list[str] = ()):
         ncond = "stripped" if db == "stripped" else "honest"
         bw, rep = bw_all(rootfs, declared)
         if view is None:
@@ -144,6 +145,12 @@ def run(image_id: str, k: int, out_dir: Path, use_baselines: bool) -> dict:
             extra = found - noise[ncond].get(tool, set())
             hit = label in extra or (tool == "cvebin_diff" and baselines.cvebin_label_match(extra, label))
             fp = extra - {label}
+            # A file the mutation really implanted, flagged as unaccounted code, is a correct finding that lacks
+            # the package name. It does not earn the label (recall stays strict) and is not a false positive.
+            flagged = {f for f in fp if f[0] == "undeclared_file" and f[1] in implanted}
+            fp = fp - flagged
+            if tool == "bw":
+                row["bw_implanted_files_flagged"] = len(flagged)
             if tool == "cvebin_diff" and hit:
                 fp = {f for f in fp if not baselines.cvebin_label_match({f}, label)}
             row["tools"][tool] = {"tp": int(hit), "fp": len(fp), "extra": sorted(map(list, fp))[:6]}
@@ -151,6 +158,7 @@ def run(image_id: str, k: int, out_dir: Path, use_baselines: bool) -> dict:
         row["bw_flagged_undeclared_code"] = any(f["class"] in ("undeclared_component", "undeclared_file") for f in rep["findings"]
                                                 if (f["class"], f["component"]) not in noise[ncond]["bw"])
         row["bw_verdict_for_target"] = next((c["verdict"] for c in rep["components"] if c["name"] == target), None)
+        row["bw_reason_for_target"] = next((c.get("reason") for c in rep["components"] if c["name"] == target), None)
         row["bomtrace_ran"] = base.get("_bomtrace_ran")
         cases.append(row)
 
@@ -219,10 +227,11 @@ def run(image_id: str, k: int, out_dir: Path, use_baselines: bool) -> dict:
             if not any(m["elf"] for m in pl["files"].values()):
                 continue
             r = mutate.clone(clean, cases_dir / "case")
-            if not mutate.implant(r, ref.members(n)):
+            written = mutate.implant(r, ref.members(n))
+            if not written:
                 continue
             done += 1
-            case(kind, n, "unaware", ("undeclared_component", n), truth, r, None)
+            case(kind, n, "unaware", ("undeclared_component", n), truth, r, None, implanted=written)
     implants("M4_implant", rng_for("M4").sample(absent_pool, len(absent_pool)), k)
     extra_pool = sorted(n for n, r in index.items() if n not in inst and r["feed"] == "packages" and 20_000 <= r["size"] <= 1_500_000
                         and not n.startswith(("luci-", "python3", "perl", "php", "ruby", "node", "golang", "kmod-")))
