@@ -1,0 +1,3849 @@
+{
+ "image": {
+  "id": "mi-router-4a-gigabit",
+  "target": "ramips/mt7621",
+  "arch": "mipsel_24kc",
+  "kmods": "6.6.144-1-f31f6f85a36836e510d64a18a9a5f1bf",
+  "image": "openwrt-24.10.8-ramips-mt7621-xiaomi_mi-router-4a-gigabit-squashfs-sysupgrade.bin",
+  "image_sha256": "cd01bd6c5606f71c62ef581b9027752afa5a4550cd3968497a12107786df27c7",
+  "bom": "openwrt-24.10.8-ramips-mt7621.bom.cdx.json",
+  "bom_sha256": "ceba62c31ba9b9f309cca4639e1345974d3de85fbdd1c0d4b61be4e7c0a0c6d0",
+  "manifest": "openwrt-24.10.8-ramips-mt7621.manifest",
+  "manifest_sha256": "fdcb77503b5a4cab94c3dac31268bfa212e85b3294a875ecaf5d86a0387dca5d"
+ },
+ "release": "24.10.8",
+ "old_release_for_mutations": "23.05.5",
+ "seed": 20261127,
+ "clean_control": {
+  "summary": {
+   "declared": 147,
+   "verdicts": {
+    "verified_A": 117,
+    "verified_B": 5,
+    "unverifiable": 10,
+    "bytes_differ": 1,
+    "consistent_label_differs": 14
+   },
+   "rootfs_files": 636,
+   "files_accounted": 635,
+   "orphan_files": 1,
+   "orphan_code_files": 0
+  },
+  "hard_findings": [
+   [
+    "bytes_differ",
+    "busybox"
+   ]
+  ],
+  "review_tier": {
+   "label_mismatch": 14,
+   "stale": 3,
+   "undeclared_file": 0
+  },
+  "verify_seconds": 6.89,
+  "syft_seconds": 0.78,
+  "syft_components": 212,
+  "syft_components_db_stripped": 66,
+  "syft_diff_findings_on_correct_bom": 65,
+  "syft_diff_findings_on_correct_bom_db_stripped": 212,
+  "syft_diff_findings_on_correct_bom_sample": [
+   [
+    "undeclared_component",
+    "authenc"
+   ],
+   [
+    "undeclared_component",
+    "authencesn"
+   ],
+   [
+    "undeclared_component",
+    "cfg80211"
+   ],
+   [
+    "undeclared_component",
+    "cmac"
+   ],
+   [
+    "undeclared_component",
+    "compat"
+   ],
+   [
+    "undeclared_component",
+    "crc32c_generic"
+   ],
+   [
+    "undeclared_component",
+    "crc_ccitt"
+   ],
+   [
+    "undeclared_component",
+    "crypto_hw_eip93"
+   ]
+  ]
+ },
+ "by_class": {
+  "M1_omitted/honest": {
+   "bomwitness": {
+    "cases": 12,
+    "tp": 12,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "syft_diff": {
+    "cases": 12,
+    "tp": 12,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   }
+  },
+  "M1_omitted/colluding": {
+   "bomwitness": {
+    "cases": 12,
+    "tp": 12,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "syft_diff": {
+    "cases": 12,
+    "tp": 0,
+    "fp": 0,
+    "fn": 12,
+    "precision": null,
+    "recall": 0.0
+   }
+  },
+  "M1_omitted/stripped": {
+   "bomwitness": {
+    "cases": 12,
+    "tp": 12,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "syft_diff": {
+    "cases": 12,
+    "tp": 0,
+    "fp": 0,
+    "fn": 12,
+    "precision": null,
+    "recall": 0.0
+   }
+  },
+  "M2_wrong_version/honest": {
+   "bomwitness": {
+    "cases": 12,
+    "tp": 10,
+    "fp": 0,
+    "fn": 2,
+    "precision": 1.0,
+    "recall": 0.833
+   },
+   "syft_diff": {
+    "cases": 12,
+    "tp": 12,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   }
+  },
+  "M2_wrong_version/colluding": {
+   "bomwitness": {
+    "cases": 12,
+    "tp": 10,
+    "fp": 0,
+    "fn": 2,
+    "precision": 1.0,
+    "recall": 0.833
+   },
+   "syft_diff": {
+    "cases": 12,
+    "tp": 0,
+    "fp": 0,
+    "fn": 12,
+    "precision": null,
+    "recall": 0.0
+   }
+  },
+  "M2_wrong_version/stripped": {
+   "bomwitness": {
+    "cases": 12,
+    "tp": 10,
+    "fp": 0,
+    "fn": 2,
+    "precision": 1.0,
+    "recall": 0.833
+   },
+   "syft_diff": {
+    "cases": 12,
+    "tp": 0,
+    "fp": 0,
+    "fn": 12,
+    "precision": null,
+    "recall": 0.0
+   }
+  },
+  "M2b_fabricated_version/honest": {
+   "bomwitness": {
+    "cases": 12,
+    "tp": 4,
+    "fp": 0,
+    "fn": 8,
+    "precision": 1.0,
+    "recall": 0.333
+   },
+   "syft_diff": {
+    "cases": 12,
+    "tp": 12,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   }
+  },
+  "M2b_fabricated_version/colluding": {
+   "bomwitness": {
+    "cases": 12,
+    "tp": 4,
+    "fp": 0,
+    "fn": 8,
+    "precision": 1.0,
+    "recall": 0.333
+   },
+   "syft_diff": {
+    "cases": 12,
+    "tp": 0,
+    "fp": 0,
+    "fn": 12,
+    "precision": null,
+    "recall": 0.0
+   }
+  },
+  "M3_phantom/honest": {
+   "bomwitness": {
+    "cases": 12,
+    "tp": 12,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "syft_diff": {
+    "cases": 12,
+    "tp": 12,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   }
+  },
+  "M3_phantom/colluding": {
+   "bomwitness": {
+    "cases": 12,
+    "tp": 12,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "syft_diff": {
+    "cases": 12,
+    "tp": 0,
+    "fp": 0,
+    "fn": 12,
+    "precision": null,
+    "recall": 0.0
+   }
+  },
+  "M4_implant/unaware": {
+   "bomwitness": {
+    "cases": 12,
+    "tp": 12,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "flagged_as_undeclared_code": 12
+   },
+   "syft_diff": {
+    "cases": 12,
+    "tp": 0,
+    "fp": 0,
+    "fn": 12,
+    "precision": null,
+    "recall": 0.0
+   }
+  },
+  "M5_swapped_binary/unaware": {
+   "bomwitness": {
+    "cases": 12,
+    "tp": 12,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "syft_diff": {
+    "cases": 12,
+    "tp": 0,
+    "fp": 0,
+    "fn": 12,
+    "precision": null,
+    "recall": 0.0
+   }
+  },
+  "M6_patched_binary/unaware": {
+   "bomwitness": {
+    "cases": 12,
+    "tp": 12,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   },
+   "syft_diff": {
+    "cases": 12,
+    "tp": 0,
+    "fp": 0,
+    "fn": 12,
+    "precision": null,
+    "recall": 0.0
+   }
+  }
+ },
+ "overall": {
+  "honest": {
+   "bomwitness": {
+    "cases": 48,
+    "tp": 38,
+    "fp": 0,
+    "fn": 10,
+    "precision": 1.0,
+    "recall": 0.792
+   },
+   "syft_diff": {
+    "cases": 48,
+    "tp": 48,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0
+   }
+  },
+  "colluding": {
+   "bomwitness": {
+    "cases": 48,
+    "tp": 38,
+    "fp": 0,
+    "fn": 10,
+    "precision": 1.0,
+    "recall": 0.792
+   },
+   "syft_diff": {
+    "cases": 48,
+    "tp": 0,
+    "fp": 0,
+    "fn": 48,
+    "precision": null,
+    "recall": 0.0
+   }
+  },
+  "stripped": {
+   "bomwitness": {
+    "cases": 24,
+    "tp": 22,
+    "fp": 0,
+    "fn": 2,
+    "precision": 1.0,
+    "recall": 0.917
+   },
+   "syft_diff": {
+    "cases": 24,
+    "tp": 0,
+    "fp": 0,
+    "fn": 24,
+    "precision": null,
+    "recall": 0.0
+   }
+  },
+  "unaware": {
+   "bomwitness": {
+    "cases": 36,
+    "tp": 36,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "flagged_as_undeclared_code": 12
+   },
+   "syft_diff": {
+    "cases": 36,
+    "tp": 0,
+    "fp": 0,
+    "fn": 36,
+    "precision": null,
+    "recall": 0.0
+   }
+  },
+  "all": {
+   "bomwitness": {
+    "cases": 156,
+    "tp": 134,
+    "fp": 0,
+    "fn": 22,
+    "precision": 1.0,
+    "recall": 0.859
+   },
+   "syft_diff": {
+    "cases": 156,
+    "tp": 48,
+    "fp": 0,
+    "fn": 108,
+    "precision": 1.0,
+    "recall": 0.308
+   }
+  }
+ },
+ "cases": [
+  {
+   "kind": "M1_omitted",
+   "target": "getrandom",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "getrandom"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "getrandom",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "getrandom"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "getrandom",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "getrandom"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-slhc",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "kmod-slhc"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-slhc",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "kmod-slhc"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-slhc",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "kmod-slhc"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "libnftnl11",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "libnftnl11"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "libnftnl11",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "libnftnl11"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "libnftnl11",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "libnftnl11"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-crypto-sha1",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "kmod-crypto-sha1"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-crypto-sha1",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "kmod-crypto-sha1"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-crypto-sha1",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "kmod-crypto-sha1"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-leds-gpio",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "kmod-leds-gpio"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-leds-gpio",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "kmod-leds-gpio"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-leds-gpio",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "kmod-leds-gpio"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "libjson-script20240329",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "libjson-script20240329"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "libjson-script20240329",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "libjson-script20240329"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "libjson-script20240329",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "libjson-script20240329"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "odhcpd-ipv6only",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "odhcpd-ipv6only"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "odhcpd-ipv6only",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "odhcpd-ipv6only"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "odhcpd-ipv6only",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "odhcpd-ipv6only"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-nft-fib",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "kmod-nft-fib"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-nft-fib",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "kmod-nft-fib"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-nft-fib",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "kmod-nft-fib"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "libgcc1",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "libgcc1"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "libgcc1",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "libgcc1"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "libgcc1",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "libgcc1"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-crypto-crc32c",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "kmod-crypto-crc32c"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-crypto-crc32c",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "kmod-crypto-crc32c"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-crypto-crc32c",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "kmod-crypto-crc32c"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-gpio-button-hotplug",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "kmod-gpio-button-hotplug"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-gpio-button-hotplug",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "kmod-gpio-button-hotplug"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-gpio-button-hotplug",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "kmod-gpio-button-hotplug"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "ubusd",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "ubusd"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "ubusd",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "ubusd"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "ubusd",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "ubusd"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "fstools",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "fstools"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "fstools",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "fstools"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "fstools",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "fstools"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "uhttpd-mod-ubus",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "uhttpd-mod-ubus"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "uhttpd-mod-ubus",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "uhttpd-mod-ubus"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "uhttpd-mod-ubus",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "uhttpd-mod-ubus"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "kmod-crypto-des",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "kmod-crypto-des"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "kmod-crypto-des",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "kmod-crypto-des"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "kmod-crypto-des",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "kmod-crypto-des"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "procd",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "procd"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "procd",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "procd"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "procd",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "procd"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "kmod-crypto-manager",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "kmod-crypto-manager"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "kmod-crypto-manager",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "kmod-crypto-manager"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "kmod-crypto-manager",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "kmod-crypto-manager"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "fwtool",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "fwtool"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "fwtool",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "fwtool"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "fwtool",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "fwtool"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "logd",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "logd"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "logd",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "logd"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "logd",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "logd"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "ppp-mod-pppoe",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "ppp-mod-pppoe"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "ppp-mod-pppoe",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "ppp-mod-pppoe"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "ppp-mod-pppoe",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "ppp-mod-pppoe"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "luci-proto-ipv6",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "luci-proto-ipv6"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "luci-proto-ipv6",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "luci-proto-ipv6"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "luci-proto-ipv6",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "luci-proto-ipv6"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "libgcc1",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "libgcc1"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "libgcc1",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "libgcc1"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "libgcc1",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "libgcc1"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "kmod-crypto-ctr",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "kmod-crypto-ctr"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "kmod-crypto-ctr",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "kmod-crypto-ctr"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "kmod-crypto-ctr",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "kmod-crypto-ctr"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "openwrt-keyring",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "openwrt-keyring"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "openwrt-keyring",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "openwrt-keyring"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2_wrong_version",
+   "target": "openwrt-keyring",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "openwrt-keyring"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "fstools",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "fstools"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "fstools",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "fstools"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "jansson4",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "jansson4"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "jansson4",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "jansson4"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "rpcd-mod-ucode",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "rpcd-mod-ucode"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "rpcd-mod-ucode",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "rpcd-mod-ucode"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "urandom-seed",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "urandom-seed"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "urandom-seed",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "urandom-seed"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "libiwinfo20230701",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "libiwinfo20230701"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "libiwinfo20230701",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "libiwinfo20230701"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "ucode",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "ucode"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "ucode",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "ucode"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "fwtool",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "fwtool"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "fwtool",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "fwtool"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "usign",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "usign"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "usign",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "usign"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "kmod-nft-nat",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "kmod-nft-nat"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "kmod-nft-nat",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "kmod-nft-nat"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "uhttpd",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "uhttpd"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "uhttpd",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "uhttpd"
+   ],
+   "bomwitness": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "kmod-lib-crc-ccitt",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "kmod-lib-crc-ccitt"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "kmod-lib-crc-ccitt",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "kmod-lib-crc-ccitt"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "nftables-json",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "nftables-json"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "nftables-json",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "nftables-json"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "libf2fs-selinux6",
+   "db": "honest",
+   "label": [
+    "absent",
+    "libf2fs-selinux6"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "libf2fs-selinux6",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "libf2fs-selinux6"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "fconfig",
+   "db": "honest",
+   "label": [
+    "absent",
+    "fconfig"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "fconfig",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "fconfig"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "libnl-nf200",
+   "db": "honest",
+   "label": [
+    "absent",
+    "libnl-nf200"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "libnl-nf200",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "libnl-nf200"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "ppp-mod-pppol2tp",
+   "db": "honest",
+   "label": [
+    "absent",
+    "ppp-mod-pppol2tp"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "ppp-mod-pppol2tp",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "ppp-mod-pppol2tp"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "thc-ipv6-flood-router26",
+   "db": "honest",
+   "label": [
+    "absent",
+    "thc-ipv6-flood-router26"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "thc-ipv6-flood-router26",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "thc-ipv6-flood-router26"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "e2fsprogs",
+   "db": "honest",
+   "label": [
+    "absent",
+    "e2fsprogs"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "e2fsprogs",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "e2fsprogs"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "rtl8822be-firmware",
+   "db": "honest",
+   "label": [
+    "absent",
+    "rtl8822be-firmware"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "rtl8822be-firmware",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "rtl8822be-firmware"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "libcap",
+   "db": "honest",
+   "label": [
+    "absent",
+    "libcap"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "libcap",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "libcap"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "libopenssl3",
+   "db": "honest",
+   "label": [
+    "absent",
+    "libopenssl3"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "libopenssl3",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "libopenssl3"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "thc-ipv6-flood-mld6",
+   "db": "honest",
+   "label": [
+    "absent",
+    "thc-ipv6-flood-mld6"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "thc-ipv6-flood-mld6",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "thc-ipv6-flood-mld6"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "thc-ipv6-randicmp6",
+   "db": "honest",
+   "label": [
+    "absent",
+    "thc-ipv6-randicmp6"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "thc-ipv6-randicmp6",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "thc-ipv6-randicmp6"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "ct-bugcheck",
+   "db": "honest",
+   "label": [
+    "absent",
+    "ct-bugcheck"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "ct-bugcheck",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "ct-bugcheck"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M4_implant",
+   "target": "libmpfr6",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "libmpfr6"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M4_implant",
+   "target": "busybox-selinux",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "busybox-selinux"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M4_implant",
+   "target": "e4crypt",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "e4crypt"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M4_implant",
+   "target": "libselinux-setenforce",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "libselinux-setenforce"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M4_implant",
+   "target": "thc-ipv6-covert-send6d",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "thc-ipv6-covert-send6d"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M4_implant",
+   "target": "genl",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "genl"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M4_implant",
+   "target": "valgrind-massif",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "valgrind-massif"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M4_implant",
+   "target": "libselinux-getdefaultcon",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "libselinux-getdefaultcon"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M4_implant",
+   "target": "libopcodes",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "libopcodes"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M4_implant",
+   "target": "libf2fs6",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "libf2fs6"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M4_implant",
+   "target": "wpan-tools",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "wpan-tools"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M4_implant",
+   "target": "libselinux-selinuxexeccon",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "libselinux-selinuxexeccon"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": true,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "libnftnl11",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "libnftnl11"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "usign",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "usign"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "libustream-mbedtls20201210",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "libustream-mbedtls20201210"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "fstools",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "fstools"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "ucode-mod-rtnl",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "ucode-mod-rtnl"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "ppp",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "ppp"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "uhttpd-mod-ubus",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "uhttpd-mod-ubus"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "rpcd-mod-iwinfo",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "rpcd-mod-iwinfo"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "netifd",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "netifd"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "procd-seccomp",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "procd-seccomp"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "urngd",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "urngd"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "ubox",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "ubox"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "kmod-pppoe",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "kmod-pppoe"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "nftables-json",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "nftables-json"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "kmod-crypto-sha512",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "kmod-crypto-sha512"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "ppp",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "ppp"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "kmod-crypto-hw-eip93",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "kmod-crypto-hw-eip93"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "jsonfilter",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "jsonfilter"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "kmod-crypto-crc32c",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "kmod-crypto-crc32c"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "ubi-utils",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "ubi-utils"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "dnsmasq",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "dnsmasq"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "kmod-crypto-cmac",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "kmod-crypto-cmac"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "kmod-crypto-rng",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "kmod-crypto-rng"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "kmod-pppox",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "kmod-pppox"
+   ],
+   "bomwitness": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "extra": []
+   },
+   "bomwitness_flagged_undeclared_code": false,
+   "syft_diff": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "extra": []
+   }
+  }
+ ],
+ "reference_packages_fetched": 406
+}

@@ -1,0 +1,102 @@
+{
+ "archer-c7-v5": {
+  "products_identified": 9,
+  "products": {
+   "busybox": [
+    "1.36.1"
+   ],
+   "dnsmasq": [
+    "2.93"
+   ],
+   "dropbear_ssh": [
+    "2024.86"
+   ],
+   "hostapd": [
+    "2.12"
+   ],
+   "linux_kernel": [
+    "6.6.144"
+   ],
+   "point-to-point_protocol": [
+    "2.5.1"
+   ],
+   "ppp": [
+    "2.5.1"
+   ],
+   "u-boot": [
+    "2024.07"
+   ],
+   "wpa_supplicant": [
+    "2.12"
+   ]
+  }
+ },
+ "mi-router-4a-gigabit": {
+  "products_identified": 8,
+  "products": {
+   "busybox": [
+    "1.36.1"
+   ],
+   "dnsmasq": [
+    "2.93"
+   ],
+   "dropbear_ssh": [
+    "2024.86"
+   ],
+   "hostapd": [
+    "2.12"
+   ],
+   "linux_kernel": [
+    "6.6.144"
+   ],
+   "point-to-point_protocol": [
+    "2.5.1"
+   ],
+   "ppp": [
+    "2.5.1"
+   ],
+   "wpa_supplicant": [
+    "2.12"
+   ]
+  }
+ },
+ "gl-mt6000": {
+  "products_identified": 11,
+  "products": {
+   "busybox": [
+    "1.36.1"
+   ],
+   "dnsmasq": [
+    "2.93"
+   ],
+   "dropbear_ssh": [
+    "2024.86"
+   ],
+   "e2fsprogs": [
+    "1.47.0"
+   ],
+   "f2fs-tools": [
+    "1.16.0"
+   ],
+   "hostapd": [
+    "2.12"
+   ],
+   "linux_kernel": [
+    "6.6.144"
+   ],
+   "point-to-point_protocol": [
+    "2.5.1"
+   ],
+   "ppp": [
+    "2.5.1"
+   ],
+   "u-boot": [
+    "2024.07"
+   ],
+   "wpa_supplicant": [
+    "2.12"
+   ]
+  }
+ },
+ "note": "cve-bin-tool 3.4 version scanner only (signature checkers over file contents); no CVE database downloaded or queried. Run on the unmodified images."
+}

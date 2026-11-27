@@ -1,0 +1,112 @@
+{
+ "archer-c7-v5": {
+  "official_bom": "openwrt-24.10.8-ath79-generic.bom.cdx.json",
+  "bom_spec_version": "1.4",
+  "bom_components": 140,
+  "installed_packages": 150,
+  "covered_by_name_or_alias": 140,
+  "covered_only_via_source_package_name": [
+   "kmod-hwmon-core",
+   "kmod-nls-base",
+   "kmod-phy-ath79-usb",
+   "kmod-usb-core",
+   "kmod-usb-ehci",
+   "kmod-usb-ledtrig-usbport",
+   "kmod-usb2"
+  ],
+  "installed_but_not_in_official_bom": [
+   "ath10k-board-qca988x",
+   "ath10k-firmware-qca988x-ct",
+   "kmod-ath10k-ct"
+  ],
+  "their_file_count": 5,
+  "bom_components_not_installed_in_this_image": []
+ },
+ "mi-router-4a-gigabit": {
+  "official_bom": "openwrt-24.10.8-ramips-mt7621.bom.cdx.json",
+  "bom_spec_version": "1.4",
+  "bom_components": 126,
+  "installed_packages": 147,
+  "covered_by_name_or_alias": 125,
+  "covered_only_via_source_package_name": [
+   "kmod-crypto-ccm",
+   "kmod-crypto-cmac",
+   "kmod-crypto-ctr",
+   "kmod-crypto-gcm",
+   "kmod-crypto-geniv",
+   "kmod-crypto-gf128",
+   "kmod-crypto-ghash",
+   "kmod-crypto-hmac",
+   "kmod-crypto-rng",
+   "kmod-crypto-seqiv",
+   "kmod-crypto-sha3",
+   "kmod-crypto-sha512"
+  ],
+  "installed_but_not_in_official_bom": [
+   "iw",
+   "kmod-cfg80211",
+   "kmod-mac80211",
+   "kmod-mt76-core",
+   "kmod-mt7603",
+   "kmod-mt76x02-common",
+   "kmod-mt76x2",
+   "kmod-mt76x2-common",
+   "wifi-scripts",
+   "wireless-regdb"
+  ],
+  "their_file_count": 25,
+  "bom_components_not_installed_in_this_image": [
+   "uboot-envtools"
+  ]
+ },
+ "gl-mt6000": {
+  "official_bom": "openwrt-24.10.8-mediatek-filogic.bom.cdx.json",
+  "bom_spec_version": "1.4",
+  "bom_components": 133,
+  "installed_packages": 170,
+  "covered_by_name_or_alias": 133,
+  "covered_only_via_source_package_name": [
+   "kmod-crypto-ccm",
+   "kmod-crypto-cmac",
+   "kmod-crypto-ctr",
+   "kmod-crypto-gcm",
+   "kmod-crypto-geniv",
+   "kmod-crypto-gf128",
+   "kmod-crypto-ghash",
+   "kmod-crypto-rng",
+   "kmod-crypto-seqiv",
+   "kmod-crypto-sha3",
+   "kmod-nls-base",
+   "kmod-thermal",
+   "kmod-usb-core",
+   "kmod-usb-xhci-hcd",
+   "kmod-usb-xhci-mtk",
+   "kmod-usb3"
+  ],
+  "installed_but_not_in_official_bom": [
+   "e2fsprogs",
+   "f2fsck",
+   "iw",
+   "kmod-cfg80211",
+   "kmod-mac80211",
+   "kmod-mt76-connac",
+   "kmod-mt76-core",
+   "kmod-mt7915e",
+   "kmod-mt7986-firmware",
+   "libblkid1",
+   "libcomerr0",
+   "libe2p2",
+   "libext2fs2",
+   "libf2fs6",
+   "librt",
+   "libss2",
+   "libuuid1",
+   "mkf2fs",
+   "mt7986-wo-firmware",
+   "wifi-scripts",
+   "wireless-regdb"
+  ],
+  "their_file_count": 56,
+  "bom_components_not_installed_in_this_image": []
+ }
+}
