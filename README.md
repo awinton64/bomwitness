@@ -6,6 +6,12 @@ firmware.
 
 Built for the SafeIoT Hackathon 2026, Track 2 (IoT SBOM, CBOM and AI-BOM verification).
 
+- Paper: [paper/bomwitness.pdf](paper/bomwitness.pdf). Every number in it is generated from the result files
+  in this repository and checked against the PDF by a script ([paper/README.md](paper/README.md)).
+- Pitch video (under 5 minutes, captions, synthetic narration): link in the hackathon submission.
+- License: MIT. Built with AI coding agents under the author's direction; see
+  [AI assistance](#ai-assistance-provenance-and-license).
+
 ## Why
 
 Open-source SBOM tools for Linux firmware take their inventory from the device's own package database
@@ -33,9 +39,13 @@ The rules are in [docs/DESIGN.md](docs/DESIGN.md).
 
 ```sh
 python -m venv .venv && .venv/bin/pip install -e ".[test]"
-.venv/bin/pytest -q                                   # 80 offline tests on a synthetic signed feed
+.venv/bin/pytest -q                                   # offline unit tests on a synthetic signed feed
 sh pipeline/pipeline_harness/bomwitness/run.sh        # end to end on one official image, ends with PASS
 ```
+
+Needs Python 3.10 or newer, `curl` and about 25 MB of downloads for the second command (one official OpenWrt
+image, its sibling and the reference packages it touches). The harness takes under a minute and compares the
+run with the expected findings in `pipeline/1_analysis_object/bomwitness/expected-findings.json`.
 
 Verify your own declaration:
 
@@ -125,11 +135,12 @@ Held-out set: 10 official OpenWrt images (23.05.6 and 24.10.8, 6 package archite
 | Path | Contents |
 |---|---|
 | `bomwitness/` | the tool: `reference.py` (signed reference layer), `verify.py` (SBOM rules), `crypto.py` (CBOM and cross-BOM), `aibom.py`, `devicedb.py` (grade C), `unpack.py`, `report.py`, `cli.py` |
-| `tests/` | 80 unit tests; `fakefeed.py` builds a tiny signed release tree so they run offline |
+| `tests/` | unit tests; `fakefeed.py` builds a tiny signed release tree so they run offline |
 | `bench/` | benchmark harness, baselines, and the drift, official-BOM, inventory and case-study scripts |
 | `results/r2/` | every result file the documentation quotes; `SUMMARY.md` has the full tables |
 | `pipeline/` | the SafeIoT pipeline stage layout with a runnable harness and one committed example output |
-| `docs/` | design, evaluation method, limitations, how to extend |
+| `docs/` | design, evaluation method, limitations, how to extend, provenance of this repository |
+| `paper/` | the paper, the script that derives its numbers from `results/`, and the script that checks the PDF |
 
 ## Scope
 
@@ -139,9 +150,19 @@ images, apk-based releases, vulnerability matching, and any claim about firmware
 measured. The AI-BOM part is a presence check exercised only by synthetic unit-test fixtures, because the
 evaluated router images contain no models.
 
-## Provenance and license
+## AI assistance, provenance and license
 
-MIT license. Author: Andrew Winton. The code, tests and experiments were produced with an AI coding agent
-working for the author. Dependencies are used unmodified: pyelftools, cryptography,
-PySquashfsImage (LGPL, a separate package installed by pip). Baseline tools are run from their own
-installations and are not redistributed.
+- **AI assistance.** The code, tests, experiments, analysis, paper and pitch video were produced with AI coding
+  agents working under the author's direction. The video's narration is a synthetic text-to-speech voice. The
+  author, Andrew Winton, is responsible for the content.
+- **Checks that do not depend on trusting that process.** The unit tests and the pipeline harness run from a
+  clean checkout. Documentation numbers are generated from committed result files, and tests fail on hand
+  edits (`tests/test_docs.py`, `tests/test_paper.py`). The benchmark can be rerun with the commands in
+  [docs/EVALUATION.md](docs/EVALUATION.md).
+- **Provenance.** This repository is a single-commit export of a private development repository, so the commit
+  ids quoted for the rule freeze cannot be looked up here. [docs/PROVENANCE.md](docs/PROVENANCE.md) lists the
+  development history and which rule files changed after the freeze.
+- **License.** MIT ([LICENSE](LICENSE)). Dependencies are used unmodified: pyelftools, cryptography,
+  PySquashfsImage (LGPL, a separate package installed by pip). Baseline tools (BomTrace, Syft, cve-bin-tool)
+  are run from their own installations and are not redistributed. Nothing from OpenWrt or ImmortalWrt is
+  redistributed; scripts download release files and check them against pinned signing keys.

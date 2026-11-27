@@ -17,7 +17,7 @@ signing key are recorded in `bench/images.lock.json`. Nothing from OpenWrt is re
   the reference handling and the scoring were written and debugged on these.
 - **Held-out (10 images):** downloaded and unpacked early so that the reference indexes could be built in
   one go, but not verified or benchmarked until the rules were frozen. The freeze is commit `0f83a98`
-  (tag `rules-frozen-r2a`). `results/r2/RUN.json` records the commit the full run was started from.
+  (tag `rules-frozen-r2a`) of the development history; see `docs/PROVENANCE.md`. `results/r2/RUN.json` records the commit the full run was started from.
 
 Anything changed after the freeze is listed under "Changes after the freeze" below, with its effect.
 
@@ -139,7 +139,7 @@ changes, none of which alters a verdict rule used by the benchmark:
 3. New measurement scripts that only consume the verifier: drift, official BOM, inventory, sibling overlap,
    far sibling, case study, error analysis, headline.
 
-4. Round 2b, after all results were produced: the command line entry point silences one third-party deprecation
+4. Later, after all results were produced: the command line entry point silences one third-party deprecation
    warning (`cryptography` warns about CA certificates with a non-positive serial number; they are still parsed
    and reported). `bomwitness/verify.py`, `crypto.py` and `reference.py` are unchanged since the commit that
    produced the post-freeze check, and the benchmark does not go through the command line entry point. The

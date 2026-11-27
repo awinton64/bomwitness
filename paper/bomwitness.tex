@@ -310,6 +310,6 @@ Device & Rel. & Architecture & Decl. & A & B & Unv. & Rev. & Sibling \\
 
 \section{Reproducing}
 
-\texttt{pip install -e ".[test]"} and \texttt{pytest} run the offline unit tests on a synthetic signed feed. The harness script \vd{pipeline/\allowbreak pipeline\_harness/\allowbreak bomwitness/\allowbreak run.sh} verifies one official image end to end. The file \vd{docs/\allowbreak EVALUATION.md} lists the commands for the full benchmark, the baselines and each measurement; \vd{results/r2/} holds every result file. Shared feeds keep moving, so a later rerun of the feed-dependent columns and of Figure~\ref{fig:drift} will show more drift; frozen feeds, manifests and images do not change.
+\texttt{pip install -e ".[test]"} and \texttt{pytest} run the offline unit tests on a synthetic signed feed. The harness script \vd{pipeline/\allowbreak pipeline\_harness/\allowbreak bomwitness/\allowbreak run.sh} verifies one official image end to end. The file \vd{docs/\allowbreak EVALUATION.md} lists the commands for the full benchmark, the baselines and each measurement; \vd{results/r2/} holds every result file. The public repository is a single-commit export of the development history, so the commit ids quoted in this paper refer to that history; \vd{docs/\allowbreak PROVENANCE.md} lists it together with the rule files that changed after the freeze. Shared feeds keep moving, so a later rerun of the feed-dependent columns and of Figure~\ref{fig:drift} will show more drift; frozen feeds, manifests and images do not change.
 
 \end{document}
