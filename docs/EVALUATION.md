@@ -13,7 +13,7 @@ signing key are recorded in `bench/images.lock.json`. Nothing from OpenWrt is re
 
 ## Tuning and held-out images
 
-- **Tuning (4 images):** the three 24.10.8 images from the round 1 spike and one 23.05.6 image. The rules,
+- **Tuning (4 images):** three 24.10.8 images used in an early feasibility spike and one 23.05.6 image. The rules,
   the reference handling and the scoring were written and debugged on these.
 - **Held-out (10 images):** downloaded and unpacked early so that the reference indexes could be built in
   one go, but not verified or benchmarked until the rules were frozen. The freeze is commit `0f83a98`
