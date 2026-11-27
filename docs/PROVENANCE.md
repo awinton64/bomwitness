@@ -53,6 +53,8 @@ commits was right and is given by git parentage in any case.)
 | `76ef6b9` | 2026-11-27 07:25 | Name the release behind an other-release wrong_version; scope grade A wording |
 | `c0a852f` | 2026-11-27 07:25 | Refresh docs/PROVENANCE.md |
 | `ff13709` | 2026-11-27 07:49 | Say that no file was compared when another release's build shares none |
+| `ba07b24` | 2026-11-27 07:49 | Refresh docs/PROVENANCE.md |
+| `90cb5cb` | 2026-11-27 08:00 | Reword absence claims so they say what was compared, not what is on disk |
 
 The commit that refreshes this file is not listed in it; `git log` is the authority.
 
@@ -63,24 +65,26 @@ reproduces the right-hand column; `git rev-parse rules-frozen-r2a:<file>` the mi
 
 | File | At the freeze | At the time of writing | Changed |
 |---|---|---|---|
-| `bomwitness/verify.py` | `4c429550ad6d` | `1534b646d400` | yes |
+| `bomwitness/verify.py` | `4c429550ad6d` | `9315599f019c` | yes |
 | `bomwitness/reference.py` | `9c7164c66511` | `9c7164c66511` | no |
-| `bomwitness/crypto.py` | `7c02abaedf52` | `7c02abaedf52` | no |
+| `bomwitness/crypto.py` | `7c02abaedf52` | `cef6bf0568c9` | yes |
 | `bomwitness/usign.py` | `650d268a860c` | `650d268a860c` | no |
 | `bomwitness/elfinfo.py` | `52dc298d4d80` | `52dc298d4d80` | no |
 | `bomwitness/bomio.py` | `d1d2092ec85b` | `d1d2092ec85b` | no |
 | `bomwitness/devicedb.py` | `6d502bb18275` | `6d502bb18275` | no |
-| `bomwitness/aibom.py` | `54d52436fbfb` | `54d52436fbfb` | no |
+| `bomwitness/aibom.py` | `54d52436fbfb` | `9a2b9f07a2a9` | yes |
 | `bomwitness/unpack.py` | `756de794d492` | `756de794d492` | no |
 | `bench/run_cases.py` | `e717638bc536` | `7fe61d703053` | yes |
 | `bench/baselines.py` | `020eeb24de49` | `020eeb24de49` | no |
 | `bench/summarize.py` | `21a89a2054d3` | `21a89a2054d3` | no |
 
-Changed after the freeze: `bomwitness/verify.py`, `bench/run_cases.py`. What changed and why is listed in
+Changed after the freeze: `bomwitness/verify.py`, `bomwitness/crypto.py`, `bomwitness/aibom.py`, `bench/run_cases.py`. What changed and why is listed in
 `docs/EVALUATION.md` under "Changes after the freeze", with the reruns that show the scores and verdicts did not move
 (`results/r2/postfreeze-check/COMPARISON.json` for the first change to `verify.py`, three images with all tools;
 `results/r2/r4-verdict-check/COMPARISON.json` for the second, wording-only change, all fourteen images;
 `results/r2/r5-verdict-check/COMPARISON.json` for the third, which changed what findings report about their
 evidence, all fourteen images; `results/r2/r6-verdict-check/COMPARISON.json` for the fourth, which made one more
 finding name the other release it rests on, all fourteen images; `results/r2/r7-verdict-check/COMPARISON.json`
-for the fifth, the wording of that finding's detail when no file could be compared, all fourteen images).
+for the fifth, the wording of that finding's detail when no file could be compared, all fourteen images;
+`results/r2/r8-verdict-check/COMPARISON.json` for the sixth, the wording of every reason that claimed an absence
+from a filtered file list, all fourteen images).

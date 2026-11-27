@@ -97,7 +97,7 @@ ABI suffix such as `libubox` for `libubox20240329`, `Provides`, or source packag
 
 | Situation | Verdict |
 |---|---|
-| No file of the reference package is in the firmware | `absent` |
+| No file of the reference package was found among the firmware files compared | `absent` |
 | Every file that is present and compared matches (see grade A above for what is not compared and what is masked) and the declared version equals the feed label, the manifest label or the sibling image's label (a version without OpenWrt's `-rN` release suffix is accepted at upstream granularity) | `verified_A` |
 | Every compared file matches, the label differs, and the feed is frozen, or the manifest or the sibling image names another version, or the publisher's build of the declared version in another release has different bytes | `wrong_version` (A) |
 | Every compared file matches, the label differs, and nothing pins the label | `label_unconfirmed` (review) |

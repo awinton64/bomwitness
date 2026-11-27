@@ -26,6 +26,9 @@
   - `r7-verdict-check/COMPARISON.json` and `FULL-DIGEST.json`: the same two checks after the wording of that
     finding's detail changed for a build with no comparable file. `docs/EVALUATION.md`, "Changes after the
     freeze", item 9.
+  - `r8-verdict-check/COMPARISON.json` and `FULL-DIGEST.json`: the same two checks after the reason wording
+    that claimed an absence from a filtered file list was replaced. `docs/EVALUATION.md`, "Changes after the
+    freeze", item 10.
 
 The reason strings stored in these result files are the wording of the run that produced them. Files from
 the frozen run and the measurements before the second review still say "every file byte-identical to the

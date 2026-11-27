@@ -268,9 +268,10 @@ The other-release lookup compares only files outside configuration and account p
 build of the declared version shares no such file with the image, the `wrong_version` detail said that build
 "has none of its N file(s) in the image", even when one of its configuration files was in the image (the
 reviewer's case: the 1.9-r1 build of `duo` has `usr/lib/old-duo.dat` and the same `etc/config/duo` as the
-firmware). The detail now says that build "has none of its N file(s) in the image apart from configuration and
-account files, so no file was compared", which matches the `evidence` field (`files` = 0). Only the string
-changed; the condition that picks the verdict is the same. Test:
+firmware). Round 7 changed the detail to a sentence that listed the exceptions (configuration and account
+files) and said that no file was compared. The sixth review showed that list was incomplete, and the sixth
+review section below replaces the sentence again; what the code says now is quoted there. Only the string
+changed each time; the condition that picks the verdict is the same. Test:
 `test_other_release_with_no_comparable_file_says_none_compared` (it fails on the previous code).
 
 ## Check that no verdict moved
@@ -285,3 +286,51 @@ these files, and Appendix F of the paper covers the fourth reporting change.
 
 - No verdict rule, the freeze tag or the frozen run's result files.
 - Slides and video: they do not describe the other-release finding.
+
+# Sixth review (of public head `ba07b24`) and what changed
+
+A sixth independent read confirmed the round 7 reproducer, the diff, the release, the checksums, the number
+check, the abstract and the round 7 verdict check, and returned one new defect: the exception list added to
+a detail in the previous round was still not true in every case. No verdict rule changed.
+
+## The detail named what is excluded, and the list was incomplete
+
+The other-release `wrong_version` detail said that build "has none of its N file(s) in the image apart from
+configuration and account files, so no file was compared". The image scan also skips the device database
+directory `usr/lib/opkg/`, so a byte-identical regular file under that path can be on disk, can be shipped by
+the other build, and is neither compared nor covered by the stated exceptions (the reviewer's case, with
+`usr/lib/opkg/info/duo.release-record`). Two rounds had failed by listing exclusions, so the fix does not
+list any: the detail now says that build "has none of its N file(s) compared: no file it ships is both present
+in the image and among the files this tool compares", which is the exact condition of the branch and true
+whatever the reason. Test: `test_other_release_detail_does_not_list_what_is_excluded` (reproduces the
+reviewer's case; it fails on the previous code); the round 6 configuration-file test is kept and adjusted.
+
+## Every other reason and detail that rested on a filtered list
+
+All reason and detail strings in `bomwitness/*.py` were read for the same defect: text that lists excluded
+path classes, or that says something is absent from the image or the firmware on the strength of a list the
+tool had filtered. The ones found were reworded (wording only; the list and where each text comes from are in
+`build-report-r8.md` and `docs/EVALUATION.md`, item 10): "N of the package's M files are not in the image"
+(primary and other-release grade A reasons) now reads "were not found among the image files compared"; the
+`absent` reason "none of the reference package's files exist in the firmware" and the Markdown report's label
+for `absent`; "nothing of this package is present" (a package whose paths hold only another declared
+component's files); "the files carry no version marker"; "configuration files not compared" in three snapshot
+reasons; and the AI-BOM, certificate, key and algorithm texts that said "in the firmware" or "no file of".
+The paper's example table and `docs/DESIGN.md` use the new wording. A new test covers the `absent` reason
+with files under `usr/lib/opkg/` on disk.
+
+## Check that no verdict moved
+
+The same two checks as before, against the previous head `ba07b24`: `bench/verdict_check.py` on reruns of all
+fourteen images with the previous and the changed code, each in its own `work/cases` folder, and
+`bench/full_digest.py`, previous against changed code. Results: `results/r2/r8-verdict-check/COMPARISON.json` and
+`FULL-DIGEST.json`; the numbers are in `docs/EVALUATION.md`, item 10 (2,604 rows, 0 differences each; 252 runs, 35,814 component
+records, 13,365 findings, 0 differences). The unit test that guards the rule files
+checks against these files, and Appendix F of the paper covers the fifth reporting change.
+
+## Not changed
+
+- No verdict rule, the freeze tag or the frozen run's result files.
+- The strings that say how many files are "present in the image" are kept: they count files the tool found
+  and compared, and no string any longer says how many are absent from the image.
+- Slides and video: they do not describe the other-release finding or these reasons.

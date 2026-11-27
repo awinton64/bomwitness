@@ -206,11 +206,36 @@ bench/summarize.py` shows every later change to the rule and scoring files. In w
    `bench/run_cases.py`, `baselines.py` and `summarize.py` are unchanged.
 
 9. After a fifth independent review: **`bomwitness/verify.py`, the wording of one detail, no rule.** When
-   another release's build of the declared version shares no comparable file with the image (its only file
-   in the image is a configuration or account file, which is not compared), the `wrong_version` detail said
-   that build "has none of its N file(s) in the image". It now says it "has none of its N file(s) in the
-   image apart from configuration and account files, so no file was compared". Only the string changed; the
-   condition that picks the verdict and every field are the same.
+   another release's build of the declared version shares no comparable file with the image (in the
+   reviewer's case its only file in the image was a configuration file, which is not compared), the
+   `wrong_version` detail said that build "has none of its N file(s) in the image". Round 7 replaced that with
+   a sentence that listed the exceptions. That list was not complete, and item 10 replaced the sentence
+   again; the wording that is in the code now is the one given there. Only the string changed each time;
+   the condition that picks the verdict and every field are the same.
+
+10. After a sixth independent review: **wording of reasons and details in `bomwitness/verify.py`, `report.py`,
+   `aibom.py` and `crypto.py`, no rule.** A reason or detail must not name the path classes a comparison
+   leaves out, and must not say that something is absent from the image or the firmware, because the file
+   list it rests on is a filtered one: the image scan skips the device database directory
+   (`usr/lib/opkg/`), symbolic links and anything that is not a regular file, the other-release lookup also
+   skips configuration and account files, and the model, certificate and key discovery only report what they
+   recognise. So: (a) the other-release `wrong_version` detail now says that build "has none of its N file(s)
+   compared: no file it ships is both present in the image and among the files this tool compares", true
+   whatever the reason no file was compared; (b) "N of the package's M files are not in the image" now
+   reads "were not found among the image files compared" (primary and other-release grade A reasons);
+   (c) the `absent` reason "none of the reference package's files exist in the firmware" now reads "none of
+   the reference package's files was found among the firmware files this tool compares", and the reason for a package whose paths hold only another
+   declared component's files no longer says "nothing of this package is present" but that no file at its
+   paths is attributable to this package alone; (d) the `unverifiable` reason "the files carry no version
+   marker" now says that no version marker evidence settles which version the files are; (e) snapshot
+   reasons no longer say "configuration files not compared" (account files and files the sibling does not
+   hold are not compared either) but "K file(s) recorded for the package, N of them compared"; (f) the
+   AI-BOM, certificate, key and algorithm findings say what the tool found or checked instead of what the
+   firmware contains; (g) the Markdown report's label for `absent` is "no file of the package was found among
+   the firmware files compared". Reasons keep saying "present in the image" for the files they count; they
+   no longer say how many are absent. Only strings changed; no condition, verdict, grade or counted field.
+   Tests: `test_other_release_detail_does_not_list_what_is_excluded` (the reviewer's `usr/lib/opkg/` case),
+   `test_absence_wording_does_not_claim_more_than_the_compared_files`, and the two earlier tests, adjusted.
 
 The evidence that items 1 and 2 are result-neutral: three images (two held-out, one tuning) were rerun with
 all baselines after those changes: 558 rows, identical labels and scores for every tool, identical
@@ -258,6 +283,12 @@ previous head's code (`c0a852f`) and with the changed code (2,604 rows, 0 differ
 `bench/full_digest.py`, previous head against changed code (252 runs, 35,814 component records, 13,365
 findings, no difference; the two digest files are byte-identical). Results: `results/r2/r7-verdict-check/COMPARISON.json` and `FULL-DIGEST.json`. The unit test
 that guards the rule files now points at these files.
+
+Item 10 was checked the same way: `bench/verdict_check.py` on reruns of all fourteen images with the previous
+head's code (`ba07b24`) and with the changed code, each in its own `work/cases` folder (2,604 rows, 0 differences each; 1,689 reason strings changed with the new code, 1,200 with the previous head's code, which already differs from the frozen wording), and
+`bench/full_digest.py`, previous head against changed code (252 runs, 35,814 component records, 13,365 findings, no difference; the two digest files are byte-identical). Results:
+`results/r2/r8-verdict-check/COMPARISON.json` and `FULL-DIGEST.json`. The unit test that guards the rule files
+now points at these files.
 
 ## Counting, variability and candidate pools
 

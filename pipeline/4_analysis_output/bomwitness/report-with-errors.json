@@ -3,7 +3,7 @@
   "name": "bomwitness",
   "version": "0.2.0"
  },
- "generated": "2026-11-27T06:40:57+00:00",
+ "generated": "2026-11-27T08:04:15+00:00",
  "subject": {
   "name": "openwrt-24.10.8-ath79-generic-tplink_archer-c7-v5-squashfs-sysupgrade.bin",
   "kind": "directory",
@@ -67,7 +67,7 @@
    "code_files": 161,
    "orphan_code_files": 0,
    "hard_findings": 4,
-   "seconds": 0.14
+   "seconds": 0.31
   },
   "options": {
    "use_hashes": true,
@@ -322,7 +322,7 @@
      "version": "20260601-r1",
      "files": 1
     },
-    "reason": "1 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin] (20260601-r1; configuration files not compared; 1 file(s) recorded for the package); the shared feed has since moved to 20260816-r2"
+    "reason": "1 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin] (20260601-r1; 1 file(s) recorded for the package, 1 of them compared); the shared feed has since moved to 20260816-r2"
    },
    {
     "name": "cgi-io",
@@ -1999,7 +1999,7 @@
      "version": "3.6.6-r2",
      "files": 3
     },
-    "reason": "3 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin] (3.6.6-r2; configuration files not compared; 3 file(s) recorded for the package); the shared feed has since moved to 3.6.7-r1"
+    "reason": "3 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin] (3.6.6-r2; 3 file(s) recorded for the package, 3 of them compared); the shared feed has since moved to 3.6.7-r1"
    },
    {
     "name": "libmnl0",
@@ -2427,7 +2427,7 @@
      "version": "26.205.85413~cac97ed",
      "files": 72
     },
-    "reason": "72 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin] (26.205.85413~cac97ed; configuration files not compared; 72 file(s) recorded for the package); the shared feed has since moved to 26.301.70438~aa4865e"
+    "reason": "72 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin] (26.205.85413~cac97ed; 72 file(s) recorded for the package, 72 of them compared); the shared feed has since moved to 26.301.70438~aa4865e"
    },
    {
     "name": "luci-light",
@@ -2507,7 +2507,7 @@
      "version": "26.205.85413~cac97ed",
      "files": 16
     },
-    "reason": "16 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin] (26.205.85413~cac97ed; configuration files not compared; 16 file(s) recorded for the package); the shared feed has since moved to 26.301.70438~aa4865e"
+    "reason": "16 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin] (26.205.85413~cac97ed; 16 file(s) recorded for the package, 16 of them compared); the shared feed has since moved to 26.301.70438~aa4865e"
    },
    {
     "name": "luci-mod-status",
@@ -2712,7 +2712,7 @@
      "version": "26.205.85413~cac97ed",
      "files": 10
     },
-    "reason": "10 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin] (26.205.85413~cac97ed; configuration files not compared; 10 file(s) recorded for the package); the shared feed has since moved to 26.301.70438~aa4865e"
+    "reason": "10 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin] (26.205.85413~cac97ed; 10 file(s) recorded for the package, 10 of them compared); the shared feed has since moved to 26.301.70438~aa4865e"
    },
    {
     "name": "mtd",
@@ -3375,7 +3375,7 @@
      "version": "2025.07.18~3f64c808-r1",
      "files": 1
     },
-    "reason": "1 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin] (2025.07.18~3f64c808-r1; configuration files not compared; 1 file(s) recorded for the package); the shared feed has since moved to 2025.07.18~3f64c808-r2"
+    "reason": "1 file(s) present have the SHA-256 recorded for this package in the sibling image (authenticated: its SHA-256 is in the image list pinned by the signed checksum file) [sibling image openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin] (2025.07.18~3f64c808-r1; 1 file(s) recorded for the package, 1 of them compared); the shared feed has since moved to 2025.07.18~3f64c808-r2"
    },
    {
     "name": "ucode-mod-html",
@@ -3725,7 +3725,7 @@
     "files": [],
     "verdict": "absent",
     "grade": "A",
-    "reason": "none of the reference package's files exist in the firmware"
+    "reason": "none of the reference package's files was found among the firmware files this tool compares"
    }
   ],
   "findings": [
@@ -3907,7 +3907,7 @@
     "class": "absent",
     "component": "tcpdump",
     "grade": "A",
-    "detail": "none of the reference package's files exist in the firmware"
+    "detail": "none of the reference package's files was found among the firmware files this tool compares"
    },
    {
     "class": "undeclared_component",
@@ -4005,7 +4005,7 @@
     "class": "algorithm_not_evidenced",
     "asset": "ML-KEM@libmbedtls21",
     "grade": "B",
-    "detail": "no file of libmbedtls21 carries a name of ML-KEM"
+    "detail": "no file of libmbedtls21 that this tool checked carries a name of ML-KEM"
    },
    {
     "class": "deprecated_algorithm",
