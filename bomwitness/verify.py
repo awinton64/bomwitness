@@ -301,7 +301,8 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
                             reason=f"bytes are the reference build {vr} from a feed that is frozen for this release")
             if snap_hit:
                 return dict(out, verdict="wrong_version", grade="A", actual_version=snap_hit[1],
-                            reason=f"bytes are the build that the official sibling image labels {snap_hit[1]} (feed label {vr}); neither is the declared version")
+                            reason=(f"bytes are the build that the feed index and the official sibling image both label {vr}" if snap_hit[1] == vr else
+                                    f"bytes are the build that the official sibling image labels {snap_hit[1]} (feed label {vr}); neither is the declared version"))
             if vm:
                 return dict(out, verdict="wrong_version", grade="A", actual_version=vm,
                             reason=f"bytes are the reference build; the release manifest labels it {vm} and the feed {vr}, neither is the declared version")
@@ -425,16 +426,21 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
     orphan_set = set(orphans)
     cand: dict[str, dict] = {}
 
+    considered: set[str] = set()
+
     def consider(n: str) -> None:
-        if n in declared_pkgs or n in cand or n not in index:
+        if n in declared_pkgs or n in considered or n not in index:
             return
+        considered.add(n)
         pl = ref.payload(n)
         hit = [p for p in pl["files"] if p in orphan_set]
         sib = [s for meta in pl["files"].values() if meta.get("soname")
                for s in by_soname.get(meta["soname"], []) if s in orphan_set and s not in hit]
         if hit or sib:
             ident = [p for p in hit if files[p]["sha256"] == pl["files"][p]["sha256"]]
-            cand[n] = {"hit": set(hit) | set(sib), "ident": set(ident), "payload": len(pl["files"]), "version": pl["version"]}
+            c = cand.setdefault(n, {"hit": set(), "ident": set(), "payload": len(pl["files"]), "version": pl["version"]})
+            c["hit"] |= set(hit) | set(sib)       # merge with what a sibling snapshot already attributed to this package
+            c["ident"] |= set(ident)
 
     if ref.has_path_index:
         for p in orphans:

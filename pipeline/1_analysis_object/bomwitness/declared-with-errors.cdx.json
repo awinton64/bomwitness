@@ -1,0 +1,6175 @@
+{
+ "bomFormat": "CycloneDX",
+ "specVersion": "1.6",
+ "version": 1,
+ "metadata": {
+  "component": {
+   "type": "firmware",
+   "name": "openwrt-24.10.8-ath79-generic-tplink_archer-c7-v5"
+  }
+ },
+ "components": [
+  {
+   "type": "library",
+   "bom-ref": "pkg:ath10k-board-qca988x",
+   "name": "ath10k-board-qca988x",
+   "version": "20241110-r2",
+   "purl": "pkg:opkg/openwrt/ath10k-board-qca988x@20241110-r2"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:ath10k-firmware-qca988x-ct",
+   "name": "ath10k-firmware-qca988x-ct",
+   "version": "2020.11.08-r1",
+   "purl": "pkg:opkg/openwrt/ath10k-firmware-qca988x-ct@2020.11.08-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:base-files",
+   "name": "base-files",
+   "version": "1674~443ec4032a",
+   "purl": "pkg:opkg/openwrt/base-files@1674~443ec4032a"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:busybox",
+   "name": "busybox",
+   "version": "1.36.2-r3",
+   "purl": "pkg:opkg/openwrt/busybox@1.36.1-r3"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:ca-bundle",
+   "name": "ca-bundle",
+   "version": "20260601-r1",
+   "purl": "pkg:opkg/openwrt/ca-bundle@20260601-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:cgi-io",
+   "name": "cgi-io",
+   "version": "2026.07.21~31cb3c89-r1",
+   "purl": "pkg:opkg/openwrt/cgi-io@2026.07.21~31cb3c89-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:dropbear",
+   "name": "dropbear",
+   "version": "2022.82-6",
+   "purl": "pkg:opkg/openwrt/dropbear@2024.86-r3"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:firewall4",
+   "name": "firewall4",
+   "version": "2024.12.18~18fc0ead-r1",
+   "purl": "pkg:opkg/openwrt/firewall4@2024.12.18~18fc0ead-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:fstools",
+   "name": "fstools",
+   "version": "2024.07.14~408c2cc4-r1",
+   "purl": "pkg:opkg/openwrt/fstools@2024.07.14~408c2cc4-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:fwtool",
+   "name": "fwtool",
+   "version": "2019.11.12~8f7fe925-r1",
+   "purl": "pkg:opkg/openwrt/fwtool@2019.11.12~8f7fe925-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:getrandom",
+   "name": "getrandom",
+   "version": "2024.04.26~85f10530-r1",
+   "purl": "pkg:opkg/openwrt/getrandom@2024.04.26~85f10530-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:hostapd-common",
+   "name": "hostapd-common",
+   "version": "2024.09.15~5ace39b0-r3",
+   "purl": "pkg:opkg/openwrt/hostapd-common@2024.09.15~5ace39b0-r3"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:iw",
+   "name": "iw",
+   "version": "6.9-r1",
+   "purl": "pkg:opkg/openwrt/iw@6.9-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:iwinfo",
+   "name": "iwinfo",
+   "version": "2024.10.20~b94f066e-r1",
+   "purl": "pkg:opkg/openwrt/iwinfo@2024.10.20~b94f066e-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:jansson4",
+   "name": "jansson4",
+   "version": "2.14-r3",
+   "purl": "pkg:opkg/openwrt/jansson4@2.14-r3"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:jshn",
+   "name": "jshn",
+   "version": "2025.07.23~49056d17-r1",
+   "purl": "pkg:opkg/openwrt/jshn@2025.07.23~49056d17-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:jsonfilter",
+   "name": "jsonfilter",
+   "version": "2025.04.18~8a86fb78-r1",
+   "purl": "pkg:opkg/openwrt/jsonfilter@2025.04.18~8a86fb78-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kernel",
+   "name": "kernel",
+   "version": "6.6.144~70248021204b78344d5fb62a0e7f5bea-r1",
+   "purl": "pkg:opkg/openwrt/kernel@6.6.144~70248021204b78344d5fb62a0e7f5bea-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-ath",
+   "name": "kmod-ath",
+   "version": "6.6.144.6.12.96-r1",
+   "purl": "pkg:opkg/openwrt/kmod-ath@6.6.144.6.12.96-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-ath10k-ct",
+   "name": "kmod-ath10k-ct",
+   "version": "6.6.144.2024.07.30~ac71b14d-r2",
+   "purl": "pkg:opkg/openwrt/kmod-ath10k-ct@6.6.144.2024.07.30~ac71b14d-r2"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-ath9k",
+   "name": "kmod-ath9k",
+   "version": "6.6.144.6.12.96-r1",
+   "purl": "pkg:opkg/openwrt/kmod-ath9k@6.6.144.6.12.96-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-ath9k-common",
+   "name": "kmod-ath9k-common",
+   "version": "6.6.144.6.12.96-r1",
+   "purl": "pkg:opkg/openwrt/kmod-ath9k-common@6.6.144.6.12.96-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-cfg80211",
+   "name": "kmod-cfg80211",
+   "version": "6.6.144.6.12.96-r1",
+   "purl": "pkg:opkg/openwrt/kmod-cfg80211@6.6.144.6.12.96-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-crypto-acompress",
+   "name": "kmod-crypto-acompress",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-crypto-acompress@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-crypto-aead",
+   "name": "kmod-crypto-aead",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-crypto-aead@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-crypto-ccm",
+   "name": "kmod-crypto-ccm",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-crypto-ccm@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-crypto-cmac",
+   "name": "kmod-crypto-cmac",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-crypto-cmac@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-crypto-crc32c",
+   "name": "kmod-crypto-crc32c",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-crypto-crc32c@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-crypto-ctr",
+   "name": "kmod-crypto-ctr",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-crypto-ctr@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-crypto-gcm",
+   "name": "kmod-crypto-gcm",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-crypto-gcm@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-crypto-geniv",
+   "name": "kmod-crypto-geniv",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-crypto-geniv@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-crypto-gf128",
+   "name": "kmod-crypto-gf128",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-crypto-gf128@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-crypto-ghash",
+   "name": "kmod-crypto-ghash",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-crypto-ghash@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-crypto-hash",
+   "name": "kmod-crypto-hash",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-crypto-hash@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-crypto-hmac",
+   "name": "kmod-crypto-hmac",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-crypto-hmac@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-crypto-manager",
+   "name": "kmod-crypto-manager",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-crypto-manager@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-crypto-null",
+   "name": "kmod-crypto-null",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-crypto-null@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-crypto-rng",
+   "name": "kmod-crypto-rng",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-crypto-rng@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-crypto-seqiv",
+   "name": "kmod-crypto-seqiv",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-crypto-seqiv@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-crypto-sha3",
+   "name": "kmod-crypto-sha3",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-crypto-sha3@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-crypto-sha512",
+   "name": "kmod-crypto-sha512",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-crypto-sha512@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-gpio-button-hotplug",
+   "name": "kmod-gpio-button-hotplug",
+   "version": "6.6.144-r5",
+   "purl": "pkg:opkg/openwrt/kmod-gpio-button-hotplug@6.6.144-r5"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-hwmon-core",
+   "name": "kmod-hwmon-core",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-hwmon-core@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-lib-crc-ccitt",
+   "name": "kmod-lib-crc-ccitt",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-lib-crc-ccitt@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-lib-crc32c",
+   "name": "kmod-lib-crc32c",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-lib-crc32c@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-lib-lzo",
+   "name": "kmod-lib-lzo",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-lib-lzo@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-mac80211",
+   "name": "kmod-mac80211",
+   "version": "6.6.144.6.12.96-r1",
+   "purl": "pkg:opkg/openwrt/kmod-mac80211@6.6.144.6.12.96-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-nf-conntrack",
+   "name": "kmod-nf-conntrack",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-nf-conntrack@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-nf-conntrack6",
+   "name": "kmod-nf-conntrack6",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-nf-conntrack6@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-nf-flow",
+   "name": "kmod-nf-flow",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-nf-flow@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-nf-log",
+   "name": "kmod-nf-log",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-nf-log@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-nf-log6",
+   "name": "kmod-nf-log6",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-nf-log6@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-nf-nat",
+   "name": "kmod-nf-nat",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-nf-nat@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-nf-reject",
+   "name": "kmod-nf-reject",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-nf-reject@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-nf-reject6",
+   "name": "kmod-nf-reject6",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-nf-reject6@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-nfnetlink",
+   "name": "kmod-nfnetlink",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-nfnetlink@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-nft-core",
+   "name": "kmod-nft-core",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-nft-core@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-nft-fib",
+   "name": "kmod-nft-fib",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-nft-fib@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-nft-nat",
+   "name": "kmod-nft-nat",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-nft-nat@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-nft-offload",
+   "name": "kmod-nft-offload",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-nft-offload@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-nls-base",
+   "name": "kmod-nls-base",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-nls-base@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-phy-ath79-usb",
+   "name": "kmod-phy-ath79-usb",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-phy-ath79-usb@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-ppp",
+   "name": "kmod-ppp",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-ppp@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-pppoe",
+   "name": "kmod-pppoe",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-pppoe@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-pppox",
+   "name": "kmod-pppox",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-pppox@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-random-core",
+   "name": "kmod-random-core",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-random-core@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-slhc",
+   "name": "kmod-slhc",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-slhc@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-usb-core",
+   "name": "kmod-usb-core",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-usb-core@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-usb-ehci",
+   "name": "kmod-usb-ehci",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-usb-ehci@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-usb-ledtrig-usbport",
+   "name": "kmod-usb-ledtrig-usbport",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-usb-ledtrig-usbport@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:kmod-usb2",
+   "name": "kmod-usb2",
+   "version": "6.6.144-r1",
+   "purl": "pkg:opkg/openwrt/kmod-usb2@6.6.144-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:libblobmsg-json20240329",
+   "name": "libblobmsg-json20240329",
+   "version": "2025.07.23~49056d17-r1",
+   "purl": "pkg:opkg/openwrt/libblobmsg-json20240329@2025.07.23~49056d17-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:libc",
+   "name": "libc",
+   "version": "1.2.5-r4",
+   "purl": "pkg:opkg/openwrt/libc@1.2.5-r4"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:libgcc1",
+   "name": "libgcc1",
+   "version": "13.3.0-r4",
+   "purl": "pkg:opkg/openwrt/libgcc1@13.3.0-r4"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:libiwinfo-data",
+   "name": "libiwinfo-data",
+   "version": "2024.10.20~b94f066e-r1",
+   "purl": "pkg:opkg/openwrt/libiwinfo-data@2024.10.20~b94f066e-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:libiwinfo20230701",
+   "name": "libiwinfo20230701",
+   "version": "2024.10.20~b94f066e-r1",
+   "purl": "pkg:opkg/openwrt/libiwinfo20230701@2024.10.20~b94f066e-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:libjson-c5",
+   "name": "libjson-c5",
+   "version": "0.18-r1",
+   "purl": "pkg:opkg/openwrt/libjson-c5@0.18-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:libjson-script20240329",
+   "name": "libjson-script20240329",
+   "version": "2025.07.23~49056d17-r1",
+   "purl": "pkg:opkg/openwrt/libjson-script20240329@2025.07.23~49056d17-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:liblucihttp-ucode",
+   "name": "liblucihttp-ucode",
+   "version": "2023.03.15~9b5b683f-r1",
+   "purl": "pkg:opkg/openwrt/liblucihttp-ucode@2023.03.15~9b5b683f-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:liblucihttp0",
+   "name": "liblucihttp0",
+   "version": "2023.03.15~9b5b683f-r1",
+   "purl": "pkg:opkg/openwrt/liblucihttp0@2023.03.15~9b5b683f-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:libmbedtls21",
+   "name": "libmbedtls21",
+   "version": "3.6.6-r2",
+   "purl": "pkg:opkg/openwrt/libmbedtls21@3.6.6-r2"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:libmnl0",
+   "name": "libmnl0",
+   "version": "1.0.5-r1",
+   "purl": "pkg:opkg/openwrt/libmnl0@1.0.5-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:libnftnl11",
+   "name": "libnftnl11",
+   "version": "1.2.8-r1",
+   "purl": "pkg:opkg/openwrt/libnftnl11@1.2.8-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:libnl-tiny1",
+   "name": "libnl-tiny1",
+   "version": "2025.03.19~c0df580a-r1",
+   "purl": "pkg:opkg/openwrt/libnl-tiny1@2025.03.19~c0df580a-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:libpthread",
+   "name": "libpthread",
+   "version": "1.2.5-r4",
+   "purl": "pkg:opkg/openwrt/libpthread@1.2.5-r4"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:libubox20240329",
+   "name": "libubox20240329",
+   "version": "2025.07.23~49056d17-r1",
+   "purl": "pkg:opkg/openwrt/libubox20240329@2025.07.23~49056d17-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:libubus20250102",
+   "name": "libubus20250102",
+   "version": "2025.10.17~60e04048-r1",
+   "purl": "pkg:opkg/openwrt/libubus20250102@2025.10.17~60e04048-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:libuci20250120",
+   "name": "libuci20250120",
+   "version": "2025.01.20~16ff0bad-r1",
+   "purl": "pkg:opkg/openwrt/libuci20250120@2025.01.20~16ff0bad-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:libuclient20201210",
+   "name": "libuclient20201210",
+   "version": "2024.10.22~88ae8f20-r1",
+   "purl": "pkg:opkg/openwrt/libuclient20201210@2024.10.22~88ae8f20-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:libucode20230711",
+   "name": "libucode20230711",
+   "version": "2025.07.18~3f64c808-r1",
+   "purl": "pkg:opkg/openwrt/libucode20230711@2025.07.18~3f64c808-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:libudebug",
+   "name": "libudebug",
+   "version": "2025.08.24~edeb4d6d",
+   "purl": "pkg:opkg/openwrt/libudebug@2025.08.24~edeb4d6d"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:libustream-mbedtls20201210",
+   "name": "libustream-mbedtls20201210",
+   "version": "2024.07.28~99bd3d2b-r1",
+   "purl": "pkg:opkg/openwrt/libustream-mbedtls20201210@2024.07.28~99bd3d2b-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:logd",
+   "name": "logd",
+   "version": "2024.04.26~85f10530-r1",
+   "purl": "pkg:opkg/openwrt/logd@2024.04.26~85f10530-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:luci",
+   "name": "luci",
+   "version": "26.205.85413~cac97ed",
+   "purl": "pkg:opkg/openwrt/luci@26.205.85413~cac97ed"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:luci-app-firewall",
+   "name": "luci-app-firewall",
+   "version": "26.205.85413~cac97ed",
+   "purl": "pkg:opkg/openwrt/luci-app-firewall@26.205.85413~cac97ed"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:luci-app-package-manager",
+   "name": "luci-app-package-manager",
+   "version": "26.205.85413~cac97ed",
+   "purl": "pkg:opkg/openwrt/luci-app-package-manager@26.205.85413~cac97ed"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:luci-base",
+   "name": "luci-base",
+   "version": "26.205.85413~cac97ed",
+   "purl": "pkg:opkg/openwrt/luci-base@26.205.85413~cac97ed"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:luci-light",
+   "name": "luci-light",
+   "version": "26.205.85413~cac97ed",
+   "purl": "pkg:opkg/openwrt/luci-light@26.205.85413~cac97ed"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:luci-mod-admin-full",
+   "name": "luci-mod-admin-full",
+   "version": "26.205.85413~cac97ed",
+   "purl": "pkg:opkg/openwrt/luci-mod-admin-full@26.205.85413~cac97ed"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:luci-mod-network",
+   "name": "luci-mod-network",
+   "version": "26.205.85413~cac97ed",
+   "purl": "pkg:opkg/openwrt/luci-mod-network@26.205.85413~cac97ed"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:luci-mod-status",
+   "name": "luci-mod-status",
+   "version": "26.205.85413~cac97ed",
+   "purl": "pkg:opkg/openwrt/luci-mod-status@26.205.85413~cac97ed"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:luci-mod-system",
+   "name": "luci-mod-system",
+   "version": "26.205.85413~cac97ed",
+   "purl": "pkg:opkg/openwrt/luci-mod-system@26.205.85413~cac97ed"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:luci-proto-ipv6",
+   "name": "luci-proto-ipv6",
+   "version": "26.205.85413~cac97ed",
+   "purl": "pkg:opkg/openwrt/luci-proto-ipv6@26.205.85413~cac97ed"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:luci-proto-ppp",
+   "name": "luci-proto-ppp",
+   "version": "26.205.85413~cac97ed",
+   "purl": "pkg:opkg/openwrt/luci-proto-ppp@26.205.85413~cac97ed"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:luci-ssl",
+   "name": "luci-ssl",
+   "version": "26.205.85413~cac97ed",
+   "purl": "pkg:opkg/openwrt/luci-ssl@26.205.85413~cac97ed"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:luci-theme-bootstrap",
+   "name": "luci-theme-bootstrap",
+   "version": "26.205.85413~cac97ed",
+   "purl": "pkg:opkg/openwrt/luci-theme-bootstrap@26.205.85413~cac97ed"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:mtd",
+   "name": "mtd",
+   "version": "26",
+   "purl": "pkg:opkg/openwrt/mtd@26"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:netifd",
+   "name": "netifd",
+   "version": "2025.05.23~7901e66c-r1",
+   "purl": "pkg:opkg/openwrt/netifd@2025.05.23~7901e66c-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:nftables-json",
+   "name": "nftables-json",
+   "version": "1.1.1-r1",
+   "purl": "pkg:opkg/openwrt/nftables-json@1.1.1-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:odhcp6c",
+   "name": "odhcp6c",
+   "version": "2024.09.25~b6ae9ffa-r2",
+   "purl": "pkg:opkg/openwrt/odhcp6c@2024.09.25~b6ae9ffa-r2"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:odhcpd-ipv6only",
+   "name": "odhcpd-ipv6only",
+   "version": "2025.10.02~b14cf98c-r3",
+   "purl": "pkg:opkg/openwrt/odhcpd-ipv6only@2025.10.02~b14cf98c-r3"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:openwrt-keyring",
+   "name": "openwrt-keyring",
+   "version": "2024.11.01~fbae29d7-r2",
+   "purl": "pkg:opkg/openwrt/openwrt-keyring@2024.11.01~fbae29d7-r2"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:opkg",
+   "name": "opkg",
+   "version": "2024.10.16~38eccbb1-r1",
+   "purl": "pkg:opkg/openwrt/opkg@2024.10.16~38eccbb1-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:ppp",
+   "name": "ppp",
+   "version": "2.5.1-r1",
+   "purl": "pkg:opkg/openwrt/ppp@2.5.1-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:ppp-mod-pppoe",
+   "name": "ppp-mod-pppoe",
+   "version": "2.5.1-r1",
+   "purl": "pkg:opkg/openwrt/ppp-mod-pppoe@2.5.1-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:procd",
+   "name": "procd",
+   "version": "2026.03.14~c59f2d80-r1",
+   "purl": "pkg:opkg/openwrt/procd@2026.03.14~c59f2d80-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:procd-seccomp",
+   "name": "procd-seccomp",
+   "version": "2026.03.14~c59f2d80-r1",
+   "purl": "pkg:opkg/openwrt/procd-seccomp@2026.03.14~c59f2d80-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:procd-ujail",
+   "name": "procd-ujail",
+   "version": "2026.03.14~c59f2d80-r1",
+   "purl": "pkg:opkg/openwrt/procd-ujail@2026.03.14~c59f2d80-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:px5g-mbedtls",
+   "name": "px5g-mbedtls",
+   "version": "11",
+   "purl": "pkg:opkg/openwrt/px5g-mbedtls@11"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:rpcd",
+   "name": "rpcd",
+   "version": "2025.09.01~bba95191-r2",
+   "purl": "pkg:opkg/openwrt/rpcd@2025.09.01~bba95191-r2"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:rpcd-mod-file",
+   "name": "rpcd-mod-file",
+   "version": "2025.09.01~bba95191-r2",
+   "purl": "pkg:opkg/openwrt/rpcd-mod-file@2025.09.01~bba95191-r2"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:rpcd-mod-iwinfo",
+   "name": "rpcd-mod-iwinfo",
+   "version": "2025.09.01~bba95191-r2",
+   "purl": "pkg:opkg/openwrt/rpcd-mod-iwinfo@2025.09.01~bba95191-r2"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:rpcd-mod-luci",
+   "name": "rpcd-mod-luci",
+   "version": "20240305-r1",
+   "purl": "pkg:opkg/openwrt/rpcd-mod-luci@20240305-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:rpcd-mod-rrdns",
+   "name": "rpcd-mod-rrdns",
+   "version": "20170710",
+   "purl": "pkg:opkg/openwrt/rpcd-mod-rrdns@20170710"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:rpcd-mod-ucode",
+   "name": "rpcd-mod-ucode",
+   "version": "2025.09.01~bba95191-r2",
+   "purl": "pkg:opkg/openwrt/rpcd-mod-ucode@2025.09.01~bba95191-r2"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:swconfig",
+   "name": "swconfig",
+   "version": "12",
+   "purl": "pkg:opkg/openwrt/swconfig@12"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:uboot-envtools",
+   "name": "uboot-envtools",
+   "version": "2024.07-r1",
+   "purl": "pkg:opkg/openwrt/uboot-envtools@2024.07-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:ubox",
+   "name": "ubox",
+   "version": "2024.04.26~85f10530-r1",
+   "purl": "pkg:opkg/openwrt/ubox@2024.04.26~85f10530-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:ubus",
+   "name": "ubus",
+   "version": "2025.10.17~60e04048-r1",
+   "purl": "pkg:opkg/openwrt/ubus@2025.10.17~60e04048-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:ubusd",
+   "name": "ubusd",
+   "version": "2025.10.17~60e04048-r1",
+   "purl": "pkg:opkg/openwrt/ubusd@2025.10.17~60e04048-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:uci",
+   "name": "uci",
+   "version": "2025.01.20~16ff0bad-r1",
+   "purl": "pkg:opkg/openwrt/uci@2025.01.20~16ff0bad-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:uclient-fetch",
+   "name": "uclient-fetch",
+   "version": "2024.10.22~88ae8f20-r1",
+   "purl": "pkg:opkg/openwrt/uclient-fetch@2024.10.22~88ae8f20-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:ucode",
+   "name": "ucode",
+   "version": "2025.07.18~3f64c808-r1",
+   "purl": "pkg:opkg/openwrt/ucode@2025.07.18~3f64c808-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:ucode-mod-fs",
+   "name": "ucode-mod-fs",
+   "version": "2025.07.18~3f64c808-r1",
+   "purl": "pkg:opkg/openwrt/ucode-mod-fs@2025.07.18~3f64c808-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:ucode-mod-html",
+   "name": "ucode-mod-html",
+   "version": "1",
+   "purl": "pkg:opkg/openwrt/ucode-mod-html@1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:ucode-mod-math",
+   "name": "ucode-mod-math",
+   "version": "2025.07.18~3f64c808-r1",
+   "purl": "pkg:opkg/openwrt/ucode-mod-math@2025.07.18~3f64c808-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:ucode-mod-nl80211",
+   "name": "ucode-mod-nl80211",
+   "version": "2025.07.18~3f64c808-r1",
+   "purl": "pkg:opkg/openwrt/ucode-mod-nl80211@2025.07.18~3f64c808-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:ucode-mod-rtnl",
+   "name": "ucode-mod-rtnl",
+   "version": "2025.07.18~3f64c808-r1",
+   "purl": "pkg:opkg/openwrt/ucode-mod-rtnl@2025.07.18~3f64c808-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:ucode-mod-ubus",
+   "name": "ucode-mod-ubus",
+   "version": "2025.07.18~3f64c808-r1",
+   "purl": "pkg:opkg/openwrt/ucode-mod-ubus@2025.07.18~3f64c808-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:ucode-mod-uci",
+   "name": "ucode-mod-uci",
+   "version": "2025.07.18~3f64c808-r1",
+   "purl": "pkg:opkg/openwrt/ucode-mod-uci@2025.07.18~3f64c808-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:ucode-mod-uloop",
+   "name": "ucode-mod-uloop",
+   "version": "2025.07.18~3f64c808-r1",
+   "purl": "pkg:opkg/openwrt/ucode-mod-uloop@2025.07.18~3f64c808-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:uhttpd",
+   "name": "uhttpd",
+   "version": "2025.07.06~7e64e8ba-r5",
+   "purl": "pkg:opkg/openwrt/uhttpd@2025.07.06~7e64e8ba-r5"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:uhttpd-mod-ubus",
+   "name": "uhttpd-mod-ubus",
+   "version": "2025.07.06~7e64e8ba-r5",
+   "purl": "pkg:opkg/openwrt/uhttpd-mod-ubus@2025.07.06~7e64e8ba-r5"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:urandom-seed",
+   "name": "urandom-seed",
+   "version": "3",
+   "purl": "pkg:opkg/openwrt/urandom-seed@3"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:urngd",
+   "name": "urngd",
+   "version": "2023.11.01~44365eb1-r1",
+   "purl": "pkg:opkg/openwrt/urngd@2023.11.01~44365eb1-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:usign",
+   "name": "usign",
+   "version": "2020.05.23~f1f65026-r1",
+   "purl": "pkg:opkg/openwrt/usign@2020.05.23~f1f65026-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:wifi-scripts",
+   "name": "wifi-scripts",
+   "version": "1.0-r1",
+   "purl": "pkg:opkg/openwrt/wifi-scripts@1.0-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:wireless-regdb",
+   "name": "wireless-regdb",
+   "version": "2026.05.30-r1",
+   "purl": "pkg:opkg/openwrt/wireless-regdb@2026.05.30-r1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:wpad-basic-mbedtls",
+   "name": "wpad-basic-mbedtls",
+   "version": "2024.09.15~5ace39b0-r3",
+   "purl": "pkg:opkg/openwrt/wpad-basic-mbedtls@2024.09.15~5ace39b0-r3"
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:0552e6f83fdf65e8",
+   "name": "CN=D-TRUST BR Root CA 2 2023,O=D-Trust GmbH,C=DE",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "0552e6f83fdf65e8fa9670e666df28a4e21340b510cbe52566f97c4fb94b2bd1"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=D-TRUST BR Root CA 2 2023,O=D-Trust GmbH,C=DE",
+     "issuerName": "CN=D-TRUST BR Root CA 2 2023,O=D-Trust GmbH,C=DE",
+     "notValidAfter": "2038-05-09T08:56:30+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha512"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:06c08d7dafd87697",
+   "name": "CN=TrustAsia TLS RSA Root CA,O=TrustAsia Technologies\\, Inc.,C=CN",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "06c08d7dafd876971eb1124fe67f847ec0c7a158d3ea53cbe940e2ea9791f4c3"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=TrustAsia TLS RSA Root CA,O=TrustAsia Technologies\\, Inc.,C=CN",
+     "issuerName": "CN=TrustAsia TLS RSA Root CA,O=TrustAsia Technologies\\, Inc.,C=CN",
+     "notValidAfter": "2044-05-15T05:41:56+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:08170d1aa3645390",
+   "name": "CN=D-TRUST EV Root CA 1 2020,O=D-Trust GmbH,C=DE",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "08170d1aa36453901a2f959245e347db0c8d37abaabc56b81aa100dc958970db"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=D-TRUST EV Root CA 1 2020,O=D-Trust GmbH,C=DE",
+     "issuerName": "CN=D-TRUST EV Root CA 1 2020,O=D-Trust GmbH,C=DE",
+     "notValidAfter": "2035-02-11T09:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:125609aa301da0a2",
+   "name": "CN=emSign Root CA - C1,O=eMudhra Inc,OU=emSign PKI,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "125609aa301da0a249b97a8239cb6a34216f44dcac9f3954b14292f2e8c8608f"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=emSign Root CA - C1,O=eMudhra Inc,OU=emSign PKI,C=US",
+     "issuerName": "CN=emSign Root CA - C1,O=eMudhra Inc,OU=emSign PKI,C=US",
+     "notValidAfter": "2043-02-18T18:30:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:1793927a06145497",
+   "name": "CN=COMODO ECC Certification Authority,O=COMODO CA Limited,L=Salford,ST=Greater Manchester,C=GB",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "1793927a0614549789adce2f8f34f7f0b66d0f3ae3a3b84d21ec15dbba4fadc7"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=COMODO ECC Certification Authority,O=COMODO CA Limited,L=Salford,ST=Greater Manchester,C=GB",
+     "issuerName": "CN=COMODO ECC Certification Authority,O=COMODO CA Limited,L=Salford,ST=Greater Manchester,C=GB",
+     "notValidAfter": "2038-01-18T23:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:179fbc148a3dd00f",
+   "name": "CN=GlobalSign,O=GlobalSign,OU=GlobalSign ECC Root CA - R5",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "179fbc148a3dd00fd24ea13458cc43bfa7f59c8182d783a513f6ebec100c8924"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=GlobalSign,O=GlobalSign,OU=GlobalSign ECC Root CA - R5",
+     "issuerName": "CN=GlobalSign,O=GlobalSign,OU=GlobalSign ECC Root CA - R5",
+     "notValidAfter": "2038-01-19T03:14:07+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:18ce6cfe7bf14e60",
+   "name": "CN=Amazon Root CA 3,O=Amazon,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "18ce6cfe7bf14e60b2e347b8dfe868cb31d02ebb3ada271569f50343b46db3a4"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Amazon Root CA 3,O=Amazon,C=US",
+     "issuerName": "CN=Amazon Root CA 3,O=Amazon,C=US",
+     "notValidAfter": "2040-05-26T00:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "256"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:193144f431e0fddb",
+   "name": "CN=SwissSign RSA TLS Root CA 2022 - 1,O=SwissSign AG,C=CH",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "193144f431e0fddb740717d4de926a571133884b4360d30e272913cbe660ce41"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=SwissSign RSA TLS Root CA 2022 - 1,O=SwissSign AG,C=CH",
+     "issuerName": "CN=SwissSign RSA TLS Root CA 2022 - 1,O=SwissSign AG,C=CH",
+     "notValidAfter": "2047-06-08T11:08:22+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:1ba5b2aa8c65401a",
+   "name": "CN=Amazon Root CA 2,O=Amazon,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "1ba5b2aa8c65401a82960118f80bec4f62304d83cec4713a19c39c011ea46db4"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Amazon Root CA 2,O=Amazon,C=US",
+     "issuerName": "CN=Amazon Root CA 2,O=Amazon,C=US",
+     "notValidAfter": "2040-05-26T00:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:22a2c1f7bded704c",
+   "name": "CN=SSL.com EV Root Certification Authority ECC,O=SSL Corporation,L=Houston,ST=Texas,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "22a2c1f7bded704cc1e701b5f408c310880fe956b5de2a4a44f99c873a25a7c8"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=SSL.com EV Root Certification Authority ECC,O=SSL Corporation,L=Houston,ST=Texas,C=US",
+     "issuerName": "CN=SSL.com EV Root Certification Authority ECC,O=SSL Corporation,L=Houston,ST=Texas,C=US",
+     "notValidAfter": "2041-02-12T18:15:23+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:242b69742fcb1e5b",
+   "name": "CN=Telia Root CA v2,O=Telia Finland Oyj,C=FI",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "242b69742fcb1e5b2abf98898b94572187544e5b4d9911786573621f6a74b82c"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Telia Root CA v2,O=Telia Finland Oyj,C=FI",
+     "issuerName": "CN=Telia Root CA v2,O=Telia Finland Oyj,C=FI",
+     "notValidAfter": "2043-11-29T11:55:54+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:2530cc8e98321502",
+   "name": "CN=Izenpe.com,O=IZENPE S.A.,C=ES",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "2530cc8e98321502bad96f9b1fba1b099e2d299e0f4548bb914f363bc0d4531f"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Izenpe.com,O=IZENPE S.A.,C=ES",
+     "issuerName": "CN=Izenpe.com,O=IZENPE S.A.,C=ES",
+     "notValidAfter": "2037-12-13T08:27:25+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:2cabeafe37d06ca2",
+   "name": "CN=GlobalSign,O=GlobalSign,OU=GlobalSign Root CA - R6",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "2cabeafe37d06ca22aba7391c0033d25982952c453647349763a3ab5ad6ccf69"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=GlobalSign,O=GlobalSign,OU=GlobalSign Root CA - R6",
+     "issuerName": "CN=GlobalSign,O=GlobalSign,OU=GlobalSign Root CA - R6",
+     "notValidAfter": "2034-12-10T00:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:2ce1cb0bf9d2f9e1",
+   "name": "CN=Starfield Root Certificate Authority - G2,O=Starfield Technologies\\, Inc.,L=Scottsdale,ST=Arizona,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "2ce1cb0bf9d2f9e102993fbe215152c3b2dd0cabde1c68e5319b839154dbb7f5"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Starfield Root Certificate Authority - G2,O=Starfield Technologies\\, Inc.,L=Scottsdale,ST=Arizona,C=US",
+     "issuerName": "CN=Starfield Root Certificate Authority - G2,O=Starfield Technologies\\, Inc.,L=Scottsdale,ST=Arizona,C=US",
+     "notValidAfter": "2037-12-31T23:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:2e44102ab58cb854",
+   "name": "CN=TunTrust Root CA,O=Agence Nationale de Certification Electronique,C=TN",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "2e44102ab58cb85419451c8e19d9acf3662cafbc614b6a53960a30f7d0e2eb41"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=TunTrust Root CA,O=Agence Nationale de Certification Electronique,C=TN",
+     "issuerName": "CN=TunTrust Root CA,O=Agence Nationale de Certification Electronique,C=TN",
+     "notValidAfter": "2044-04-26T08:57:56+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:2e7bf16cc22485a7",
+   "name": "CN=SSL.com EV Root Certification Authority RSA R2,O=SSL Corporation,L=Houston,ST=Texas,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "2e7bf16cc22485a7bbe2aa8696750761b0ae39be3b2fe9d0cc6d4ef73491425c"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=SSL.com EV Root Certification Authority RSA R2,O=SSL Corporation,L=Houston,ST=Texas,C=US",
+     "issuerName": "CN=SSL.com EV Root Certification Authority RSA R2,O=SSL Corporation,L=Houston,ST=Texas,C=US",
+     "notValidAfter": "2042-05-30T18:14:37+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:30d0895a9a448a26",
+   "name": "CN=IdenTrust Public Sector Root CA 1,O=IdenTrust,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "30d0895a9a448a262091635522d1f52010b5867acae12c78ef958fd4f4389f2f"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=IdenTrust Public Sector Root CA 1,O=IdenTrust,C=US",
+     "issuerName": "CN=IdenTrust Public Sector Root CA 1,O=IdenTrust,C=US",
+     "notValidAfter": "2034-01-16T17:53:32+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:30fbba2c32238e2a",
+   "name": "CN=vTrus ECC Root CA,O=iTrusChina Co.\\,Ltd.,C=CN",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "30fbba2c32238e2a98547af97931e550428b9b3f1c8eeb6633dcfa86c5b27dd3"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=vTrus ECC Root CA,O=iTrusChina Co.\\,Ltd.,C=CN",
+     "issuerName": "CN=vTrus ECC Root CA,O=iTrusChina Co.\\,Ltd.,C=CN",
+     "notValidAfter": "2043-07-31T07:26:44+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:31ad6648f8104138",
+   "name": "CN=DigiCert Global Root G3,OU=www.digicert.com,O=DigiCert Inc,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "31ad6648f8104138c738f39ea4320133393e3a18cc02296ef97c2ac9ef6731d0"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=DigiCert Global Root G3,OU=www.digicert.com,O=DigiCert Inc,C=US",
+     "issuerName": "CN=DigiCert Global Root G3,OU=www.digicert.com,O=DigiCert Inc,C=US",
+     "notValidAfter": "2038-01-15T12:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:3417bb06cc6007da",
+   "name": "CN=SSL.com Root Certification Authority ECC,O=SSL Corporation,L=Houston,ST=Texas,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "3417bb06cc6007da1b961c920b8ab4ce3fad820e4aa30b9acbc4a74ebdcebc65"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=SSL.com Root Certification Authority ECC,O=SSL Corporation,L=Houston,ST=Texas,C=US",
+     "issuerName": "CN=SSL.com Root Certification Authority ECC,O=SSL Corporation,L=Houston,ST=Texas,C=US",
+     "notValidAfter": "2041-02-12T18:14:03+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:349dfa4058c5e263",
+   "name": "CN=GTS Root R4,O=Google Trust Services LLC,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "349dfa4058c5e263123b398ae795573c4e1313c83fe68f93556cd5e8031b3c7d"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=GTS Root R4,O=Google Trust Services LLC,C=US",
+     "issuerName": "CN=GTS Root R4,O=Google Trust Services LLC,C=US",
+     "notValidAfter": "2036-06-22T00:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:34d8a73ee208d9bc",
+   "name": "CN=GTS Root R3,O=Google Trust Services LLC,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "34d8a73ee208d9bcdb0d956520934b4e40e69482596e8b6f73c8426b010a6f48"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=GTS Root R3,O=Google Trust Services LLC,C=US",
+     "issuerName": "CN=GTS Root R3,O=Google Trust Services LLC,C=US",
+     "notValidAfter": "2036-06-22T00:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:358df39d764af9e1",
+   "name": "CN=Microsoft ECC Root Certificate Authority 2017,O=Microsoft Corporation,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "358df39d764af9e1b766e9c972df352ee15cfac227af6ad1d70e8e4a6edcba02"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Microsoft ECC Root Certificate Authority 2017,O=Microsoft Corporation,C=US",
+     "issuerName": "CN=Microsoft ECC Root Certificate Authority 2017,O=Microsoft Corporation,C=US",
+     "notValidAfter": "2042-07-18T23:16:04+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:371a00dc0533b372",
+   "name": "CN=DigiCert TLS RSA4096 Root G5,O=DigiCert\\, Inc.,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "371a00dc0533b3721a7eeb40e8419e70799d2b0a0f2c1d80693165f7cec4ad75"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=DigiCert TLS RSA4096 Root G5,O=DigiCert\\, Inc.,C=US",
+     "issuerName": "CN=DigiCert TLS RSA4096 Root G5,O=DigiCert\\, Inc.,C=US",
+     "notValidAfter": "2046-01-14T23:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:3c5f81fea5fab82c",
+   "name": "1.2.840.113549.1.9.1=info@e-szigno.hu,CN=Microsec e-Szigno Root CA 2009,O=Microsec Ltd.,L=Budapest,C=HU",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "3c5f81fea5fab82c64bfa2eaecafcde8e077fc8620a7cae537163df36edbf378"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "1.2.840.113549.1.9.1=info@e-szigno.hu,CN=Microsec e-Szigno Root CA 2009,O=Microsec Ltd.,L=Budapest,C=HU",
+     "issuerName": "1.2.840.113549.1.9.1=info@e-szigno.hu,CN=Microsec e-Szigno Root CA 2009,O=Microsec Ltd.,L=Budapest,C=HU",
+     "notValidAfter": "2029-12-30T11:30:18+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:3f034bb5704d44b2",
+   "name": "CN=SecureSign Root CA12,O=Cybertrust Japan Co.\\, Ltd.,C=JP",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "3f034bb5704d44b2d08545a02057de93ebf3905fce721acbc730c06ddaee904e"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=SecureSign Root CA12,O=Cybertrust Japan Co.\\, Ltd.,C=JP",
+     "issuerName": "CN=SecureSign Root CA12,O=Cybertrust Japan Co.\\, Ltd.,C=JP",
+     "notValidAfter": "2040-04-08T05:36:46+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:3f63bb2814be174e",
+   "name": "CN=TWCA CYBER Root CA,OU=Root CA,O=TAIWAN-CA,C=TW",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "3f63bb2814be174ec8b6439cf08d6d56f0b7c405883a5648a334424d6b3ec558"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=TWCA CYBER Root CA,OU=Root CA,O=TAIWAN-CA,C=TW",
+     "issuerName": "CN=TWCA CYBER Root CA,OU=Root CA,O=TAIWAN-CA,C=TW",
+     "notValidAfter": "2047-11-22T15:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:3f99cc474acfce4d",
+   "name": "CN=HARICA TLS ECC Root CA 2021,O=Hellenic Academic and Research Institutions CA,C=GR",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "3f99cc474acfce4dfed58794665e478d1547739f2e780f1bb4ca9b133097d401"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=HARICA TLS ECC Root CA 2021,O=Hellenic Academic and Research Institutions CA,C=GR",
+     "issuerName": "CN=HARICA TLS ECC Root CA 2021,O=Hellenic Academic and Research Institutions CA,C=GR",
+     "notValidAfter": "2045-02-13T11:01:09+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:40f6af0346a99aa1",
+   "name": "CN=emSign Root CA - G1,O=eMudhra Technologies Limited,OU=emSign PKI,C=IN",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "40f6af0346a99aa1cd1d555a4e9cce62c7f9634603ee406615833dc8c8d00367"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=emSign Root CA - G1,O=eMudhra Technologies Limited,OU=emSign PKI,C=IN",
+     "issuerName": "CN=emSign Root CA - G1,O=eMudhra Technologies Limited,OU=emSign PKI,C=IN",
+     "notValidAfter": "2043-02-18T18:30:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:44b545aa8a25e65a",
+   "name": "CN=Hellenic Academic and Research Institutions ECC RootCA 2015,O=Hellenic Academic and Research Institutions Cert. Authority,L=Athens,C=GR",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "44b545aa8a25e65a73ca15dc27fc36d24c1cb9953a066539b11582dc487b4833"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Hellenic Academic and Research Institutions ECC RootCA 2015,O=Hellenic Academic and Research Institutions Cert. Authority,L=Athens,C=GR",
+     "issuerName": "CN=Hellenic Academic and Research Institutions ECC RootCA 2015,O=Hellenic Academic and Research Institutions Cert. Authority,L=Athens,C=GR",
+     "notValidAfter": "2040-06-30T10:37:12+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:45140b3247eb9cc8",
+   "name": "CN=Go Daddy Root Certificate Authority - G2,O=GoDaddy.com\\, Inc.,L=Scottsdale,ST=Arizona,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "45140b3247eb9cc8c5b4f0d7b53091f73292089e6e5a63e2749dd3aca9198eda"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Go Daddy Root Certificate Authority - G2,O=GoDaddy.com\\, Inc.,L=Scottsdale,ST=Arizona,C=US",
+     "issuerName": "CN=Go Daddy Root Certificate Authority - G2,O=GoDaddy.com\\, Inc.,L=Scottsdale,ST=Arizona,C=US",
+     "notValidAfter": "2037-12-31T23:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:46edc3689046d53a",
+   "name": "CN=TUBITAK Kamu SM SSL Kok Sertifikasi - Surum 1,OU=Kamu Sertifikasyon Merkezi - Kamu SM,O=Turkiye Bilimsel ve Teknolojik Arastirma Kurumu - TUBITAK,L=Gebze - Kocaeli,C=TR",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "46edc3689046d53a453fb3104ab80dcaec658b2660ea1629dd7e867990648716"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=TUBITAK Kamu SM SSL Kok Sertifikasi - Surum 1,OU=Kamu Sertifikasyon Merkezi - Kamu SM,O=Turkiye Bilimsel ve Teknolojik Arastirma Kurumu - TUBITAK,L=Gebze - Kocaeli,C=TR",
+     "issuerName": "CN=TUBITAK Kamu SM SSL Kok Sertifikasi - Surum 1,OU=Kamu Sertifikasyon Merkezi - Kamu SM,O=Turkiye Bilimsel ve Teknolojik Arastirma Kurumu - TUBITAK,L=Gebze - Kocaeli,C=TR",
+     "notValidAfter": "2043-10-25T08:25:55+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:49e7a442acf0ea62",
+   "name": "CN=D-TRUST Root Class 3 CA 2 2009,O=D-Trust GmbH,C=DE",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "49e7a442acf0ea6287050054b52564b650e4f49e42e348d6aa38e039e957b1c1"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=D-TRUST Root Class 3 CA 2 2009,O=D-Trust GmbH,C=DE",
+     "issuerName": "CN=D-TRUST Root Class 3 CA 2 2009,O=D-Trust GmbH,C=DE",
+     "notValidAfter": "2029-11-05T08:35:58+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:4b009c1034494f9a",
+   "name": "CN=SecureSign Root CA14,O=Cybertrust Japan Co.\\, Ltd.,C=JP",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "4b009c1034494f9ab56bba3ba1d62731fc4d20d8955adcec10a925607261e338"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=SecureSign Root CA14,O=Cybertrust Japan Co.\\, Ltd.,C=JP",
+     "issuerName": "CN=SecureSign Root CA14,O=Cybertrust Japan Co.\\, Ltd.,C=JP",
+     "notValidAfter": "2045-04-08T07:06:19+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:4fa3126d8d3a11d1",
+   "name": "CN=GlobalSign Root R46,O=GlobalSign nv-sa,C=BE",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "4fa3126d8d3a11d1c4855a4f807cbad6cf919d3a5a88b03bea2c6372d93c40c9"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=GlobalSign Root R46,O=GlobalSign nv-sa,C=BE",
+     "issuerName": "CN=GlobalSign Root R46,O=GlobalSign nv-sa,C=BE",
+     "notValidAfter": "2046-03-20T00:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:4ff460d54b9c86da",
+   "name": "CN=USERTrust ECC Certification Authority,O=The USERTRUST Network,L=Jersey City,ST=New Jersey,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "4ff460d54b9c86dabfbcfc5712e0400d2bed3fbc4d4fbdaa86e06adcd2a9ad7a"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=USERTrust ECC Certification Authority,O=The USERTRUST Network,L=Jersey City,ST=New Jersey,C=US",
+     "issuerName": "CN=USERTrust ECC Certification Authority,O=The USERTRUST Network,L=Jersey City,ST=New Jersey,C=US",
+     "notValidAfter": "2038-01-18T23:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:513b2cecb810d4cd",
+   "name": "OU=Security Communication RootCA2,O=SECOM Trust Systems CO.\\,LTD.,C=JP",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "513b2cecb810d4cde5dd85391adfc6c2dd60d87bb736d2b521484aa47a0ebef6"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "OU=Security Communication RootCA2,O=SECOM Trust Systems CO.\\,LTD.,C=JP",
+     "issuerName": "OU=Security Communication RootCA2,O=SECOM Trust Systems CO.\\,LTD.,C=JP",
+     "notValidAfter": "2029-05-29T05:00:39+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:52f0e1c4e58ec629",
+   "name": "CN=COMODO RSA Certification Authority,O=COMODO CA Limited,L=Salford,ST=Greater Manchester,C=GB",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "52f0e1c4e58ec629291b60317f074671b85d7ea80d5b07273463534b32b40234"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=COMODO RSA Certification Authority,O=COMODO CA Limited,L=Salford,ST=Greater Manchester,C=GB",
+     "issuerName": "CN=COMODO RSA Certification Authority,O=COMODO CA Limited,L=Salford,ST=Greater Manchester,C=GB",
+     "notValidAfter": "2038-01-18T23:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:552f7bdcf1a7af9e",
+   "name": "CN=DigiCert Trusted Root G4,OU=www.digicert.com,O=DigiCert Inc,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "552f7bdcf1a7af9e6ce672017f4f12abf77240c78e761ac203d1d9d20ac89988"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=DigiCert Trusted Root G4,OU=www.digicert.com,O=DigiCert Inc,C=US",
+     "issuerName": "CN=DigiCert Trusted Root G4,OU=www.digicert.com,O=DigiCert Inc,C=US",
+     "notValidAfter": "2038-01-15T12:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:554153b13d2cf9dd",
+   "name": "CN=AC RAIZ FNMT-RCM SERVIDORES SEGUROS,2.5.4.97=VATES-Q2826004J,OU=Ceres,O=FNMT-RCM,C=ES",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "554153b13d2cf9ddb753bfbe1a4e0ae08d0aa4187058fe60a2b862b2e4b87bcb"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=AC RAIZ FNMT-RCM SERVIDORES SEGUROS,2.5.4.97=VATES-Q2826004J,OU=Ceres,O=FNMT-RCM,C=ES",
+     "issuerName": "CN=AC RAIZ FNMT-RCM SERVIDORES SEGUROS,2.5.4.97=VATES-Q2826004J,OU=Ceres,O=FNMT-RCM,C=ES",
+     "notValidAfter": "2043-12-20T09:37:33+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:55926084ec963a64",
+   "name": "CN=Actalis Authentication Root CA,O=Actalis S.p.A./03358520967,L=Milan,C=IT",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "55926084ec963a64b96e2abe01ce0ba86a64fbfebcc7aab5afc155b37fd76066"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Actalis Authentication Root CA,O=Actalis S.p.A./03358520967,L=Milan,C=IT",
+     "issuerName": "CN=Actalis Authentication Root CA,O=Actalis S.p.A./03358520967,L=Milan,C=IT",
+     "notValidAfter": "2030-09-22T11:22:02+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:568d6905a2c88708",
+   "name": "CN=Starfield Services Root Certificate Authority - G2,O=Starfield Technologies\\, Inc.,L=Scottsdale,ST=Arizona,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "568d6905a2c88708a4b3025190edcfedb1974a606a13c6e5290fcb2ae63edab5"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Starfield Services Root Certificate Authority - G2,O=Starfield Technologies\\, Inc.,L=Scottsdale,ST=Arizona,C=US",
+     "issuerName": "CN=Starfield Services Root Certificate Authority - G2,O=Starfield Technologies\\, Inc.,L=Scottsdale,ST=Arizona,C=US",
+     "notValidAfter": "2037-12-31T23:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:574df6931e278039",
+   "name": "CN=BJCA Global Root CA2,O=BEIJING CERTIFICATE AUTHORITY,C=CN",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "574df6931e278039667b720afdc1600fc27eb66dd3092979fb73856487212882"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=BJCA Global Root CA2,O=BEIJING CERTIFICATE AUTHORITY,C=CN",
+     "issuerName": "CN=BJCA Global Root CA2,O=BEIJING CERTIFICATE AUTHORITY,C=CN",
+     "notValidAfter": "2044-12-12T03:18:21+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:578af4ded0853f4e",
+   "name": "CN=Telekom Security TLS ECC Root 2020,O=Deutsche Telekom Security GmbH,C=DE",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "578af4ded0853f4e5998db4aeaf9cbea8d945f60b620a38d1a3c13b2bc7ba8e1"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Telekom Security TLS ECC Root 2020,O=Deutsche Telekom Security GmbH,C=DE",
+     "issuerName": "CN=Telekom Security TLS ECC Root 2020,O=Deutsche Telekom Security GmbH,C=DE",
+     "notValidAfter": "2045-08-25T23:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:57de0583efd2b26e",
+   "name": "CN=Autoridad de Certificacion Firmaprofesional CIF A62634068,C=ES",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "57de0583efd2b26e0361da99da9df4648def7ee8441c3b728afa9bcde0f9b26a"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Autoridad de Certificacion Firmaprofesional CIF A62634068,C=ES",
+     "issuerName": "CN=Autoridad de Certificacion Firmaprofesional CIF A62634068,C=ES",
+     "notValidAfter": "2036-05-05T15:22:07+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:59769007f7685d0f",
+   "name": "CN=TWCA Global Root CA,OU=Root CA,O=TAIWAN-CA,C=TW",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "59769007f7685d0fcd50872f9f95d5755a5b2b457d81f3692b610a98672f0e1b"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=TWCA Global Root CA,OU=Root CA,O=TAIWAN-CA,C=TW",
+     "issuerName": "CN=TWCA Global Root CA,OU=Root CA,O=TAIWAN-CA,C=TW",
+     "notValidAfter": "2030-12-31T15:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:5a2fc03f0c83b090",
+   "name": "CN=Hongkong Post Root CA 3,O=Hongkong Post,L=Hong Kong,ST=Hong Kong,C=HK",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "5a2fc03f0c83b090bbfa40604b0988446c7636183df9846e17101a447fb8efd6"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Hongkong Post Root CA 3,O=Hongkong Post,L=Hong Kong,ST=Hong Kong,C=HK",
+     "issuerName": "CN=Hongkong Post Root CA 3,O=Hongkong Post,L=Hong Kong,ST=Hong Kong,C=HK",
+     "notValidAfter": "2042-06-03T02:29:46+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:5c58468d55f58e49",
+   "name": "CN=Certum Trusted Network CA,OU=Certum Certification Authority,O=Unizeto Technologies S.A.,C=PL",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "5c58468d55f58e497e743982d2b50010b6d165374acf83a7d4a32db768c4408e"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Certum Trusted Network CA,OU=Certum Certification Authority,O=Unizeto Technologies S.A.,C=PL",
+     "issuerName": "CN=Certum Trusted Network CA,OU=Certum Certification Authority,O=Unizeto Technologies S.A.,C=PL",
+     "notValidAfter": "2029-12-31T12:07:37+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha1"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:5cc3d78e4e1d5e45",
+   "name": "CN=CFCA EV ROOT,O=China Financial Certification Authority,C=CN",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "5cc3d78e4e1d5e45547a04e6873e64f90cf9536d1ccc2ef800f355c4c5fd70fd"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=CFCA EV ROOT,O=China Financial Certification Authority,C=CN",
+     "issuerName": "CN=CFCA EV ROOT,O=China Financial Certification Authority,C=CN",
+     "notValidAfter": "2029-12-31T03:07:01+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:5d56499be4d2e08b",
+   "name": "CN=IdenTrust Commercial Root CA 1,O=IdenTrust,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "5d56499be4d2e08bcfcad08a3e38723d50503bde706948e42f55603019e528ae"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=IdenTrust Commercial Root CA 1,O=IdenTrust,C=US",
+     "issuerName": "CN=IdenTrust Commercial Root CA 1,O=IdenTrust,C=US",
+     "notValidAfter": "2034-01-16T18:12:23+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:657cfe2fa73faa38",
+   "name": "OU=certSIGN ROOT CA G2,O=CERTSIGN SA,C=RO",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "657cfe2fa73faa38462571f332a2363a46fce7020951710702cdfbb6eeda3305"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "OU=certSIGN ROOT CA G2,O=CERTSIGN SA,C=RO",
+     "issuerName": "OU=certSIGN ROOT CA G2,O=CERTSIGN SA,C=RO",
+     "notValidAfter": "2042-02-06T09:27:35+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:69729b8e15a86efc",
+   "name": "CN=ISRG Root X2,O=Internet Security Research Group,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "69729b8e15a86efc177a57afb7171dfc64add28c2fca8cf1507e34453ccb1470"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=ISRG Root X2,O=Internet Security Research Group,C=US",
+     "issuerName": "CN=ISRG Root X2,O=Internet Security Research Group,C=US",
+     "notValidAfter": "2040-09-17T16:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:6b328085625318aa",
+   "name": "CN=Certum EC-384 CA,OU=Certum Certification Authority,O=Asseco Data Systems S.A.,C=PL",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "6b328085625318aa50d173c98d8bda09d57e27413d114cf787a0f5d06c030cf6"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Certum EC-384 CA,OU=Certum Certification Authority,O=Asseco Data Systems S.A.,C=PL",
+     "issuerName": "CN=Certum EC-384 CA,OU=Certum Certification Authority,O=Asseco Data Systems S.A.,C=PL",
+     "notValidAfter": "2043-03-26T07:24:54+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:6b9c08e86eb0f767",
+   "name": "CN=OISTE WISeKey Global Root GB CA,OU=OISTE Foundation Endorsed,O=WISeKey,C=CH",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "6b9c08e86eb0f767cfad65cd98b62149e5494a67f5845e7bd1ed019f27b86bd6"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=OISTE WISeKey Global Root GB CA,OU=OISTE Foundation Endorsed,O=WISeKey,C=CH",
+     "issuerName": "CN=OISTE WISeKey Global Root GB CA,OU=OISTE Foundation Endorsed,O=WISeKey,C=CH",
+     "notValidAfter": "2039-12-01T15:10:31+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:6c61dac3a2def031",
+   "name": "CN=NetLock Arany (Class Gold) F\u0151tan\u00fas\u00edtv\u00e1ny,OU=Tan\u00fas\u00edtv\u00e1nykiad\u00f3k (Certification Services),O=NetLock Kft.,L=Budapest,C=HU",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "6c61dac3a2def031506be036d2a6fe401994fbd13df9c8d466599274c446ec98"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=NetLock Arany (Class Gold) F\u0151tan\u00fas\u00edtv\u00e1ny,OU=Tan\u00fas\u00edtv\u00e1nykiad\u00f3k (Certification Services),O=NetLock Kft.,L=Budapest,C=HU",
+     "issuerName": "CN=NetLock Arany (Class Gold) F\u0151tan\u00fas\u00edtv\u00e1ny,OU=Tan\u00fas\u00edtv\u00e1nykiad\u00f3k (Certification Services),O=NetLock Kft.,L=Budapest,C=HU",
+     "notValidAfter": "2028-12-06T15:08:21+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:73c176434f1bc6d5",
+   "name": "CN=Entrust Root Certification Authority,OU=(c) 2006 Entrust\\, Inc.,OU=www.entrust.net/CPS is incorporated by reference,O=Entrust\\, Inc.,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "73c176434f1bc6d5adf45b0e76e727287c8de57616c1e6e6141a2b2cbc7d8e4c"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Entrust Root Certification Authority,OU=(c) 2006 Entrust\\, Inc.,OU=www.entrust.net/CPS is incorporated by reference,O=Entrust\\, Inc.,C=US",
+     "issuerName": "CN=Entrust Root Certification Authority,OU=(c) 2006 Entrust\\, Inc.,OU=www.entrust.net/CPS is incorporated by reference,O=Entrust\\, Inc.,C=US",
+     "notValidAfter": "2026-11-27T20:53:42+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha1"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:77b82cd8644c4305",
+   "name": "CN=Certainly Root R1,O=Certainly,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "77b82cd8644c4305f7acc5cb156b45675004033d51c60c6202a8e0c33467d3a0"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Certainly Root R1,O=Certainly,C=US",
+     "issuerName": "CN=Certainly Root R1,O=Certainly,C=US",
+     "notValidAfter": "2046-04-01T00:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:7bb647a62aeeac88",
+   "name": "CN=Sectigo Public Server Authentication Root R46,O=Sectigo Limited,C=GB",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "7bb647a62aeeac88bf257aa522d01ffea395e0ab45c73f93f65654ec38f25a06"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Sectigo Public Server Authentication Root R46,O=Sectigo Limited,C=GB",
+     "issuerName": "CN=Sectigo Public Server Authentication Root R46,O=Sectigo Limited,C=GB",
+     "notValidAfter": "2046-03-21T23:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:7d05ebb682339f8c",
+   "name": "CN=DigiCert Assured ID Root G2,OU=www.digicert.com,O=DigiCert Inc,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "7d05ebb682339f8c9451ee094eebfefa7953a114edb2f44949452fab7d2fc185"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=DigiCert Assured ID Root G2,OU=www.digicert.com,O=DigiCert Inc,C=US",
+     "issuerName": "CN=DigiCert Assured ID Root G2,OU=www.digicert.com,O=DigiCert Inc,C=US",
+     "notValidAfter": "2038-01-15T12:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:7e37cb8b4c47090c",
+   "name": "CN=DigiCert Assured ID Root G3,OU=www.digicert.com,O=DigiCert Inc,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "7e37cb8b4c47090cab36551ba6f45db840680fba166a952db100717f43053fc2"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=DigiCert Assured ID Root G3,OU=www.digicert.com,O=DigiCert Inc,C=US",
+     "issuerName": "CN=DigiCert Assured ID Root G3,OU=www.digicert.com,O=DigiCert Inc,C=US",
+     "notValidAfter": "2038-01-15T12:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:81a9088ea59fb364",
+   "name": "C=DE,O=Atos,CN=Atos TrustedRoot Root CA RSA TLS 2021",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "81a9088ea59fb364c548a6f85559099b6f0405efbf18e5324ec9f457ba00112f"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "C=DE,O=Atos,CN=Atos TrustedRoot Root CA RSA TLS 2021",
+     "issuerName": "C=DE,O=Atos,CN=Atos TrustedRoot Root CA RSA TLS 2021",
+     "notValidAfter": "2041-04-17T09:21:09+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:8560f91c3624daba",
+   "name": "CN=OISTE WISeKey Global Root GC CA,OU=OISTE Foundation Endorsed,O=WISeKey,C=CH",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "8560f91c3624daba9570b5fea0dbe36ff11a8323be9486854fb3f34a5571198d"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=OISTE WISeKey Global Root GC CA,OU=OISTE Foundation Endorsed,O=WISeKey,C=CH",
+     "issuerName": "CN=OISTE WISeKey Global Root GC CA,OU=OISTE Foundation Endorsed,O=WISeKey,C=CH",
+     "notValidAfter": "2042-05-09T09:58:33+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:85666a562ee0be5c",
+   "name": "CN=SSL.com Root Certification Authority RSA,O=SSL Corporation,L=Houston,ST=Texas,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "85666a562ee0be5ce925c1d8890a6f76a87ec16d4d7d5f29ea7419cf20123b69"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=SSL.com Root Certification Authority RSA,O=SSL Corporation,L=Houston,ST=Texas,C=US",
+     "issuerName": "CN=SSL.com Root Certification Authority RSA,O=SSL Corporation,L=Houston,ST=Texas,C=US",
+     "notValidAfter": "2041-02-12T17:39:39+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:86a1ecba089c4a8d",
+   "name": "CN=emSign ECC Root CA - G3,O=eMudhra Technologies Limited,OU=emSign PKI,C=IN",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "86a1ecba089c4a8d3bbe2734c612ba341d813e043cf9e8a862cd5c57a36bbe6b"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=emSign ECC Root CA - G3,O=eMudhra Technologies Limited,OU=emSign PKI,C=IN",
+     "issuerName": "CN=emSign ECC Root CA - G3,O=eMudhra Technologies Limited,OU=emSign PKI,C=IN",
+     "notValidAfter": "2043-02-18T18:30:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:88ef81de202eb018",
+   "name": "CN=QuoVadis Root CA 3 G3,O=QuoVadis Limited,C=BM",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "88ef81de202eb018452e43f864725cea5fbd1fc2d9d205730709c5d8b8690f46"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=QuoVadis Root CA 3 G3,O=QuoVadis Limited,C=BM",
+     "issuerName": "CN=QuoVadis Root CA 3 G3,O=QuoVadis Limited,C=BM",
+     "notValidAfter": "2042-01-12T20:26:32+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:88f438dcf8ffd1fa",
+   "name": "CN=NAVER Global Root Certification Authority,O=NAVER BUSINESS PLATFORM Corp.,C=KR",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "88f438dcf8ffd1fa8f429115ffe5f82ae1e06e0c70c375faad717b34a49e7265"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=NAVER Global Root Certification Authority,O=NAVER BUSINESS PLATFORM Corp.,C=KR",
+     "issuerName": "CN=NAVER Global Root Certification Authority,O=NAVER BUSINESS PLATFORM Corp.,C=KR",
+     "notValidAfter": "2037-08-18T23:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:8a71de6559336f42",
+   "name": "CN=vTrus Root CA,O=iTrusChina Co.\\,Ltd.,C=CN",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "8a71de6559336f426c26e53880d00d88a18da4c6a91f0dcb6194e206c5c96387"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=vTrus Root CA,O=iTrusChina Co.\\,Ltd.,C=CN",
+     "issuerName": "CN=vTrus Root CA,O=iTrusChina Co.\\,Ltd.,C=CN",
+     "notValidAfter": "2043-07-31T07:24:05+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:8a866fd1b276b57e",
+   "name": "CN=QuoVadis Root CA 1 G3,O=QuoVadis Limited,C=BM",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "8a866fd1b276b57e578e921c65828a2bed58e9f2f288054134b7f1f4bfc9cc74"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=QuoVadis Root CA 1 G3,O=QuoVadis Limited,C=BM",
+     "issuerName": "CN=QuoVadis Root CA 1 G3,O=QuoVadis Limited,C=BM",
+     "notValidAfter": "2042-01-12T17:27:44+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:8e8221b2e7d40078",
+   "name": "CN=D-TRUST EV Root CA 2 2023,O=D-Trust GmbH,C=DE",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "8e8221b2e7d4007836a1672f0dcc299c33bc07d316f132fa1a206d587150f1ce"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=D-TRUST EV Root CA 2 2023,O=D-Trust GmbH,C=DE",
+     "issuerName": "CN=D-TRUST EV Root CA 2 2023,O=D-Trust GmbH,C=DE",
+     "notValidAfter": "2038-05-09T09:10:32+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha512"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:8ecde6884f3d87b1",
+   "name": "CN=Amazon Root CA 1,O=Amazon,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "8ecde6884f3d87b1125ba31ac3fcb13d7016de7f57cc904fe1cb97c6ae98196e"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Amazon Root CA 1,O=Amazon,C=US",
+     "issuerName": "CN=Amazon Root CA 1,O=Amazon,C=US",
+     "notValidAfter": "2038-01-17T00:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:8faf7d2e2cb4709b",
+   "name": "CN=SSL.com TLS RSA Root CA 2022,O=SSL Corporation,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "8faf7d2e2cb4709bb8e0b33666bf75a5dd45b5de480f8ea8d4bfe6bebc17f2ed"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=SSL.com TLS RSA Root CA 2022,O=SSL Corporation,C=US",
+     "issuerName": "CN=SSL.com TLS RSA Root CA 2022,O=SSL Corporation,C=US",
+     "notValidAfter": "2046-08-19T16:34:21+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:8fe4fb0af93a4d0d",
+   "name": "CN=QuoVadis Root CA 2 G3,O=QuoVadis Limited,C=BM",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "8fe4fb0af93a4d0d67db0bebb23e37c71bf325dcbcdd240ea04daf58b47e1840"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=QuoVadis Root CA 2 G3,O=QuoVadis Limited,C=BM",
+     "issuerName": "CN=QuoVadis Root CA 2 G3,O=QuoVadis Limited,C=BM",
+     "notValidAfter": "2042-01-12T18:59:32+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:91e2f5788d5810eb",
+   "name": "CN=T-TeleSec GlobalRoot Class 2,OU=T-Systems Trust Center,O=T-Systems Enterprise Services GmbH,C=DE",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "91e2f5788d5810eba7ba58737de1548a8ecacd014598bc0b143e041b17052552"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=T-TeleSec GlobalRoot Class 2,OU=T-Systems Trust Center,O=T-Systems Enterprise Services GmbH,C=DE",
+     "issuerName": "CN=T-TeleSec GlobalRoot Class 2,OU=T-Systems Trust Center,O=T-Systems Enterprise Services GmbH,C=DE",
+     "notValidAfter": "2033-10-01T23:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:96bcec06264976f3",
+   "name": "CN=ISRG Root X1,O=Internet Security Research Group,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "96bcec06264976f37460779acf28c5a7cfe8a3c0aae11a8ffcee05c0bddf08c6"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=ISRG Root X1,O=Internet Security Research Group,C=US",
+     "issuerName": "CN=ISRG Root X1,O=Internet Security Research Group,C=US",
+     "notValidAfter": "2035-06-04T11:04:38+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:9a114025197c5bb9",
+   "name": "CN=Buypass Class 2 Root CA,O=Buypass AS-983163327,C=NO",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "9a114025197c5bb95d94e63d55cd43790847b646b23cdf11ada4a00eff15fb48"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Buypass Class 2 Root CA,O=Buypass AS-983163327,C=NO",
+     "issuerName": "CN=Buypass Class 2 Root CA,O=Buypass AS-983163327,C=NO",
+     "notValidAfter": "2040-10-26T08:38:03+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:9a6ec012e1a7da9d",
+   "name": "C=ES,O=ACCV,OU=PKIACCV,CN=ACCVRAIZ1",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "9a6ec012e1a7da9dbe34194d478ad7c0db1822fb071df12981496ed104384113"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "C=ES,O=ACCV,OU=PKIACCV,CN=ACCVRAIZ1",
+     "issuerName": "C=ES,O=ACCV,OU=PKIACCV,CN=ACCVRAIZ1",
+     "notValidAfter": "2030-12-31T09:37:37+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha1"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:9ae36232a5189ffd",
+   "name": "CN=OISTE Server Root RSA G1,O=OISTE Foundation,C=CH",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "9ae36232a5189ffddb353dfd26520c015395d22777dac59db57b98c089a651e6"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=OISTE Server Root RSA G1,O=OISTE Foundation,C=CH",
+     "issuerName": "CN=OISTE Server Root RSA G1,O=OISTE Foundation,C=CH",
+     "notValidAfter": "2048-05-24T14:37:15+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:9bea11c976fe0147",
+   "name": "CN=UCA Global G2 Root,O=UniTrust,C=CN",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "9bea11c976fe014764c1be56a6f914b5a560317abd9988393382e5161aa0493c"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=UCA Global G2 Root,O=UniTrust,C=CN",
+     "issuerName": "CN=UCA Global G2 Root,O=UniTrust,C=CN",
+     "notValidAfter": "2040-12-31T00:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:a040929a02ce53b4",
+   "name": "CN=Hellenic Academic and Research Institutions RootCA 2015,O=Hellenic Academic and Research Institutions Cert. Authority,L=Athens,C=GR",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "a040929a02ce53b4acf4f2ffc6981ce4496f755e6d45fe0b2a692bcd52523f36"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Hellenic Academic and Research Institutions RootCA 2015,O=Hellenic Academic and Research Institutions Cert. Authority,L=Athens,C=GR",
+     "issuerName": "CN=Hellenic Academic and Research Institutions RootCA 2015,O=Hellenic Academic and Research Institutions Cert. Authority,L=Athens,C=GR",
+     "notValidAfter": "2040-06-30T10:11:21+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:a1339d33281a0b56",
+   "name": "CN=SZAFIR ROOT CA2,O=Krajowa Izba Rozliczeniowa S.A.,C=PL",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "a1339d33281a0b56e557d3d32b1ce7f9367eb094bd5fa72a7e5004c8ded7cafe"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=SZAFIR ROOT CA2,O=Krajowa Izba Rozliczeniowa S.A.,C=PL",
+     "issuerName": "CN=SZAFIR ROOT CA2,O=Krajowa Izba Rozliczeniowa S.A.,C=PL",
+     "notValidAfter": "2035-10-19T07:43:30+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:b085d70b964f191a",
+   "name": "CN=GlobalSign,O=GlobalSign,OU=GlobalSign ECC Root CA - R4",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "b085d70b964f191a73e4af0d54ae7a0e07aafdaf9b71dd0862138ab7325a24a2"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=GlobalSign,O=GlobalSign,OU=GlobalSign ECC Root CA - R4",
+     "issuerName": "CN=GlobalSign,O=GlobalSign,OU=GlobalSign ECC Root CA - R4",
+     "notValidAfter": "2038-01-19T03:14:07+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "256"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:b2fae53e14ccd7ab",
+   "name": "C=DE,O=Atos,CN=Atos TrustedRoot Root CA ECC TLS 2021",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "b2fae53e14ccd7ab9212064701ae279c1d8988facb775fa8a008914e663988a8"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "C=DE,O=Atos,CN=Atos TrustedRoot Root CA ECC TLS 2021",
+     "issuerName": "C=DE,O=Atos,CN=Atos TrustedRoot Root CA ECC TLS 2021",
+     "notValidAfter": "2041-04-17T09:26:22+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:b4585f22e4ac756a",
+   "name": "CN=Certainly Root E1,O=Certainly,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "b4585f22e4ac756a4e8612a1361c5d9d031a93fd84febb778fa3068b0fc42dc2"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Certainly Root E1,O=Certainly,C=US",
+     "issuerName": "CN=Certainly Root E1,O=Certainly,C=US",
+     "notValidAfter": "2046-04-01T00:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:b49141502d00663d",
+   "name": "CN=e-Szigno TLS Root CA 2023,2.5.4.97=VATHU-23584497,O=Microsec Ltd.,L=Budapest,C=HU",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "b49141502d00663d740f2e7ec340c52800962666121a36d09cf7dd2b90384fb4"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=e-Szigno TLS Root CA 2023,2.5.4.97=VATHU-23584497,O=Microsec Ltd.,L=Budapest,C=HU",
+     "issuerName": "CN=e-Szigno TLS Root CA 2023,2.5.4.97=VATHU-23584497,O=Microsec Ltd.,L=Budapest,C=HU",
+     "notValidAfter": "2038-07-17T14:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "521"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha512"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:b676f2eddae8775c",
+   "name": "CN=Certum Trusted Network CA 2,OU=Certum Certification Authority,O=Unizeto Technologies S.A.,C=PL",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "b676f2eddae8775cd36cb0f63cd1d4603961f49e6265ba013a2f0307b6d0b804"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Certum Trusted Network CA 2,OU=Certum Certification Authority,O=Unizeto Technologies S.A.,C=PL",
+     "issuerName": "CN=Certum Trusted Network CA 2,OU=Certum Certification Authority,O=Unizeto Technologies S.A.,C=PL",
+     "notValidAfter": "2046-10-06T08:39:56+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha512"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:bc4d809b15189d78",
+   "name": "CN=emSign ECC Root CA - C3,O=eMudhra Inc,OU=emSign PKI,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "bc4d809b15189d78db3e1d8cf4f9726a795da1643ca5f1358e1ddb0edc0d7eb3"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=emSign ECC Root CA - C3,O=eMudhra Inc,OU=emSign PKI,C=US",
+     "issuerName": "CN=emSign ECC Root CA - C3,O=eMudhra Inc,OU=emSign PKI,C=US",
+     "notValidAfter": "2043-02-18T18:30:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:be4b56cb5056c013",
+   "name": "CN=TrustAsia Global Root CA G4,O=TrustAsia Technologies\\, Inc.,C=CN",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "be4b56cb5056c0136a526df444508daa36a0b54f42e4ac38f72af470e479654c"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=TrustAsia Global Root CA G4,O=TrustAsia Technologies\\, Inc.,C=CN",
+     "issuerName": "CN=TrustAsia Global Root CA G4,O=TrustAsia Technologies\\, Inc.,C=CN",
+     "notValidAfter": "2046-05-19T02:10:22+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:beb00b30839b9bc3",
+   "name": "CN=e-Szigno Root CA 2017,2.5.4.97=VATHU-23584497,O=Microsec Ltd.,L=Budapest,C=HU",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "beb00b30839b9bc32c32e4447905950641f26421b15ed089198b518ae2ea1b99"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=e-Szigno Root CA 2017,2.5.4.97=VATHU-23584497,O=Microsec Ltd.,L=Budapest,C=HU",
+     "issuerName": "CN=e-Szigno Root CA 2017,2.5.4.97=VATHU-23584497,O=Microsec Ltd.,L=Budapest,C=HU",
+     "notValidAfter": "2042-08-22T12:07:06+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "256"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:bfd88fe1101c41ae",
+   "name": "CN=TWCA Root Certification Authority,OU=Root CA,O=TAIWAN-CA,C=TW",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "bfd88fe1101c41ae3e801bf8be56350ee9bad1a6b9bd515edc5c6d5b8711ac44"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=TWCA Root Certification Authority,OU=Root CA,O=TAIWAN-CA,C=TW",
+     "issuerName": "CN=TWCA Root Certification Authority,OU=Root CA,O=TAIWAN-CA,C=TW",
+     "notValidAfter": "2030-12-31T15:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha1"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:bfff8fd04433487d",
+   "name": "CN=GDCA TrustAUTH R5 ROOT,O=GUANG DONG CERTIFICATE AUTHORITY CO.\\,LTD.,C=CN",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "bfff8fd04433487d6a8aa60c1a29767a9fc2bbb05e420f713a13b992891d3893"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=GDCA TrustAUTH R5 ROOT,O=GUANG DONG CERTIFICATE AUTHORITY CO.\\,LTD.,C=CN",
+     "issuerName": "CN=GDCA TrustAUTH R5 ROOT,O=GUANG DONG CERTIFICATE AUTHORITY CO.\\,LTD.,C=CN",
+     "notValidAfter": "2040-12-31T15:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:c0076b9ef0531fb1",
+   "name": "CN=TrustAsia TLS ECC Root CA,O=TrustAsia Technologies\\, Inc.,C=CN",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "c0076b9ef0531fb1a656d67c4ebe97cd5dbaa41ef44598acc2489878c92d8711"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=TrustAsia TLS ECC Root CA,O=TrustAsia Technologies\\, Inc.,C=CN",
+     "issuerName": "CN=TrustAsia TLS ECC Root CA,O=TrustAsia Technologies\\, Inc.,C=CN",
+     "notValidAfter": "2044-05-15T05:41:55+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:c0a6f4dc63a24bfd",
+   "name": "OU=ePKI Root Certification Authority,O=Chunghwa Telecom Co.\\, Ltd.,C=TW",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "c0a6f4dc63a24bfdcf54ef2a6a082a0a72de35803e2ff5ff527ae5d87206dfd5"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "OU=ePKI Root Certification Authority,O=Chunghwa Telecom Co.\\, Ltd.,C=TW",
+     "issuerName": "OU=ePKI Root Certification Authority,O=Chunghwa Telecom Co.\\, Ltd.,C=TW",
+     "notValidAfter": "2034-12-20T02:31:27+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha1"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:c32ffd9f46f936d1",
+   "name": "CN=SSL.com TLS ECC Root CA 2022,O=SSL Corporation,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "c32ffd9f46f936d16c3673990959434b9ad60aafbb9e7cf33654f144cc1ba143"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=SSL.com TLS ECC Root CA 2022,O=SSL Corporation,C=US",
+     "issuerName": "CN=SSL.com TLS ECC Root CA 2022,O=SSL Corporation,C=US",
+     "notValidAfter": "2046-08-19T16:33:47+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:c741f70f4b2a8d88",
+   "name": "CN=Microsoft RSA Root Certificate Authority 2017,O=Microsoft Corporation,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "c741f70f4b2a8d88bf2e71c14122ef53ef10eba0cfa5e64cfa20f418853073e0"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Microsoft RSA Root Certificate Authority 2017,O=Microsoft Corporation,C=US",
+     "issuerName": "CN=Microsoft RSA Root Certificate Authority 2017,O=Microsoft Corporation,C=US",
+     "notValidAfter": "2042-07-18T23:00:23+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:c90f26f0fb1b4018",
+   "name": "CN=Sectigo Public Server Authentication Root E46,O=Sectigo Limited,C=GB",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "c90f26f0fb1b4018b22227519b5ca2b53e2ca5b3be5cf18efe1bef47380c5383"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Sectigo Public Server Authentication Root E46,O=Sectigo Limited,C=GB",
+     "issuerName": "CN=Sectigo Public Server Authentication Root E46,O=Sectigo Limited,C=GB",
+     "notValidAfter": "2046-03-21T23:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:cb3ccbb76031e5e0",
+   "name": "CN=DigiCert Global Root G2,OU=www.digicert.com,O=DigiCert Inc,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "cb3ccbb76031e5e0138f8dd39a23f9de47ffc35e43c1144cea27d46a5ab1cb5f"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=DigiCert Global Root G2,OU=www.digicert.com,O=DigiCert Inc,C=US",
+     "issuerName": "CN=DigiCert Global Root G2,OU=www.digicert.com,O=DigiCert Inc,C=US",
+     "notValidAfter": "2038-01-15T12:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:cbb522d7b7f127ad",
+   "name": "CN=GlobalSign,O=GlobalSign,OU=GlobalSign Root CA - R3",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "cbb522d7b7f127ad6a0113865bdf1cd4102e7d0759af635a7cf4720dc963c53b"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=GlobalSign,O=GlobalSign,OU=GlobalSign Root CA - R3",
+     "issuerName": "CN=GlobalSign,O=GlobalSign,OU=GlobalSign Root CA - R3",
+     "notValidAfter": "2029-03-18T10:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:cbb9c44d84b8043e",
+   "name": "CN=GlobalSign Root E46,O=GlobalSign nv-sa,C=BE",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "cbb9c44d84b8043e1050ea31a69f514955d7bfd2e2c6b49301019ad61d9f5058"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=GlobalSign Root E46,O=GlobalSign nv-sa,C=BE",
+     "issuerName": "CN=GlobalSign Root E46,O=GlobalSign nv-sa,C=BE",
+     "notValidAfter": "2046-03-20T00:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:d43af9b35473755c",
+   "name": "CN=UCA Extended Validation Root,O=UniTrust,C=CN",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "d43af9b35473755c9684fc06d7d8cb70ee5c28e773fb294eb41ee71722924d24"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=UCA Extended Validation Root,O=UniTrust,C=CN",
+     "issuerName": "CN=UCA Extended Validation Root,O=UniTrust,C=CN",
+     "notValidAfter": "2038-12-31T00:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:d48d3d23eedb50a4",
+   "name": "CN=Certigna Root CA,OU=0002 48146308100036,O=Dhimyotis,C=FR",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "d48d3d23eedb50a459e55197601c27774b9d7b18c94d5a059511a10250b93168"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Certigna Root CA,OU=0002 48146308100036,O=Dhimyotis,C=FR",
+     "issuerName": "CN=Certigna Root CA,OU=0002 48146308100036,O=Dhimyotis,C=FR",
+     "notValidAfter": "2033-10-01T08:32:27+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:d947432abde7b7fa",
+   "name": "CN=GTS Root R1,O=Google Trust Services LLC,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "d947432abde7b7fa90fc2e6b59101b1280e0e1c7e4e40fa3c6887fff57a7f4cf"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=GTS Root R1,O=Google Trust Services LLC,C=US",
+     "issuerName": "CN=GTS Root R1,O=Google Trust Services LLC,C=US",
+     "notValidAfter": "2036-06-22T00:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:d95d0e8eda79525b",
+   "name": "CN=HARICA TLS RSA Root CA 2021,O=Hellenic Academic and Research Institutions CA,C=GR",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "d95d0e8eda79525bf9beb11b14d2100d3294985f0c62d9fabd9cd999eccb7b1d"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=HARICA TLS RSA Root CA 2021,O=Hellenic Academic and Research Institutions CA,C=GR",
+     "issuerName": "CN=HARICA TLS RSA Root CA 2021,O=Hellenic Academic and Research Institutions CA,C=GR",
+     "notValidAfter": "2045-02-13T10:55:37+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:e0d3226aeb1163c2",
+   "name": "CN=TrustAsia Global Root CA G3,O=TrustAsia Technologies\\, Inc.,C=CN",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "e0d3226aeb1163c2e48ff9be3b50b4c6431be7bb1eacc5c36b5d5ec509039a08"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=TrustAsia Global Root CA G3,O=TrustAsia Technologies\\, Inc.,C=CN",
+     "issuerName": "CN=TrustAsia Global Root CA G3,O=TrustAsia Technologies\\, Inc.,C=CN",
+     "notValidAfter": "2046-05-19T02:10:19+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:e23d4a036d7b70e9",
+   "name": "CN=CA Disig Root R2,O=Disig a.s.,L=Bratislava,C=SK",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "e23d4a036d7b70e9f595b1422079d2b91edfbb1fb651a0633eaa8a9dc5f80703"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=CA Disig Root R2,O=Disig a.s.,L=Bratislava,C=SK",
+     "issuerName": "CN=CA Disig Root R2,O=Disig a.s.,L=Bratislava,C=SK",
+     "notValidAfter": "2042-07-19T09:15:30+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:e35d28419ed02025",
+   "name": "CN=Amazon Root CA 4,O=Amazon,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "e35d28419ed02025cfa69038cd623962458da5c695fbdea3c22b0bfb25897092"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Amazon Root CA 4,O=Amazon,C=US",
+     "issuerName": "CN=Amazon Root CA 4,O=Amazon,C=US",
+     "notValidAfter": "2040-05-26T00:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:e59aaa816009c22b",
+   "name": "CN=D-TRUST BR Root CA 1 2020,O=D-Trust GmbH,C=DE",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "e59aaa816009c22bff5b25bad37df306f049797c1f81d85ab089e657bd8f0044"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=D-TRUST BR Root CA 1 2020,O=D-Trust GmbH,C=DE",
+     "issuerName": "CN=D-TRUST BR Root CA 1 2020,O=D-Trust GmbH,C=DE",
+     "notValidAfter": "2035-02-11T09:44:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:e74fbda55bd564c4",
+   "name": "CN=Security Communication ECC RootCA1,O=SECOM Trust Systems CO.\\,LTD.,C=JP",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "e74fbda55bd564c473a36b441aa799c8a68e077440e8288b9fa1e50e4bbaca11"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Security Communication ECC RootCA1,O=SECOM Trust Systems CO.\\,LTD.,C=JP",
+     "issuerName": "CN=Security Communication ECC RootCA1,O=SECOM Trust Systems CO.\\,LTD.,C=JP",
+     "notValidAfter": "2038-01-18T05:15:28+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:e778f0f095fe8437",
+   "name": "CN=SecureSign Root CA15,O=Cybertrust Japan Co.\\, Ltd.,C=JP",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "e778f0f095fe843729cd1a0082179e5314a9c291442805e1fb1d8fb6b8886c3a"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=SecureSign Root CA15,O=Cybertrust Japan Co.\\, Ltd.,C=JP",
+     "issuerName": "CN=SecureSign Root CA15,O=Cybertrust Japan Co.\\, Ltd.,C=JP",
+     "notValidAfter": "2045-04-08T08:32:56+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:e793c9b02fd8aa13",
+   "name": "CN=USERTrust RSA Certification Authority,O=The USERTRUST Network,L=Jersey City,ST=New Jersey,C=US",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "e793c9b02fd8aa13e21c31228accb08119643b749c898964b1746d46c3d4cbd2"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=USERTrust RSA Certification Authority,O=The USERTRUST Network,L=Jersey City,ST=New Jersey,C=US",
+     "issuerName": "CN=USERTrust RSA Certification Authority,O=The USERTRUST Network,L=Jersey City,ST=New Jersey,C=US",
+     "notValidAfter": "2038-01-18T23:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:ebc5570c29018c4d",
+   "name": "OU=AC RAIZ FNMT-RCM,O=FNMT-RCM,C=ES",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "ebc5570c29018c4d67b1aa127baf12f703b4611ebc17b7dab5573894179b93fa"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "OU=AC RAIZ FNMT-RCM,O=FNMT-RCM,C=ES",
+     "issuerName": "OU=AC RAIZ FNMT-RCM,O=FNMT-RCM,C=ES",
+     "notValidAfter": "2030-01-01T00:00:00+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:edf7ebbca27a2a38",
+   "name": "CN=Buypass Class 3 Root CA,O=Buypass AS-983163327,C=NO",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "edf7ebbca27a2a384d387b7d4010c666e2edb4843e4c29b4ae1d5b9332e6b24d"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Buypass Class 3 Root CA,O=Buypass AS-983163327,C=NO",
+     "issuerName": "CN=Buypass Class 3 Root CA,O=Buypass AS-983163327,C=NO",
+     "notValidAfter": "2040-10-26T08:28:58+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:eec5496b988ce986",
+   "name": "CN=D-TRUST Root Class 3 CA 2 EV 2009,O=D-Trust GmbH,C=DE",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "eec5496b988ce98625b934092eec2908bed0b0f316c2d4730c84eaf1f3d34881"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=D-TRUST Root Class 3 CA 2 EV 2009,O=D-Trust GmbH,C=DE",
+     "issuerName": "CN=D-TRUST Root Class 3 CA 2 EV 2009,O=D-Trust GmbH,C=DE",
+     "notValidAfter": "2029-11-05T08:50:46+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:eec997c0c30f216f",
+   "name": "CN=OISTE Server Root ECC G1,O=OISTE Foundation,C=CH",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "eec997c0c30f216f7e3b8b307d2bae42412d753fc8219dafd1520b2572850f49"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=OISTE Server Root ECC G1,O=OISTE Foundation,C=CH",
+     "issuerName": "CN=OISTE Server Root ECC G1,O=OISTE Foundation,C=CH",
+     "notValidAfter": "2048-05-24T14:42:27+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "EC"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "384"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:efc65cadbb59adb6",
+   "name": "CN=Telekom Security TLS RSA Root 2023,O=Deutsche Telekom Security GmbH,C=DE",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "efc65cadbb59adb6efe84da22311b35624b71b3b1ea0da8b6655174ec8978646"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Telekom Security TLS RSA Root 2023,O=Deutsche Telekom Security GmbH,C=DE",
+     "issuerName": "CN=Telekom Security TLS RSA Root 2023,O=Deutsche Telekom Security GmbH,C=DE",
+     "notValidAfter": "2048-03-27T23:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha384"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:f015ce3cc239bfef",
+   "name": "CN=HiPKI Root CA - G1,O=Chunghwa Telecom Co.\\, Ltd.,C=TW",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "f015ce3cc239bfef064be9f1d2c417e1a0264a0a94be1f0c8d121864eb6949cc"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=HiPKI Root CA - G1,O=Chunghwa Telecom Co.\\, Ltd.,C=TW",
+     "issuerName": "CN=HiPKI Root CA - G1,O=Chunghwa Telecom Co.\\, Ltd.,C=TW",
+     "notValidAfter": "2037-12-31T15:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:f356bea244b7a91e",
+   "name": "C=DE,O=Atos,CN=Atos TrustedRoot 2011",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "f356bea244b7a91eb35d53ca9ad7864ace018e2d35d5f8f96ddf68a6f41aa474"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "C=DE,O=Atos,CN=Atos TrustedRoot 2011",
+     "issuerName": "C=DE,O=Atos,CN=Atos TrustedRoot 2011",
+     "notValidAfter": "2030-12-31T23:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:f3896f88fe7c0a88",
+   "name": "CN=BJCA Global Root CA1,O=BEIJING CERTIFICATE AUTHORITY,C=CN",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "f3896f88fe7c0a882766a7fa6ad2749fb57a7f3e98fb769c1fa7b09c2c44d5ae"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=BJCA Global Root CA1,O=BEIJING CERTIFICATE AUTHORITY,C=CN",
+     "issuerName": "CN=BJCA Global Root CA1,O=BEIJING CERTIFICATE AUTHORITY,C=CN",
+     "notValidAfter": "2044-12-12T03:16:17+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:fb8fec759169b910",
+   "name": "CN=ANF Secure Server Root CA,OU=ANF CA Raiz,O=ANF Autoridad de Certificacion,C=ES,2.5.4.5=G63287510",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "fb8fec759169b9106b1e511644c618c51304373f6c0643088d8beffd1b997599"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=ANF Secure Server Root CA,OU=ANF CA Raiz,O=ANF Autoridad de Certificacion,C=ES,2.5.4.5=G63287510",
+     "issuerName": "CN=ANF Secure Server Root CA,OU=ANF CA Raiz,O=ANF Autoridad de Certificacion,C=ES,2.5.4.5=G63287510",
+     "notValidAfter": "2039-08-30T10:00:38+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:fd73dad31c644ff1",
+   "name": "CN=T-TeleSec GlobalRoot Class 3,OU=T-Systems Trust Center,O=T-Systems Enterprise Services GmbH,C=DE",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "fd73dad31c644ff1b43bef0ccdda96710b9cd9875eca7e31707af3e96d522bbd"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=T-TeleSec GlobalRoot Class 3,OU=T-Systems Trust Center,O=T-Systems Enterprise Services GmbH,C=DE",
+     "issuerName": "CN=T-TeleSec GlobalRoot Class 3,OU=T-Systems Trust Center,O=T-Systems Enterprise Services GmbH,C=DE",
+     "notValidAfter": "2033-10-01T23:59:59+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "2048"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha256"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "cert:fe7696573855773e",
+   "name": "CN=Certum Trusted Root CA,OU=Certum Certification Authority,O=Asseco Data Systems S.A.,C=PL",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "fe7696573855773e37a95e7ad4d9cc96c30157c15d31765ba9b15704e1ae78fd"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "certificate",
+    "certificateProperties": {
+     "subjectName": "CN=Certum Trusted Root CA,OU=Certum Certification Authority,O=Asseco Data Systems S.A.,C=PL",
+     "issuerName": "CN=Certum Trusted Root CA,OU=Certum Certification Authority,O=Asseco Data Systems S.A.,C=PL",
+     "notValidAfter": "2043-03-16T12:10:13+00:00",
+     "certificateFormat": "X.509"
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "RSA"
+    },
+    {
+     "name": "bomwitness:keyBits",
+     "value": "4096"
+    },
+    {
+     "name": "bomwitness:signatureHash",
+     "value": "sha512"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "key:bf93e6194c1e6745",
+   "name": "usign public-key (etc/opkg/keys/d310c6f2833e97f7)",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "bf93e6194c1e6745e198ad0c7ca0c53a54bf7d117ca18aee93c8e370892fae6c"
+    }
+   ],
+   "cryptoProperties": {
+    "assetType": "related-crypto-material",
+    "relatedCryptoMaterialProperties": {
+     "type": "public-key",
+     "format": "usign",
+     "size": 256
+    }
+   },
+   "properties": [
+    {
+     "name": "bomwitness:keyAlgorithm",
+     "value": "Ed25519"
+    }
+   ]
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:MD5@busybox",
+   "name": "MD5",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SHA-256@busybox",
+   "name": "SHA-256",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SHA-512@busybox",
+   "name": "SHA-512",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SHA-256@cgi-io",
+   "name": "SHA-256",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:AES@dropbear",
+   "name": "AES",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "block-cipher"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:ChaCha20-Poly1305@dropbear",
+   "name": "ChaCha20-Poly1305",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "ae"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:DH@dropbear",
+   "name": "DH",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "key-agree"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:Ed25519@dropbear",
+   "name": "Ed25519",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "signature"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:RSA@dropbear",
+   "name": "RSA",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "pke"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SHA-1@dropbear",
+   "name": "SHA-1",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SHA-256@dropbear",
+   "name": "SHA-256",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SHA-512@dropbear",
+   "name": "SHA-512",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:X25519@dropbear",
+   "name": "X25519",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "key-agree"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:MD5@fstools",
+   "name": "MD5",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:AES@iw",
+   "name": "AES",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "block-cipher"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:CCMP@iw",
+   "name": "CCMP",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "ae"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SAE@iw",
+   "name": "SAE",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "key-agree"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SHA-256@iw",
+   "name": "SHA-256",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:TKIP@iw",
+   "name": "TKIP",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "other"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:WEP@iw",
+   "name": "WEP",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "other"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:WEP@iwinfo",
+   "name": "WEP",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "other"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:AES@kernel",
+   "name": "AES",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "block-cipher"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:WEP@kmod-cfg80211",
+   "name": "WEP",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "other"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SHA-1@kmod-crypto-rng",
+   "name": "SHA-1",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SHA-256@kmod-crypto-rng",
+   "name": "SHA-256",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SHA-512@kmod-crypto-rng",
+   "name": "SHA-512",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SHA-512@kmod-crypto-sha512",
+   "name": "SHA-512",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:CCMP@kmod-mac80211",
+   "name": "CCMP",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "ae"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:RC4@kmod-mac80211",
+   "name": "RC4",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "stream-cipher"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SAE@kmod-mac80211",
+   "name": "SAE",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "key-agree"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:TKIP@kmod-mac80211",
+   "name": "TKIP",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "other"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:WEP@kmod-mac80211",
+   "name": "WEP",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "other"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:CCMP@libiwinfo20230701",
+   "name": "CCMP",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "ae"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SAE@libiwinfo20230701",
+   "name": "SAE",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "key-agree"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SHA-256@libiwinfo20230701",
+   "name": "SHA-256",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:TKIP@libiwinfo20230701",
+   "name": "TKIP",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "other"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:WEP@libiwinfo20230701",
+   "name": "WEP",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "other"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:3DES@libmbedtls21",
+   "name": "3DES",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "block-cipher"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:AES@libmbedtls21",
+   "name": "AES",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "block-cipher"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:ChaCha20-Poly1305@libmbedtls21",
+   "name": "ChaCha20-Poly1305",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "ae"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:ECDSA@libmbedtls21",
+   "name": "ECDSA",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "signature"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:MD5@libmbedtls21",
+   "name": "MD5",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:RSA@libmbedtls21",
+   "name": "RSA",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "pke"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SHA-1@libmbedtls21",
+   "name": "SHA-1",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SHA-256@libmbedtls21",
+   "name": "SHA-256",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SHA-512@libmbedtls21",
+   "name": "SHA-512",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:X25519@libmbedtls21",
+   "name": "X25519",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "key-agree"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:MD5@libubox20240329",
+   "name": "MD5",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:MD5@libuclient20201210",
+   "name": "MD5",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:MD5@mtd",
+   "name": "MD5",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:MD5@odhcp6c",
+   "name": "MD5",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:MD5@odhcpd-ipv6only",
+   "name": "MD5",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:MD5@opkg",
+   "name": "MD5",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SHA-256@opkg",
+   "name": "SHA-256",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:MD5@ppp",
+   "name": "MD5",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:RSA@ppp",
+   "name": "RSA",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "pke"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SHA-1@ppp",
+   "name": "SHA-1",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:MD5@procd",
+   "name": "MD5",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:RSA@px5g-mbedtls",
+   "name": "RSA",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "pke"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:MD5@rpcd-mod-file",
+   "name": "MD5",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:MD5@uhttpd",
+   "name": "MD5",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:Ed25519@usign",
+   "name": "Ed25519",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "signature"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SHA-512@usign",
+   "name": "SHA-512",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:AES@wpad-basic-mbedtls",
+   "name": "AES",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "block-cipher"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:CCMP@wpad-basic-mbedtls",
+   "name": "CCMP",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "ae"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:DH@wpad-basic-mbedtls",
+   "name": "DH",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "key-agree"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:RC4@wpad-basic-mbedtls",
+   "name": "RC4",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "stream-cipher"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SAE@wpad-basic-mbedtls",
+   "name": "SAE",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "key-agree"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SHA-1@wpad-basic-mbedtls",
+   "name": "SHA-1",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:SHA-256@wpad-basic-mbedtls",
+   "name": "SHA-256",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "hash"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:TKIP@wpad-basic-mbedtls",
+   "name": "TKIP",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "other"
+    }
+   }
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:WEP@wpad-basic-mbedtls",
+   "name": "WEP",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "other"
+    }
+   }
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:tcpdump",
+   "name": "tcpdump",
+   "version": "4.99.5-r1"
+  },
+  {
+   "type": "cryptographic-asset",
+   "bom-ref": "alg:ML-KEM@libmbedtls21",
+   "name": "ML-KEM",
+   "cryptoProperties": {
+    "assetType": "algorithm",
+    "algorithmProperties": {
+     "primitive": "kem"
+    }
+   }
+  }
+ ],
+ "dependencies": [
+  {
+   "ref": "pkg:busybox",
+   "provides": [
+    "alg:MD5@busybox",
+    "alg:SHA-256@busybox",
+    "alg:SHA-512@busybox"
+   ]
+  },
+  {
+   "ref": "pkg:cgi-io",
+   "provides": [
+    "alg:SHA-256@cgi-io"
+   ]
+  },
+  {
+   "ref": "pkg:dropbear",
+   "provides": [
+    "alg:AES@dropbear",
+    "alg:ChaCha20-Poly1305@dropbear",
+    "alg:DH@dropbear",
+    "alg:Ed25519@dropbear",
+    "alg:RSA@dropbear",
+    "alg:SHA-1@dropbear",
+    "alg:SHA-256@dropbear",
+    "alg:SHA-512@dropbear",
+    "alg:X25519@dropbear"
+   ]
+  },
+  {
+   "ref": "pkg:fstools",
+   "provides": [
+    "alg:MD5@fstools"
+   ]
+  },
+  {
+   "ref": "pkg:iw",
+   "provides": [
+    "alg:AES@iw",
+    "alg:CCMP@iw",
+    "alg:SAE@iw",
+    "alg:SHA-256@iw",
+    "alg:TKIP@iw",
+    "alg:WEP@iw"
+   ]
+  },
+  {
+   "ref": "pkg:iwinfo",
+   "provides": [
+    "alg:WEP@iwinfo"
+   ]
+  },
+  {
+   "ref": "pkg:kernel",
+   "provides": [
+    "alg:AES@kernel"
+   ]
+  },
+  {
+   "ref": "pkg:kmod-cfg80211",
+   "provides": [
+    "alg:WEP@kmod-cfg80211"
+   ]
+  },
+  {
+   "ref": "pkg:kmod-crypto-rng",
+   "provides": [
+    "alg:SHA-1@kmod-crypto-rng",
+    "alg:SHA-256@kmod-crypto-rng",
+    "alg:SHA-512@kmod-crypto-rng"
+   ]
+  },
+  {
+   "ref": "pkg:kmod-crypto-sha512",
+   "provides": [
+    "alg:SHA-512@kmod-crypto-sha512"
+   ]
+  },
+  {
+   "ref": "pkg:kmod-mac80211",
+   "provides": [
+    "alg:CCMP@kmod-mac80211",
+    "alg:RC4@kmod-mac80211",
+    "alg:SAE@kmod-mac80211",
+    "alg:TKIP@kmod-mac80211",
+    "alg:WEP@kmod-mac80211"
+   ]
+  },
+  {
+   "ref": "pkg:libiwinfo20230701",
+   "provides": [
+    "alg:CCMP@libiwinfo20230701",
+    "alg:SAE@libiwinfo20230701",
+    "alg:SHA-256@libiwinfo20230701",
+    "alg:TKIP@libiwinfo20230701",
+    "alg:WEP@libiwinfo20230701"
+   ]
+  },
+  {
+   "ref": "pkg:libmbedtls21",
+   "provides": [
+    "alg:3DES@libmbedtls21",
+    "alg:AES@libmbedtls21",
+    "alg:ChaCha20-Poly1305@libmbedtls21",
+    "alg:ECDSA@libmbedtls21",
+    "alg:MD5@libmbedtls21",
+    "alg:RSA@libmbedtls21",
+    "alg:SHA-1@libmbedtls21",
+    "alg:SHA-256@libmbedtls21",
+    "alg:SHA-512@libmbedtls21",
+    "alg:X25519@libmbedtls21",
+    "alg:ML-KEM@libmbedtls21"
+   ]
+  },
+  {
+   "ref": "pkg:libubox20240329",
+   "provides": [
+    "alg:MD5@libubox20240329"
+   ]
+  },
+  {
+   "ref": "pkg:libuclient20201210",
+   "provides": [
+    "alg:MD5@libuclient20201210"
+   ]
+  },
+  {
+   "ref": "pkg:mtd",
+   "provides": [
+    "alg:MD5@mtd"
+   ]
+  },
+  {
+   "ref": "pkg:odhcp6c",
+   "provides": [
+    "alg:MD5@odhcp6c"
+   ]
+  },
+  {
+   "ref": "pkg:odhcpd-ipv6only",
+   "provides": [
+    "alg:MD5@odhcpd-ipv6only"
+   ]
+  },
+  {
+   "ref": "pkg:opkg",
+   "provides": [
+    "alg:MD5@opkg",
+    "alg:SHA-256@opkg"
+   ]
+  },
+  {
+   "ref": "pkg:ppp",
+   "provides": [
+    "alg:MD5@ppp",
+    "alg:RSA@ppp",
+    "alg:SHA-1@ppp"
+   ]
+  },
+  {
+   "ref": "pkg:procd",
+   "provides": [
+    "alg:MD5@procd"
+   ]
+  },
+  {
+   "ref": "pkg:px5g-mbedtls",
+   "provides": [
+    "alg:RSA@px5g-mbedtls"
+   ]
+  },
+  {
+   "ref": "pkg:rpcd-mod-file",
+   "provides": [
+    "alg:MD5@rpcd-mod-file"
+   ]
+  },
+  {
+   "ref": "pkg:uhttpd",
+   "provides": [
+    "alg:MD5@uhttpd"
+   ]
+  },
+  {
+   "ref": "pkg:usign",
+   "provides": [
+    "alg:Ed25519@usign",
+    "alg:SHA-512@usign"
+   ]
+  },
+  {
+   "ref": "pkg:wpad-basic-mbedtls",
+   "provides": [
+    "alg:AES@wpad-basic-mbedtls",
+    "alg:CCMP@wpad-basic-mbedtls",
+    "alg:DH@wpad-basic-mbedtls",
+    "alg:RC4@wpad-basic-mbedtls",
+    "alg:SAE@wpad-basic-mbedtls",
+    "alg:SHA-1@wpad-basic-mbedtls",
+    "alg:SHA-256@wpad-basic-mbedtls",
+    "alg:TKIP@wpad-basic-mbedtls",
+    "alg:WEP@wpad-basic-mbedtls"
+   ]
+  }
+ ]
+}

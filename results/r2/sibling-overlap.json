@@ -1,0 +1,148 @@
+{
+ "t-2410-archer-c7-v5": {
+  "sibling": "tplink_archer-a7-v5",
+  "tested_packages": 150,
+  "sibling_packages": 150,
+  "packages_in_both": 150,
+  "packages_only_in_tested": [],
+  "tested_files": 629,
+  "files_identical_in_sibling": 629,
+  "share_of_files_identical": 1.0,
+  "identical_package_set": true,
+  "identical_root_filesystem_contents": true
+ },
+ "t-2410-mi-router-4a-gigabit": {
+  "sibling": "buffalo_wsr-1166dhp",
+  "tested_packages": 147,
+  "sibling_packages": 147,
+  "packages_in_both": 147,
+  "packages_only_in_tested": [],
+  "tested_files": 636,
+  "files_identical_in_sibling": 636,
+  "share_of_files_identical": 1.0,
+  "identical_package_set": true,
+  "identical_root_filesystem_contents": true
+ },
+ "t-2410-gl-mt6000": {
+  "sibling": "acer_predator-w6",
+  "tested_packages": 170,
+  "sibling_packages": 171,
+  "packages_in_both": 170,
+  "packages_only_in_tested": [],
+  "tested_files": 662,
+  "files_identical_in_sibling": 661,
+  "share_of_files_identical": 0.9985,
+  "identical_package_set": false,
+  "identical_root_filesystem_contents": false
+ },
+ "t-2305-archer-c7-v2": {
+  "sibling": "tplink_archer-a7-v5",
+  "tested_packages": 146,
+  "sibling_packages": 146,
+  "packages_in_both": 146,
+  "packages_only_in_tested": [],
+  "tested_files": 598,
+  "files_identical_in_sibling": 598,
+  "share_of_files_identical": 1.0,
+  "identical_package_set": true,
+  "identical_root_filesystem_contents": true
+ },
+ "h-2410-gl-b1300": {
+  "sibling": "8dev_habanero-dvk",
+  "tested_packages": 148,
+  "sibling_packages": 148,
+  "packages_in_both": 148,
+  "packages_only_in_tested": [],
+  "tested_files": 622,
+  "files_identical_in_sibling": 622,
+  "share_of_files_identical": 1.0,
+  "identical_package_set": true,
+  "identical_root_filesystem_contents": true
+ },
+ "h-2410-x86-64": {
+  "sibling": null
+ },
+ "h-2410-archer-c50-v4": {
+  "sibling": "buffalo_wcr-1166ds",
+  "tested_packages": 140,
+  "sibling_packages": 140,
+  "packages_in_both": 140,
+  "packages_only_in_tested": [],
+  "tested_files": 596,
+  "files_identical_in_sibling": 596,
+  "share_of_files_identical": 1.0,
+  "identical_package_set": true,
+  "identical_root_filesystem_contents": true
+ },
+ "h-2410-unifi-6-lr-v1": {
+  "sibling": "buffalo_wsr-3200ax4s",
+  "tested_packages": 149,
+  "sibling_packages": 147,
+  "packages_in_both": 147,
+  "packages_only_in_tested": [
+   "kmod-i2c-core",
+   "kmod-leds-ubnt-ledbar"
+  ],
+  "tested_files": 618,
+  "files_identical_in_sibling": 615,
+  "share_of_files_identical": 0.9951,
+  "identical_package_set": false,
+  "identical_root_filesystem_contents": false
+ },
+ "h-2410-wrt1900acs": {
+  "sibling": "linksys_wrt1200ac",
+  "tested_packages": 138,
+  "sibling_packages": 138,
+  "packages_in_both": 138,
+  "packages_only_in_tested": [],
+  "tested_files": 613,
+  "files_identical_in_sibling": 613,
+  "share_of_files_identical": 1.0,
+  "identical_package_set": true,
+  "identical_root_filesystem_contents": true
+ },
+ "h-2305-edgerouter-x": {
+  "sibling": "iptime_t5004",
+  "tested_packages": 114,
+  "sibling_packages": 114,
+  "packages_in_both": 114,
+  "packages_only_in_tested": [],
+  "tested_files": 546,
+  "files_identical_in_sibling": 546,
+  "share_of_files_identical": 1.0,
+  "identical_package_set": true,
+  "identical_root_filesystem_contents": true
+ },
+ "h-2305-gl-mt3000": {
+  "sibling": "confiabits_mt7981",
+  "tested_packages": 155,
+  "sibling_packages": 154,
+  "packages_in_both": 154,
+  "packages_only_in_tested": [
+   "kmod-hwmon-pwmfan"
+  ],
+  "tested_files": 614,
+  "files_identical_in_sibling": 612,
+  "share_of_files_identical": 0.9967,
+  "identical_package_set": false,
+  "identical_root_filesystem_contents": false
+ },
+ "h-2305-gl-b1300": {
+  "sibling": "8dev_habanero-dvk",
+  "tested_packages": 144,
+  "sibling_packages": 144,
+  "packages_in_both": 144,
+  "packages_only_in_tested": [],
+  "tested_files": 592,
+  "files_identical_in_sibling": 592,
+  "share_of_files_identical": 1.0,
+  "identical_package_set": true,
+  "identical_root_filesystem_contents": true
+ },
+ "h-2305-x86-64": {
+  "sibling": null
+ },
+ "h-2305-rpi-4": {
+  "sibling": null
+ }
+}

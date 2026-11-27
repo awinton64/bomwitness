@@ -1,0 +1,1814 @@
+{
+ "t-2410-archer-c7-v5": {
+  "split": "tuning",
+  "official_bom": "openwrt-24.10.8-ath79-generic.bom.cdx.json",
+  "official_bom_sha256": "26439502a4aebd6be62a0913c1d3a679a1acc547cbd51b3d8b596dd8d562808d",
+  "format": "CycloneDX 1.4",
+  "bom_components": 140,
+  "verdicts": {
+   "verified_A": 125,
+   "verified_B": 2,
+   "wrong_version": 5,
+   "unverifiable": 8
+  },
+  "matched_by": {
+   "exact": 121,
+   "abi": 17,
+   "provides": 0,
+   "source": 0,
+   "builtin": 2,
+   "none": 0
+  },
+  "not_verified": [
+   {
+    "name": "kmod-ath",
+    "declared_version": "6.6.144",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 6.6.144.6.12.96-r1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-ath9k",
+    "declared_version": "6.6.144",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 6.6.144.6.12.96-r1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-ath9k-common",
+    "declared_version": "6.6.144",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 6.6.144.6.12.96-r1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-cfg80211",
+    "declared_version": "6.6.144",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 6.6.144.6.12.96-r1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-mac80211",
+    "declared_version": "6.6.144",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 6.6.144.6.12.96-r1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-nf-conntrack6",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-log6",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-random-core",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "libpthread",
+    "declared_version": "1.2.5",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-light",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-mod-admin-full",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-ssl",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   }
+  ],
+  "components_in_image_not_in_bom": [
+   "ath10k-board-qca988x",
+   "ath10k-firmware-qca988x-ct",
+   "kmod-ath10k-ct",
+   "kmod-hwmon-core",
+   "kmod-nls-base",
+   "kmod-phy-ath79-usb",
+   "kmod-usb-core",
+   "kmod-usb-ehci",
+   "kmod-usb-ledtrig-usbport",
+   "kmod-usb2"
+  ],
+  "their_files": 21,
+  "executable_files_unaccounted": 0,
+  "device_database_packages": 150,
+  "device_database_agrees_those_are_installed": [
+   "ath10k-board-qca988x",
+   "ath10k-firmware-qca988x-ct",
+   "kmod-ath10k-ct",
+   "kmod-hwmon-core",
+   "kmod-nls-base",
+   "kmod-phy-ath79-usb",
+   "kmod-usb-core",
+   "kmod-usb-ehci",
+   "kmod-usb-ledtrig-usbport",
+   "kmod-usb2"
+  ]
+ },
+ "t-2410-mi-router-4a-gigabit": {
+  "split": "tuning",
+  "official_bom": "openwrt-24.10.8-ramips-mt7621.bom.cdx.json",
+  "official_bom_sha256": "ceba62c31ba9b9f309cca4639e1345974d3de85fbdd1c0d4b61be4e7c0a0c6d0",
+  "format": "CycloneDX 1.4",
+  "bom_components": 126,
+  "verdicts": {
+   "verified_A": 116,
+   "verified_B": 2,
+   "unverifiable": 7,
+   "absent": 1
+  },
+  "matched_by": {
+   "exact": 107,
+   "abi": 17,
+   "provides": 0,
+   "source": 0,
+   "builtin": 2,
+   "none": 0
+  },
+  "not_verified": [
+   {
+    "name": "kmod-nf-conntrack6",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-log6",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "libpthread",
+    "declared_version": "1.2.5",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-light",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-mod-admin-full",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-ssl",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "uboot-envtools",
+    "declared_version": "2024.07",
+    "verdict": "absent",
+    "reason": "none of the reference package's files exist in the firmware"
+   }
+  ],
+  "components_in_image_not_in_bom": [
+   "iw",
+   "kmod-cfg80211",
+   "kmod-crypto-ccm",
+   "kmod-crypto-cmac",
+   "kmod-crypto-ctr",
+   "kmod-crypto-gcm",
+   "kmod-crypto-geniv",
+   "kmod-crypto-gf128",
+   "kmod-crypto-ghash",
+   "kmod-crypto-hmac",
+   "kmod-crypto-rng",
+   "kmod-crypto-seqiv",
+   "kmod-crypto-sha3",
+   "kmod-crypto-sha512",
+   "kmod-mac80211",
+   "kmod-mt76-core",
+   "kmod-mt7603",
+   "kmod-mt76x02-common",
+   "kmod-mt76x2",
+   "kmod-mt76x2-common",
+   "wifi-scripts",
+   "wireless-regdb"
+  ],
+  "their_files": 46,
+  "executable_files_unaccounted": 0,
+  "device_database_packages": 147,
+  "device_database_agrees_those_are_installed": [
+   "iw",
+   "kmod-cfg80211",
+   "kmod-crypto-ccm",
+   "kmod-crypto-cmac",
+   "kmod-crypto-ctr",
+   "kmod-crypto-gcm",
+   "kmod-crypto-geniv",
+   "kmod-crypto-gf128",
+   "kmod-crypto-ghash",
+   "kmod-crypto-hmac",
+   "kmod-crypto-rng",
+   "kmod-crypto-seqiv",
+   "kmod-crypto-sha3",
+   "kmod-crypto-sha512",
+   "kmod-mac80211",
+   "kmod-mt76-core",
+   "kmod-mt7603",
+   "kmod-mt76x02-common",
+   "kmod-mt76x2",
+   "kmod-mt76x2-common",
+   "wifi-scripts",
+   "wireless-regdb"
+  ]
+ },
+ "t-2410-gl-mt6000": {
+  "split": "tuning",
+  "official_bom": "openwrt-24.10.8-mediatek-filogic.bom.cdx.json",
+  "official_bom_sha256": "798e3d5fc406529491fd5fd3b4624fedeabb046cbaee904c55152751f1e900d3",
+  "format": "CycloneDX 1.4",
+  "bom_components": 133,
+  "verdicts": {
+   "verified_A": 123,
+   "verified_B": 2,
+   "unverifiable": 8
+  },
+  "matched_by": {
+   "exact": 114,
+   "abi": 17,
+   "provides": 0,
+   "source": 0,
+   "builtin": 2,
+   "none": 0
+  },
+  "not_verified": [
+   {
+    "name": "kmod-hwmon-core",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-conntrack6",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-log6",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "libpthread",
+    "declared_version": "1.2.5",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-light",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-mod-admin-full",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-ssl",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   }
+  ],
+  "components_in_image_not_in_bom": [
+   "e2fsprogs",
+   "f2fsck",
+   "iw",
+   "kmod-cfg80211",
+   "kmod-crypto-ccm",
+   "kmod-crypto-cmac",
+   "kmod-crypto-ctr",
+   "kmod-crypto-gcm",
+   "kmod-crypto-geniv",
+   "kmod-crypto-gf128",
+   "kmod-crypto-ghash",
+   "kmod-crypto-rng",
+   "kmod-crypto-seqiv",
+   "kmod-crypto-sha3",
+   "kmod-mac80211",
+   "kmod-mt76-connac",
+   "kmod-mt76-core",
+   "kmod-mt7915e",
+   "kmod-mt7986-firmware",
+   "kmod-usb-core",
+   "kmod-usb-xhci-hcd",
+   "kmod-usb-xhci-mtk",
+   "kmod-usb3",
+   "libblkid1",
+   "libcomerr0",
+   "libe2p2",
+   "libext2fs2",
+   "libf2fs6",
+   "libss2",
+   "libuuid1",
+   "mkf2fs",
+   "mt7986-wo-firmware",
+   "wifi-scripts",
+   "wireless-regdb"
+  ],
+  "their_files": 60,
+  "executable_files_unaccounted": 0,
+  "device_database_packages": 170,
+  "device_database_agrees_those_are_installed": [
+   "e2fsprogs",
+   "f2fsck",
+   "iw",
+   "kmod-cfg80211",
+   "kmod-crypto-ccm",
+   "kmod-crypto-cmac",
+   "kmod-crypto-ctr",
+   "kmod-crypto-gcm",
+   "kmod-crypto-geniv",
+   "kmod-crypto-gf128",
+   "kmod-crypto-ghash",
+   "kmod-crypto-rng",
+   "kmod-crypto-seqiv",
+   "kmod-crypto-sha3",
+   "kmod-mac80211",
+   "kmod-mt76-connac",
+   "kmod-mt76-core",
+   "kmod-mt7915e",
+   "kmod-mt7986-firmware",
+   "kmod-usb-core",
+   "kmod-usb-xhci-hcd",
+   "kmod-usb-xhci-mtk",
+   "kmod-usb3",
+   "libblkid1",
+   "libcomerr0",
+   "libe2p2",
+   "libext2fs2",
+   "libf2fs6",
+   "libss2",
+   "libuuid1",
+   "mkf2fs",
+   "mt7986-wo-firmware",
+   "wifi-scripts",
+   "wireless-regdb"
+  ]
+ },
+ "t-2305-archer-c7-v2": {
+  "split": "tuning",
+  "official_bom": "openwrt-23.05.6-ath79-generic.bom.cdx.json",
+  "official_bom_sha256": "27602cad2b605e519851bdc198d8fd3acb8d17697425ae40148330b5e691c96d",
+  "format": "CycloneDX 1.4",
+  "bom_components": 136,
+  "verdicts": {
+   "verified_A": 121,
+   "verified_B": 2,
+   "wrong_version": 5,
+   "unverifiable": 8
+  },
+  "matched_by": {
+   "exact": 117,
+   "abi": 17,
+   "provides": 0,
+   "source": 0,
+   "builtin": 2,
+   "none": 0
+  },
+  "not_verified": [
+   {
+    "name": "kmod-ath",
+    "declared_version": "5.15.189",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 5.15.189+6.1.145-1-1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-ath9k",
+    "declared_version": "5.15.189",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 5.15.189+6.1.145-1-1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-ath9k-common",
+    "declared_version": "5.15.189",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 5.15.189+6.1.145-1-1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-cfg80211",
+    "declared_version": "5.15.189",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 5.15.189+6.1.145-1-1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-mac80211",
+    "declared_version": "5.15.189",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 5.15.189+6.1.145-1-1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-nf-conntrack6",
+    "declared_version": "5.15.189",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-log6",
+    "declared_version": "5.15.189",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-random-core",
+    "declared_version": "5.15.189",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "libpthread",
+    "declared_version": "1.2.4",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-light",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-mod-admin-full",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-ssl",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   }
+  ],
+  "components_in_image_not_in_bom": [
+   "ath10k-board-qca988x",
+   "ath10k-firmware-qca988x-ct",
+   "kmod-ath10k-ct",
+   "kmod-hwmon-core",
+   "kmod-nls-base",
+   "kmod-phy-ath79-usb",
+   "kmod-usb-core",
+   "kmod-usb-ehci",
+   "kmod-usb-ledtrig-usbport",
+   "kmod-usb2"
+  ],
+  "their_files": 19,
+  "executable_files_unaccounted": 0,
+  "device_database_packages": 146,
+  "device_database_agrees_those_are_installed": [
+   "ath10k-board-qca988x",
+   "ath10k-firmware-qca988x-ct",
+   "kmod-ath10k-ct",
+   "kmod-hwmon-core",
+   "kmod-nls-base",
+   "kmod-phy-ath79-usb",
+   "kmod-usb-core",
+   "kmod-usb-ehci",
+   "kmod-usb-ledtrig-usbport",
+   "kmod-usb2"
+  ]
+ },
+ "h-2410-gl-b1300": {
+  "split": "heldout",
+  "official_bom": "openwrt-24.10.8-ipq40xx-generic.bom.cdx.json",
+  "official_bom_sha256": "561d557b94692619219478efc5a52ab46688563cb1f50c6cc831563768f2cba6",
+  "format": "CycloneDX 1.4",
+  "bom_components": 148,
+  "verdicts": {
+   "verified_A": 134,
+   "verified_B": 2,
+   "wrong_version": 4,
+   "unverifiable": 8
+  },
+  "matched_by": {
+   "exact": 129,
+   "abi": 17,
+   "provides": 0,
+   "source": 0,
+   "builtin": 2,
+   "none": 0
+  },
+  "not_verified": [
+   {
+    "name": "kmod-ath",
+    "declared_version": "6.6.144",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 6.6.144.6.12.96-r1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-ath10k-ct",
+    "declared_version": "6.6.144",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 6.6.144.2024.07.30~ac71b14d-r2 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-cfg80211",
+    "declared_version": "6.6.144",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 6.6.144.6.12.96-r1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-mac80211",
+    "declared_version": "6.6.144",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 6.6.144.6.12.96-r1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-nf-conntrack6",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-log6",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nls-base",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "libpthread",
+    "declared_version": "1.2.5",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-light",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-mod-admin-full",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-ssl",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   }
+  ],
+  "components_in_image_not_in_bom": [],
+  "their_files": 0,
+  "executable_files_unaccounted": 0,
+  "device_database_packages": 148,
+  "device_database_agrees_those_are_installed": []
+ },
+ "h-2410-x86-64": {
+  "split": "heldout",
+  "official_bom": "openwrt-24.10.8-x86-64.bom.cdx.json",
+  "official_bom_sha256": "3bf878f8b741dacf385072fbb4ecf67b3e23ad646ec38c159e115dc54f2f8c5b",
+  "format": "CycloneDX 1.4",
+  "bom_components": 129,
+  "verdicts": {
+   "verified_A": 108,
+   "unverifiable": 14,
+   "bytes_differ": 2,
+   "verified_B": 5
+  },
+  "matched_by": {
+   "exact": 102,
+   "abi": 25,
+   "provides": 0,
+   "source": 0,
+   "builtin": 2,
+   "none": 0
+  },
+  "not_verified": [
+   {
+    "name": "ca-bundle",
+    "declared_version": "20260601",
+    "verdict": "unverifiable",
+    "reason": "the reference feed has moved to another version and the files carry no version marker"
+   },
+   {
+    "name": "e2fsprogs",
+    "declared_version": "1.47.0",
+    "verdict": "bytes_differ",
+    "reason": "same version label as the reference build, different bytes: a rebuild or a modification, needs review"
+   },
+   {
+    "name": "grub2",
+    "declared_version": "2.12",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "grub2-efi",
+    "declared_version": "2.12",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-input-core",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-conntrack6",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-log6",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nls-base",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "libpthread",
+    "declared_version": "1.2.5",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "librt",
+    "declared_version": "1.2.5",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-light",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-mod-admin-full",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-mod-network",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "the reference feed has moved to another version and the files carry no version marker"
+   },
+   {
+    "name": "luci-ssl",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "ucode-mod-fs",
+    "declared_version": "2025.07.18~3f64c808",
+    "verdict": "bytes_differ",
+    "reason": "same version label as the reference build, different bytes: a rebuild or a modification, needs review; the reference package file was republished after this image was built"
+   }
+  ],
+  "components_in_image_not_in_bom": [
+   "bnx2-firmware",
+   "i915-firmware-dmc",
+   "kmod-acpi-video",
+   "kmod-amazon-ena",
+   "kmod-amd-xgbe",
+   "kmod-backlight",
+   "kmod-bnx2",
+   "kmod-dma-buf",
+   "kmod-drm",
+   "kmod-drm-buddy",
+   "kmod-drm-display-helper",
+   "kmod-drm-exec",
+   "kmod-drm-i915",
+   "kmod-drm-kms-helper",
+   "kmod-drm-suballoc-helper",
+   "kmod-drm-ttm",
+   "kmod-drm-ttm-helper",
+   "kmod-dwmac-intel",
+   "kmod-e1000",
+   "kmod-e1000e",
+   "kmod-fb",
+   "kmod-fb-cfb-copyarea",
+   "kmod-fb-cfb-fillrect",
+   "kmod-fb-cfb-imgblt",
+   "kmod-fb-sys-fops",
+   "kmod-fb-sys-ram",
+   "kmod-forcedeth",
+   "kmod-i2c-algo-bit",
+   "kmod-i2c-core",
+   "kmod-igb",
+   "kmod-igc",
+   "kmod-ixgbe",
+   "kmod-libphy",
+   "kmod-mdio",
+   "kmod-mdio-devres",
+   "kmod-mii",
+   "kmod-pcs-xpcs",
+   "kmod-phy-realtek",
+   "kmod-phylink",
+   "kmod-pps",
+   "kmod-ptp",
+   "kmod-r8169",
+   "kmod-stmmac-core",
+   "kmod-tg3",
+   "r8169-firmware"
+  ],
+  "their_files": 115,
+  "executable_files_unaccounted": 0,
+  "device_database_packages": 175,
+  "device_database_agrees_those_are_installed": [
+   "bnx2-firmware",
+   "i915-firmware-dmc",
+   "kmod-acpi-video",
+   "kmod-amazon-ena",
+   "kmod-amd-xgbe",
+   "kmod-backlight",
+   "kmod-bnx2",
+   "kmod-dma-buf",
+   "kmod-drm",
+   "kmod-drm-buddy",
+   "kmod-drm-display-helper",
+   "kmod-drm-exec",
+   "kmod-drm-i915",
+   "kmod-drm-kms-helper",
+   "kmod-drm-suballoc-helper",
+   "kmod-drm-ttm",
+   "kmod-drm-ttm-helper",
+   "kmod-dwmac-intel",
+   "kmod-e1000",
+   "kmod-e1000e",
+   "kmod-fb",
+   "kmod-fb-cfb-copyarea",
+   "kmod-fb-cfb-fillrect",
+   "kmod-fb-cfb-imgblt",
+   "kmod-fb-sys-fops",
+   "kmod-fb-sys-ram",
+   "kmod-forcedeth",
+   "kmod-i2c-algo-bit",
+   "kmod-i2c-core",
+   "kmod-igb",
+   "kmod-igc",
+   "kmod-ixgbe",
+   "kmod-libphy",
+   "kmod-mdio",
+   "kmod-mdio-devres",
+   "kmod-mii",
+   "kmod-pcs-xpcs",
+   "kmod-phy-realtek",
+   "kmod-phylink",
+   "kmod-pps",
+   "kmod-ptp",
+   "kmod-r8169",
+   "kmod-stmmac-core",
+   "kmod-tg3",
+   "r8169-firmware"
+  ]
+ },
+ "h-2410-archer-c50-v4": {
+  "split": "heldout",
+  "official_bom": "openwrt-24.10.8-ramips-mt76x8.bom.cdx.json",
+  "official_bom_sha256": "7e5cff48bb1c8768af6c04608191db247630abb835704f884de7fd54b0ba0cf2",
+  "format": "CycloneDX 1.4",
+  "bom_components": 137,
+  "verdicts": {
+   "verified_A": 124,
+   "verified_B": 2,
+   "wrong_version": 4,
+   "unverifiable": 7
+  },
+  "matched_by": {
+   "exact": 118,
+   "abi": 17,
+   "provides": 0,
+   "source": 0,
+   "builtin": 2,
+   "none": 0
+  },
+  "not_verified": [
+   {
+    "name": "kmod-cfg80211",
+    "declared_version": "6.6.144",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 6.6.144.6.12.96-r1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-mac80211",
+    "declared_version": "6.6.144",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 6.6.144.6.12.96-r1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-mt76-core",
+    "declared_version": "6.6.144",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 6.6.144.2025.11.06~eb567bc7-r1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-mt7603",
+    "declared_version": "6.6.144",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 6.6.144.2025.11.06~eb567bc7-r1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-nf-conntrack6",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-log6",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "libpthread",
+    "declared_version": "1.2.5",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-light",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-mod-admin-full",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-ssl",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   }
+  ],
+  "components_in_image_not_in_bom": [
+   "kmod-mt76x02-common",
+   "kmod-mt76x2",
+   "kmod-mt76x2-common"
+  ],
+  "their_files": 6,
+  "executable_files_unaccounted": 0,
+  "device_database_packages": 140,
+  "device_database_agrees_those_are_installed": [
+   "kmod-mt76x02-common",
+   "kmod-mt76x2",
+   "kmod-mt76x2-common"
+  ]
+ },
+ "h-2410-unifi-6-lr-v1": {
+  "split": "heldout",
+  "official_bom": "openwrt-24.10.8-mediatek-mt7622.bom.cdx.json",
+  "official_bom_sha256": "096aeb4d1b9973f335ad62e2e931d3a0faad3c5ad093157330b8a994cb8437d9",
+  "format": "CycloneDX 1.4",
+  "bom_components": 144,
+  "verdicts": {
+   "verified_A": 127,
+   "verified_B": 2,
+   "wrong_version": 7,
+   "unverifiable": 8
+  },
+  "matched_by": {
+   "exact": 125,
+   "abi": 17,
+   "provides": 0,
+   "source": 0,
+   "builtin": 2,
+   "none": 0
+  },
+  "not_verified": [
+   {
+    "name": "kmod-cfg80211",
+    "declared_version": "6.6.144",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 6.6.144.6.12.96-r1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-hwmon-core",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-mac80211",
+    "declared_version": "6.6.144",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 6.6.144.6.12.96-r1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-mt76-connac",
+    "declared_version": "6.6.144",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 6.6.144.2025.11.06~eb567bc7-r1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-mt76-core",
+    "declared_version": "6.6.144",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 6.6.144.2025.11.06~eb567bc7-r1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-mt7615-common",
+    "declared_version": "6.6.144",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 6.6.144.2025.11.06~eb567bc7-r1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-mt7615e",
+    "declared_version": "6.6.144",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 6.6.144.2025.11.06~eb567bc7-r1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-mt7622-firmware",
+    "declared_version": "6.6.144",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 6.6.144.2025.11.06~eb567bc7-r1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-nf-conntrack6",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-log6",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "libpthread",
+    "declared_version": "1.2.5",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-light",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-mod-admin-full",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-ssl",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   }
+  ],
+  "components_in_image_not_in_bom": [
+   "kmod-i2c-core",
+   "kmod-leds-ubnt-ledbar",
+   "kmod-mt7915-firmware",
+   "kmod-mt7915e"
+  ],
+  "their_files": 8,
+  "executable_files_unaccounted": 0,
+  "device_database_packages": 149,
+  "device_database_agrees_those_are_installed": [
+   "kmod-i2c-core",
+   "kmod-leds-ubnt-ledbar",
+   "kmod-mt7915-firmware",
+   "kmod-mt7915e"
+  ]
+ },
+ "h-2410-wrt1900acs": {
+  "split": "heldout",
+  "official_bom": "openwrt-24.10.8-mvebu-cortexa9.bom.cdx.json",
+  "official_bom_sha256": "8004881da4cbd2fc6e9fe1cec76af876abfc707d5d8c8ba3961d8ae5b3233673",
+  "format": "CycloneDX 1.4",
+  "bom_components": 110,
+  "verdicts": {
+   "verified_A": 101,
+   "verified_B": 2,
+   "unverifiable": 7
+  },
+  "matched_by": {
+   "exact": 91,
+   "abi": 17,
+   "provides": 0,
+   "source": 0,
+   "builtin": 2,
+   "none": 0
+  },
+  "not_verified": [
+   {
+    "name": "kmod-nf-conntrack6",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-log6",
+    "declared_version": "6.6.144",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "libpthread",
+    "declared_version": "1.2.5",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-light",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-mod-admin-full",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-ssl",
+    "declared_version": "26.205.85413~cac97ed",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   }
+  ],
+  "components_in_image_not_in_bom": [
+   "hostapd-common",
+   "iw",
+   "iwinfo",
+   "kmod-cfg80211",
+   "kmod-crypto-aead",
+   "kmod-crypto-ccm",
+   "kmod-crypto-cmac",
+   "kmod-crypto-ctr",
+   "kmod-crypto-gcm",
+   "kmod-crypto-geniv",
+   "kmod-crypto-gf128",
+   "kmod-crypto-ghash",
+   "kmod-crypto-hmac",
+   "kmod-crypto-manager",
+   "kmod-crypto-null",
+   "kmod-crypto-rng",
+   "kmod-crypto-seqiv",
+   "kmod-crypto-sha3",
+   "kmod-crypto-sha512",
+   "kmod-mac80211",
+   "kmod-mwlwifi",
+   "mwlwifi-firmware-88w8864",
+   "ucode-mod-nl80211",
+   "ucode-mod-rtnl",
+   "ucode-mod-uloop",
+   "wifi-scripts",
+   "wireless-regdb",
+   "wpad-basic-mbedtls"
+  ],
+  "their_files": 55,
+  "executable_files_unaccounted": 0,
+  "device_database_packages": 138,
+  "device_database_agrees_those_are_installed": [
+   "hostapd-common",
+   "iw",
+   "iwinfo",
+   "kmod-cfg80211",
+   "kmod-crypto-aead",
+   "kmod-crypto-ccm",
+   "kmod-crypto-cmac",
+   "kmod-crypto-ctr",
+   "kmod-crypto-gcm",
+   "kmod-crypto-geniv",
+   "kmod-crypto-gf128",
+   "kmod-crypto-ghash",
+   "kmod-crypto-hmac",
+   "kmod-crypto-manager",
+   "kmod-crypto-null",
+   "kmod-crypto-rng",
+   "kmod-crypto-seqiv",
+   "kmod-crypto-sha3",
+   "kmod-crypto-sha512",
+   "kmod-mac80211",
+   "kmod-mwlwifi",
+   "mwlwifi-firmware-88w8864",
+   "ucode-mod-nl80211",
+   "ucode-mod-rtnl",
+   "ucode-mod-uloop",
+   "wifi-scripts",
+   "wireless-regdb",
+   "wpad-basic-mbedtls"
+  ]
+ },
+ "h-2305-edgerouter-x": {
+  "split": "heldout",
+  "official_bom": "openwrt-23.05.6-ramips-mt7621.bom.cdx.json",
+  "official_bom_sha256": "c8e6d0abb9dd8fc4c988f2beee18a77090a9b58fa1bdddfcca2b4f6fdbbe1376",
+  "format": "CycloneDX 1.4",
+  "bom_components": 116,
+  "verdicts": {
+   "verified_A": 105,
+   "verified_B": 2,
+   "unverifiable": 7,
+   "absent": 2
+  },
+  "matched_by": {
+   "exact": 97,
+   "abi": 17,
+   "provides": 0,
+   "source": 0,
+   "builtin": 2,
+   "none": 0
+  },
+  "not_verified": [
+   {
+    "name": "kmod-nf-conntrack6",
+    "declared_version": "5.15.189",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-log6",
+    "declared_version": "5.15.189",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "libpthread",
+    "declared_version": "1.2.4",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-light",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-mod-admin-full",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-ssl",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "uboot-envtools",
+    "declared_version": "2023.04",
+    "verdict": "absent",
+    "reason": "none of the reference package's files exist in the firmware"
+   },
+   {
+    "name": "wpad-basic-mbedtls",
+    "declared_version": "2023-09-08-e5ccbfc6",
+    "verdict": "absent",
+    "reason": "none of the reference package's files exist in the firmware"
+   }
+  ],
+  "components_in_image_not_in_bom": [],
+  "their_files": 0,
+  "executable_files_unaccounted": 0,
+  "device_database_packages": 114,
+  "device_database_agrees_those_are_installed": []
+ },
+ "h-2305-gl-mt3000": {
+  "split": "heldout",
+  "official_bom": "openwrt-23.05.6-mediatek-filogic.bom.cdx.json",
+  "official_bom_sha256": "3c5fec00ca578375714e65837ea3f291505a1cc8937c9ff567a1f7bd2da3acd2",
+  "format": "CycloneDX 1.4",
+  "bom_components": 147,
+  "verdicts": {
+   "verified_A": 131,
+   "verified_B": 2,
+   "wrong_version": 5,
+   "unverifiable": 9
+  },
+  "matched_by": {
+   "exact": 128,
+   "abi": 17,
+   "provides": 0,
+   "source": 0,
+   "builtin": 2,
+   "none": 0
+  },
+  "not_verified": [
+   {
+    "name": "kmod-cfg80211",
+    "declared_version": "5.15.189",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 5.15.189+6.1.145-1-1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-hwmon-core",
+    "declared_version": "5.15.189",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-mac80211",
+    "declared_version": "5.15.189",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 5.15.189+6.1.145-1-1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-mt76-connac",
+    "declared_version": "5.15.189",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 5.15.189+2024-04-03-1e336a85-1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-mt76-core",
+    "declared_version": "5.15.189",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 5.15.189+2024-04-03-1e336a85-1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-mt7915e",
+    "declared_version": "5.15.189",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 5.15.189+2024-04-03-1e336a85-1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-nf-conntrack6",
+    "declared_version": "5.15.189",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-log6",
+    "declared_version": "5.15.189",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-thermal",
+    "declared_version": "5.15.189",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "libpthread",
+    "declared_version": "1.2.4",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-light",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-mod-admin-full",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-ssl",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   }
+  ],
+  "components_in_image_not_in_bom": [
+   "kmod-hwmon-pwmfan",
+   "kmod-mt7981-firmware",
+   "kmod-usb-core",
+   "kmod-usb-xhci-hcd",
+   "kmod-usb-xhci-mtk",
+   "kmod-usb3",
+   "mt7981-wo-firmware"
+  ],
+  "their_files": 16,
+  "executable_files_unaccounted": 0,
+  "device_database_packages": 155,
+  "device_database_agrees_those_are_installed": [
+   "kmod-hwmon-pwmfan",
+   "kmod-mt7981-firmware",
+   "kmod-usb-core",
+   "kmod-usb-xhci-hcd",
+   "kmod-usb-xhci-mtk",
+   "kmod-usb3",
+   "mt7981-wo-firmware"
+  ]
+ },
+ "h-2305-gl-b1300": {
+  "split": "heldout",
+  "official_bom": "openwrt-23.05.6-ipq40xx-generic.bom.cdx.json",
+  "official_bom_sha256": "fc4ff662ae3013220563fa31c7e5304d1c76d35a77753b8160185985500848d3",
+  "format": "CycloneDX 1.4",
+  "bom_components": 144,
+  "verdicts": {
+   "verified_A": 130,
+   "verified_B": 2,
+   "wrong_version": 4,
+   "unverifiable": 8
+  },
+  "matched_by": {
+   "exact": 125,
+   "abi": 17,
+   "provides": 0,
+   "source": 0,
+   "builtin": 2,
+   "none": 0
+  },
+  "not_verified": [
+   {
+    "name": "kmod-ath",
+    "declared_version": "5.15.189",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 5.15.189+6.1.145-1-1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-ath10k-ct",
+    "declared_version": "5.15.189",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 5.15.189+2022-05-13-f808496f-5 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-cfg80211",
+    "declared_version": "5.15.189",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 5.15.189+6.1.145-1-1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-mac80211",
+    "declared_version": "5.15.189",
+    "verdict": "wrong_version",
+    "reason": "bytes are the reference build 5.15.189+6.1.145-1-1 from a feed that is frozen for this release"
+   },
+   {
+    "name": "kmod-nf-conntrack6",
+    "declared_version": "5.15.189",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-log6",
+    "declared_version": "5.15.189",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nls-base",
+    "declared_version": "5.15.189",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "libpthread",
+    "declared_version": "1.2.4",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-light",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-mod-admin-full",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-ssl",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   }
+  ],
+  "components_in_image_not_in_bom": [],
+  "their_files": 0,
+  "executable_files_unaccounted": 0,
+  "device_database_packages": 144,
+  "device_database_agrees_those_are_installed": []
+ },
+ "h-2305-x86-64": {
+  "split": "heldout",
+  "official_bom": "openwrt-23.05.6-x86-64.bom.cdx.json",
+  "official_bom_sha256": "a941710d0ab7c76c4f3cfceaf3886547e981d18e2af609e13d5d7ded134eeb6e",
+  "format": "CycloneDX 1.4",
+  "bom_components": 127,
+  "verdicts": {
+   "verified_A": 112,
+   "bytes_differ": 1,
+   "unverifiable": 12,
+   "verified_B": 2
+  },
+  "matched_by": {
+   "exact": 101,
+   "abi": 24,
+   "provides": 0,
+   "source": 0,
+   "builtin": 2,
+   "none": 0
+  },
+  "not_verified": [
+   {
+    "name": "e2fsprogs",
+    "declared_version": "1.47.0",
+    "verdict": "bytes_differ",
+    "reason": "same version label as the reference build, different bytes: a rebuild or a modification, needs review"
+   },
+   {
+    "name": "grub2",
+    "declared_version": "2.06",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "grub2-efi",
+    "declared_version": "2.06",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-input-core",
+    "declared_version": "5.15.189",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-conntrack6",
+    "declared_version": "5.15.189",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-log6",
+    "declared_version": "5.15.189",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nls-base",
+    "declared_version": "5.15.189",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "libpthread",
+    "declared_version": "1.2.4",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "librt",
+    "declared_version": "1.2.4",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-light",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-mod-admin-full",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-ssl",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   }
+  ],
+  "components_in_image_not_in_bom": [
+   "bnx2-firmware",
+   "kmod-amazon-ena",
+   "kmod-amd-xgbe",
+   "kmod-bnx2",
+   "kmod-e1000",
+   "kmod-e1000e",
+   "kmod-forcedeth",
+   "kmod-i2c-algo-bit",
+   "kmod-i2c-core",
+   "kmod-igb",
+   "kmod-igc",
+   "kmod-ixgbe",
+   "kmod-libphy",
+   "kmod-mdio",
+   "kmod-mdio-devres",
+   "kmod-mii",
+   "kmod-phy-realtek",
+   "kmod-pps",
+   "kmod-ptp",
+   "kmod-r8169",
+   "kmod-tg3",
+   "r8169-firmware"
+  ],
+  "their_files": 60,
+  "executable_files_unaccounted": 0,
+  "device_database_packages": 150,
+  "device_database_agrees_those_are_installed": [
+   "bnx2-firmware",
+   "kmod-amazon-ena",
+   "kmod-amd-xgbe",
+   "kmod-bnx2",
+   "kmod-e1000",
+   "kmod-e1000e",
+   "kmod-forcedeth",
+   "kmod-i2c-algo-bit",
+   "kmod-i2c-core",
+   "kmod-igb",
+   "kmod-igc",
+   "kmod-ixgbe",
+   "kmod-libphy",
+   "kmod-mdio",
+   "kmod-mdio-devres",
+   "kmod-mii",
+   "kmod-phy-realtek",
+   "kmod-pps",
+   "kmod-ptp",
+   "kmod-r8169",
+   "kmod-tg3",
+   "r8169-firmware"
+  ]
+ },
+ "h-2305-rpi-4": {
+  "split": "heldout",
+  "official_bom": "openwrt-23.05.6-bcm27xx-bcm2711.bom.cdx.json",
+  "official_bom_sha256": "b394c4da3119e6864cb3a6ebfee5c5010c3bc3656cedcf8c0573a6006e10c2c9",
+  "format": "CycloneDX 1.4",
+  "bom_components": 131,
+  "verdicts": {
+   "verified_A": 117,
+   "unverifiable": 11,
+   "bytes_differ": 1,
+   "verified_B": 2
+  },
+  "matched_by": {
+   "exact": 105,
+   "abi": 24,
+   "provides": 0,
+   "source": 0,
+   "builtin": 2,
+   "none": 0
+  },
+  "not_verified": [
+   {
+    "name": "bcm27xx-gpu-fw",
+    "declared_version": "2024-01-11-0968de28716a9b1f106b8492646d0ed0a2800152",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "e2fsprogs",
+    "declared_version": "1.47.0",
+    "verdict": "bytes_differ",
+    "reason": "same version label as the reference build, different bytes: a rebuild or a modification, needs review"
+   },
+   {
+    "name": "kmod-input-core",
+    "declared_version": "5.15.189",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-conntrack6",
+    "declared_version": "5.15.189",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-log6",
+    "declared_version": "5.15.189",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nls-base",
+    "declared_version": "5.15.189",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "libpthread",
+    "declared_version": "1.2.4",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "librt",
+    "declared_version": "1.2.4",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-light",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-mod-admin-full",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-ssl",
+    "declared_version": "git-25.222.75657-7ce34fe",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   }
+  ],
+  "components_in_image_not_in_bom": [
+   "brcmfmac-firmware-usb",
+   "brcmfmac-nvram-43455-sdio",
+   "cypress-firmware-43455-sdio",
+   "hostapd-common",
+   "iw",
+   "iwinfo",
+   "kmod-brcmfmac",
+   "kmod-brcmutil",
+   "kmod-cfg80211",
+   "kmod-fixed-phy",
+   "kmod-libphy",
+   "kmod-mdio-devres",
+   "kmod-mii",
+   "kmod-mmc",
+   "kmod-of-mdio",
+   "kmod-phy-microchip",
+   "kmod-phy-realtek",
+   "kmod-r8169",
+   "kmod-usb-net",
+   "kmod-usb-net-lan78xx",
+   "r8169-firmware",
+   "ucode-mod-nl80211",
+   "ucode-mod-rtnl",
+   "ucode-mod-uloop",
+   "wireless-regdb",
+   "wpad-basic-mbedtls"
+  ],
+  "their_files": 71,
+  "executable_files_unaccounted": 0,
+  "device_database_packages": 157,
+  "device_database_agrees_those_are_installed": [
+   "brcmfmac-firmware-usb",
+   "brcmfmac-nvram-43455-sdio",
+   "cypress-firmware-43455-sdio",
+   "hostapd-common",
+   "iw",
+   "iwinfo",
+   "kmod-brcmfmac",
+   "kmod-brcmutil",
+   "kmod-cfg80211",
+   "kmod-fixed-phy",
+   "kmod-libphy",
+   "kmod-mdio-devres",
+   "kmod-mii",
+   "kmod-mmc",
+   "kmod-of-mdio",
+   "kmod-phy-microchip",
+   "kmod-phy-realtek",
+   "kmod-r8169",
+   "kmod-usb-net",
+   "kmod-usb-net-lan78xx",
+   "r8169-firmware",
+   "ucode-mod-nl80211",
+   "ucode-mod-rtnl",
+   "ucode-mod-uloop",
+   "wireless-regdb",
+   "wpad-basic-mbedtls"
+  ]
+ }
+}

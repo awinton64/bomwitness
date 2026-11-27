@@ -1,0 +1,1376 @@
+{
+ "image": {
+  "id": "h-2305-rpi-4",
+  "split": "heldout",
+  "release": "23.05.6",
+  "target": "bcm27xx/bcm2711",
+  "image": "openwrt-23.05.6-bcm27xx-bcm2711-rpi-4-squashfs-sysupgrade.img.gz"
+ },
+ "as_of": "2026-11-27T00:00:00+00:00",
+ "seed": 20261127,
+ "k": 5,
+ "assets": {
+  "certificates": 152,
+  "certificate_key_types": {
+   "EC-384": 39,
+   "RSA-4096": 66,
+   "RSA-2048": 43,
+   "EC-256": 4
+  },
+  "certificate_signature_hashes": {
+   "sha384": 55,
+   "sha256": 68,
+   "sha1": 27,
+   "sha512": 2
+  },
+  "keys": [
+   {
+    "kind": "public-key",
+    "format": "usign",
+    "algorithm": "Ed25519",
+    "path": "etc/opkg/keys/b5043e70f9a75cde"
+   }
+  ],
+  "crypto_components": 26,
+  "component_algorithm_pairs": 70,
+  "algorithms_by_component": {
+   "busybox": [
+    "MD5",
+    "SHA-256",
+    "SHA-512"
+   ],
+   "cgi-io": [
+    "SHA-256"
+   ],
+   "dropbear": [
+    "AES",
+    "ChaCha20-Poly1305",
+    "DH",
+    "Ed25519",
+    "RSA",
+    "SHA-1",
+    "SHA-256",
+    "SHA-512",
+    "X25519"
+   ],
+   "e2fsprogs": [
+    "AES"
+   ],
+   "fstools": [
+    "MD5"
+   ],
+   "iw": [
+    "AES",
+    "CCMP",
+    "SAE",
+    "SHA-256",
+    "TKIP",
+    "WEP"
+   ],
+   "iwinfo": [
+    "WEP"
+   ],
+   "kmod-brcmfmac": [
+    "RC4",
+    "SAE",
+    "WEP"
+   ],
+   "kmod-cfg80211": [
+    "WEP"
+   ],
+   "libext2fs2": [
+    "SHA-512"
+   ],
+   "libiwinfo20230701": [
+    "CCMP",
+    "SAE",
+    "SHA-256",
+    "TKIP",
+    "WEP"
+   ],
+   "libmbedtls12": [
+    "3DES",
+    "AES",
+    "ChaCha20-Poly1305",
+    "ECDSA",
+    "MD5",
+    "RC4",
+    "RSA",
+    "SHA-1",
+    "SHA-256",
+    "SHA-512",
+    "X25519"
+   ],
+   "libubox20230523": [
+    "MD5"
+   ],
+   "libuclient20201210": [
+    "MD5"
+   ],
+   "libuuid1": [
+    "MD5",
+    "SHA-1"
+   ],
+   "mtd": [
+    "MD5"
+   ],
+   "odhcp6c": [
+    "MD5"
+   ],
+   "odhcpd-ipv6only": [
+    "MD5"
+   ],
+   "opkg": [
+    "MD5",
+    "SHA-256"
+   ],
+   "ppp": [
+    "MD5",
+    "RSA",
+    "SHA-1"
+   ],
+   "procd": [
+    "MD5"
+   ],
+   "px5g-mbedtls": [
+    "RSA"
+   ],
+   "rpcd-mod-file": [
+    "MD5"
+   ],
+   "uhttpd": [
+    "MD5"
+   ],
+   "usign": [
+    "Ed25519",
+    "SHA-512"
+   ],
+   "wpad-basic-mbedtls": [
+    "AES",
+    "CCMP",
+    "DH",
+    "RC4",
+    "SAE",
+    "SHA-1",
+    "SHA-256",
+    "TKIP",
+    "WEP"
+   ]
+  },
+  "deprecated_pairs": [
+   "3DES@libmbedtls12",
+   "MD5@busybox",
+   "MD5@fstools",
+   "MD5@libmbedtls12",
+   "MD5@libubox20230523",
+   "MD5@libuclient20201210",
+   "MD5@libuuid1",
+   "MD5@mtd",
+   "MD5@odhcp6c",
+   "MD5@odhcpd-ipv6only",
+   "MD5@opkg",
+   "MD5@ppp",
+   "MD5@procd",
+   "MD5@rpcd-mod-file",
+   "MD5@uhttpd",
+   "RC4@kmod-brcmfmac",
+   "RC4@libmbedtls12",
+   "RC4@wpad-basic-mbedtls",
+   "SHA-1@dropbear",
+   "SHA-1@libmbedtls12",
+   "SHA-1@libuuid1",
+   "SHA-1@ppp",
+   "SHA-1@wpad-basic-mbedtls",
+   "TKIP@iw",
+   "TKIP@libiwinfo20230701",
+   "TKIP@wpad-basic-mbedtls",
+   "WEP@iw",
+   "WEP@iwinfo",
+   "WEP@kmod-brcmfmac",
+   "WEP@kmod-cfg80211",
+   "WEP@libiwinfo20230701",
+   "WEP@wpad-basic-mbedtls"
+  ]
+ },
+ "findings_on_unmodified_image_with_correct_cbom": {
+  "expired_certificate": 1,
+  "provider_unverified": 1,
+  "deprecated_algorithm": 32
+ },
+ "by_class": {
+  "A1_omitted_algorithm": {
+   "cases": 5,
+   "tp": 5,
+   "fp": 0,
+   "fn": 0
+  },
+  "A2_phantom_algorithm": {
+   "cases": 5,
+   "tp": 5,
+   "fp": 0,
+   "fn": 0
+  },
+  "A3_wrong_provider": {
+   "cases": 5,
+   "tp": 10,
+   "fp": 0,
+   "fn": 0
+  },
+  "C1_wrong_key_size": {
+   "cases": 5,
+   "tp": 5,
+   "fp": 0,
+   "fn": 0
+  },
+  "C2_wrong_signature_hash": {
+   "cases": 5,
+   "tp": 5,
+   "fp": 0,
+   "fn": 0
+  },
+  "C3_omitted_certificate": {
+   "cases": 5,
+   "tp": 5,
+   "fp": 0,
+   "fn": 0
+  },
+  "C4_phantom_certificate": {
+   "cases": 5,
+   "tp": 5,
+   "fp": 0,
+   "fn": 0
+  },
+  "C5_implanted_weak_key_certificate": {
+   "cases": 5,
+   "tp": 10,
+   "fp": 0,
+   "fn": 0
+  },
+  "C6_expired_declared_valid": {
+   "cases": 5,
+   "tp": 10,
+   "fp": 0,
+   "fn": 0
+  },
+  "K1_omitted_key": {
+   "cases": 1,
+   "tp": 1,
+   "fp": 0,
+   "fn": 0
+  },
+  "K2_phantom_key": {
+   "cases": 5,
+   "tp": 5,
+   "fp": 0,
+   "fn": 0
+  },
+  "K3_implanted_private_key": {
+   "cases": 5,
+   "tp": 10,
+   "fp": 0,
+   "fn": 0
+  },
+  "X1_provider_not_in_sbom": {
+   "cases": 5,
+   "tp": 5,
+   "fp": 0,
+   "fn": 0
+  },
+  "X2_provider_bytes_patched": {
+   "cases": 5,
+   "tp": 5,
+   "fp": 0,
+   "fn": 0
+  },
+  "X3_crypto_component_without_entry": {
+   "cases": 5,
+   "tp": 5,
+   "fp": 0,
+   "fn": 0
+  }
+ },
+ "overall": {
+  "cases": 71,
+  "tp": 91,
+  "fp": 0,
+  "fn": 0,
+  "precision": 1.0,
+  "recall": 1.0
+ },
+ "cases": [
+  {
+   "kind": "C1_wrong_key_size",
+   "labels": [
+    [
+     "wrong_key",
+     "0c2cd63df7806fa399ede809116b575bf87989f06518f9808c860503178baf66"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.146
+  },
+  {
+   "kind": "C1_wrong_key_size",
+   "labels": [
+    [
+     "wrong_key",
+     "85a0dd7dd720adb7ff05f83d542b209dc7ff4528f7d677b18389fea5e5c49e86"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.171
+  },
+  {
+   "kind": "C1_wrong_key_size",
+   "labels": [
+    [
+     "wrong_key",
+     "55926084ec963a64b96e2abe01ce0ba86a64fbfebcc7aab5afc155b37fd76066"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.159
+  },
+  {
+   "kind": "C1_wrong_key_size",
+   "labels": [
+    [
+     "wrong_key",
+     "b4585f22e4ac756a4e8612a1361c5d9d031a93fd84febb778fa3068b0fc42dc2"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.169
+  },
+  {
+   "kind": "C1_wrong_key_size",
+   "labels": [
+    [
+     "wrong_key",
+     "fd73dad31c644ff1b43bef0ccdda96710b9cd9875eca7e31707af3e96d522bbd"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.154
+  },
+  {
+   "kind": "C2_wrong_signature_hash",
+   "labels": [
+    [
+     "wrong_signature_hash",
+     "8faf7d2e2cb4709bb8e0b33666bf75a5dd45b5de480f8ea8d4bfe6bebc17f2ed"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.167
+  },
+  {
+   "kind": "C2_wrong_signature_hash",
+   "labels": [
+    [
+     "wrong_signature_hash",
+     "371a00dc0533b3721a7eeb40e8419e70799d2b0a0f2c1d80693165f7cec4ad75"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.144
+  },
+  {
+   "kind": "C2_wrong_signature_hash",
+   "labels": [
+    [
+     "wrong_signature_hash",
+     "dd6936fe21f8f077c123a1a521c12224f72255b73e03a7260693e8a24b0fa389"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.15
+  },
+  {
+   "kind": "C2_wrong_signature_hash",
+   "labels": [
+    [
+     "wrong_signature_hash",
+     "1ba5b2aa8c65401a82960118f80bec4f62304d83cec4713a19c39c011ea46db4"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.133
+  },
+  {
+   "kind": "C2_wrong_signature_hash",
+   "labels": [
+    [
+     "wrong_signature_hash",
+     "b2fae53e14ccd7ab9212064701ae279c1d8988facb775fa8a008914e663988a8"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.157
+  },
+  {
+   "kind": "C3_omitted_certificate",
+   "labels": [
+    [
+     "undeclared_certificate",
+     "43df5774b03e7fef5fe40d931a7bedf1bb2e6b42738c4e6d3841103d3aa7f339"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.164
+  },
+  {
+   "kind": "C3_omitted_certificate",
+   "labels": [
+    [
+     "undeclared_certificate",
+     "568d6905a2c88708a4b3025190edcfedb1974a606a13c6e5290fcb2ae63edab5"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.223
+  },
+  {
+   "kind": "C3_omitted_certificate",
+   "labels": [
+    [
+     "undeclared_certificate",
+     "6b9c08e86eb0f767cfad65cd98b62149e5494a67f5845e7bd1ed019f27b86bd6"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.165
+  },
+  {
+   "kind": "C3_omitted_certificate",
+   "labels": [
+    [
+     "undeclared_certificate",
+     "eaa962c4fa4a6bafebe415196d351ccd888d4f53f3fa8ae6d7c466a94e6042bb"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.179
+  },
+  {
+   "kind": "C3_omitted_certificate",
+   "labels": [
+    [
+     "undeclared_certificate",
+     "fb8fec759169b9106b1e511644c618c51304373f6c0643088d8beffd1b997599"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.14
+  },
+  {
+   "kind": "C4_phantom_certificate",
+   "labels": [
+    [
+     "absent_certificate",
+     "a645811b5adbb8c1cc4221758ae373597328ea7fdd91d9193c8b49c86a5dd135"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.194
+  },
+  {
+   "kind": "C4_phantom_certificate",
+   "labels": [
+    [
+     "absent_certificate",
+     "76d320d8918b31f32be8b320713007cd7bdf8e6fb951831967e49d778fd568cb"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.178
+  },
+  {
+   "kind": "C4_phantom_certificate",
+   "labels": [
+    [
+     "absent_certificate",
+     "bd459f668eb5730b98deca21a83022d3f541e7faf36ad6223122f6848f763a1d"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.171
+  },
+  {
+   "kind": "C4_phantom_certificate",
+   "labels": [
+    [
+     "absent_certificate",
+     "b54901ae4c304ecf0c994f9ad573afa72c980ec033d0a93c9caab9b2b7a191e2"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.164
+  },
+  {
+   "kind": "C4_phantom_certificate",
+   "labels": [
+    [
+     "absent_certificate",
+     "f628b118837c29c3703efab61de96f5a290d3feea445aa69c4347dd44c5f9fd0"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.149
+  },
+  {
+   "kind": "C5_implanted_weak_key_certificate",
+   "labels": [
+    [
+     "undeclared_certificate",
+     "965c148a4c73b4ca9a507780518fb7f504359b3eb0ad1edee41e45b6d48fa813"
+    ],
+    [
+     "weak_key",
+     "965c148a4c73b4ca9a507780518fb7f504359b3eb0ad1edee41e45b6d48fa813"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.257
+  },
+  {
+   "kind": "C5_implanted_weak_key_certificate",
+   "labels": [
+    [
+     "undeclared_certificate",
+     "12ddb3930d4c24222b670d30a37bd937e6ebe0569ac82bb1d4f0670a1d26aacd"
+    ],
+    [
+     "weak_key",
+     "12ddb3930d4c24222b670d30a37bd937e6ebe0569ac82bb1d4f0670a1d26aacd"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.304
+  },
+  {
+   "kind": "C5_implanted_weak_key_certificate",
+   "labels": [
+    [
+     "undeclared_certificate",
+     "393bb0108d389c152d837eca7b2e1546fd1f47d6639d8c346661d7389088db9a"
+    ],
+    [
+     "weak_key",
+     "393bb0108d389c152d837eca7b2e1546fd1f47d6639d8c346661d7389088db9a"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.273
+  },
+  {
+   "kind": "C5_implanted_weak_key_certificate",
+   "labels": [
+    [
+     "undeclared_certificate",
+     "ebadcc37000d53767ad7ead294005061b9163d7eaf3288e87fed02ad4eb5f5b5"
+    ],
+    [
+     "weak_key",
+     "ebadcc37000d53767ad7ead294005061b9163d7eaf3288e87fed02ad4eb5f5b5"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.291
+  },
+  {
+   "kind": "C5_implanted_weak_key_certificate",
+   "labels": [
+    [
+     "undeclared_certificate",
+     "806b939aa02e8dd5fa9e0664b38106d60bab3dff850a94fef8c69353b24b6d0b"
+    ],
+    [
+     "weak_key",
+     "806b939aa02e8dd5fa9e0664b38106d60bab3dff850a94fef8c69353b24b6d0b"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.227
+  },
+  {
+   "kind": "C6_expired_declared_valid",
+   "labels": [
+    [
+     "expired_certificate",
+     "35a2ae61dc5e5d2bad4ceac3561176c0c34a00b8ecba6bd8b66d5dddc71d29e6"
+    ],
+    [
+     "wrong_expiry",
+     "35a2ae61dc5e5d2bad4ceac3561176c0c34a00b8ecba6bd8b66d5dddc71d29e6"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.246
+  },
+  {
+   "kind": "C6_expired_declared_valid",
+   "labels": [
+    [
+     "expired_certificate",
+     "9a1a840ff7b931e00fcec2ab21cedad3e789dfca71d6653bdf96cda6c8706d58"
+    ],
+    [
+     "wrong_expiry",
+     "9a1a840ff7b931e00fcec2ab21cedad3e789dfca71d6653bdf96cda6c8706d58"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.242
+  },
+  {
+   "kind": "C6_expired_declared_valid",
+   "labels": [
+    [
+     "expired_certificate",
+     "eb67f5544420f14de008750d5d296078f1d6f31810a8403300985a8dc877eaa0"
+    ],
+    [
+     "wrong_expiry",
+     "eb67f5544420f14de008750d5d296078f1d6f31810a8403300985a8dc877eaa0"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.252
+  },
+  {
+   "kind": "C6_expired_declared_valid",
+   "labels": [
+    [
+     "expired_certificate",
+     "589db13e3b01fe98fc0098eeb9cafc6086c447f7733eecddaf45796d8721a5f5"
+    ],
+    [
+     "wrong_expiry",
+     "589db13e3b01fe98fc0098eeb9cafc6086c447f7733eecddaf45796d8721a5f5"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.228
+  },
+  {
+   "kind": "C6_expired_declared_valid",
+   "labels": [
+    [
+     "expired_certificate",
+     "f9522d57c2549296e43da1a4ac55c974a3b67c888b3e0d02de93707cb31c06c3"
+    ],
+    [
+     "wrong_expiry",
+     "f9522d57c2549296e43da1a4ac55c974a3b67c888b3e0d02de93707cb31c06c3"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.236
+  },
+  {
+   "kind": "K1_omitted_key",
+   "labels": [
+    [
+     "undeclared_key",
+     "63b97844813c24c634d8ab2ee138afb6d295836a89a9ab348431165778aec32f"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.112
+  },
+  {
+   "kind": "K2_phantom_key",
+   "labels": [
+    [
+     "absent_key",
+     "024f185d53b65a95dd6712de3d79faea6f61766929dea26fefd42d97254994cd"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.11
+  },
+  {
+   "kind": "K2_phantom_key",
+   "labels": [
+    [
+     "absent_key",
+     "977f129afb2638b2c86a2f899be46d360d6e944f0783a5c5d2de26b4c9d939f2"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.112
+  },
+  {
+   "kind": "K2_phantom_key",
+   "labels": [
+    [
+     "absent_key",
+     "3b8e99d30f0a6a986ffb98589a3d7d8269af94086c92d4582122da065ad5910c"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.114
+  },
+  {
+   "kind": "K2_phantom_key",
+   "labels": [
+    [
+     "absent_key",
+     "d5d89ea665eac31a553f3bde084bb6bb7a128239f029d46dacbb3e1389d19d9d"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.085
+  },
+  {
+   "kind": "K2_phantom_key",
+   "labels": [
+    [
+     "absent_key",
+     "82ca5b43b00c24f92aa45b2c402884937dc2ab548ede1364550e3fc8c2ffc73c"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.099
+  },
+  {
+   "kind": "K3_implanted_private_key",
+   "labels": [
+    [
+     "embedded_private_key",
+     "c21506c67a50a23bd1a50383923869c05ec44c001d39295887e88703ab900779"
+    ],
+    [
+     "undeclared_key",
+     "c21506c67a50a23bd1a50383923869c05ec44c001d39295887e88703ab900779"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.108
+  },
+  {
+   "kind": "K3_implanted_private_key",
+   "labels": [
+    [
+     "embedded_private_key",
+     "16b2939e84dfc65caf1a8f96bdb95ec22c4961bac9214b1ad6e73b8f105afed1"
+    ],
+    [
+     "undeclared_key",
+     "16b2939e84dfc65caf1a8f96bdb95ec22c4961bac9214b1ad6e73b8f105afed1"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.12
+  },
+  {
+   "kind": "K3_implanted_private_key",
+   "labels": [
+    [
+     "embedded_private_key",
+     "f7c16d276aa0e8d547095df2954935bb1dd85788fab15b1f1982e6545d64e88a"
+    ],
+    [
+     "undeclared_key",
+     "f7c16d276aa0e8d547095df2954935bb1dd85788fab15b1f1982e6545d64e88a"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.105
+  },
+  {
+   "kind": "K3_implanted_private_key",
+   "labels": [
+    [
+     "embedded_private_key",
+     "d8a36263dc984dd31e1a18144f588318df43d0ee130bc9913c214585ad276e52"
+    ],
+    [
+     "undeclared_key",
+     "d8a36263dc984dd31e1a18144f588318df43d0ee130bc9913c214585ad276e52"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.133
+  },
+  {
+   "kind": "K3_implanted_private_key",
+   "labels": [
+    [
+     "embedded_private_key",
+     "32f589d018e574665e2c88e56835c1858be48dc528199a607bf039c9fd1a2f26"
+    ],
+    [
+     "undeclared_key",
+     "32f589d018e574665e2c88e56835c1858be48dc528199a607bf039c9fd1a2f26"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.101
+  },
+  {
+   "kind": "A1_omitted_algorithm",
+   "labels": [
+    [
+     "undeclared_algorithm",
+     "AES@dropbear"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.074
+  },
+  {
+   "kind": "A1_omitted_algorithm",
+   "labels": [
+    [
+     "undeclared_algorithm",
+     "SHA-1@libmbedtls12"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.077
+  },
+  {
+   "kind": "A1_omitted_algorithm",
+   "labels": [
+    [
+     "undeclared_algorithm",
+     "RC4@wpad-basic-mbedtls"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.098
+  },
+  {
+   "kind": "A1_omitted_algorithm",
+   "labels": [
+    [
+     "undeclared_algorithm",
+     "TKIP@libiwinfo20230701"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.095
+  },
+  {
+   "kind": "A1_omitted_algorithm",
+   "labels": [
+    [
+     "undeclared_algorithm",
+     "RSA@dropbear"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.085
+  },
+  {
+   "kind": "A2_phantom_algorithm",
+   "labels": [
+    [
+     "algorithm_not_evidenced",
+     "Ed25519@procd"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.076
+  },
+  {
+   "kind": "A2_phantom_algorithm",
+   "labels": [
+    [
+     "algorithm_not_evidenced",
+     "ChaCha20-Poly1305@libuclient20201210"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.075
+  },
+  {
+   "kind": "A2_phantom_algorithm",
+   "labels": [
+    [
+     "algorithm_not_evidenced",
+     "WEP@usign"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.09
+  },
+  {
+   "kind": "A2_phantom_algorithm",
+   "labels": [
+    [
+     "algorithm_not_evidenced",
+     "ML-DSA@cgi-io"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.077
+  },
+  {
+   "kind": "A2_phantom_algorithm",
+   "labels": [
+    [
+     "algorithm_not_evidenced",
+     "SHA-512@uhttpd"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.087
+  },
+  {
+   "kind": "A3_wrong_provider",
+   "labels": [
+    [
+     "algorithm_not_evidenced",
+     "Ed25519@fstools"
+    ],
+    [
+     "undeclared_algorithm",
+     "Ed25519@usign"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.086
+  },
+  {
+   "kind": "A3_wrong_provider",
+   "labels": [
+    [
+     "algorithm_not_evidenced",
+     "SHA-512@opkg"
+    ],
+    [
+     "undeclared_algorithm",
+     "SHA-512@libmbedtls12"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.082
+  },
+  {
+   "kind": "A3_wrong_provider",
+   "labels": [
+    [
+     "algorithm_not_evidenced",
+     "ChaCha20-Poly1305@kmod-cfg80211"
+    ],
+    [
+     "undeclared_algorithm",
+     "ChaCha20-Poly1305@libmbedtls12"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.073
+  },
+  {
+   "kind": "A3_wrong_provider",
+   "labels": [
+    [
+     "algorithm_not_evidenced",
+     "CCMP@libext2fs2"
+    ],
+    [
+     "undeclared_algorithm",
+     "CCMP@libiwinfo20230701"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.07
+  },
+  {
+   "kind": "A3_wrong_provider",
+   "labels": [
+    [
+     "algorithm_not_evidenced",
+     "WEP@libubox20230523"
+    ],
+    [
+     "undeclared_algorithm",
+     "WEP@wpad-basic-mbedtls"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.071
+  },
+  {
+   "kind": "X1_provider_not_in_sbom",
+   "labels": [
+    [
+     "provider_not_in_sbom",
+     "rpcd-mod-file"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.079
+  },
+  {
+   "kind": "X1_provider_not_in_sbom",
+   "labels": [
+    [
+     "provider_not_in_sbom",
+     "iwinfo"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.09
+  },
+  {
+   "kind": "X1_provider_not_in_sbom",
+   "labels": [
+    [
+     "provider_not_in_sbom",
+     "libuuid1"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.071
+  },
+  {
+   "kind": "X1_provider_not_in_sbom",
+   "labels": [
+    [
+     "provider_not_in_sbom",
+     "kmod-brcmfmac"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.083
+  },
+  {
+   "kind": "X1_provider_not_in_sbom",
+   "labels": [
+    [
+     "provider_not_in_sbom",
+     "dropbear"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.082
+  },
+  {
+   "kind": "X2_provider_bytes_patched",
+   "labels": [
+    [
+     "provider_unverified",
+     "libmbedtls12"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.19
+  },
+  {
+   "kind": "X2_provider_bytes_patched",
+   "labels": [
+    [
+     "provider_unverified",
+     "uhttpd"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.13
+  },
+  {
+   "kind": "X2_provider_bytes_patched",
+   "labels": [
+    [
+     "provider_unverified",
+     "libubox20230523"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.12
+  },
+  {
+   "kind": "X2_provider_bytes_patched",
+   "labels": [
+    [
+     "provider_unverified",
+     "libiwinfo20230701"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.126
+  },
+  {
+   "kind": "X2_provider_bytes_patched",
+   "labels": [
+    [
+     "provider_unverified",
+     "wpad-basic-mbedtls"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.39
+  },
+  {
+   "kind": "X3_crypto_component_without_entry",
+   "labels": [
+    [
+     "crypto_component_without_cbom_entry",
+     "iwinfo"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.067
+  },
+  {
+   "kind": "X3_crypto_component_without_entry",
+   "labels": [
+    [
+     "crypto_component_without_cbom_entry",
+     "odhcpd-ipv6only"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.071
+  },
+  {
+   "kind": "X3_crypto_component_without_entry",
+   "labels": [
+    [
+     "crypto_component_without_cbom_entry",
+     "libmbedtls12"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.067
+  },
+  {
+   "kind": "X3_crypto_component_without_entry",
+   "labels": [
+    [
+     "crypto_component_without_cbom_entry",
+     "usign"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.065
+  },
+  {
+   "kind": "X3_crypto_component_without_entry",
+   "labels": [
+    [
+     "crypto_component_without_cbom_entry",
+     "uhttpd"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.071
+  }
+ ]
+}

@@ -1,0 +1,9849 @@
+{
+ "image": {
+  "id": "h-2305-gl-b1300",
+  "split": "heldout",
+  "release": "23.05.6",
+  "target": "ipq40xx/generic",
+  "image": "openwrt-23.05.6-ipq40xx-generic-glinet_gl-b1300-squashfs-sysupgrade.bin"
+ },
+ "seed": 20261127,
+ "k": 12,
+ "arch": "arm_cortex-a7_neon-vfpv4",
+ "declared_components": 144,
+ "reference": {
+  "release": "23.05.6",
+  "target": "ipq40xx/generic",
+  "arch": "arm_cortex-a7_neon-vfpv4",
+  "base": "https://downloads.openwrt.org/releases",
+  "sha256sums_sha256": "b402ccc2dbaa3cd665383996c5ac5b80e507fcc43e4da684aa7a089d5ef2840c",
+  "sha256sums_signed_by": "b5043e70f9a75cde",
+  "feed_index_trust": {
+   "target": "sha256 in signed sha256sums",
+   "kmods": "sha256 in signed sha256sums",
+   "base": "usign b5043e70f9a75cde",
+   "luci": "usign b5043e70f9a75cde",
+   "packages": "usign b5043e70f9a75cde",
+   "routing": "usign b5043e70f9a75cde",
+   "telephony": "usign b5043e70f9a75cde"
+  },
+  "image_source_date_epoch": 1755196060,
+  "path_index_packages": 1866
+ },
+ "alt_release": "24.10.8",
+ "snapshot": "23.05.6 ipq40xx/generic alfa-network_ap120c-ac (openwrt-23.05.6-ipq40xx-generic-alfa-network_ap120c-ac-squashfs-sysupgrade.bin)",
+ "bomtrace_commit": null,
+ "clean_control": {
+  "honest": {
+   "findings": {
+    "bw": [],
+    "bw_no_snapshot": [],
+    "bw_feed_only": [],
+    "bw_A_only": [],
+    "bw_B_only": [],
+    "bw_no_normalize": [],
+    "bw_with_db": []
+   },
+   "bomtrace_ran": null,
+   "bomtrace_error": null
+  },
+  "summary": {
+   "declared": 144,
+   "verdicts": {
+    "verified_A": 134,
+    "verified_B": 2,
+    "unverifiable": 8
+   },
+   "rootfs_files": 592,
+   "files_accounted": 592,
+   "orphan_files": 0,
+   "code_files": 157,
+   "orphan_code_files": 0,
+   "hard_findings": 0,
+   "seconds": 0.05
+  },
+  "review_tier": {
+   "label_unconfirmed": 0,
+   "stale": 0
+  },
+  "verdicts_by_config": {
+   "bw": {
+    "verified_A": 134,
+    "verified_B": 2,
+    "unverifiable": 8
+   },
+   "bw_no_snapshot": {
+    "verified_A": 134,
+    "verified_B": 2,
+    "unverifiable": 8
+   },
+   "bw_feed_only": {
+    "verified_A": 134,
+    "verified_B": 2,
+    "unverifiable": 8
+   },
+   "bw_A_only": {
+    "verified_A": 134,
+    "unverifiable": 10
+   },
+   "bw_B_only": {
+    "unverifiable": 98,
+    "verified_B": 46
+   },
+   "bw_no_normalize": {
+    "verified_A": 134,
+    "verified_B": 2,
+    "unverifiable": 8
+   }
+  },
+  "label_sources": {
+   "feed index": 134
+  },
+  "unverifiable_reasons": {
+   "metadata-only package with no files to check": 8
+  },
+  "not_verified": [
+   {
+    "name": "libpthread",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-ssl",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-mod-admin-full",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-log6",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-light",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-conntrack6",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nls-base",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   }
+  ],
+  "syft_components": 0,
+  "cvebin_products": [],
+  "stripped": {
+   "findings": {
+    "bw": [],
+    "bw_no_snapshot": [],
+    "bw_feed_only": [],
+    "bw_A_only": [],
+    "bw_B_only": [],
+    "bw_no_normalize": [],
+    "bw_with_db": []
+   },
+   "bomtrace_ran": null,
+   "bomtrace_error": null
+  },
+  "syft_components_db_stripped": 0
+ },
+ "cases": [
+  {
+   "kind": "M1_omitted",
+   "target": "ucode-mod-ubus",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "ucode-mod-ubus"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "ucode-mod-ubus",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "ucode-mod-ubus"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "ucode-mod-ubus",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "ucode-mod-ubus"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "mtd",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "mtd"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "mtd",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "mtd"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "mtd",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "mtd"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "liblucihttp0",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "liblucihttp0"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "liblucihttp0",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "liblucihttp0"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "liblucihttp0",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "liblucihttp0"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "opkg",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "opkg"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "opkg",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "opkg"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "opkg",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "opkg"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "ucode",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "ucode"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "ucode",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "ucode"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "ucode",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "ucode"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-slhc",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "kmod-slhc"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-slhc",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "kmod-slhc"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-slhc",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "kmod-slhc"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-nf-nat",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "kmod-nf-nat"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-nf-nat",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "kmod-nf-nat"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "kmod-nf-nat",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "kmod-nf-nat"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "libmnl0",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "libmnl0"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "libmnl0",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "libmnl0"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "libmnl0",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "libmnl0"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "dropbear",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "dropbear"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "dropbear",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "dropbear"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "dropbear",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "dropbear"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "jansson4",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "jansson4"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "jansson4",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "jansson4"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "jansson4",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "jansson4"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "ucode-mod-html",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "ucode-mod-html"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "ucode-mod-html",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "ucode-mod-html"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "ucode-mod-html",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "ucode-mod-html"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "fstools",
+   "db": "honest",
+   "label": [
+    "undeclared_component",
+    "fstools"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "fstools",
+   "db": "colluding",
+   "label": [
+    "undeclared_component",
+    "fstools"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M1_omitted",
+   "target": "fstools",
+   "db": "stripped",
+   "label": [
+    "undeclared_component",
+    "fstools"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "procd-seccomp",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "procd-seccomp"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-06-25-2db83655-2",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "procd-seccomp",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "procd-seccomp"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-06-25-2db83655-2",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "procd-seccomp",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "procd-seccomp"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-06-25-2db83655-2",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "libuclient20201210",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "libuclient20201210"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-04-13-007d9454-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "libuclient20201210",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "libuclient20201210"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-04-13-007d9454-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "libuclient20201210",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "libuclient20201210"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-04-13-007d9454-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "wpad-basic-mbedtls",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "wpad-basic-mbedtls"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-09-08-e5ccbfc6-8",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "wpad-basic-mbedtls",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "wpad-basic-mbedtls"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-09-08-e5ccbfc6-8",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "wpad-basic-mbedtls",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "wpad-basic-mbedtls"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-09-08-e5ccbfc6-8",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "kmod-crypto-null",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "kmod-crypto-null"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 5.15.189-1 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "kmod-crypto-null",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "kmod-crypto-null"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 5.15.189-1 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "kmod-crypto-null",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "kmod-crypto-null"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 5.15.189-1 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "rpcd-mod-ucode",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "rpcd-mod-ucode"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-07-01-c07ab2f9-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "rpcd-mod-ucode",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "rpcd-mod-ucode"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-07-01-c07ab2f9-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "rpcd-mod-ucode",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "rpcd-mod-ucode"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-07-01-c07ab2f9-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "libiwinfo-data",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "libiwinfo-data"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-07-01-ca79f641-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "libiwinfo-data",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "libiwinfo-data"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-07-01-ca79f641-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "libiwinfo-data",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "libiwinfo-data"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-07-01-ca79f641-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "dropbear",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "dropbear"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 2022.82-6 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "dropbear",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "dropbear"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 2022.82-6 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "dropbear",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "dropbear"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 2022.82-6 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "kmod-nf-reject6",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "kmod-nf-reject6"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 5.15.189-1 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "kmod-nf-reject6",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "kmod-nf-reject6"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 5.15.189-1 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "kmod-nf-reject6",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "kmod-nf-reject6"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 5.15.189-1 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "kmod-nf-reject",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "kmod-nf-reject"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 5.15.189-1 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "kmod-nf-reject",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "kmod-nf-reject"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 5.15.189-1 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "kmod-nf-reject",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "kmod-nf-reject"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 5.15.189-1 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "luci-proto-ipv6",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "luci-proto-ipv6"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label git-25.222.75657-7ce34fe",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "luci-proto-ipv6",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "luci-proto-ipv6"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label git-25.222.75657-7ce34fe",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "luci-proto-ipv6",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "luci-proto-ipv6"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label git-25.222.75657-7ce34fe",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "kmod-crypto-aead",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "kmod-crypto-aead"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 5.15.189-1 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "kmod-crypto-aead",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "kmod-crypto-aead"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 5.15.189-1 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "kmod-crypto-aead",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "kmod-crypto-aead"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 5.15.189-1 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "kmod-usb-core",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "kmod-usb-core"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 5.15.189-1 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "kmod-usb-core",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "kmod-usb-core"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 5.15.189-1 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2_other_release_version",
+   "target": "kmod-usb-core",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "kmod-usb-core"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 5.15.189-1 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "nftables-json",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "nftables-json"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 1.0.8-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "nftables-json",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "nftables-json"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 1.0.8-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "nftables-json",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "nftables-json"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 1.0.8-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "dropbear",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "dropbear"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 2022.82-6 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "dropbear",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "dropbear"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 2022.82-6 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "dropbear",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "dropbear"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 2022.82-6 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "dnsmasq",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "dnsmasq"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2.90-2",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "dnsmasq",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "dnsmasq"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2.90-2",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "dnsmasq",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "dnsmasq"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2.90-2",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "rpcd-mod-file",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "rpcd-mod-file"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-07-01-c07ab2f9-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "rpcd-mod-file",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "rpcd-mod-file"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-07-01-c07ab2f9-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "rpcd-mod-file",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "rpcd-mod-file"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-07-01-c07ab2f9-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "ucode-mod-html",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "ucode-mod-html"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "ucode-mod-html",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "ucode-mod-html"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "ucode-mod-html",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "ucode-mod-html"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "usign",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "usign"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2020-05-23-f1f65026-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "usign",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "usign"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2020-05-23-f1f65026-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "usign",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "usign"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2020-05-23-f1f65026-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "ucode-mod-fs",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "ucode-mod-fs"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2024-07-11-1a8a0bcf-3",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "ucode-mod-fs",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "ucode-mod-fs"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2024-07-11-1a8a0bcf-3",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "ucode-mod-fs",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "ucode-mod-fs"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2024-07-11-1a8a0bcf-3",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "luci-app-opkg",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "luci-app-opkg"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label git-25.222.75657-7ce34fe",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "luci-app-opkg",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "luci-app-opkg"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label git-25.222.75657-7ce34fe",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "luci-app-opkg",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "luci-app-opkg"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label git-25.222.75657-7ce34fe",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "firewall4",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "firewall4"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-09-01-598d9fbb-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "firewall4",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "firewall4"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-09-01-598d9fbb-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "firewall4",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "firewall4"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-09-01-598d9fbb-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "libgcc1",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "libgcc1"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 12.3.0-4 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "libgcc1",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "libgcc1"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 12.3.0-4 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "libgcc1",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "libgcc1"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the reference build 12.3.0-4 from a feed that is frozen for this release",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "wireless-regdb",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "wireless-regdb"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2025.07.10-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "wireless-regdb",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "wireless-regdb"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2025.07.10-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "wireless-regdb",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "wireless-regdb"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2025.07.10-1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "hostapd-common",
+   "db": "honest",
+   "label": [
+    "wrong_version",
+    "hostapd-common"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-09-08-e5ccbfc6-8",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "hostapd-common",
+   "db": "colluding",
+   "label": [
+    "wrong_version",
+    "hostapd-common"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-09-08-e5ccbfc6-8",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M2b_fabricated_version",
+   "target": "hostapd-common",
+   "db": "stripped",
+   "label": [
+    "wrong_version",
+    "hostapd-common"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are the build that the feed index and the official sibling image both label 2023-09-08-e5ccbfc6-8",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "terminfo",
+   "db": "honest",
+   "label": [
+    "absent",
+    "terminfo"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "terminfo",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "terminfo"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "terminfo",
+   "db": "stripped",
+   "label": [
+    "absent",
+    "terminfo"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "p54-pci-firmware",
+   "db": "honest",
+   "label": [
+    "absent",
+    "p54-pci-firmware"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "p54-pci-firmware",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "p54-pci-firmware"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "p54-pci-firmware",
+   "db": "stripped",
+   "label": [
+    "absent",
+    "p54-pci-firmware"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "thc-ipv6-fake-solicitate6",
+   "db": "honest",
+   "label": [
+    "absent",
+    "thc-ipv6-fake-solicitate6"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "thc-ipv6-fake-solicitate6",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "thc-ipv6-fake-solicitate6"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "thc-ipv6-fake-solicitate6",
+   "db": "stripped",
+   "label": [
+    "absent",
+    "thc-ipv6-fake-solicitate6"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "bnx2-firmware",
+   "db": "honest",
+   "label": [
+    "absent",
+    "bnx2-firmware"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "bnx2-firmware",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "bnx2-firmware"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "bnx2-firmware",
+   "db": "stripped",
+   "label": [
+    "absent",
+    "bnx2-firmware"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "mt7986-wo-firmware",
+   "db": "honest",
+   "label": [
+    "absent",
+    "mt7986-wo-firmware"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "mt7986-wo-firmware",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "mt7986-wo-firmware"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "mt7986-wo-firmware",
+   "db": "stripped",
+   "label": [
+    "absent",
+    "mt7986-wo-firmware"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "ucode-mod-debug",
+   "db": "honest",
+   "label": [
+    "absent",
+    "ucode-mod-debug"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "ucode-mod-debug",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "ucode-mod-debug"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "ucode-mod-debug",
+   "db": "stripped",
+   "label": [
+    "absent",
+    "ucode-mod-debug"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "mt76-test",
+   "db": "honest",
+   "label": [
+    "absent",
+    "mt76-test"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "mt76-test",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "mt76-test"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "mt76-test",
+   "db": "stripped",
+   "label": [
+    "absent",
+    "mt76-test"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "thc-ipv6-alive6",
+   "db": "honest",
+   "label": [
+    "absent",
+    "thc-ipv6-alive6"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "thc-ipv6-alive6",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "thc-ipv6-alive6"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "thc-ipv6-alive6",
+   "db": "stripped",
+   "label": [
+    "absent",
+    "thc-ipv6-alive6"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "ath6k-firmware",
+   "db": "honest",
+   "label": [
+    "absent",
+    "ath6k-firmware"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "ath6k-firmware",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "ath6k-firmware"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "ath6k-firmware",
+   "db": "stripped",
+   "label": [
+    "absent",
+    "ath6k-firmware"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "libselinux-compute_member",
+   "db": "honest",
+   "label": [
+    "absent",
+    "libselinux-compute_member"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "libselinux-compute_member",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "libselinux-compute_member"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "libselinux-compute_member",
+   "db": "stripped",
+   "label": [
+    "absent",
+    "libselinux-compute_member"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "cypress-firmware-4373-pcie",
+   "db": "honest",
+   "label": [
+    "absent",
+    "cypress-firmware-4373-pcie"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "cypress-firmware-4373-pcie",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "cypress-firmware-4373-pcie"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "cypress-firmware-4373-pcie",
+   "db": "stripped",
+   "label": [
+    "absent",
+    "cypress-firmware-4373-pcie"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "absent",
+   "bw_reason_for_target": "none of the reference package's files exist in the firmware",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "wpa-supplicant-openssl",
+   "db": "honest",
+   "label": [
+    "absent",
+    "wpa-supplicant-openssl"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "verified_A",
+   "bw_reason_for_target": "every file byte-identical to the reference package",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "wpa-supplicant-openssl",
+   "db": "colluding",
+   "label": [
+    "absent",
+    "wpa-supplicant-openssl"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "verified_A",
+   "bw_reason_for_target": "every file byte-identical to the reference package",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M3_phantom",
+   "target": "wpa-supplicant-openssl",
+   "db": "stripped",
+   "label": [
+    "absent",
+    "wpa-supplicant-openssl"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "verified_A",
+   "bw_reason_for_target": "every file byte-identical to the reference package",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M4_implant",
+   "target": "libuci-lua",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "libuci-lua"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M4_implant",
+   "target": "policycoreutils-semodule",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "policycoreutils-semodule"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M4_implant",
+   "target": "libevent2-openssl7",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "libevent2-openssl7"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M4_implant",
+   "target": "thc-ipv6-denial6",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "thc-ipv6-denial6"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M4_implant",
+   "target": "thc-ipv6-smurf6",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "thc-ipv6-smurf6"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M4_implant",
+   "target": "policycoreutils-pp",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "policycoreutils-pp"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M4_implant",
+   "target": "libbpf1",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "libbpf1"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M4_implant",
+   "target": "wipefs",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "wipefs"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M4_implant",
+   "target": "policycoreutils-sestatus",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "policycoreutils-sestatus"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M4_implant",
+   "target": "genl",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "genl"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M4_implant",
+   "target": "libselinux",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "libselinux"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M4_implant",
+   "target": "arptables-legacy",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "arptables-legacy"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M4u_implant_unindexed_feed",
+   "target": "ntfs-3g-low",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "ntfs-3g-low"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M4u_implant_unindexed_feed",
+   "target": "libelektra-yamlcpp",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "libelektra-yamlcpp"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M4u_implant_unindexed_feed",
+   "target": "nfs-kernel-server",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "nfs-kernel-server"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 5,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M4u_implant_unindexed_feed",
+   "target": "xfs-fsck",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "xfs-fsck"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M4u_implant_unindexed_feed",
+   "target": "libyaml-cpp0.7",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "libyaml-cpp0.7"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M4u_implant_unindexed_feed",
+   "target": "libupm-st7735-python3",
+   "db": "unaware",
+   "label": [
+    "undeclared_component",
+    "libupm-st7735-python3"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 1,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": true,
+   "bw_verdict_for_target": null,
+   "bw_reason_for_target": null,
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "libnl-tiny1",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "libnl-tiny1"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are identical to the 24.10.8 release build 2025.03.19~c0df580a-r1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "procd-seccomp",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "procd-seccomp"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are identical to the 24.10.8 release build 2026.03.14~c59f2d80-r1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "ucode-mod-rtnl",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "ucode-mod-rtnl"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are identical to the 24.10.8 release build 2025.07.18~3f64c808-r2",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "wpad-basic-mbedtls",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "wpad-basic-mbedtls"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are identical to the 24.10.8 release build 2024.09.15~5ace39b0-r3",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "luci-mod-status",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "luci-mod-status"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are identical to the 24.10.8 release build 26.301.70438~aa4865e",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "fwtool",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "fwtool"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are identical to the 24.10.8 release build 2019.11.12~8f7fe925-r1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "opkg",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "opkg"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are identical to the 24.10.8 release build 2024.10.16~38eccbb1-r1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "odhcpd-ipv6only",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "odhcpd-ipv6only"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are identical to the 24.10.8 release build 2025.10.02~b14cf98c-r3",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "jsonfilter",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "jsonfilter"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are identical to the 24.10.8 release build 2025.04.18~8a86fb78-r1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "ppp",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "ppp"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are identical to the 24.10.8 release build 2.5.1-r1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "uhttpd",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "uhttpd"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are identical to the 24.10.8 release build 2025.07.06~7e64e8ba-r5",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M5_swapped_binary",
+   "target": "libnftnl11",
+   "db": "unaware",
+   "label": [
+    "wrong_version",
+    "libnftnl11"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "wrong_version",
+   "bw_reason_for_target": "bytes are identical to the 24.10.8 release build 1.2.8-r1",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "kmod-usb-xhci-hcd",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "kmod-usb-xhci-hcd"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "bytes_differ",
+   "bw_reason_for_target": "same version label as the reference build, different bytes: a rebuild or a modification, needs review; the reference package file was republished after this image was built",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "kmod-lib-crc-ccitt",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "kmod-lib-crc-ccitt"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "bytes_differ",
+   "bw_reason_for_target": "same version label as the reference build, different bytes: a rebuild or a modification, needs review; the reference package file was republished after this image was built",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "ucode-mod-nl80211",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "ucode-mod-nl80211"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "bytes_differ",
+   "bw_reason_for_target": "same version label as the reference build, different bytes: a rebuild or a modification, needs review",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "procd-seccomp",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "procd-seccomp"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "bytes_differ",
+   "bw_reason_for_target": "same version label as the reference build, different bytes: a rebuild or a modification, needs review",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "libnftnl11",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "libnftnl11"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "bytes_differ",
+   "bw_reason_for_target": "same version label as the reference build, different bytes: a rebuild or a modification, needs review",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "rpcd-mod-iwinfo",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "rpcd-mod-iwinfo"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "bytes_differ",
+   "bw_reason_for_target": "same version label as the reference build, different bytes: a rebuild or a modification, needs review",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "ubi-utils",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "ubi-utils"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "bytes_differ",
+   "bw_reason_for_target": "same version label as the reference build, different bytes: a rebuild or a modification, needs review; the reference package file was republished after this image was built",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "libblobmsg-json20230523",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "libblobmsg-json20230523"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "bytes_differ",
+   "bw_reason_for_target": "same version label as the reference build, different bytes: a rebuild or a modification, needs review",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "procd-ujail",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "procd-ujail"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "bytes_differ",
+   "bw_reason_for_target": "same version label as the reference build, different bytes: a rebuild or a modification, needs review",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "libubus20230605",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "libubus20230605"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "bytes_differ",
+   "bw_reason_for_target": "same version label as the reference build, different bytes: a rebuild or a modification, needs review",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "kmod-usb3",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "kmod-usb3"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "bytes_differ",
+   "bw_reason_for_target": "same version label as the reference build, different bytes: a rebuild or a modification, needs review; the reference package file was republished after this image was built",
+   "bomtrace_ran": null
+  },
+  {
+   "kind": "M6_patched_binary",
+   "target": "nftables-json",
+   "db": "unaware",
+   "label": [
+    "bytes_differ",
+    "nftables-json"
+   ],
+   "tools": {
+    "bw": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_snapshot": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_feed_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_A_only": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_B_only": {
+     "tp": 0,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_no_normalize": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    },
+    "bw_with_db": {
+     "tp": 1,
+     "fp": 0,
+     "extra": []
+    }
+   },
+   "bw_implanted_files_flagged": 0,
+   "bw_alternative_named": false,
+   "bw_flagged_undeclared_code": false,
+   "bw_verdict_for_target": "bytes_differ",
+   "bw_reason_for_target": "same version label as the reference build, different bytes: a rebuild or a modification, needs review",
+   "bomtrace_ran": null
+  }
+ ],
+ "seconds_median": {
+  "bw": 0.054,
+  "syft": null,
+  "cvebin": null,
+  "bomtrace": null
+ },
+ "runs": {
+  "bw": 188,
+  "syft": 0,
+  "cvebin": 0,
+  "bomtrace": 0
+ }
+}

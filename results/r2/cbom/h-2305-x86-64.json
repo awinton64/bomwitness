@@ -1,0 +1,1349 @@
+{
+ "image": {
+  "id": "h-2305-x86-64",
+  "split": "heldout",
+  "release": "23.05.6",
+  "target": "x86/64",
+  "image": "openwrt-23.05.6-x86-64-generic-squashfs-rootfs.img.gz"
+ },
+ "as_of": "2026-11-27T00:00:00+00:00",
+ "seed": 20261127,
+ "k": 5,
+ "assets": {
+  "certificates": 152,
+  "certificate_key_types": {
+   "EC-384": 39,
+   "RSA-4096": 66,
+   "RSA-2048": 43,
+   "EC-256": 4
+  },
+  "certificate_signature_hashes": {
+   "sha384": 55,
+   "sha256": 68,
+   "sha1": 27,
+   "sha512": 2
+  },
+  "keys": [
+   {
+    "kind": "public-key",
+    "format": "usign",
+    "algorithm": "Ed25519",
+    "path": "etc/opkg/keys/b5043e70f9a75cde"
+   }
+  ],
+  "crypto_components": 22,
+  "component_algorithm_pairs": 57,
+  "algorithms_by_component": {
+   "busybox": [
+    "MD5",
+    "SHA-256",
+    "SHA-512"
+   ],
+   "cgi-io": [
+    "SHA-256"
+   ],
+   "dropbear": [
+    "AES",
+    "ChaCha20-Poly1305",
+    "DH",
+    "Ed25519",
+    "RSA",
+    "SHA-1",
+    "SHA-256",
+    "SHA-512",
+    "X25519"
+   ],
+   "e2fsprogs": [
+    "AES"
+   ],
+   "fstools": [
+    "MD5"
+   ],
+   "grub2-bios-setup": [
+    "3DES",
+    "AES",
+    "MD5",
+    "RC4",
+    "SHA-1",
+    "SHA-256",
+    "SHA-512"
+   ],
+   "libext2fs2": [
+    "SHA-512"
+   ],
+   "libiwinfo20230701": [
+    "CCMP",
+    "SAE",
+    "SHA-256",
+    "TKIP",
+    "WEP"
+   ],
+   "libmbedtls12": [
+    "3DES",
+    "AES",
+    "ChaCha20-Poly1305",
+    "ECDSA",
+    "MD5",
+    "RC4",
+    "RSA",
+    "SHA-1",
+    "SHA-256",
+    "SHA-512",
+    "X25519"
+   ],
+   "libubox20230523": [
+    "MD5"
+   ],
+   "libuclient20201210": [
+    "MD5"
+   ],
+   "libuuid1": [
+    "MD5",
+    "SHA-1"
+   ],
+   "mtd": [
+    "MD5"
+   ],
+   "odhcp6c": [
+    "MD5"
+   ],
+   "odhcpd-ipv6only": [
+    "MD5"
+   ],
+   "opkg": [
+    "MD5",
+    "SHA-256"
+   ],
+   "ppp": [
+    "MD5",
+    "RSA",
+    "SHA-1"
+   ],
+   "procd": [
+    "MD5"
+   ],
+   "px5g-mbedtls": [
+    "RSA"
+   ],
+   "rpcd-mod-file": [
+    "MD5"
+   ],
+   "uhttpd": [
+    "MD5"
+   ],
+   "usign": [
+    "Ed25519",
+    "SHA-512"
+   ]
+  },
+  "deprecated_pairs": [
+   "3DES@grub2-bios-setup",
+   "3DES@libmbedtls12",
+   "MD5@busybox",
+   "MD5@fstools",
+   "MD5@grub2-bios-setup",
+   "MD5@libmbedtls12",
+   "MD5@libubox20230523",
+   "MD5@libuclient20201210",
+   "MD5@libuuid1",
+   "MD5@mtd",
+   "MD5@odhcp6c",
+   "MD5@odhcpd-ipv6only",
+   "MD5@opkg",
+   "MD5@ppp",
+   "MD5@procd",
+   "MD5@rpcd-mod-file",
+   "MD5@uhttpd",
+   "RC4@grub2-bios-setup",
+   "RC4@libmbedtls12",
+   "SHA-1@dropbear",
+   "SHA-1@grub2-bios-setup",
+   "SHA-1@libmbedtls12",
+   "SHA-1@libuuid1",
+   "SHA-1@ppp",
+   "TKIP@libiwinfo20230701",
+   "WEP@libiwinfo20230701"
+  ]
+ },
+ "findings_on_unmodified_image_with_correct_cbom": {
+  "expired_certificate": 1,
+  "provider_unverified": 1,
+  "deprecated_algorithm": 26
+ },
+ "by_class": {
+  "A1_omitted_algorithm": {
+   "cases": 5,
+   "tp": 5,
+   "fp": 0,
+   "fn": 0
+  },
+  "A2_phantom_algorithm": {
+   "cases": 5,
+   "tp": 5,
+   "fp": 0,
+   "fn": 0
+  },
+  "A3_wrong_provider": {
+   "cases": 5,
+   "tp": 10,
+   "fp": 0,
+   "fn": 0
+  },
+  "C1_wrong_key_size": {
+   "cases": 5,
+   "tp": 5,
+   "fp": 0,
+   "fn": 0
+  },
+  "C2_wrong_signature_hash": {
+   "cases": 5,
+   "tp": 5,
+   "fp": 0,
+   "fn": 0
+  },
+  "C3_omitted_certificate": {
+   "cases": 5,
+   "tp": 5,
+   "fp": 0,
+   "fn": 0
+  },
+  "C4_phantom_certificate": {
+   "cases": 5,
+   "tp": 5,
+   "fp": 0,
+   "fn": 0
+  },
+  "C5_implanted_weak_key_certificate": {
+   "cases": 5,
+   "tp": 10,
+   "fp": 0,
+   "fn": 0
+  },
+  "C6_expired_declared_valid": {
+   "cases": 5,
+   "tp": 10,
+   "fp": 0,
+   "fn": 0
+  },
+  "K1_omitted_key": {
+   "cases": 1,
+   "tp": 1,
+   "fp": 0,
+   "fn": 0
+  },
+  "K2_phantom_key": {
+   "cases": 5,
+   "tp": 5,
+   "fp": 0,
+   "fn": 0
+  },
+  "K3_implanted_private_key": {
+   "cases": 5,
+   "tp": 10,
+   "fp": 0,
+   "fn": 0
+  },
+  "X1_provider_not_in_sbom": {
+   "cases": 5,
+   "tp": 5,
+   "fp": 0,
+   "fn": 0
+  },
+  "X2_provider_bytes_patched": {
+   "cases": 5,
+   "tp": 5,
+   "fp": 0,
+   "fn": 0
+  },
+  "X3_crypto_component_without_entry": {
+   "cases": 5,
+   "tp": 5,
+   "fp": 0,
+   "fn": 0
+  }
+ },
+ "overall": {
+  "cases": 71,
+  "tp": 91,
+  "fp": 0,
+  "fn": 0,
+  "precision": 1.0,
+  "recall": 1.0
+ },
+ "cases": [
+  {
+   "kind": "C1_wrong_key_size",
+   "labels": [
+    [
+     "wrong_key",
+     "bfd88fe1101c41ae3e801bf8be56350ee9bad1a6b9bd515edc5c6d5b8711ac44"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.169
+  },
+  {
+   "kind": "C1_wrong_key_size",
+   "labels": [
+    [
+     "wrong_key",
+     "4ff460d54b9c86dabfbcfc5712e0400d2bed3fbc4d4fbdaa86e06adcd2a9ad7a"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.136
+  },
+  {
+   "kind": "C1_wrong_key_size",
+   "labels": [
+    [
+     "wrong_key",
+     "bf0feefb9e3a581ad5f9e9db7589985743d261085c4d314f6f5d7259aa421612"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.115
+  },
+  {
+   "kind": "C1_wrong_key_size",
+   "labels": [
+    [
+     "wrong_key",
+     "43df5774b03e7fef5fe40d931a7bedf1bb2e6b42738c4e6d3841103d3aa7f339"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.142
+  },
+  {
+   "kind": "C1_wrong_key_size",
+   "labels": [
+    [
+     "wrong_key",
+     "4fa3126d8d3a11d1c4855a4f807cbad6cf919d3a5a88b03bea2c6372d93c40c9"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.188
+  },
+  {
+   "kind": "C2_wrong_signature_hash",
+   "labels": [
+    [
+     "wrong_signature_hash",
+     "55903859c8c0c3ebb8759ece4e2557225ff5758bbd38ebd48276601e1bd58097"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.13
+  },
+  {
+   "kind": "C2_wrong_signature_hash",
+   "labels": [
+    [
+     "wrong_signature_hash",
+     "b676f2eddae8775cd36cb0f63cd1d4603961f49e6265ba013a2f0307b6d0b804"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.134
+  },
+  {
+   "kind": "C2_wrong_signature_hash",
+   "labels": [
+    [
+     "wrong_signature_hash",
+     "b085d70b964f191a73e4af0d54ae7a0e07aafdaf9b71dd0862138ab7325a24a2"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.111
+  },
+  {
+   "kind": "C2_wrong_signature_hash",
+   "labels": [
+    [
+     "wrong_signature_hash",
+     "8a71de6559336f426c26e53880d00d88a18da4c6a91f0dcb6194e206c5c96387"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.14
+  },
+  {
+   "kind": "C2_wrong_signature_hash",
+   "labels": [
+    [
+     "wrong_signature_hash",
+     "bd71fdf6da97e4cf62d1647add2581b07d79adf8397eb4ecba9c5e8488821423"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.118
+  },
+  {
+   "kind": "C3_omitted_certificate",
+   "labels": [
+    [
+     "undeclared_certificate",
+     "e35d28419ed02025cfa69038cd623962458da5c695fbdea3c22b0bfb25897092"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.16
+  },
+  {
+   "kind": "C3_omitted_certificate",
+   "labels": [
+    [
+     "undeclared_certificate",
+     "02bdf96e2a45dd9bf18fc7e1dbdf21a0379ba3c9c2610344cfd8d606fec1ed81"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.181
+  },
+  {
+   "kind": "C3_omitted_certificate",
+   "labels": [
+    [
+     "undeclared_certificate",
+     "ebc5570c29018c4d67b1aa127baf12f703b4611ebc17b7dab5573894179b93fa"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.135
+  },
+  {
+   "kind": "C3_omitted_certificate",
+   "labels": [
+    [
+     "undeclared_certificate",
+     "e74fbda55bd564c473a36b441aa799c8a68e077440e8288b9fa1e50e4bbaca11"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.127
+  },
+  {
+   "kind": "C3_omitted_certificate",
+   "labels": [
+    [
+     "undeclared_certificate",
+     "7d05ebb682339f8c9451ee094eebfefa7953a114edb2f44949452fab7d2fc185"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.087
+  },
+  {
+   "kind": "C4_phantom_certificate",
+   "labels": [
+    [
+     "absent_certificate",
+     "a2f7615d6f068d833193727cc9d14721d92b9c6b6d15f13f44dffe61d2c7e7b1"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.112
+  },
+  {
+   "kind": "C4_phantom_certificate",
+   "labels": [
+    [
+     "absent_certificate",
+     "64a0bfa4506df69457fb044a25d4e2a8c77344ceb2304b67fa346faa10a6f480"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.176
+  },
+  {
+   "kind": "C4_phantom_certificate",
+   "labels": [
+    [
+     "absent_certificate",
+     "eff2f447cedd6c6ba371443c5443db337283ac44da730afb3a66bb348b554c55"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.124
+  },
+  {
+   "kind": "C4_phantom_certificate",
+   "labels": [
+    [
+     "absent_certificate",
+     "cf89a5abf7f84244f51dab51ea7b1661a7f37b010a73a35ca589d13e0dce7bf6"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.143
+  },
+  {
+   "kind": "C4_phantom_certificate",
+   "labels": [
+    [
+     "absent_certificate",
+     "426eb9e701bc0e864712194e4efe63c967bf1fe897903eb59be2282633b12539"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.176
+  },
+  {
+   "kind": "C5_implanted_weak_key_certificate",
+   "labels": [
+    [
+     "undeclared_certificate",
+     "7822cf5795d10d37cc4fb2886c9792453fca8d7bf360a74d7af08eade03ef830"
+    ],
+    [
+     "weak_key",
+     "7822cf5795d10d37cc4fb2886c9792453fca8d7bf360a74d7af08eade03ef830"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.261
+  },
+  {
+   "kind": "C5_implanted_weak_key_certificate",
+   "labels": [
+    [
+     "undeclared_certificate",
+     "7b035176d467bd594ec6629abc01b22d612e129870717908e34976ffffc3ae16"
+    ],
+    [
+     "weak_key",
+     "7b035176d467bd594ec6629abc01b22d612e129870717908e34976ffffc3ae16"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.266
+  },
+  {
+   "kind": "C5_implanted_weak_key_certificate",
+   "labels": [
+    [
+     "undeclared_certificate",
+     "2a551f99be8211e4d8d3cfac008b45f8d7420a1056c3e5c08736a4361286a705"
+    ],
+    [
+     "weak_key",
+     "2a551f99be8211e4d8d3cfac008b45f8d7420a1056c3e5c08736a4361286a705"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.213
+  },
+  {
+   "kind": "C5_implanted_weak_key_certificate",
+   "labels": [
+    [
+     "undeclared_certificate",
+     "af013aab2ed61330f41131de1bf05b7a8fcf4a822d6c314abc82cce069ed33e6"
+    ],
+    [
+     "weak_key",
+     "af013aab2ed61330f41131de1bf05b7a8fcf4a822d6c314abc82cce069ed33e6"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.304
+  },
+  {
+   "kind": "C5_implanted_weak_key_certificate",
+   "labels": [
+    [
+     "undeclared_certificate",
+     "68bd6949ae203813623b9aad88d0cee3af8de79285725d85902376aa63a950d1"
+    ],
+    [
+     "weak_key",
+     "68bd6949ae203813623b9aad88d0cee3af8de79285725d85902376aa63a950d1"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.247
+  },
+  {
+   "kind": "C6_expired_declared_valid",
+   "labels": [
+    [
+     "expired_certificate",
+     "6e5cf967c7986b7f03c682a0ab656888a6bdf40d89347261ea7060dc1c9c2705"
+    ],
+    [
+     "wrong_expiry",
+     "6e5cf967c7986b7f03c682a0ab656888a6bdf40d89347261ea7060dc1c9c2705"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.26
+  },
+  {
+   "kind": "C6_expired_declared_valid",
+   "labels": [
+    [
+     "expired_certificate",
+     "89448f1a2a425b347cd07df219f4e8db0545089f29cb5b506aab324dc7530bbd"
+    ],
+    [
+     "wrong_expiry",
+     "89448f1a2a425b347cd07df219f4e8db0545089f29cb5b506aab324dc7530bbd"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.268
+  },
+  {
+   "kind": "C6_expired_declared_valid",
+   "labels": [
+    [
+     "expired_certificate",
+     "6182267ca7f6979d71410e2ca799ec9a85b47546cdf98e8d939f69d3905989ef"
+    ],
+    [
+     "wrong_expiry",
+     "6182267ca7f6979d71410e2ca799ec9a85b47546cdf98e8d939f69d3905989ef"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.262
+  },
+  {
+   "kind": "C6_expired_declared_valid",
+   "labels": [
+    [
+     "expired_certificate",
+     "9925d2450862f88832203550294ef335db1eb3ed8cebdcf15ec88386511f81f6"
+    ],
+    [
+     "wrong_expiry",
+     "9925d2450862f88832203550294ef335db1eb3ed8cebdcf15ec88386511f81f6"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.26
+  },
+  {
+   "kind": "C6_expired_declared_valid",
+   "labels": [
+    [
+     "expired_certificate",
+     "95d996e3e4d6d01ddb84d3bb6096d67b0854edf4cf55d8a5590096b59300d874"
+    ],
+    [
+     "wrong_expiry",
+     "95d996e3e4d6d01ddb84d3bb6096d67b0854edf4cf55d8a5590096b59300d874"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.272
+  },
+  {
+   "kind": "K1_omitted_key",
+   "labels": [
+    [
+     "undeclared_key",
+     "63b97844813c24c634d8ab2ee138afb6d295836a89a9ab348431165778aec32f"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.173
+  },
+  {
+   "kind": "K2_phantom_key",
+   "labels": [
+    [
+     "absent_key",
+     "4b54560aa328d4eab8008822104b9dab35477cd26fcdf0ea04393198be6aa491"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.127
+  },
+  {
+   "kind": "K2_phantom_key",
+   "labels": [
+    [
+     "absent_key",
+     "1c52ebb272e8f912b089342cf9b8e455b04bc17a61324dafeed010373aa5db20"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.119
+  },
+  {
+   "kind": "K2_phantom_key",
+   "labels": [
+    [
+     "absent_key",
+     "a4a72439776c2ce3ad0195d362191c4192fd20086a3291f83be644530659a722"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.128
+  },
+  {
+   "kind": "K2_phantom_key",
+   "labels": [
+    [
+     "absent_key",
+     "8d973517a0930f2aeb150b69255e68bc3598eafee1dcbddb04f673035fc38e61"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.129
+  },
+  {
+   "kind": "K2_phantom_key",
+   "labels": [
+    [
+     "absent_key",
+     "20323d186316130c271275b86fc99288770c0fb27e46112c03b5a371a39ecd9b"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.106
+  },
+  {
+   "kind": "K3_implanted_private_key",
+   "labels": [
+    [
+     "embedded_private_key",
+     "d07e7ad75a6b7ef42381f4f7dc47032f4375bca8b5fb65e31f386de3d828e903"
+    ],
+    [
+     "undeclared_key",
+     "d07e7ad75a6b7ef42381f4f7dc47032f4375bca8b5fb65e31f386de3d828e903"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.188
+  },
+  {
+   "kind": "K3_implanted_private_key",
+   "labels": [
+    [
+     "embedded_private_key",
+     "8410430b1458b7c8117166c3b53202bba1b757223ef985181bea6fb90d23aff3"
+    ],
+    [
+     "undeclared_key",
+     "8410430b1458b7c8117166c3b53202bba1b757223ef985181bea6fb90d23aff3"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.15
+  },
+  {
+   "kind": "K3_implanted_private_key",
+   "labels": [
+    [
+     "embedded_private_key",
+     "bcad039957ea0a2bafcaab5e85bcb8dcdd2492de1e7c5a9509c39e4610324391"
+    ],
+    [
+     "undeclared_key",
+     "bcad039957ea0a2bafcaab5e85bcb8dcdd2492de1e7c5a9509c39e4610324391"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.121
+  },
+  {
+   "kind": "K3_implanted_private_key",
+   "labels": [
+    [
+     "embedded_private_key",
+     "2958e34311535612549a130604d04af664ece81567fda5ede0ae12f1705d6f03"
+    ],
+    [
+     "undeclared_key",
+     "2958e34311535612549a130604d04af664ece81567fda5ede0ae12f1705d6f03"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.141
+  },
+  {
+   "kind": "K3_implanted_private_key",
+   "labels": [
+    [
+     "embedded_private_key",
+     "c6615a2680225f1dd8fc176e330acc87b789d21af67ce78c94761de3f84dfd32"
+    ],
+    [
+     "undeclared_key",
+     "c6615a2680225f1dd8fc176e330acc87b789d21af67ce78c94761de3f84dfd32"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.142
+  },
+  {
+   "kind": "A1_omitted_algorithm",
+   "labels": [
+    [
+     "undeclared_algorithm",
+     "SHA-256@busybox"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.1
+  },
+  {
+   "kind": "A1_omitted_algorithm",
+   "labels": [
+    [
+     "undeclared_algorithm",
+     "SHA-256@opkg"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.09
+  },
+  {
+   "kind": "A1_omitted_algorithm",
+   "labels": [
+    [
+     "undeclared_algorithm",
+     "ChaCha20-Poly1305@libmbedtls12"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.07
+  },
+  {
+   "kind": "A1_omitted_algorithm",
+   "labels": [
+    [
+     "undeclared_algorithm",
+     "AES@dropbear"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.067
+  },
+  {
+   "kind": "A1_omitted_algorithm",
+   "labels": [
+    [
+     "undeclared_algorithm",
+     "Ed25519@dropbear"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.07
+  },
+  {
+   "kind": "A2_phantom_algorithm",
+   "labels": [
+    [
+     "algorithm_not_evidenced",
+     "SAE@dropbear"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.067
+  },
+  {
+   "kind": "A2_phantom_algorithm",
+   "labels": [
+    [
+     "algorithm_not_evidenced",
+     "AES@libext2fs2"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.096
+  },
+  {
+   "kind": "A2_phantom_algorithm",
+   "labels": [
+    [
+     "algorithm_not_evidenced",
+     "RC4@opkg"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.094
+  },
+  {
+   "kind": "A2_phantom_algorithm",
+   "labels": [
+    [
+     "algorithm_not_evidenced",
+     "CCMP@rpcd-mod-file"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.091
+  },
+  {
+   "kind": "A2_phantom_algorithm",
+   "labels": [
+    [
+     "algorithm_not_evidenced",
+     "ECDSA@libuuid1"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.097
+  },
+  {
+   "kind": "A3_wrong_provider",
+   "labels": [
+    [
+     "algorithm_not_evidenced",
+     "X25519@procd"
+    ],
+    [
+     "undeclared_algorithm",
+     "X25519@dropbear"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.083
+  },
+  {
+   "kind": "A3_wrong_provider",
+   "labels": [
+    [
+     "algorithm_not_evidenced",
+     "SHA-512@libiwinfo20230701"
+    ],
+    [
+     "undeclared_algorithm",
+     "SHA-512@busybox"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.079
+  },
+  {
+   "kind": "A3_wrong_provider",
+   "labels": [
+    [
+     "algorithm_not_evidenced",
+     "CCMP@procd"
+    ],
+    [
+     "undeclared_algorithm",
+     "CCMP@libiwinfo20230701"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.087
+  },
+  {
+   "kind": "A3_wrong_provider",
+   "labels": [
+    [
+     "algorithm_not_evidenced",
+     "AES@libuclient20201210"
+    ],
+    [
+     "undeclared_algorithm",
+     "AES@dropbear"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.096
+  },
+  {
+   "kind": "A3_wrong_provider",
+   "labels": [
+    [
+     "algorithm_not_evidenced",
+     "3DES@libuuid1"
+    ],
+    [
+     "undeclared_algorithm",
+     "3DES@grub2-bios-setup"
+    ]
+   ],
+   "tp": 2,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.107
+  },
+  {
+   "kind": "X1_provider_not_in_sbom",
+   "labels": [
+    [
+     "provider_not_in_sbom",
+     "grub2-bios-setup"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.08
+  },
+  {
+   "kind": "X1_provider_not_in_sbom",
+   "labels": [
+    [
+     "provider_not_in_sbom",
+     "libiwinfo20230701"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.084
+  },
+  {
+   "kind": "X1_provider_not_in_sbom",
+   "labels": [
+    [
+     "provider_not_in_sbom",
+     "libuuid1"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.076
+  },
+  {
+   "kind": "X1_provider_not_in_sbom",
+   "labels": [
+    [
+     "provider_not_in_sbom",
+     "libmbedtls12"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.089
+  },
+  {
+   "kind": "X1_provider_not_in_sbom",
+   "labels": [
+    [
+     "provider_not_in_sbom",
+     "odhcpd-ipv6only"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.093
+  },
+  {
+   "kind": "X2_provider_bytes_patched",
+   "labels": [
+    [
+     "provider_unverified",
+     "rpcd-mod-file"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.125
+  },
+  {
+   "kind": "X2_provider_bytes_patched",
+   "labels": [
+    [
+     "provider_unverified",
+     "libuclient20201210"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.144
+  },
+  {
+   "kind": "X2_provider_bytes_patched",
+   "labels": [
+    [
+     "provider_unverified",
+     "busybox"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.257
+  },
+  {
+   "kind": "X2_provider_bytes_patched",
+   "labels": [
+    [
+     "provider_unverified",
+     "uhttpd"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.127
+  },
+  {
+   "kind": "X2_provider_bytes_patched",
+   "labels": [
+    [
+     "provider_unverified",
+     "odhcpd-ipv6only"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.148
+  },
+  {
+   "kind": "X3_crypto_component_without_entry",
+   "labels": [
+    [
+     "crypto_component_without_cbom_entry",
+     "uhttpd"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.067
+  },
+  {
+   "kind": "X3_crypto_component_without_entry",
+   "labels": [
+    [
+     "crypto_component_without_cbom_entry",
+     "procd"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.061
+  },
+  {
+   "kind": "X3_crypto_component_without_entry",
+   "labels": [
+    [
+     "crypto_component_without_cbom_entry",
+     "libiwinfo20230701"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.065
+  },
+  {
+   "kind": "X3_crypto_component_without_entry",
+   "labels": [
+    [
+     "crypto_component_without_cbom_entry",
+     "dropbear"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.063
+  },
+  {
+   "kind": "X3_crypto_component_without_entry",
+   "labels": [
+    [
+     "crypto_component_without_cbom_entry",
+     "opkg"
+    ]
+   ],
+   "tp": 1,
+   "fp": 0,
+   "fn": 0,
+   "extra": [],
+   "seconds": 0.064
+  }
+ ]
+}

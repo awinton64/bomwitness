@@ -1,0 +1,301 @@
+{
+ "note": "One row per release and target: the first build of the signed reference cache and file-path index, measured on the evaluation machine (bench log of scripts/build_reference.py). Packages are streamed, hashed and discarded. A package already hashed for another target of the same architecture is not downloaded again, which is why two rows are smaller.",
+ "targets": [
+  {
+   "release": "24.10.8",
+   "target": "ath79/generic",
+   "arch": "mips_24kc",
+   "seconds": 31.4,
+   "downloaded": 2034,
+   "downloaded_bytes": 183080267,
+   "path_index_packages": 2035,
+   "files": 6187,
+   "sha256sums_sha256": "2984ed26ea74569fabc0a6e8b7ea1a09e4666f57a8c560ac8030f24e65082660",
+   "sha256sums_signed_by": "d310c6f2833e97f7",
+   "feed_index_trust": {
+    "target": "sha256 in signed sha256sums",
+    "kmods": "sha256 in signed sha256sums",
+    "base": "usign d310c6f2833e97f7",
+    "luci": "usign d310c6f2833e97f7",
+    "packages": "usign d310c6f2833e97f7",
+    "routing": "usign d310c6f2833e97f7",
+    "telephony": "usign d310c6f2833e97f7"
+   }
+  },
+  {
+   "release": "24.10.8",
+   "target": "ramips/mt7621",
+   "arch": "mipsel_24kc",
+   "seconds": 30.6,
+   "downloaded": 1832,
+   "downloaded_bytes": 180894456,
+   "path_index_packages": 1998,
+   "files": 6163,
+   "sha256sums_sha256": "de9effa0db8f8838a7435ad68f54def9d95418189dee01e2b8c87c0d12066a4b",
+   "sha256sums_signed_by": "d310c6f2833e97f7",
+   "feed_index_trust": {
+    "target": "sha256 in signed sha256sums",
+    "kmods": "sha256 in signed sha256sums",
+    "base": "usign d310c6f2833e97f7",
+    "luci": "usign d310c6f2833e97f7",
+    "packages": "usign d310c6f2833e97f7",
+    "routing": "usign d310c6f2833e97f7",
+    "telephony": "usign d310c6f2833e97f7"
+   }
+  },
+  {
+   "release": "24.10.8",
+   "target": "mediatek/filogic",
+   "arch": "aarch64_cortex-a53",
+   "seconds": 28.8,
+   "downloaded": 1842,
+   "downloaded_bytes": 184973860,
+   "path_index_packages": 2008,
+   "files": 6169,
+   "sha256sums_sha256": "d9e59d34840c91d7ecf44fd4c5f93beb493ce181aafd0d95db8685ef84c635ba",
+   "sha256sums_signed_by": "d310c6f2833e97f7",
+   "feed_index_trust": {
+    "target": "sha256 in signed sha256sums",
+    "kmods": "sha256 in signed sha256sums",
+    "base": "usign d310c6f2833e97f7",
+    "luci": "usign d310c6f2833e97f7",
+    "packages": "usign d310c6f2833e97f7",
+    "routing": "usign d310c6f2833e97f7",
+    "telephony": "usign d310c6f2833e97f7"
+   }
+  },
+  {
+   "release": "23.05.6",
+   "target": "ath79/generic",
+   "arch": "mips_24kc",
+   "seconds": 40.2,
+   "downloaded": 1839,
+   "downloaded_bytes": 151533495,
+   "path_index_packages": 1839,
+   "files": 5794,
+   "sha256sums_sha256": "77b58f746c8710ab5399411126c9c9b1974045315a1ff01b224995e9727c4900",
+   "sha256sums_signed_by": "b5043e70f9a75cde",
+   "feed_index_trust": {
+    "target": "sha256 in signed sha256sums",
+    "kmods": "sha256 in signed sha256sums",
+    "base": "usign b5043e70f9a75cde",
+    "luci": "usign b5043e70f9a75cde",
+    "packages": "usign b5043e70f9a75cde",
+    "routing": "usign b5043e70f9a75cde",
+    "telephony": "usign b5043e70f9a75cde"
+   }
+  },
+  {
+   "release": "24.10.8",
+   "target": "ipq40xx/generic",
+   "arch": "arm_cortex-a7_neon-vfpv4",
+   "seconds": 30.2,
+   "downloaded": 1888,
+   "downloaded_bytes": 180842292,
+   "path_index_packages": 2056,
+   "files": 6224,
+   "sha256sums_sha256": "1ca41052328d43a047dea452b2cf85259e9ec9d36667dd1acb336a09bd5cd7e9",
+   "sha256sums_signed_by": "d310c6f2833e97f7",
+   "feed_index_trust": {
+    "target": "sha256 in signed sha256sums",
+    "kmods": "sha256 in signed sha256sums",
+    "base": "usign d310c6f2833e97f7",
+    "luci": "usign d310c6f2833e97f7",
+    "packages": "usign d310c6f2833e97f7",
+    "routing": "usign d310c6f2833e97f7",
+    "telephony": "usign d310c6f2833e97f7"
+   }
+  },
+  {
+   "release": "24.10.8",
+   "target": "x86/64",
+   "arch": "x86_64",
+   "seconds": 29.5,
+   "downloaded": 1918,
+   "downloaded_bytes": 196531911,
+   "path_index_packages": 2086,
+   "files": 6302,
+   "sha256sums_sha256": "5c1d5d6a7fc1acd34fd5ed8014cc28039b122569a87161889a1fa23b03a03df8",
+   "sha256sums_signed_by": "d310c6f2833e97f7",
+   "feed_index_trust": {
+    "target": "sha256 in signed sha256sums",
+    "kmods": "sha256 in signed sha256sums",
+    "base": "usign d310c6f2833e97f7",
+    "luci": "usign d310c6f2833e97f7",
+    "packages": "usign d310c6f2833e97f7",
+    "routing": "usign d310c6f2833e97f7",
+    "telephony": "usign d310c6f2833e97f7"
+   }
+  },
+  {
+   "release": "24.10.8",
+   "target": "ramips/mt76x8",
+   "arch": "mipsel_24kc",
+   "seconds": 15.1,
+   "downloaded": 1050,
+   "downloaded_bytes": 39300795,
+   "path_index_packages": 1985,
+   "files": 6128,
+   "sha256sums_sha256": "3832968f3c0bb805ec8f74ed25b0e10c026f63f5548efdded7c0a168fa728a5b",
+   "sha256sums_signed_by": "d310c6f2833e97f7",
+   "feed_index_trust": {
+    "target": "sha256 in signed sha256sums",
+    "kmods": "sha256 in signed sha256sums",
+    "base": "usign d310c6f2833e97f7",
+    "luci": "usign d310c6f2833e97f7",
+    "packages": "usign d310c6f2833e97f7",
+    "routing": "usign d310c6f2833e97f7",
+    "telephony": "usign d310c6f2833e97f7"
+   }
+  },
+  {
+   "release": "24.10.8",
+   "target": "mediatek/mt7622",
+   "arch": "aarch64_cortex-a53",
+   "seconds": 15.1,
+   "downloaded": 1055,
+   "downloaded_bytes": 40197455,
+   "path_index_packages": 2004,
+   "files": 6151,
+   "sha256sums_sha256": "92ed21daed6febc4800fe750b583d533f17035c5245e67035f36ff5693accdbd",
+   "sha256sums_signed_by": "d310c6f2833e97f7",
+   "feed_index_trust": {
+    "target": "sha256 in signed sha256sums",
+    "kmods": "sha256 in signed sha256sums",
+    "base": "usign d310c6f2833e97f7",
+    "luci": "usign d310c6f2833e97f7",
+    "packages": "usign d310c6f2833e97f7",
+    "routing": "usign d310c6f2833e97f7",
+    "telephony": "usign d310c6f2833e97f7"
+   }
+  },
+  {
+   "release": "24.10.8",
+   "target": "mvebu/cortexa9",
+   "arch": "arm_cortex-a9_vfpv3-d16",
+   "seconds": 28.8,
+   "downloaded": 1838,
+   "downloaded_bytes": 179380572,
+   "path_index_packages": 2006,
+   "files": 6156,
+   "sha256sums_sha256": "0b1410704cb23b19e46288c39d286065205291200ad9af400c5c9733c9f298ed",
+   "sha256sums_signed_by": "d310c6f2833e97f7",
+   "feed_index_trust": {
+    "target": "sha256 in signed sha256sums",
+    "kmods": "sha256 in signed sha256sums",
+    "base": "usign d310c6f2833e97f7",
+    "luci": "usign d310c6f2833e97f7",
+    "packages": "usign d310c6f2833e97f7",
+    "routing": "usign d310c6f2833e97f7",
+    "telephony": "usign d310c6f2833e97f7"
+   }
+  },
+  {
+   "release": "23.05.6",
+   "target": "ramips/mt7621",
+   "arch": "mipsel_24kc",
+   "seconds": 35.9,
+   "downloaded": 1665,
+   "downloaded_bytes": 149174587,
+   "path_index_packages": 1842,
+   "files": 5816,
+   "sha256sums_sha256": "b1b6996ae53e97d64b8a40489d028ef3951cfdbd11feac224a342860811b65b9",
+   "sha256sums_signed_by": "b5043e70f9a75cde",
+   "feed_index_trust": {
+    "target": "sha256 in signed sha256sums",
+    "kmods": "sha256 in signed sha256sums",
+    "base": "usign b5043e70f9a75cde",
+    "luci": "usign b5043e70f9a75cde",
+    "packages": "usign b5043e70f9a75cde",
+    "routing": "usign b5043e70f9a75cde",
+    "telephony": "usign b5043e70f9a75cde"
+   }
+  },
+  {
+   "release": "23.05.6",
+   "target": "mediatek/filogic",
+   "arch": "aarch64_cortex-a53",
+   "seconds": 37.8,
+   "downloaded": 1668,
+   "downloaded_bytes": 152541318,
+   "path_index_packages": 1846,
+   "files": 5814,
+   "sha256sums_sha256": "37c60c64693870ec80d4e431173e3cca3f7d8598652a960f004d3a4ae0b2b88c",
+   "sha256sums_signed_by": "b5043e70f9a75cde",
+   "feed_index_trust": {
+    "target": "sha256 in signed sha256sums",
+    "kmods": "sha256 in signed sha256sums",
+    "base": "usign b5043e70f9a75cde",
+    "luci": "usign b5043e70f9a75cde",
+    "packages": "usign b5043e70f9a75cde",
+    "routing": "usign b5043e70f9a75cde",
+    "telephony": "usign b5043e70f9a75cde"
+   }
+  },
+  {
+   "release": "23.05.6",
+   "target": "ipq40xx/generic",
+   "arch": "arm_cortex-a7_neon-vfpv4",
+   "seconds": 38.7,
+   "downloaded": 1699,
+   "downloaded_bytes": 148691435,
+   "path_index_packages": 1866,
+   "files": 5844,
+   "sha256sums_sha256": "b402ccc2dbaa3cd665383996c5ac5b80e507fcc43e4da684aa7a089d5ef2840c",
+   "sha256sums_signed_by": "b5043e70f9a75cde",
+   "feed_index_trust": {
+    "target": "sha256 in signed sha256sums",
+    "kmods": "sha256 in signed sha256sums",
+    "base": "usign b5043e70f9a75cde",
+    "luci": "usign b5043e70f9a75cde",
+    "packages": "usign b5043e70f9a75cde",
+    "routing": "usign b5043e70f9a75cde",
+    "telephony": "usign b5043e70f9a75cde"
+   }
+  },
+  {
+   "release": "23.05.6",
+   "target": "x86/64",
+   "arch": "x86_64",
+   "seconds": 38.5,
+   "downloaded": 1739,
+   "downloaded_bytes": 158594713,
+   "path_index_packages": 1906,
+   "files": 5912,
+   "sha256sums_sha256": "b9901e6e08539fcc5f0411fa805b053733875a3744ba3b16cc4784d88832360a",
+   "sha256sums_signed_by": "b5043e70f9a75cde",
+   "feed_index_trust": {
+    "target": "sha256 in signed sha256sums",
+    "kmods": "sha256 in signed sha256sums",
+    "base": "usign b5043e70f9a75cde",
+    "luci": "usign b5043e70f9a75cde",
+    "packages": "usign b5043e70f9a75cde",
+    "routing": "usign b5043e70f9a75cde",
+    "telephony": "usign b5043e70f9a75cde"
+   }
+  },
+  {
+   "release": "23.05.6",
+   "target": "bcm27xx/bcm2711",
+   "arch": "aarch64_cortex-a72",
+   "seconds": 37.0,
+   "downloaded": 1748,
+   "downloaded_bytes": 153439897,
+   "path_index_packages": 1915,
+   "files": 6131,
+   "sha256sums_sha256": "eb694f6a20716ce47dc68fb759c1c92e3b15c37e66bfe0b4393b4b59c55a886c",
+   "sha256sums_signed_by": "b5043e70f9a75cde",
+   "feed_index_trust": {
+    "target": "sha256 in signed sha256sums",
+    "kmods": "sha256 in signed sha256sums",
+    "base": "usign b5043e70f9a75cde",
+    "luci": "usign b5043e70f9a75cde",
+    "packages": "usign b5043e70f9a75cde",
+    "routing": "usign b5043e70f9a75cde",
+    "telephony": "usign b5043e70f9a75cde"
+   }
+  }
+ ],
+ "total_downloaded_bytes": 2099177053,
+ "total_seconds": 437.6
+}

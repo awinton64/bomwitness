@@ -210,7 +210,7 @@ def test_markdown_report_has_triage_and_limits(rootfs, truth, ref):
     rep = report.build({"name": "fw"}, ref.provenance(), sbom, None, None, {"models_found": 0, "findings": []})
     assert rep["triage"] == {"automatic_pass": 6, "automatic_fail": 1, "needs_review": 0, "unverifiable": 1}
     md = report.markdown(rep)
-    assert "| absent | delta |" in md and "What this report does not establish" in md and "—" not in md
+    assert "| absent | delta |" in md and "What this report does not establish" in md and chr(0x2014) not in md
 
 
 def test_cli_verify_end_to_end(rootfs, truth, release_root, signer, tmp_path, monkeypatch, capsys):

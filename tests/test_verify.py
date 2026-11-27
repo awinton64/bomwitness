@@ -286,3 +286,21 @@ def test_kernel_claim_does_not_hide_an_omitted_kernel_module(rootfs, truth, ref)
     assert verdicts(rep)["kernel"] == "verified_B"
     assert hard(rep) == {("undeclared_component", "kmod-foo")}
     assert ("wrong_version", "kernel") in hard(verify(rootfs, swap(bom, "kernel", "6.6.9~abc-r1"), ref))
+
+
+def test_snapshot_and_feed_attribution_are_merged_without_a_path_index(release_root, signer, tmp_path, truth):
+    """Regression (found by the pipeline example after the freeze): on-demand mode, snapshot plus feed evidence.
+
+    The sibling snapshot leaves configuration files out of a package's file list. Without merging, those files
+    were attributed to a second package that ships identical defaults.
+    """
+    pk = dict(fakefeed.DEFAULT_PACKAGES)
+    pk["gamma"] = ("base", "2024.01.01~abc-r1", {"usr/bin/gamma": fakefeed.elf(b"gamma tool no marker"), "etc/config/gamma": b"defaults\n"}, "")
+    pk["gamma-full"] = ("base", "2024.01.01~abc-r1", {"usr/bin/gamma": fakefeed.elf(b"gamma FULL"), "etc/config/gamma": b"defaults\n"}, "")
+    root = tmp_path / "releases"
+    fakefeed.make_release(root, signer, packages=pk)
+    r = fakefeed.reference(root, signer, tmp_path / "cache", index=False)
+    fw = fakefeed.make_rootfs(tmp_path / "fw", INSTALLED, pk)
+    snap = snapshot_from_rootfs(fakefeed.make_rootfs(tmp_path / "sib", INSTALLED, pk), "sibling")
+    bom = [c for c in fakefeed.claims(INSTALLED, pk) if c["name"] != "gamma"]
+    assert hard(verify(fw, bom, r, snapshots=[snap])) == {("undeclared_component", "gamma")}

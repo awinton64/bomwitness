@@ -1,0 +1,115 @@
+{
+ "h-2305-edgerouter-x": {
+  "device_package_jaccard": 0.0,
+  "files_identical_in_sibling": 545,
+  "image": "openwrt-23.05.6-ramips-mt7621-alfa-network_ax1800rm-squashfs-sysupgrade.bin",
+  "packages_in_both": 114,
+  "profile": "alfa-network_ax1800rm",
+  "sha256": "83ad20ccfd36ec804865e39d498658666e0794ad0e01c6c4b81b011556ef578c",
+  "tested_files": 546,
+  "tested_packages": 114
+ },
+ "h-2305-gl-b1300": {
+  "device_package_jaccard": 0.0,
+  "files_identical_in_sibling": 592,
+  "image": "openwrt-23.05.6-ipq40xx-generic-alfa-network_ap120c-ac-squashfs-sysupgrade.bin",
+  "packages_in_both": 144,
+  "profile": "alfa-network_ap120c-ac",
+  "sha256": "98182546b545e7f1e392cd590bd8452220468e1384e03ca1e57221fc240bcb59",
+  "tested_files": 592,
+  "tested_packages": 144
+ },
+ "h-2305-gl-mt3000": {
+  "device_package_jaccard": 0.0,
+  "files_identical_in_sibling": 598,
+  "image": "openwrt-23.05.6-mediatek-filogic-acelink_ew-7886cax-squashfs-sysupgrade.bin",
+  "packages_in_both": 147,
+  "profile": "acelink_ew-7886cax",
+  "sha256": "5f795cf7e4c5fbc1ac81596c9632306b8b64d7fab9c13059c74d73ab54bea93a",
+  "tested_files": 614,
+  "tested_packages": 155
+ },
+ "h-2305-rpi-4": null,
+ "h-2305-x86-64": null,
+ "h-2410-archer-c50-v4": {
+  "device_package_jaccard": 0.0,
+  "files_identical_in_sibling": 590,
+  "image": "openwrt-24.10.8-ramips-mt76x8-7links_wlr-1230-squashfs-sysupgrade.bin",
+  "packages_in_both": 137,
+  "profile": "7links_wlr-1230",
+  "sha256": "57022c73f6598951f43abfacb9b12efc1f3553b1229c237c8894c800a9da732f",
+  "tested_files": 596,
+  "tested_packages": 140
+ },
+ "h-2410-gl-b1300": {
+  "device_package_jaccard": 0.0,
+  "files_identical_in_sibling": 622,
+  "image": "openwrt-24.10.8-ipq40xx-generic-alfa-network_ap120c-ac-squashfs-sysupgrade.bin",
+  "packages_in_both": 148,
+  "profile": "alfa-network_ap120c-ac",
+  "sha256": "b4a89e26effbb44950f126cffcb4b0f40d7aa5cadf51fc2602df19f5ece24b65",
+  "tested_files": 622,
+  "tested_packages": 148
+ },
+ "h-2410-unifi-6-lr-v1": {
+  "device_package_jaccard": 0.0,
+  "files_identical_in_sibling": 610,
+  "image": "openwrt-24.10.8-mediatek-mt7622-buffalo_wsr-2533dhp2-squashfs-sysupgrade.bin",
+  "packages_in_both": 144,
+  "profile": "buffalo_wsr-2533dhp2",
+  "sha256": "844e79757ca51bd501274aabcb7416809a19affc726fa0d66b1b8dab7bcf4f7d",
+  "tested_files": 618,
+  "tested_packages": 149
+ },
+ "h-2410-wrt1900acs": {
+  "device_package_jaccard": 0.0,
+  "files_identical_in_sibling": 556,
+  "image": "openwrt-24.10.8-mvebu-cortexa9-buffalo_ls220de-squashfs-sysupgrade.bin",
+  "packages_in_both": 110,
+  "profile": "buffalo_ls220de",
+  "sha256": "66737a3b1e62d66c6e458ce040bf56603214ee0630624bb438e0d678b42e3f15",
+  "tested_files": 613,
+  "tested_packages": 138
+ },
+ "h-2410-x86-64": null,
+ "t-2305-archer-c7-v2": {
+  "device_package_jaccard": 0.0,
+  "files_identical_in_sibling": 585,
+  "image": "openwrt-23.05.6-ath79-generic-8dev_carambola2-squashfs-sysupgrade.bin",
+  "packages_in_both": 139,
+  "profile": "8dev_carambola2",
+  "sha256": "3435293c4a21e9446ef01aff2f0ae4a81b1bc68cfb9f331fff8b844edc23d1da",
+  "tested_files": 598,
+  "tested_packages": 146
+ },
+ "t-2410-archer-c7-v5": {
+  "device_package_jaccard": 0.0,
+  "files_identical_in_sibling": 617,
+  "image": "openwrt-24.10.8-ath79-generic-8dev_carambola2-squashfs-sysupgrade.bin",
+  "packages_in_both": 144,
+  "profile": "8dev_carambola2",
+  "sha256": "cb38c139ea4636a7bb4a314793e5755014dd66886dd4af8dd9711d158fb53003",
+  "tested_files": 629,
+  "tested_packages": 150
+ },
+ "t-2410-gl-mt6000": {
+  "device_package_jaccard": 0.1,
+  "files_identical_in_sibling": 631,
+  "image": "openwrt-24.10.8-mediatek-filogic-cudy_ap3000-v1-squashfs-sysupgrade.bin",
+  "packages_in_both": 152,
+  "profile": "cudy_ap3000-v1",
+  "sha256": "1e52f197d4211e735b4a316512743366d112fb68984de31e207fddc64a991355",
+  "tested_files": 662,
+  "tested_packages": 170
+ },
+ "t-2410-mi-router-4a-gigabit": {
+  "device_package_jaccard": 0.0,
+  "files_identical_in_sibling": 625,
+  "image": "openwrt-24.10.8-ramips-mt7621-alfa-network_ax1800rm-squashfs-sysupgrade.bin",
+  "packages_in_both": 143,
+  "profile": "alfa-network_ax1800rm",
+  "sha256": "f746ce47224dcdada08e655ed091f5b078c0ef39d9e7cc7f97a9c837fa260570",
+  "tested_files": 636,
+  "tested_packages": 147
+ }
+}

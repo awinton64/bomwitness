@@ -1,0 +1,1021 @@
+{
+ "device": "tplink_archer-c7-v2",
+ "target": "ath79/generic",
+ "measured_at_epoch": 1795750477,
+ "releases": [
+  {
+   "release": "23.05.0",
+   "image": "openwrt-23.05.0-ath79-generic-tplink_archer-c7-v2-squashfs-sysupgrade.bin",
+   "image_sha256": "88791c7d93413de13ec7271f71c0f85ab112bab4053b17ef783f76679c820121",
+   "sibling": "openwrt-23.05.0-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+   "sibling_sha256": "4426ebdfad53c4ec605487292181abe5b21510ef5d89fd735b5e54b50414a6c2",
+   "image_source_date_epoch": 1696887935,
+   "age_days": 1144,
+   "declared": 146,
+   "configs": {
+    "feeds_only": {
+     "verdicts": {
+      "verified_A": 99,
+      "verified_B": 4,
+      "unverifiable": 36,
+      "bytes_differ": 4,
+      "label_unconfirmed": 3
+     },
+     "verified_A_share": 0.6781,
+     "verified_share": 0.7055,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "iw"
+      ],
+      [
+       "bytes_differ",
+       "liblucihttp-ucode"
+      ],
+      [
+       "bytes_differ",
+       "procd"
+      ],
+      [
+       "bytes_differ",
+       "rpcd-mod-ucode"
+      ],
+      [
+       "undeclared_file",
+       "usr/lib/libucode.so.20220812"
+      ]
+     ]
+    },
+    "feeds_manifest": {
+     "verdicts": {
+      "verified_A": 102,
+      "verified_B": 4,
+      "unverifiable": 36,
+      "bytes_differ": 4
+     },
+     "verified_A_share": 0.6986,
+     "verified_share": 0.726,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "iw"
+      ],
+      [
+       "bytes_differ",
+       "liblucihttp-ucode"
+      ],
+      [
+       "bytes_differ",
+       "procd"
+      ],
+      [
+       "bytes_differ",
+       "rpcd-mod-ucode"
+      ],
+      [
+       "undeclared_file",
+       "usr/lib/libucode.so.20220812"
+      ]
+     ]
+    },
+    "feeds_manifest_snapshot": {
+     "verdicts": {
+      "verified_A": 135,
+      "verified_B": 2,
+      "unverifiable": 9
+     },
+     "verified_A_share": 0.9247,
+     "verified_share": 0.9384,
+     "hard_findings": [
+      [
+       "undeclared_component",
+       "libucode20220812"
+      ]
+     ]
+    }
+   },
+   "components_whose_feed_label_changed": 36
+  },
+  {
+   "release": "23.05.2",
+   "image": "openwrt-23.05.2-ath79-generic-tplink_archer-c7-v2-squashfs-sysupgrade.bin",
+   "image_sha256": "eebee6a3c4e38b2b021f8b217b96cf7d4b689dc7be0105e9e5a57fd3e495d9ea",
+   "sibling": "openwrt-23.05.2-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+   "sibling_sha256": "301256e330ee1fea28e3196f8982e46f618c60fda0c1ec2713da434296a607f9",
+   "image_source_date_epoch": 1699969091,
+   "age_days": 1109,
+   "declared": 146,
+   "configs": {
+    "feeds_only": {
+     "verdicts": {
+      "verified_A": 105,
+      "verified_B": 4,
+      "unverifiable": 31,
+      "bytes_differ": 2,
+      "label_unconfirmed": 4
+     },
+     "verified_A_share": 0.7192,
+     "verified_share": 0.7466,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "iw"
+      ],
+      [
+       "bytes_differ",
+       "procd"
+      ]
+     ]
+    },
+    "feeds_manifest": {
+     "verdicts": {
+      "verified_A": 109,
+      "verified_B": 4,
+      "unverifiable": 31,
+      "bytes_differ": 2
+     },
+     "verified_A_share": 0.7466,
+     "verified_share": 0.774,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "iw"
+      ],
+      [
+       "bytes_differ",
+       "procd"
+      ]
+     ]
+    },
+    "feeds_manifest_snapshot": {
+     "verdicts": {
+      "verified_A": 136,
+      "verified_B": 2,
+      "unverifiable": 8
+     },
+     "verified_A_share": 0.9315,
+     "verified_share": 0.9452,
+     "hard_findings": []
+    }
+   },
+   "components_whose_feed_label_changed": 33
+  },
+  {
+   "release": "23.05.3",
+   "image": "openwrt-23.05.3-ath79-generic-tplink_archer-c7-v2-squashfs-sysupgrade.bin",
+   "image_sha256": "b787390f45561946a0f8ab638f2b5a5188f6e2102ea5edaed55c79c6368288a4",
+   "sibling": "openwrt-23.05.3-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+   "sibling_sha256": "11415e70801cd793098af32927154f4ea042803e73b31f4921ca60dd8ec7f279",
+   "image_source_date_epoch": 1711145382,
+   "age_days": 979,
+   "declared": 146,
+   "configs": {
+    "feeds_only": {
+     "verdicts": {
+      "verified_A": 108,
+      "verified_B": 3,
+      "unverifiable": 27,
+      "bytes_differ": 3,
+      "label_unconfirmed": 5
+     },
+     "verified_A_share": 0.7397,
+     "verified_share": 0.7603,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "iw"
+      ],
+      [
+       "bytes_differ",
+       "procd"
+      ],
+      [
+       "bytes_differ",
+       "rpcd-mod-luci"
+      ]
+     ]
+    },
+    "feeds_manifest": {
+     "verdicts": {
+      "verified_A": 113,
+      "verified_B": 3,
+      "unverifiable": 27,
+      "bytes_differ": 3
+     },
+     "verified_A_share": 0.774,
+     "verified_share": 0.7945,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "iw"
+      ],
+      [
+       "bytes_differ",
+       "procd"
+      ],
+      [
+       "bytes_differ",
+       "rpcd-mod-luci"
+      ]
+     ]
+    },
+    "feeds_manifest_snapshot": {
+     "verdicts": {
+      "verified_A": 136,
+      "verified_B": 2,
+      "unverifiable": 8
+     },
+     "verified_A_share": 0.9315,
+     "verified_share": 0.9452,
+     "hard_findings": []
+    }
+   },
+   "components_whose_feed_label_changed": 29
+  },
+  {
+   "release": "23.05.4",
+   "image": "openwrt-23.05.4-ath79-generic-tplink_archer-c7-v2-squashfs-sysupgrade.bin",
+   "image_sha256": "25fee2547d466dfdf66f4ce5434f7623e39daa804e44e7c356f36dc38807f687",
+   "sibling": "openwrt-23.05.4-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+   "sibling_sha256": "466dd166f733fad8c1a64723df7294d608acc938f7731829bb3f2f8973b14eda",
+   "image_source_date_epoch": 1721081658,
+   "age_days": 864,
+   "declared": 146,
+   "configs": {
+    "feeds_only": {
+     "verdicts": {
+      "verified_A": 111,
+      "verified_B": 3,
+      "unverifiable": 18,
+      "label_unconfirmed": 13,
+      "bytes_differ": 1
+     },
+     "verified_A_share": 0.7603,
+     "verified_share": 0.7808,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "rpcd-mod-luci"
+      ]
+     ]
+    },
+    "feeds_manifest": {
+     "verdicts": {
+      "verified_A": 124,
+      "verified_B": 3,
+      "unverifiable": 18,
+      "bytes_differ": 1
+     },
+     "verified_A_share": 0.8493,
+     "verified_share": 0.8699,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "rpcd-mod-luci"
+      ]
+     ]
+    },
+    "feeds_manifest_snapshot": {
+     "verdicts": {
+      "verified_A": 136,
+      "verified_B": 2,
+      "unverifiable": 8
+     },
+     "verified_A_share": 0.9315,
+     "verified_share": 0.9452,
+     "hard_findings": []
+    }
+   },
+   "components_whose_feed_label_changed": 28
+  },
+  {
+   "release": "23.05.5",
+   "image": "openwrt-23.05.5-ath79-generic-tplink_archer-c7-v2-squashfs-sysupgrade.bin",
+   "image_sha256": "4e22524a1a59090d8f316ad48b13a61ab46f748d9b6215ec0926f9747369fcd5",
+   "sibling": "openwrt-23.05.5-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+   "sibling_sha256": "7740d3ab17ec20347dd9d9319cc307ca85e6bbcfb8ed4ca9c7fce82307555a59",
+   "image_source_date_epoch": 1727094886,
+   "age_days": 795,
+   "declared": 146,
+   "configs": {
+    "feeds_only": {
+     "verdicts": {
+      "verified_A": 122,
+      "verified_B": 3,
+      "bytes_differ": 1,
+      "label_unconfirmed": 4,
+      "unverifiable": 16
+     },
+     "verified_A_share": 0.8356,
+     "verified_share": 0.8562,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "wpad-basic-mbedtls"
+      ]
+     ]
+    },
+    "feeds_manifest": {
+     "verdicts": {
+      "verified_A": 126,
+      "verified_B": 3,
+      "bytes_differ": 1,
+      "unverifiable": 16
+     },
+     "verified_A_share": 0.863,
+     "verified_share": 0.8836,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "wpad-basic-mbedtls"
+      ]
+     ]
+    },
+    "feeds_manifest_snapshot": {
+     "verdicts": {
+      "verified_A": 136,
+      "verified_B": 2,
+      "unverifiable": 8
+     },
+     "verified_A_share": 0.9315,
+     "verified_share": 0.9452,
+     "hard_findings": []
+    }
+   },
+   "components_whose_feed_label_changed": 17
+  },
+  {
+   "release": "23.05.6",
+   "image": "openwrt-23.05.6-ath79-generic-tplink_archer-c7-v2-squashfs-sysupgrade.bin",
+   "image_sha256": "c2a14a43f7cde3b0b122c64ed3f8ea4e4d85eccec2d3f8d991abfc2985b3680d",
+   "sibling": "openwrt-23.05.6-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+   "sibling_sha256": "6e5a439fa14d836447d82a34ba767b3b4cef667d21b3794bb923b414b6562d11",
+   "image_source_date_epoch": 1755196060,
+   "age_days": 469,
+   "declared": 146,
+   "configs": {
+    "feeds_only": {
+     "verdicts": {
+      "verified_A": 136,
+      "verified_B": 2,
+      "unverifiable": 8
+     },
+     "verified_A_share": 0.9315,
+     "verified_share": 0.9452,
+     "hard_findings": []
+    },
+    "feeds_manifest": {
+     "verdicts": {
+      "verified_A": 136,
+      "verified_B": 2,
+      "unverifiable": 8
+     },
+     "verified_A_share": 0.9315,
+     "verified_share": 0.9452,
+     "hard_findings": []
+    },
+    "feeds_manifest_snapshot": {
+     "verdicts": {
+      "verified_A": 136,
+      "verified_B": 2,
+      "unverifiable": 8
+     },
+     "verified_A_share": 0.9315,
+     "verified_share": 0.9452,
+     "hard_findings": []
+    }
+   },
+   "components_whose_feed_label_changed": 0
+  },
+  {
+   "release": "24.10.0",
+   "image": "openwrt-24.10.0-ath79-generic-tplink_archer-c7-v2-squashfs-sysupgrade.bin",
+   "image_sha256": "a1dedf75082aa0d35910c839faf9a9f7ab3b8dad11b91d3f94d766f169d91f2b",
+   "sibling": "openwrt-24.10.0-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+   "sibling_sha256": "573e335aa21666da700e5daa4e2f60117135fd2aa6742cb18faafa6423a54852",
+   "image_source_date_epoch": 1738624177,
+   "age_days": 661,
+   "declared": 150,
+   "configs": {
+    "feeds_only": {
+     "verdicts": {
+      "verified_A": 88,
+      "unverifiable": 42,
+      "verified_B": 9,
+      "label_unconfirmed": 8,
+      "bytes_differ": 3
+     },
+     "verified_A_share": 0.5867,
+     "verified_share": 0.6467,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "ppp"
+      ],
+      [
+       "bytes_differ",
+       "px5g-mbedtls"
+      ],
+      [
+       "bytes_differ",
+       "wifi-scripts"
+      ]
+     ]
+    },
+    "feeds_manifest": {
+     "verdicts": {
+      "verified_A": 95,
+      "unverifiable": 42,
+      "verified_B": 9,
+      "bytes_differ": 3,
+      "label_unconfirmed": 1
+     },
+     "verified_A_share": 0.6333,
+     "verified_share": 0.6933,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "ppp"
+      ],
+      [
+       "bytes_differ",
+       "px5g-mbedtls"
+      ],
+      [
+       "bytes_differ",
+       "wifi-scripts"
+      ]
+     ]
+    },
+    "feeds_manifest_snapshot": {
+     "verdicts": {
+      "verified_A": 140,
+      "verified_B": 2,
+      "unverifiable": 8
+     },
+     "verified_A_share": 0.9333,
+     "verified_share": 0.9467,
+     "hard_findings": []
+    }
+   },
+   "components_whose_feed_label_changed": 53
+  },
+  {
+   "release": "24.10.1",
+   "image": "openwrt-24.10.1-ath79-generic-tplink_archer-c7-v2-squashfs-sysupgrade.bin",
+   "image_sha256": "1af0267ecce9e81663e5a9e0da130259d6e891c6844888b1f786b1ee52010a7d",
+   "sibling": "openwrt-24.10.1-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+   "sibling_sha256": "ae202c28adec714590160f4f6d89b45ac05028963970150d5098667119a922b7",
+   "image_source_date_epoch": 1744562312,
+   "age_days": 592,
+   "declared": 150,
+   "configs": {
+    "feeds_only": {
+     "verdicts": {
+      "verified_A": 89,
+      "unverifiable": 38,
+      "verified_B": 8,
+      "label_unconfirmed": 12,
+      "bytes_differ": 3
+     },
+     "verified_A_share": 0.5933,
+     "verified_share": 0.6467,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "ppp"
+      ],
+      [
+       "bytes_differ",
+       "px5g-mbedtls"
+      ],
+      [
+       "bytes_differ",
+       "wifi-scripts"
+      ]
+     ]
+    },
+    "feeds_manifest": {
+     "verdicts": {
+      "verified_A": 100,
+      "unverifiable": 38,
+      "verified_B": 8,
+      "bytes_differ": 3,
+      "label_unconfirmed": 1
+     },
+     "verified_A_share": 0.6667,
+     "verified_share": 0.72,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "ppp"
+      ],
+      [
+       "bytes_differ",
+       "px5g-mbedtls"
+      ],
+      [
+       "bytes_differ",
+       "wifi-scripts"
+      ]
+     ]
+    },
+    "feeds_manifest_snapshot": {
+     "verdicts": {
+      "verified_A": 140,
+      "verified_B": 2,
+      "unverifiable": 8
+     },
+     "verified_A_share": 0.9333,
+     "verified_share": 0.9467,
+     "hard_findings": []
+    }
+   },
+   "components_whose_feed_label_changed": 52
+  },
+  {
+   "release": "24.10.2",
+   "image": "openwrt-24.10.2-ath79-generic-tplink_archer-c7-v2-squashfs-sysupgrade.bin",
+   "image_sha256": "5d7ae2de41286efda027e88a5ef1713a28f1015a58cce67f77308968050a202d",
+   "sibling": "openwrt-24.10.2-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+   "sibling_sha256": "694eae2b97281a87240126dcc177dd647d3eda995935bc2df31034856aa9fa53",
+   "image_source_date_epoch": 1750711236,
+   "age_days": 521,
+   "declared": 150,
+   "configs": {
+    "feeds_only": {
+     "verdicts": {
+      "verified_A": 91,
+      "unverifiable": 34,
+      "verified_B": 8,
+      "label_unconfirmed": 13,
+      "bytes_differ": 4
+     },
+     "verified_A_share": 0.6067,
+     "verified_share": 0.66,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "jsonfilter"
+      ],
+      [
+       "bytes_differ",
+       "ppp"
+      ],
+      [
+       "bytes_differ",
+       "px5g-mbedtls"
+      ],
+      [
+       "bytes_differ",
+       "wifi-scripts"
+      ]
+     ]
+    },
+    "feeds_manifest": {
+     "verdicts": {
+      "verified_A": 104,
+      "unverifiable": 34,
+      "verified_B": 8,
+      "bytes_differ": 4
+     },
+     "verified_A_share": 0.6933,
+     "verified_share": 0.7467,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "jsonfilter"
+      ],
+      [
+       "bytes_differ",
+       "ppp"
+      ],
+      [
+       "bytes_differ",
+       "px5g-mbedtls"
+      ],
+      [
+       "bytes_differ",
+       "wifi-scripts"
+      ]
+     ]
+    },
+    "feeds_manifest_snapshot": {
+     "verdicts": {
+      "verified_A": 140,
+      "verified_B": 2,
+      "unverifiable": 8
+     },
+     "verified_A_share": 0.9333,
+     "verified_share": 0.9467,
+     "hard_findings": []
+    }
+   },
+   "components_whose_feed_label_changed": 49
+  },
+  {
+   "release": "24.10.3",
+   "image": "openwrt-24.10.3-ath79-generic-tplink_archer-c7-v2-squashfs-sysupgrade.bin",
+   "image_sha256": "7b6e9ce5e9977963d94a1c8567d39b4cce0994bd4e8eef87817e2f31405cdda8",
+   "sibling": "openwrt-24.10.3-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+   "sibling_sha256": "536cad2e0cff9a943103498814bc101fd944ecd40cb928b5b04b904086e8b0e5",
+   "image_source_date_epoch": 1758316778,
+   "age_days": 433,
+   "declared": 150,
+   "configs": {
+    "feeds_only": {
+     "verdicts": {
+      "verified_A": 96,
+      "unverifiable": 30,
+      "verified_B": 7,
+      "label_unconfirmed": 13,
+      "bytes_differ": 4
+     },
+     "verified_A_share": 0.64,
+     "verified_share": 0.6867,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "jsonfilter"
+      ],
+      [
+       "bytes_differ",
+       "ppp"
+      ],
+      [
+       "bytes_differ",
+       "px5g-mbedtls"
+      ],
+      [
+       "bytes_differ",
+       "wifi-scripts"
+      ]
+     ]
+    },
+    "feeds_manifest": {
+     "verdicts": {
+      "verified_A": 109,
+      "unverifiable": 30,
+      "verified_B": 7,
+      "bytes_differ": 4
+     },
+     "verified_A_share": 0.7267,
+     "verified_share": 0.7733,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "jsonfilter"
+      ],
+      [
+       "bytes_differ",
+       "ppp"
+      ],
+      [
+       "bytes_differ",
+       "px5g-mbedtls"
+      ],
+      [
+       "bytes_differ",
+       "wifi-scripts"
+      ]
+     ]
+    },
+    "feeds_manifest_snapshot": {
+     "verdicts": {
+      "verified_A": 140,
+      "verified_B": 2,
+      "unverifiable": 8
+     },
+     "verified_A_share": 0.9333,
+     "verified_share": 0.9467,
+     "hard_findings": []
+    }
+   },
+   "components_whose_feed_label_changed": 44
+  },
+  {
+   "release": "24.10.4",
+   "image": "openwrt-24.10.4-ath79-generic-tplink_archer-c7-v2-squashfs-sysupgrade.bin",
+   "image_sha256": "d3a0e1dcafa4e2ed9413587025165b60bd89595f4d6a57b6c1974335ef2cc476",
+   "sibling": "openwrt-24.10.4-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+   "sibling_sha256": "a507e14ad9dffc1d215db74a40bcdd7ef8eeea1ad5acca539ca61856719e7c60",
+   "image_source_date_epoch": 1760891865,
+   "age_days": 403,
+   "declared": 150,
+   "configs": {
+    "feeds_only": {
+     "verdicts": {
+      "verified_A": 99,
+      "unverifiable": 28,
+      "verified_B": 7,
+      "label_unconfirmed": 12,
+      "bytes_differ": 4
+     },
+     "verified_A_share": 0.66,
+     "verified_share": 0.7067,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "jsonfilter"
+      ],
+      [
+       "bytes_differ",
+       "ppp"
+      ],
+      [
+       "bytes_differ",
+       "px5g-mbedtls"
+      ],
+      [
+       "bytes_differ",
+       "wifi-scripts"
+      ]
+     ]
+    },
+    "feeds_manifest": {
+     "verdicts": {
+      "verified_A": 111,
+      "unverifiable": 28,
+      "verified_B": 7,
+      "bytes_differ": 4
+     },
+     "verified_A_share": 0.74,
+     "verified_share": 0.7867,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "jsonfilter"
+      ],
+      [
+       "bytes_differ",
+       "ppp"
+      ],
+      [
+       "bytes_differ",
+       "px5g-mbedtls"
+      ],
+      [
+       "bytes_differ",
+       "wifi-scripts"
+      ]
+     ]
+    },
+    "feeds_manifest_snapshot": {
+     "verdicts": {
+      "verified_A": 140,
+      "verified_B": 2,
+      "unverifiable": 8
+     },
+     "verified_A_share": 0.9333,
+     "verified_share": 0.9467,
+     "hard_findings": []
+    }
+   },
+   "components_whose_feed_label_changed": 41
+  },
+  {
+   "release": "24.10.5",
+   "image": "openwrt-24.10.5-ath79-generic-tplink_archer-c7-v2-squashfs-sysupgrade.bin",
+   "image_sha256": "70803fadab7730f0080dc44b9484733b43c53b6fe283a9543da1a2944384d7b8",
+   "sibling": "openwrt-24.10.5-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+   "sibling_sha256": "a440fa78ee242c9ee07833a40041ea181466b1c8ceb69e8bc7add1c19d801a06",
+   "image_source_date_epoch": 1766005702,
+   "age_days": 344,
+   "declared": 150,
+   "configs": {
+    "feeds_only": {
+     "verdicts": {
+      "verified_A": 100,
+      "unverifiable": 27,
+      "verified_B": 7,
+      "label_unconfirmed": 13,
+      "bytes_differ": 3
+     },
+     "verified_A_share": 0.6667,
+     "verified_share": 0.7133,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "jsonfilter"
+      ],
+      [
+       "bytes_differ",
+       "px5g-mbedtls"
+      ],
+      [
+       "bytes_differ",
+       "wifi-scripts"
+      ]
+     ]
+    },
+    "feeds_manifest": {
+     "verdicts": {
+      "verified_A": 113,
+      "unverifiable": 27,
+      "verified_B": 7,
+      "bytes_differ": 3
+     },
+     "verified_A_share": 0.7533,
+     "verified_share": 0.8,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "jsonfilter"
+      ],
+      [
+       "bytes_differ",
+       "px5g-mbedtls"
+      ],
+      [
+       "bytes_differ",
+       "wifi-scripts"
+      ]
+     ]
+    },
+    "feeds_manifest_snapshot": {
+     "verdicts": {
+      "verified_A": 140,
+      "verified_B": 2,
+      "unverifiable": 8
+     },
+     "verified_A_share": 0.9333,
+     "verified_share": 0.9467,
+     "hard_findings": []
+    }
+   },
+   "components_whose_feed_label_changed": 41
+  },
+  {
+   "release": "24.10.6",
+   "image": "openwrt-24.10.6-ath79-generic-tplink_archer-c7-v2-squashfs-sysupgrade.bin",
+   "image_sha256": "0e6c36b2a176d6cb920cdbf3408d917301caeaf3413442f0a086886081206ee2",
+   "sibling": "openwrt-24.10.6-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+   "sibling_sha256": "357315c6922c1dd66c4f46f53c343c8620fd1f48b1b00a15d2ea2feff18da8dc",
+   "image_source_date_epoch": 1773709139,
+   "age_days": 255,
+   "declared": 150,
+   "configs": {
+    "feeds_only": {
+     "verdicts": {
+      "verified_A": 104,
+      "unverifiable": 23,
+      "verified_B": 7,
+      "label_unconfirmed": 14,
+      "bytes_differ": 2
+     },
+     "verified_A_share": 0.6933,
+     "verified_share": 0.74,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "px5g-mbedtls"
+      ],
+      [
+       "bytes_differ",
+       "wifi-scripts"
+      ]
+     ]
+    },
+    "feeds_manifest": {
+     "verdicts": {
+      "verified_A": 118,
+      "unverifiable": 23,
+      "verified_B": 7,
+      "bytes_differ": 2
+     },
+     "verified_A_share": 0.7867,
+     "verified_share": 0.8333,
+     "hard_findings": [
+      [
+       "bytes_differ",
+       "px5g-mbedtls"
+      ],
+      [
+       "bytes_differ",
+       "wifi-scripts"
+      ]
+     ]
+    },
+    "feeds_manifest_snapshot": {
+     "verdicts": {
+      "verified_A": 140,
+      "verified_B": 2,
+      "unverifiable": 8
+     },
+     "verified_A_share": 0.9333,
+     "verified_share": 0.9467,
+     "hard_findings": []
+    }
+   },
+   "components_whose_feed_label_changed": 38
+  },
+  {
+   "release": "24.10.7",
+   "image": "openwrt-24.10.7-ath79-generic-tplink_archer-c7-v2-squashfs-sysupgrade.bin",
+   "image_sha256": "7b79e0bb1bb98ce865260ac276d3bf8d2955512e90a0e737d426fd787bc65c3f",
+   "sibling": "openwrt-24.10.7-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+   "sibling_sha256": "6893bb755a664c3a1e2b844ef290e720303c1b127a6873ad13a8ce67ccdb8c1a",
+   "image_source_date_epoch": 1779897308,
+   "age_days": 183,
+   "declared": 150,
+   "configs": {
+    "feeds_only": {
+     "verdicts": {
+      "verified_A": 106,
+      "unverifiable": 23,
+      "verified_B": 7,
+      "label_unconfirmed": 14
+     },
+     "verified_A_share": 0.7067,
+     "verified_share": 0.7533,
+     "hard_findings": []
+    },
+    "feeds_manifest": {
+     "verdicts": {
+      "verified_A": 120,
+      "unverifiable": 23,
+      "verified_B": 7
+     },
+     "verified_A_share": 0.8,
+     "verified_share": 0.8467,
+     "hard_findings": []
+    },
+    "feeds_manifest_snapshot": {
+     "verdicts": {
+      "verified_A": 140,
+      "verified_B": 2,
+      "unverifiable": 8
+     },
+     "verified_A_share": 0.9333,
+     "verified_share": 0.9467,
+     "hard_findings": []
+    }
+   },
+   "components_whose_feed_label_changed": 38
+  },
+  {
+   "release": "24.10.8",
+   "image": "openwrt-24.10.8-ath79-generic-tplink_archer-c7-v2-squashfs-sysupgrade.bin",
+   "image_sha256": "6a1d16dd3cb7c6457edf873e39e724e8dd1ba4ca670b843d37b0d42b31902919",
+   "sibling": "openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+   "sibling_sha256": "f4d55cb506f1b1928ff96ad4badeffcb4ba20f05569e1e731ad78aa1d0021ce9",
+   "image_source_date_epoch": 1784877710,
+   "age_days": 126,
+   "declared": 150,
+   "configs": {
+    "feeds_only": {
+     "verdicts": {
+      "verified_A": 120,
+      "verified_B": 5,
+      "unverifiable": 11,
+      "label_unconfirmed": 14
+     },
+     "verified_A_share": 0.8,
+     "verified_share": 0.8333,
+     "hard_findings": []
+    },
+    "feeds_manifest": {
+     "verdicts": {
+      "verified_A": 134,
+      "verified_B": 5,
+      "unverifiable": 11
+     },
+     "verified_A_share": 0.8933,
+     "verified_share": 0.9267,
+     "hard_findings": []
+    },
+    "feeds_manifest_snapshot": {
+     "verdicts": {
+      "verified_A": 140,
+      "verified_B": 2,
+      "unverifiable": 8
+     },
+     "verified_A_share": 0.9333,
+     "verified_share": 0.9467,
+     "hard_findings": []
+    }
+   },
+   "components_whose_feed_label_changed": 24
+  }
+ ],
+ "shared_base_feed": {
+  "23.05.6": {
+   "arch": "mips_24kc",
+   "base_feed_packages": 670,
+   "with_listing_date": 670,
+   "republished_after_release_build": 57,
+   "share_republished": 0.0851,
+   "release_build_epoch": 1755196060,
+   "newest_package_epoch": 1765223282
+  },
+  "24.10.8": {
+   "arch": "mips_24kc",
+   "base_feed_packages": 697,
+   "with_listing_date": 697,
+   "republished_after_release_build": 219,
+   "share_republished": 0.3142,
+   "release_build_epoch": 1784877710,
+   "newest_package_epoch": 1793437491
+  }
+ }
+}

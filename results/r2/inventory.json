@@ -1,0 +1,281 @@
+{
+ "t-2410-archer-c7-v5": {
+  "split": "tuning",
+  "installed_packages": 150,
+  "installed_packages_with_files": 142,
+  "attributed_components": 141,
+  "correct_names": 141,
+  "name_recall": 0.993,
+  "name_precision": 1.0,
+  "correct_versions_among_named": 141,
+  "grade_A": 141,
+  "missed": [
+   "kernel"
+  ],
+  "extra": [],
+  "unattributed_executables": [],
+  "seconds": 0.09,
+  "syft_components_database_removed": 74,
+  "syft_components_with_database": 223,
+  "cvebin_products": 9
+ },
+ "t-2410-mi-router-4a-gigabit": {
+  "split": "tuning",
+  "installed_packages": 147,
+  "installed_packages_with_files": 140,
+  "attributed_components": 139,
+  "correct_names": 139,
+  "name_recall": 0.9929,
+  "name_precision": 1.0,
+  "correct_versions_among_named": 139,
+  "grade_A": 139,
+  "missed": [
+   "kernel"
+  ],
+  "extra": [],
+  "unattributed_executables": [],
+  "seconds": 0.08,
+  "syft_components_database_removed": 66,
+  "syft_components_with_database": 212,
+  "cvebin_products": 8
+ },
+ "t-2410-gl-mt6000": {
+  "split": "tuning",
+  "installed_packages": 170,
+  "installed_packages_with_files": 159,
+  "attributed_components": 158,
+  "correct_names": 158,
+  "name_recall": 0.9937,
+  "name_precision": 1.0,
+  "correct_versions_among_named": 158,
+  "grade_A": 158,
+  "missed": [
+   "kernel"
+  ],
+  "extra": [],
+  "unattributed_executables": [],
+  "seconds": 0.09,
+  "syft_components_database_removed": 63,
+  "syft_components_with_database": 232,
+  "cvebin_products": 11
+ },
+ "t-2305-archer-c7-v2": {
+  "split": "tuning",
+  "installed_packages": 146,
+  "installed_packages_with_files": 137,
+  "attributed_components": 137,
+  "correct_names": 137,
+  "name_recall": 1.0,
+  "name_precision": 1.0,
+  "correct_versions_among_named": 137,
+  "grade_A": 137,
+  "missed": [],
+  "extra": [],
+  "unattributed_executables": [],
+  "seconds": 0.08,
+  "syft_components_database_removed": 73,
+  "syft_components_with_database": 218,
+  "cvebin_products": 9
+ },
+ "h-2410-gl-b1300": {
+  "split": "heldout",
+  "installed_packages": 148,
+  "installed_packages_with_files": 140,
+  "attributed_components": 139,
+  "correct_names": 139,
+  "name_recall": 0.9929,
+  "name_precision": 1.0,
+  "correct_versions_among_named": 139,
+  "grade_A": 139,
+  "missed": [
+   "kernel"
+  ],
+  "extra": [],
+  "unattributed_executables": [],
+  "seconds": 0.08,
+  "syft_components_database_removed": 56,
+  "syft_components_with_database": 203,
+  "cvebin_products": 9
+ },
+ "h-2410-x86-64": {
+  "split": "heldout",
+  "installed_packages": 175,
+  "installed_packages_with_files": 162,
+  "attributed_components": 160,
+  "correct_names": 160,
+  "name_recall": 0.9877,
+  "name_precision": 1.0,
+  "correct_versions_among_named": 157,
+  "grade_A": 157,
+  "missed": [
+   "kernel",
+   "libc"
+  ],
+  "extra": [],
+  "unattributed_executables": [
+   "lib/libc.so"
+  ],
+  "seconds": 1.12,
+  "syft_components_database_removed": 77,
+  "syft_components_with_database": 251,
+  "cvebin_products": 9
+ },
+ "h-2410-archer-c50-v4": {
+  "split": "heldout",
+  "installed_packages": 140,
+  "installed_packages_with_files": 133,
+  "attributed_components": 132,
+  "correct_names": 132,
+  "name_recall": 0.9925,
+  "name_precision": 1.0,
+  "correct_versions_among_named": 132,
+  "grade_A": 132,
+  "missed": [
+   "kernel"
+  ],
+  "extra": [],
+  "unattributed_executables": [],
+  "seconds": 0.06,
+  "syft_components_database_removed": 63,
+  "syft_components_with_database": 202,
+  "cvebin_products": 8
+ },
+ "h-2410-unifi-6-lr-v1": {
+  "split": "heldout",
+  "installed_packages": 149,
+  "installed_packages_with_files": 140,
+  "attributed_components": 139,
+  "correct_names": 139,
+  "name_recall": 0.9929,
+  "name_precision": 1.0,
+  "correct_versions_among_named": 139,
+  "grade_A": 139,
+  "missed": [
+   "kernel"
+  ],
+  "extra": [],
+  "unattributed_executables": [],
+  "seconds": 0.06,
+  "syft_components_database_removed": 51,
+  "syft_components_with_database": 199,
+  "cvebin_products": 9
+ },
+ "h-2410-wrt1900acs": {
+  "split": "heldout",
+  "installed_packages": 138,
+  "installed_packages_with_files": 131,
+  "attributed_components": 130,
+  "correct_names": 130,
+  "name_recall": 0.9924,
+  "name_precision": 1.0,
+  "correct_versions_among_named": 130,
+  "grade_A": 130,
+  "missed": [
+   "kernel"
+  ],
+  "extra": [],
+  "unattributed_executables": [],
+  "seconds": 0.07,
+  "syft_components_database_removed": 53,
+  "syft_components_with_database": 190,
+  "cvebin_products": 9
+ },
+ "h-2305-edgerouter-x": {
+  "split": "heldout",
+  "installed_packages": 114,
+  "installed_packages_with_files": 106,
+  "attributed_components": 106,
+  "correct_names": 106,
+  "name_recall": 1.0,
+  "name_precision": 1.0,
+  "correct_versions_among_named": 106,
+  "grade_A": 106,
+  "missed": [],
+  "extra": [],
+  "unattributed_executables": [],
+  "seconds": 0.07,
+  "syft_components_database_removed": 45,
+  "syft_components_with_database": 158,
+  "cvebin_products": 6
+ },
+ "h-2305-gl-mt3000": {
+  "split": "heldout",
+  "installed_packages": 155,
+  "installed_packages_with_files": 144,
+  "attributed_components": 144,
+  "correct_names": 144,
+  "name_recall": 1.0,
+  "name_precision": 1.0,
+  "correct_versions_among_named": 144,
+  "grade_A": 144,
+  "missed": [],
+  "extra": [],
+  "unattributed_executables": [],
+  "seconds": 0.08,
+  "syft_components_database_removed": 66,
+  "syft_components_with_database": 220,
+  "cvebin_products": 9
+ },
+ "h-2305-gl-b1300": {
+  "split": "heldout",
+  "installed_packages": 144,
+  "installed_packages_with_files": 135,
+  "attributed_components": 135,
+  "correct_names": 135,
+  "name_recall": 1.0,
+  "name_precision": 1.0,
+  "correct_versions_among_named": 135,
+  "grade_A": 135,
+  "missed": [],
+  "extra": [],
+  "unattributed_executables": [],
+  "seconds": 0.07,
+  "syft_components_database_removed": 60,
+  "syft_components_with_database": 203,
+  "cvebin_products": 9
+ },
+ "h-2305-x86-64": {
+  "split": "heldout",
+  "installed_packages": 150,
+  "installed_packages_with_files": 136,
+  "attributed_components": 135,
+  "correct_names": 135,
+  "name_recall": 0.9926,
+  "name_precision": 1.0,
+  "correct_versions_among_named": 135,
+  "grade_A": 135,
+  "missed": [
+   "libc"
+  ],
+  "extra": [],
+  "unattributed_executables": [
+   "lib/libc.so"
+  ],
+  "seconds": 1.17,
+  "syft_components_database_removed": 68,
+  "syft_components_with_database": 217,
+  "cvebin_products": 9
+ },
+ "h-2305-rpi-4": {
+  "split": "heldout",
+  "installed_packages": 157,
+  "installed_packages_with_files": 145,
+  "attributed_components": 144,
+  "correct_names": 144,
+  "name_recall": 0.9931,
+  "name_precision": 1.0,
+  "correct_versions_among_named": 144,
+  "grade_A": 144,
+  "missed": [
+   "libc"
+  ],
+  "extra": [],
+  "unattributed_executables": [
+   "lib/libc.so"
+  ],
+  "seconds": 1.91,
+  "syft_components_database_removed": 77,
+  "syft_components_with_database": 233,
+  "cvebin_products": 10
+ }
+}

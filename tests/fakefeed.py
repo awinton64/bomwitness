@@ -141,6 +141,9 @@ def make_rootfs(dest: Path, names: list[str], packages: dict | None = None, db: 
             info.mkdir(parents=True, exist_ok=True)
             (info / f"{n}.list").write_text("".join(f"/{p}\n" for p in files))
             (info / f"{n}.control").write_text(f"Package: {n}\nVersion: {version}\n")
+            conf = [p for p in files if p.startswith("etc/config/")]
+            if conf:
+                (info / f"{n}.conffiles").write_text("".join(f"/{p}\n" for p in conf))
             status.append(f"Package: {n}\nVersion: {version}\n{extra}Status: install user installed\nArchitecture: testarch")
     if db:
         (dest / "usr/lib/opkg/status").write_text("\n\n".join(status) + "\n")

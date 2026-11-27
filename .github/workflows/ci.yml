@@ -1,0 +1,35 @@
+name: ci
+on:
+  push:
+  pull_request:
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -e ".[test]"
+      - name: Unit tests (offline, synthetic signed feed)
+        run: pytest -q
+  example-and-small-benchmark:
+    runs-on: ubuntu-latest
+    needs: tests
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Pipeline harness on one official image (downloads about 20 MB)
+        run: sh pipeline/pipeline_harness/bomwitness/run.sh
+      - name: Small seeded-error benchmark on one image (downloads about 200 MB)
+        run: |
+          pip install -e .
+          python bench/prepare.py t-2410-archer-c7-v5
+          python scripts/build_reference.py 24.10.8:ath79/generic 23.05.6:ath79/generic
+          cd bench && python run_cases.py t-2410-archer-c7-v5 --k 3 --no-baselines --out results/ci
+          python check_small.py ../results/ci/t-2410-archer-c7-v5.json

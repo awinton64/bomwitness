@@ -1,0 +1,23 @@
+{
+ "purpose": "Three images rerun after the post-freeze fixes; every case must score the same for every tool as in the frozen run.",
+ "images": {
+  "h-2305-x86-64": {
+   "cases": 186,
+   "cases_frozen": 186,
+   "score_differences": [],
+   "clean_control_findings_identical": true
+  },
+  "h-2410-gl-b1300": {
+   "cases": 186,
+   "cases_frozen": 186,
+   "score_differences": [],
+   "clean_control_findings_identical": true
+  },
+  "t-2410-gl-mt6000": {
+   "cases": 186,
+   "cases_frozen": 186,
+   "score_differences": [],
+   "clean_control_findings_identical": true
+  }
+ }
+}

@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import random
 import re
 import shutil
@@ -58,7 +59,8 @@ def run(image_id: str, k: int, out_dir: Path, use_baselines: bool) -> dict:
     alt = Reference(OTHER[im["release"]], im["target"], ROOT / "work/cache")
     index, alt_index = ref.index(), alt.index()
     manifest = ref.manifest()
-    snap_path = ROOT / "work/snapshots" / f"{image_id}.json"
+    # BW_SNAPSHOT_DIR selects another set of sibling snapshots (used by the far-sibling robustness check).
+    snap_path = ROOT / os.environ.get("BW_SNAPSHOT_DIR", "work/snapshots") / f"{image_id}.json"
     snaps = [json.loads(snap_path.read_text())] if snap_path.exists() else []
     configs = bw_configs(manifest, snaps)
     inst = devicedb.installed(clean)

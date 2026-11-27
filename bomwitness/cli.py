@@ -15,6 +15,13 @@ from .verify import HARD, inventory, snapshot_from_rootfs, verify
 
 
 def _rootfs(args, stack: list) -> tuple[Path, dict]:
+    rootfs, subject = _rootfs_inner(args, stack)
+    if getattr(args, "name", None):
+        subject["name"] = args.name
+    return rootfs, subject
+
+
+def _rootfs_inner(args, stack: list) -> tuple[Path, dict]:
     if args.rootfs:
         return Path(args.rootfs), {"name": Path(args.rootfs).name, "kind": "directory"}
     td = tempfile.TemporaryDirectory()
@@ -131,6 +138,7 @@ def _common(p):
     g = p.add_mutually_exclusive_group(required=True)
     g.add_argument("--image", help="firmware image containing a SquashFS root filesystem")
     g.add_argument("--rootfs", help="an already unpacked root filesystem")
+    p.add_argument("--name", help="name of the firmware to show in reports (default: the file or directory name)")
     p.add_argument("--release", help="OpenWrt release to use as reference, e.g. 24.10.8")
     p.add_argument("--target", help="OpenWrt target, e.g. ath79/generic")
     p.add_argument("--cache", default=str(Path.home() / ".cache/bomwitness"), help="reference cache directory")

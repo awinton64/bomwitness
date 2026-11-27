@@ -1,0 +1,293 @@
+{
+ "subject": {
+  "image": "immortalwrt-24.10.7-ath79-generic-tplink_archer-c7-v5-squashfs-sysupgrade.bin",
+  "sha256": "9351dd5fd1313d8a1fd27cca3b9ea5aa4ba06464aad05bc5c2985b16d11ebb81",
+  "publisher": "ImmortalWrt",
+  "release": "24.10.7",
+  "target": "ath79/generic",
+  "sha256sums_signed_by": "3fd9011f340b50dd",
+  "kernel": {
+   "release": "1",
+   "vermagic": "7e65f026db1a6848c893abe1e0c938a2",
+   "version": "6.6.159"
+  }
+ },
+ "upstream": {
+  "image": "openwrt-24.10.7-ath79-generic-tplink_archer-c7-v5-squashfs-sysupgrade.bin",
+  "sha256": "ceb8e8cb6dc0c236e1223f7d0d7fed9168aa08119979fcae6e06ea71e78f975c",
+  "sha256sums_signed_by": "d310c6f2833e97f7",
+  "kernel": {
+   "release": "1",
+   "vermagic": "70248021204b78344d5fb62a0e7f5bea",
+   "version": "6.6.141"
+  }
+ },
+ "bom_note": "The declared BOM is the fork image's own package list, standing in for a vendor-supplied BOM. No BOM published by ImmortalWrt was tested.",
+ "part1_against_upstream": {
+  "question": "which declared components are upstream OpenWrt's bytes?",
+  "declared": 190,
+  "verdicts": {
+   "verified_A": 74,
+   "bytes_differ": 17,
+   "wrong_version": 55,
+   "label_unconfirmed": 8,
+   "verified_B": 6,
+   "unverifiable": 21,
+   "absent": 9
+  },
+  "hard_findings": {
+   "wrong_version": 55,
+   "absent": 9,
+   "bytes_differ": 17,
+   "undeclared_file": 110
+  },
+  "files_accounted": 714,
+  "rootfs_files": 830,
+  "executable_files_unaccounted": 110,
+  "code_files": 215,
+  "label_sources": {
+   "feed index": 74
+  },
+  "unverifiable_reasons": {
+   "metadata-only package with no files to check": 7,
+   "no reference package of this name in the feeds": 4,
+   "the reference feed has moved to another version and the files carry no version marker": 10
+  },
+  "examples": {
+   "bytes_differ": [
+    "attendedsysupgrade-common",
+    "block-mount",
+    "busybox",
+    "dnsmasq-full",
+    "firewall4",
+    "libnftnl11",
+    "libopenssl-conf",
+    "libopenssl-legacy",
+    "libopenssl3",
+    "nftables-json",
+    "odhcp6c",
+    "odhcpd-ipv6only"
+   ],
+   "wrong_version": [
+    "kmod-ath10k-ct",
+    "kmod-ath9k",
+    "kmod-crypto-acompress",
+    "kmod-crypto-aead",
+    "kmod-crypto-arc4",
+    "kmod-crypto-ccm",
+    "kmod-crypto-cmac",
+    "kmod-crypto-crc32c",
+    "kmod-crypto-ctr",
+    "kmod-crypto-ecb",
+    "kmod-crypto-gcm",
+    "kmod-crypto-geniv"
+   ],
+   "label_unconfirmed": [
+    "luci-compat",
+    "luci-i18n-attendedsysupgrade-zh-cn",
+    "luci-i18n-package-manager-zh-cn",
+    "luci-lib-base",
+    "luci-lib-ip",
+    "luci-lib-ipkg",
+    "luci-lib-jsonc",
+    "luci-lib-nixio"
+   ],
+   "verified_B": [
+    "dropbear",
+    "kernel",
+    "libc",
+    "luci-base",
+    "luci-lua-runtime",
+    "luci-theme-bootstrap"
+   ],
+   "unverifiable": [
+    "base-files",
+    "default-settings",
+    "default-settings-chn",
+    "kmod-nf-conntrack",
+    "kmod-nf-conntrack6",
+    "kmod-nf-log6",
+    "kmod-nft-fullcone",
+    "kmod-random-core",
+    "libpthread",
+    "libustream-openssl20201210",
+    "luci",
+    "luci-app-attendedsysupgrade"
+   ],
+   "absent": [
+    "kmod-asn1-decoder",
+    "kmod-ath",
+    "kmod-ath9k-common",
+    "kmod-cfg80211",
+    "kmod-hwmon-core",
+    "kmod-mac80211",
+    "kmod-nls-base",
+    "kmod-pppox",
+    "kmod-slhc"
+   ]
+  },
+  "same_name_and_version_as_upstream_image": 53,
+  "packages_not_in_upstream_image": [
+   "attendedsysupgrade-common",
+   "block-mount",
+   "default-settings",
+   "default-settings-chn",
+   "dnsmasq-full",
+   "kmod-asn1-decoder",
+   "kmod-crypto-arc4",
+   "kmod-crypto-ecb",
+   "kmod-crypto-sha1",
+   "kmod-crypto-user",
+   "kmod-lib-textsearch",
+   "kmod-macvlan",
+   "kmod-mppe",
+   "kmod-nf-conntrack-netlink",
+   "kmod-nf-nathelper",
+   "kmod-nf-nathelper-extra",
+   "kmod-nft-fullcone",
+   "libatomic1",
+   "libgmp10",
+   "liblua5.1.5",
+   "liblucihttp-lua",
+   "libnetfilter-conntrack3",
+   "libnettle8",
+   "libnfnetlink0",
+   "libopenssl-conf",
+   "libopenssl-legacy",
+   "libopenssl3",
+   "libubus-lua",
+   "libustream-openssl20201210",
+   "lua",
+   "luci-app-attendedsysupgrade",
+   "luci-compat",
+   "luci-i18n-attendedsysupgrade-zh-cn",
+   "luci-i18n-base-zh-cn",
+   "luci-i18n-firewall-zh-cn",
+   "luci-i18n-package-manager-zh-cn",
+   "luci-lib-base",
+   "luci-lib-ip",
+   "luci-lib-ipkg",
+   "luci-lib-jsonc",
+   "luci-lib-nixio",
+   "luci-lua-runtime",
+   "rpcd-mod-rpcsys",
+   "shellsync",
+   "ucode-mod-lua",
+   "wpad-openssl"
+  ],
+  "files_byte_identical_to_upstream_image": 480,
+  "files_total": 830,
+  "executables_byte_identical_to_upstream_image": 65,
+  "executables_total": 215,
+  "undeclared_components_found": [],
+  "of_those_with_upstream_label": {
+   "unverifiable": 1,
+   "bytes_differ": 7,
+   "verified_B": 1,
+   "verified_A": 44
+  }
+ },
+ "part2_against_own_publisher": {
+  "question": "does the method work unchanged for a second publisher?",
+  "declared": 190,
+  "verdicts": {
+   "verified_A": 181,
+   "verified_B": 2,
+   "unverifiable": 7
+  },
+  "hard_findings": {},
+  "files_accounted": 830,
+  "rootfs_files": 830,
+  "executable_files_unaccounted": 0,
+  "code_files": 215,
+  "reference": {
+   "release": "24.10.7",
+   "target": "ath79/generic",
+   "arch": "mips_24kc",
+   "base": "https://downloads.immortalwrt.org/releases",
+   "sha256sums_sha256": "fb2d95e77f0e100d80ef50c00ae65423446e7eeedb7fa12441ad1e184010831c",
+   "sha256sums_signed_by": "3fd9011f340b50dd",
+   "feed_index_trust": {
+    "target": "sha256 in signed sha256sums",
+    "kmods": "sha256 in signed sha256sums",
+    "base": "usign 3fd9011f340b50dd",
+    "luci": "usign 3fd9011f340b50dd",
+    "packages": "usign 3fd9011f340b50dd",
+    "routing": "usign 3fd9011f340b50dd",
+    "telephony": "usign 3fd9011f340b50dd"
+   },
+   "image_source_date_epoch": 1795328492,
+   "path_index_packages": 0
+  },
+  "sibling": "immortalwrt-24.10.7-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin",
+  "not_verified": [
+   {
+    "name": "libpthread",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-mod-admin-full",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-log6",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-random-core",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "kmod-nf-conntrack6",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   },
+   {
+    "name": "luci-light",
+    "verdict": "unverifiable",
+    "reason": "metadata-only package with no files to check"
+   }
+  ],
+  "omitted_component_found_by_database_condition": [
+   {
+    "omitted": "ath10k-board-qca988x",
+    "honest": true,
+    "colluding": true,
+    "stripped": true
+   },
+   {
+    "omitted": "kmod-crypto-gf128",
+    "honest": true,
+    "colluding": true,
+    "stripped": true
+   },
+   {
+    "omitted": "kmod-ppp",
+    "honest": true,
+    "colluding": true,
+    "stripped": true
+   },
+   {
+    "omitted": "lua",
+    "honest": true,
+    "colluding": true,
+    "stripped": true
+   },
+   {
+    "omitted": "rpcd-mod-rpcsys",
+    "honest": true,
+    "colluding": true,
+    "stripped": true
+   }
+  ]
+ }
+}
