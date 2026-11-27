@@ -223,8 +223,8 @@ text. Test: `test_a_finding_that_another_release_changes_names_that_release` (it
 ## 2. Grade A wording on configuration files and hash matches
 
 - The statement "identical configuration files count, differing ones are skipped" is now scoped to the
-  comparison with this release's package. A sibling snapshot's record leaves configuration and account files
-  out, so they are not compared with a snapshot at all; snapshot and other-release comparisons use the raw
+  comparison with this release's package. A snapshot this tool generates leaves configuration and account files
+  out of a package's file list, so they are not compared with it (scoped again in the seventh review; a supplied snapshot's list is used as given); snapshot and other-release comparisons use the raw
   SHA-256. Changed in the paper's Appendix E, the README's grade table, `docs/DESIGN.md`, `docs/LIMITATIONS.md`,
   the module docstring of `verify.py` and the report's grade A paragraph.
 - The other-release grade A reason said how many files present "have this release's reference SHA-256" and
@@ -317,7 +317,9 @@ for `absent`; "nothing of this package is present" (a package whose paths hold o
 component's files); "the files carry no version marker"; "configuration files not compared" in three snapshot
 reasons; and the AI-BOM, certificate, key and algorithm texts that said "in the firmware" or "no file of".
 The paper's example table and `docs/DESIGN.md` use the new wording. A new test covers the `absent` reason
-with files under `usr/lib/opkg/` on disk.
+with files under `usr/lib/opkg/` on disk. The seventh review found that three of these rewordings (the twin-file
+sentence, the `absent` label, the certificate, key and algorithm texts) still claimed more than the code
+establishes; they were replaced again (next section).
 
 ## Check that no verdict moved
 
@@ -334,3 +336,84 @@ checks against these files, and Appendix F of the paper covers the fifth reporti
 - The strings that say how many files are "present in the image" are kept: they count files the tool found
   and compared, and no string any longer says how many are absent from the image.
 - Slides and video: they do not describe the other-release finding or these reasons.
+
+# Seventh review (of public head `39463a1`) and what changed
+
+A seventh independent read confirmed the round 6 and round 7 reproducers, that the `ba07b24..39463a1` diff changes
+no verdict-selecting condition, the release, the checksums, the number check, the abstract and the round 8
+verdict check and digests, and that the replayed `tcpdump` sentence in the video is true for the demo image. It
+returned four reproduced defects in the round 8 wording. No verdict rule changed.
+
+The principle applied to every reason, detail and label: **say what the tool compared or matched, and never
+claim an absence or an exclusion beyond what the code establishes.**
+
+## 1. The twin-file reason and the Markdown label
+
+- The `absent` reason for a package whose compared files all equal another declared component's files said that
+  no file at the package's paths is attributable to it alone. A file the scan skips (the reviewer's byte-identical
+  record under `usr/lib/opkg/` that only the variant ships) contradicts that. It now says what was compared: "each
+  of the N file(s) of this package found among the image files compared has the SHA-256 of another declared
+  component's file (for the first differing file, X); none of the files compared separates this package from that
+  component".
+- One Markdown label served two branches and said that no file of the package was found, even when one matched by
+  hash. It now reads "absent: no compared file is attributed to the package (the evidence column says what was
+  compared)".
+- Test: `test_twin_file_reason_and_label_do_not_overstate_attribution` builds the reviewer's image (two compared
+  files, one identical, a skipped unique record on disk) and fails on the previous code.
+
+## 2. Certificate and key details
+
+- `absent_certificate` and `absent_key` said that the declared asset was not found among the extracted ones. When the
+  declaration has no SHA-256 (a certificate declared by subject and expiry, a key declared by a SHA-512 only) the
+  asset may have been extracted and not identified. The details now separate the cases: no extracted asset has the
+  declared SHA-256; no SHA-256 is declared and several extracted certificates share the subject, so none was
+  selected (the declared expiry is not used to choose); no SHA-256 is declared and no extracted certificate has the
+  subject; no SHA-256 is declared for a key, so it was not compared with the extracted keys.
+- Tests: `test_certificate_detail_separates_unresolved_identity_from_not_extracted` and
+  `test_key_detail_separates_unresolved_identity_from_not_extracted` (two same-subject certificates; a PEM public key
+  declared by SHA-512 only). Both fail on the previous code. Sorting the declared fingerprints of absent keys raised
+  `TypeError` when a declaration without a SHA-256 stood next to one with it; it now sorts by string. That changes
+  no output that was reachable before.
+
+## 3. The algorithm detail
+
+- `algorithm_not_evidenced` said that no checked file carries a name of the algorithm. The patterns are narrow (a
+  key length or a mode after the name), so a file with the literal name `AES` does not match. The detail now says
+  that the detection pattern did not match in the ELF files and kernel module lists checked, and that this does
+  not show that no file names the algorithm. Test: `test_algorithm_detail_says_the_pattern_did_not_match`.
+- The paper's example table, `docs/DESIGN.md` and the paper's CBOM paragraph use the same wording.
+
+## 4. Account files and snapshot comparisons
+
+- The round 8 evaluation note, and the earlier statements in the README, `docs/DESIGN.md`, `docs/LIMITATIONS.md`, the
+  verifier's docstring, the report's grade A paragraph and the paper, said that a snapshot leaves account files out
+  of the comparison. That holds for a snapshot this tool generates. A supplied snapshot's file list is used as
+  given: an account file in it is compared, counted and can decide the verdict (the reviewer's `etc/passwd` case);
+  only the reference package's own configuration files are set aside. All of those places now say so.
+  `test_supplied_snapshot_file_list_is_used_as_given_and_generated_ones_leave_account_files_out` records the fact.
+
+## Every other reason, detail and label read again
+
+All strings of rounds 8 and 9 were read once more against the principle. Three more were reworded: the ablation
+`unverifiable` reason "no version marker to check" (now "no version marker evidence settles which version they are"),
+the `wrong_version` reason that said the present files "carry its version marker" (the marked reference file can be a
+skipped configuration file; it now says that the reference build's files carry a version marker that is not the
+declared one), and the `undeclared_file` detail "not accounted for by any declared component or reference package"
+(now "could not attribute to a declared component or to a reference package it compared"). The paper and
+`docs/DESIGN.md` say the same of `undeclared_file`. The list of strings read and kept is in `build-report-r9.md`.
+
+## Check that no verdict moved
+
+`bench/verdict_check.py` on reruns of all fourteen images with the previous head's code (`39463a1`) and with the
+changed code, each in its own `work/cases` folder: 2,604 rows (1,860 held-out), 0 differences each; 1,689 reason
+strings differ from the frozen wording with either code, so no benchmark case reaches a reworded branch.
+`bench/full_digest.py`, previous against changed code: 252 runs, 35,814 component records, 13,365 findings, 0 differences; the two digest files are byte-identical (sha256 `74c523d7...`, as in rounds 6 to 8). Results:
+`results/r2/r9-verdict-check/COMPARISON.json` and `FULL-DIGEST.json`; `docs/EVALUATION.md`, item 11. The unit test that
+guards the rule files points at them; Appendix F of the paper covers the sixth reporting change.
+
+## Not changed
+
+- No verdict rule, the freeze tag (`0f83a98`) or the frozen run's result files.
+- Slides: they carry no reason text. Video: its replayed terminal is a recording from commit `401c018`, disclosed
+  as a replay; its `tcpdump` line and its `algorithm_not_evidenced` line show the old sentences, which are true
+  for that synthetic example (the reviewer confirmed the first).

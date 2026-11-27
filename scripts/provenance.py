@@ -63,6 +63,8 @@ L += ["", "Changed after the freeze: " + (", ".join(f"`{f}`" for f in changed) o
       "finding name the other release it rests on, all fourteen images; `results/r2/r7-verdict-check/COMPARISON.json`",
       "for the fifth, the wording of that finding's detail when no file could be compared, all fourteen images;",
       "`results/r2/r8-verdict-check/COMPARISON.json` for the sixth, the wording of every reason that claimed an absence",
-      "from a filtered file list, all fourteen images).", ""]
+      "from a filtered file list, all fourteen images; `results/r2/r9-verdict-check/COMPARISON.json` for the seventh,",
+      "the wording of the twin-file, certificate, key and algorithm reasons and of the snapshot exclusion notes, all",
+      "fourteen images).", ""]
 (ROOT / "docs/PROVENANCE.md").write_text("\n".join(L))
 print("\n".join(L))

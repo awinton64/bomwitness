@@ -1,0 +1,23 @@
+{
+ "component_records": 35814,
+ "declarations": [
+  "correct",
+  "first 20 omitted",
+  "every version changed"
+ ],
+ "differences": [],
+ "digest_sha256": {
+  "new": "74c523d7a2557f15a32400ebe0c80573ae700528f5f0a788a67200a905bca188",
+  "old": "74c523d7a2557f15a32400ebe0c80573ae700528f5f0a788a67200a905bca188"
+ },
+ "findings": 13365,
+ "images": 14,
+ "new_code_blobs": {
+  "bench/run_cases.py": "7fe61d703053c7c63da2225565682ae45ad12444",
+  "bomwitness/reference.py": "9c7164c66511913de9c0c267105de14504d1a3fa",
+  "bomwitness/verify.py": "52f964ed2403daa559f0f4cebd19adedac85c549"
+ },
+ "note": "Old verifier code against new verifier code on every benchmark image; see the docstring of bench/full_digest.py. Reason and detail text is not part of a digest.",
+ "old_code_commit": null,
+ "verify_runs": 252
+}

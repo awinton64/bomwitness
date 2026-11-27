@@ -65,7 +65,7 @@ run-time behaviour.
 
 | Grade | Evidence | Role |
 |---|---|---|
-| A | No compared file of the package differs from the reference. The package's files that are present in the image are compared by SHA-256 with the files in the publisher's package (index authenticated as above, then per-file SHA-256), or with the hashes recorded for that package in a sibling snapshot. In the comparison with this release's package, configuration files (`conffiles`) and `etc/passwd`, `etc/group`, `etc/shadow` count as matches when they are identical and are skipped when they differ, and a file that differs from the reference only inside embedded date and time strings is accepted as a match (those strings are masked before comparison). A sibling snapshot's record leaves configuration and account files out, so they are not compared with a snapshot at all; snapshot and other-release comparisons use the raw SHA-256, and the reason separates files that matched only after masking. Not required: that every file of the package is present, or that any file matches. A package whose only file in the image is a changed configuration file passes with zero matched files, and its reason says that no file was positively matched. So grade A means that nothing compared contradicts the claim, not byte identity of the whole package; the reason text of each grade A verdict gives the counts. The label for those bytes comes from the feed index, the release manifest, or a sibling image (authenticated or supplied, as stated in the reason). | Decides verdicts |
+| A | No compared file of the package differs from the reference. The package's files that are present in the image are compared by SHA-256 with the files in the publisher's package (index authenticated as above, then per-file SHA-256), or with the hashes recorded for that package in a sibling snapshot. In the comparison with this release's package, configuration files (`conffiles`) and `etc/passwd`, `etc/group`, `etc/shadow` count as matches when they are identical and are skipped when they differ, and a file that differs from the reference only inside embedded date and time strings is accepted as a match (those strings are masked before comparison). A snapshot this tool generates leaves configuration and account files out of a package's file list, so they are not compared with it; a snapshot file supplied by the caller is used as given (the files it lists for a package are compared, apart from the reference package's own configuration files); snapshot and other-release comparisons use the raw SHA-256, and the reason separates files that matched only after masking. Not required: that every file of the package is present, or that any file matches. A package whose only file in the image is a changed configuration file passes with zero matched files, and its reason says that no file was positively matched. So grade A means that nothing compared contradicts the claim, not byte identity of the whole package; the reason text of each grade A verdict gives the counts. The label for those bytes comes from the feed index, the release manifest, or a sibling image (authenticated or supplied, as stated in the reason). | Decides verdicts |
 | B | Intrinsic to the bytes: the version marker that the reference build of the same component carries, versioned file names, SONAMEs, algorithm names | Decides verdicts when A is not available; always labelled B |
 | C | The device's own package database | Shown in its own report section, never decides a verdict |
 
@@ -115,7 +115,7 @@ ABI suffix such as `libubox` for `libubox20240329`, `Provides`, or source packag
 
 Image level: every regular file not accounted for by a declared component is attributed through the
 file-path index (or the sibling snapshot, or, for unindexed feeds, by fetching packages with similar
-names). A match is an `undeclared_component`; an executable that nothing explains is an `undeclared_file`.
+names). A match is an `undeclared_component`; an executable that the tool could not attribute to a declared component or a reference package it compared is an `undeclared_file`.
 
 ## CBOM and cross-BOM rules
 
@@ -128,10 +128,14 @@ accepts a provider that the SBOM check verified at grade A or grade B. Declared 
   declaration has no fingerprint and the subject is unique) and then compared field by field: key
   algorithm and size, signature hash, expiry. A certificate found in the image must be declared;
 - a standalone key is reconciled by fingerprint only: a declared fingerprint must be in the image and a key
-  in the image must be declared. No further field of a key is compared;
+  in the image must be declared. No further field of a key is compared. An `absent_certificate` or
+  `absent_key` finding says which case it is: no extracted certificate (key) has the declared SHA-256, or
+  the declaration has no SHA-256 (or its subject is shared by several extracted certificates) so the
+  identity was not resolved;
 - a declared algorithm must name a providing component; that component must be in the SBOM
-  (`provider_not_in_sbom`), its bytes must have verified (`provider_unverified`), and one of its files must
-  carry the algorithm's name (`algorithm_not_evidenced`);
+  (`provider_not_in_sbom`), its bytes must have verified (`provider_unverified`), and one of its checked
+  files (ELF files and kernel module lists) must match this tool's pattern for the algorithm's name
+  (`algorithm_not_evidenced`; the pattern is narrow, so the finding does not show that no file names it);
 - a component whose files carry algorithm names must have CBOM entries
   (`crypto_component_without_cbom_entry`, `undeclared_algorithm`);
 - weak keys, expired certificates, deprecated primitives and private keys shipped in the image are reported

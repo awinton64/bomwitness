@@ -3,7 +3,7 @@
   "name": "bomwitness",
   "version": "0.2.0"
  },
- "generated": "2026-11-27T08:04:06+00:00",
+ "generated": "2026-11-27T08:39:10+00:00",
  "subject": {
   "name": "openwrt-24.10.8-ath79-generic-tplink_archer-c7-v5-squashfs-sysupgrade.bin",
   "kind": "directory",
@@ -65,7 +65,7 @@
    "code_files": 161,
    "orphan_code_files": 0,
    "hard_findings": 0,
-   "seconds": 0.23
+   "seconds": 0.1
   },
   "options": {
    "use_hashes": true,

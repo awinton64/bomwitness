@@ -2,10 +2,10 @@
 \def\tabexamplerows{%
 SBOM & \vd{wrong\_version} & busybox & A & declared 1.36.2-r3; files present match the publisher's build 1.36.1-r3 \\
 SBOM & \vd{wrong\_version} & dropbear & A & declared 2022.82-6; files present match the publisher's build 2024.86-r3 \\
-SBOM & \vd{absent} & tcpdump & A & no file of the reference package was found among the image files compared \\
+SBOM & \vd{absent} & tcpdump & A & none of the reference package's files was found among the image files compared \\
 SBOM & \vd{undeclared\_component} & dnsmasq & A & 12 files, all with the hashes of dnsmasq 2.93-r1; not in the BOM \\
 CBOM & \vd{undeclared\_certificate} & certificate DigiCert TLS ECC P384 Root G5 & A & in the image's CA bundle, not in the CBOM \\
 cross & \vd{provider\_unverified} & busybox & A & CBOM names it as provider of MD5, but its SBOM check ended in \vd{wrong\_version} \\
 cross & \vd{provider\_unverified} & dropbear & A & CBOM names it as provider of AES, but its SBOM check ended in \vd{wrong\_version} \\
-cross & \vd{algorithm\_not\_evidenced} & ML-KEM in libmbedtls21 & B & no checked file of the named provider carries the algorithm's name \\
+cross & \vd{algorithm\_not\_evidenced} & ML-KEM in libmbedtls21 & B & the pattern for the algorithm's name did not match in the provider's checked files \\
 }

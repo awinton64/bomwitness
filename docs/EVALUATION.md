@@ -202,7 +202,8 @@ bench/summarize.py` shows every later change to the rule and scoring files. In w
    SHA-256 from files that match it only after build-date strings are masked. (c) The module docstring and
    the report's grade A paragraph say that identical configuration files count and differing ones are
    skipped in the comparison with this release's package, that a snapshot's record leaves configuration
-   and account files out, and that snapshot and other-release comparisons use the raw SHA-256.
+   and account files out (scoped in item 11 to snapshots this tool generates), and that snapshot and
+   other-release comparisons use the raw SHA-256.
    `bench/run_cases.py`, `baselines.py` and `summarize.py` are unchanged.
 
 9. After a fifth independent review: **`bomwitness/verify.py`, the wording of one detail, no rule.** When
@@ -226,16 +227,51 @@ bench/summarize.py` shows every later change to the rule and scoring files. In w
    (c) the `absent` reason "none of the reference package's files exist in the firmware" now reads "none of
    the reference package's files was found among the firmware files this tool compares", and the reason for a package whose paths hold only another
    declared component's files no longer says "nothing of this package is present" but that no file at its
-   paths is attributable to this package alone; (d) the `unverifiable` reason "the files carry no version
+   paths is attributable to this package alone (item 11 replaced that sentence too); (d) the `unverifiable` reason "the files carry no version
    marker" now says that no version marker evidence settles which version the files are; (e) snapshot
-   reasons no longer say "configuration files not compared" (account files and files the sibling does not
-   hold are not compared either) but "K file(s) recorded for the package, N of them compared"; (f) the
+   reasons no longer say "configuration files not compared" but "K file(s) recorded for the package, N of them
+   compared" (a snapshot this tool generates leaves configuration and account files out of a package's list;
+   a supplied snapshot's list is used as given, see item 11); (f) the
    AI-BOM, certificate, key and algorithm findings say what the tool found or checked instead of what the
-   firmware contains; (g) the Markdown report's label for `absent` is "no file of the package was found among
-   the firmware files compared". Reasons keep saying "present in the image" for the files they count; they
+   firmware contains; (g) the Markdown report's label for `absent` was "no file of the package was found among
+   the firmware files compared" (replaced in item 11, because one label covers two branches). Reasons keep saying "present in the image" for the files they count; they
    no longer say how many are absent. Only strings changed; no condition, verdict, grade or counted field.
    Tests: `test_other_release_detail_does_not_list_what_is_excluded` (the reviewer's `usr/lib/opkg/` case),
    `test_absence_wording_does_not_claim_more_than_the_compared_files`, and the two earlier tests, adjusted.
+
+11. After a seventh independent review: **wording only, again, in `bomwitness/verify.py`, `report.py` and
+   `crypto.py`, no rule.** The principle for every reason, detail and label is that it states what the tool
+   compared or matched and never claims an absence or an exclusion beyond what the code establishes. Four
+   reproduced defects: (a) the `absent` reason for a package whose compared files all equal another declared
+   component's files said that no file at its paths is attributable to it alone, which a skipped file under
+   `usr/lib/opkg/` that is unique to the package contradicts; it now reads "each of the N file(s) of this
+   package found among the image files compared has the SHA-256 of another declared component's file (for the
+   first differing file, X); none of the files compared separates this package from that component"; the
+   Markdown label for `absent`, which covers that branch and the no-file branch, said that no file of the
+   package was found even when one matched by hash, and now reads "absent: no compared file is attributed to
+   the package (the evidence column says what was compared)"; (b) `absent_certificate` and `absent_key` said the
+   declared asset was not found among the extracted ones when the declaration had no SHA-256 (and, for a
+   certificate, its subject was shared by several extracted certificates), so the identity was unresolved; the
+   details now say which of the three cases applies (no extracted asset has the declared SHA-256; no SHA-256
+   is declared and several extracted certificates share the subject, so none was selected; no SHA-256 is
+   declared and no extracted certificate has the subject, or the key was not compared); (c) `algorithm_not_evidenced`
+   said that no checked file carries a name of the algorithm, although the narrow pattern fails on a
+   literal standalone name; it now says that the detection pattern did not match in the ELF files and kernel
+   module lists checked, and that this does not show that no file names the algorithm; (d) the notes in this
+   file and in the README, `docs/DESIGN.md`, `docs/LIMITATIONS.md`, the verifier's docstring, the report's grade A
+   paragraph and the paper that said account files are excluded from snapshot comparisons are scoped to
+   snapshots this tool generates: a supplied snapshot file's list is used as given (an account file in it is
+   compared, counted and can decide the verdict; only the reference package's own configuration files are set
+   aside). Reading every string again turned up three more, reworded: the ablation `unverifiable` reason
+   "no version marker to check", the `wrong_version` reason that said the present files "carry its version
+   marker" (the marked file can be a skipped configuration file), and the `undeclared_file` detail "not
+   accounted for by any declared component or reference package". One non-wording change that does not touch
+   a verdict: `absent_key` sorted its declared fingerprints and raised `TypeError` when a declaration
+   without a SHA-256 stood next to one with it; it now sorts by string. Tests:
+   `test_twin_file_reason_and_label_do_not_overstate_attribution`, the two CBOM detail tests,
+   `test_algorithm_detail_says_the_pattern_did_not_match` (each fails on the previous code), and
+   `test_supplied_snapshot_file_list_is_used_as_given_and_generated_ones_leave_account_files_out`, which
+   fixes the fact the documentation now states.
 
 The evidence that items 1 and 2 are result-neutral: three images (two held-out, one tuning) were rerun with
 all baselines after those changes: 558 rows, identical labels and scores for every tool, identical
@@ -289,6 +325,14 @@ head's code (`ba07b24`) and with the changed code, each in its own `work/cases` 
 `bench/full_digest.py`, previous head against changed code (252 runs, 35,814 component records, 13,365 findings, no difference; the two digest files are byte-identical). Results:
 `results/r2/r8-verdict-check/COMPARISON.json` and `FULL-DIGEST.json`. The unit test that guards the rule files
 now points at these files.
+
+Item 11 was checked the same way: `bench/verdict_check.py` on reruns of all fourteen images with the previous
+head's code (`39463a1`) and with the changed code, each in its own `work/cases` folder, and
+`bench/full_digest.py`, previous head against changed code (2,604 rows, 0 differences each; 1,689 reason
+strings differ from the frozen wording with either code, so no benchmark case reaches a reworded branch; 252
+runs, 35,814 component records, 13,365 findings, no difference; the two digest files are byte-identical). Results:
+`results/r2/r9-verdict-check/COMPARISON.json` and `FULL-DIGEST.json`. The unit test that guards the rule files now
+points at these files.
 
 ## Counting, variability and candidate pools
 

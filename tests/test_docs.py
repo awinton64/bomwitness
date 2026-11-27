@@ -68,13 +68,13 @@ def test_patch_counts_in_prose_match_the_results():
         assert "signed `profiles.json`" not in text and "signed profiles.json" not in text and "signed image list" not in text, doc
 
 
-@pytest.mark.skipif(not (RESULTS / "r8-verdict-check/COMPARISON.json").exists(), reason="result files not present")
+@pytest.mark.skipif(not (RESULTS / "r9-verdict-check/COMPARISON.json").exists(), reason="result files not present")
 def test_reporting_changes_to_the_rule_file_left_every_verdict_unchanged():
-    """verify.py changed after the freeze in what reasons and findings report, five times. Each change has a recorded rerun of
+    """verify.py changed after the freeze in what reasons and findings report, six times. Each change has a recorded rerun of
     every image with no difference, and the latest one is a rerun of this verify.py."""
     import json
     summary = json.loads((RESULTS / "summary.json").read_text())["splits"]
-    for check in ("r4-verdict-check", "r5-verdict-check", "r6-verdict-check", "r7-verdict-check", "r8-verdict-check"):
+    for check in ("r4-verdict-check", "r5-verdict-check", "r6-verdict-check", "r7-verdict-check", "r8-verdict-check", "r9-verdict-check"):
         c = json.loads((RESULTS / check / "COMPARISON.json").read_text())
         for run in ("unchanged_code", "changed_code"):
             t = c[run]["totals"]
@@ -84,9 +84,9 @@ def test_reporting_changes_to_the_rule_file_left_every_verdict_unchanged():
         changed, before = c["changed_code"]["totals"]["reason_strings_changed"], c["unchanged_code"]["totals"]["reason_strings_changed"]
         # round 4 reworded reasons that were still in the frozen wording; from round 5 on the previous code's reasons already differed from it
         assert (changed > before > 0) if check == "r4-verdict-check" else (changed >= before > 0), check
-    # c is now the round 8 check: it must be a rerun of the rule files as they are in this tree
-    full = json.loads((RESULTS / "r8-verdict-check/FULL-DIGEST.json").read_text())      # old code against new code, bench/full_digest.py
+    # c is now the round 9 check: it must be a rerun of the rule files as they are in this tree
+    full = json.loads((RESULTS / "r9-verdict-check/FULL-DIGEST.json").read_text())      # old code against new code, bench/full_digest.py
     assert full["differences"] == [] and full["images"] == c["changed_code"]["totals"]["images"] and full["component_records"] > 30000
     for f, blob in list(c["rule_file_blobs_at_rerun"].items()) + list(full["new_code_blobs"].items()):
         now = subprocess.run(["git", "hash-object", f], cwd=ROOT, capture_output=True, text=True).stdout.strip()
-        assert now == blob, f"{f} changed after the verdict check in results/r2/r8-verdict-check; rerun bench/verdict_check.py and bench/full_digest.py"
+        assert now == blob, f"{f} changed after the verdict check in results/r2/r9-verdict-check; rerun bench/verdict_check.py and bench/full_digest.py"

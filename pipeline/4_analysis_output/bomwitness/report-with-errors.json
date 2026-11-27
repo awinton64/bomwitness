@@ -3,7 +3,7 @@
   "name": "bomwitness",
   "version": "0.2.0"
  },
- "generated": "2026-11-27T08:04:15+00:00",
+ "generated": "2026-11-27T08:39:15+00:00",
  "subject": {
   "name": "openwrt-24.10.8-ath79-generic-tplink_archer-c7-v5-squashfs-sysupgrade.bin",
   "kind": "directory",
@@ -67,7 +67,7 @@
    "code_files": 161,
    "orphan_code_files": 0,
    "hard_findings": 4,
-   "seconds": 0.31
+   "seconds": 0.14
   },
   "options": {
    "use_hashes": true,
@@ -4005,7 +4005,7 @@
     "class": "algorithm_not_evidenced",
     "asset": "ML-KEM@libmbedtls21",
     "grade": "B",
-    "detail": "no file of libmbedtls21 that this tool checked carries a name of ML-KEM"
+    "detail": "this tool's detection pattern for ML-KEM did not match in the ELF files and kernel module lists of libmbedtls21 that it checked; the pattern is narrow, so that does not show that no file names ML-KEM"
    },
    {
     "class": "deprecated_algorithm",
