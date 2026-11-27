@@ -61,6 +61,8 @@ commits was right and is given by git parentage in any case.)
 | `7ccdafe` | 2026-11-27 08:39 | Record the seventh reporting change: reruns, digests, tests, docs, paper |
 | `67518d4` | 2026-11-27 08:39 | Refresh docs/PROVENANCE.md |
 | `45a526e` | 2026-11-27 08:58 | Limit three evidence claims to what the code checks; document known limitations |
+| `5a3b21c` | 2026-11-27 08:58 | Refresh docs/PROVENANCE.md |
+| `b1c2fd9` | 2026-11-27 09:03 | Say in the paper that certificate subject and issuer are not compared |
 
 The commit that refreshes this file is not listed in it; `git log` is the authority.
 
