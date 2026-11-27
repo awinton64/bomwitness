@@ -54,8 +54,8 @@
   "pdf": {
    "tokens_with_digits": 594,
    "explained": {
-    "fact": 454,
-    "allowed": 69,
+    "fact": 455,
+    "allowed": 68,
     "bibliography": 71
    },
    "distinct_fact_values_seen": 183,
