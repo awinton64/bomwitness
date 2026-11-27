@@ -1,0 +1,10 @@
+[
+ [
+  "absent_model",
+  "usr/share/models/face-id.onnx"
+ ],
+ [
+  "undeclared_model",
+  "usr/share/models/anomaly-detector.tflite"
+ ]
+]

@@ -1,0 +1,47 @@
+{
+ "bomFormat": "CycloneDX",
+ "specVersion": "1.6",
+ "version": 1,
+ "metadata": {
+  "component": {
+   "type": "firmware",
+   "name": "synthetic-edge-device"
+  }
+ },
+ "components": [
+  {
+   "type": "machine-learning-model",
+   "bom-ref": "model:a1b86ecccc8c5f6d",
+   "name": "usr/share/models/anomaly-detector.tflite",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "a1b86ecccc8c5f6d3e86627cd0ccceda7d35c7dbc72ec95eec3f9486d916c544"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bomwitness:format",
+     "value": "TensorFlow Lite"
+    }
+   ]
+  },
+  {
+   "type": "machine-learning-model",
+   "bom-ref": "model:ef836917771d0203",
+   "name": "usr/share/models/keyword-spotter.gguf",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "ef836917771d02031e67b7535e711d4a63aadfaf8de20f6413727d89f61b11f9"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bomwitness:format",
+     "value": "GGUF"
+    }
+   ]
+  }
+ ]
+}

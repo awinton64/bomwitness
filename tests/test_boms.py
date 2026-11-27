@@ -244,3 +244,13 @@ def test_baseline_diffs():
     assert got == {("wrong_version", "dnsmasq"), ("undeclared_component", "dropbear_ssh")}
     assert baselines.cvebin_label_match(got, ("undeclared_component", "dropbear"))
     assert not baselines.cvebin_label_match(got, ("undeclared_component", "uhttpd"))
+
+
+def test_aibom_example_produces_its_expected_findings():
+    """The shipped synthetic AI-BOM example must keep working: examples/aibom/run.py ends with PASS."""
+    import subprocess
+    import sys
+    from pathlib import Path
+    root = Path(__file__).resolve().parent.parent
+    r = subprocess.run([sys.executable, str(root / "examples/aibom/run.py")], capture_output=True, text=True)
+    assert r.returncode == 0 and r.stdout.strip().endswith("PASS"), r.stdout + r.stderr

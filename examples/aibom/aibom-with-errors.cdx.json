@@ -1,0 +1,47 @@
+{
+ "bomFormat": "CycloneDX",
+ "specVersion": "1.6",
+ "version": 1,
+ "metadata": {
+  "component": {
+   "type": "firmware",
+   "name": "synthetic-edge-device"
+  }
+ },
+ "components": [
+  {
+   "type": "machine-learning-model",
+   "bom-ref": "model:ef836917771d0203",
+   "name": "usr/share/models/keyword-spotter.gguf",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "ef836917771d02031e67b7535e711d4a63aadfaf8de20f6413727d89f61b11f9"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bomwitness:format",
+     "value": "GGUF"
+    }
+   ]
+  },
+  {
+   "type": "machine-learning-model",
+   "bom-ref": "model:phantom",
+   "name": "usr/share/models/face-id.onnx",
+   "hashes": [
+    {
+     "alg": "SHA-256",
+     "content": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bomwitness:format",
+     "value": "ONNX"
+    }
+   ]
+  }
+ ]
+}

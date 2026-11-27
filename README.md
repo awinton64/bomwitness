@@ -58,7 +58,9 @@ bomwitness verify --image firmware.bin --sbom declared.cdx.json \
 Input: CycloneDX 1.4 to 1.6 JSON or SPDX 2.3 JSON. Output: a JSON report, a Markdown report and exit status 1
 when there are findings. `bomwitness inventory` derives a component list from the bytes alone, for an image
 that comes with no BOM and no database. An example report is in
-[pipeline/4_analysis_output/bomwitness/](pipeline/4_analysis_output/bomwitness/).
+[pipeline/4_analysis_output/bomwitness/](pipeline/4_analysis_output/bomwitness/). Example BOM artifacts: SBOM and
+CBOM in [pipeline/1_analysis_object/bomwitness/](pipeline/1_analysis_object/bomwitness/), AI-BOM (synthetic) in
+[examples/aibom/](examples/aibom/).
 
 Nothing from the firmware is executed. OpenWrt images and packages are downloaded from
 downloads.openwrt.org, checked against pinned usign keys, and never redistributed here.
@@ -140,6 +142,7 @@ Held-out set: 10 official OpenWrt images (23.05.6 and 24.10.8, 6 package archite
 | `results/r2/` | every result file the documentation quotes; `SUMMARY.md` has the full tables |
 | `pipeline/` | the SafeIoT pipeline stage layout with a runnable harness and one committed example output |
 | `docs/` | design, evaluation method, limitations, how to extend, provenance of this repository |
+| `examples/aibom/` | a synthetic AI-BOM example (placeholder model files, correct and wrong declarations, expected findings) |
 | `paper/` | the paper, the script that derives its numbers from `results/`, and the script that checks the PDF |
 
 ## Scope
@@ -147,8 +150,8 @@ Held-out set: 10 official OpenWrt images (23.05.6 and 24.10.8, 6 package archite
 In: OpenWrt opkg releases (tested on 23.05 and 24.10, seven package architectures), SBOM and CBOM
 verification, cross-BOM consistency, a model-file presence check. Out: executing firmware, encrypted
 images, apk-based releases, vulnerability matching, and any claim about firmware families that were not
-measured. The AI-BOM part is a presence check exercised only by synthetic unit-test fixtures, because the
-evaluated router images contain no models.
+measured. The AI-BOM part is a presence check exercised only by synthetic fixtures (unit tests and
+[examples/aibom/](examples/aibom/)), because the evaluated router images contain no models.
 
 ## AI assistance, provenance and license
 
