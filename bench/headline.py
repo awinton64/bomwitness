@@ -19,6 +19,17 @@ def pr(m: dict | None) -> str:
     return f"{p} / {m['recall']:.3f} ({m['tp']}/{m['cases']})"
 
 
+def wilson(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
+    """95% Wilson score interval for a proportion."""
+    if not n:
+        return 0.0, 0.0
+    phat = k / n
+    den = 1 + z * z / n
+    mid = (phat + z * z / (2 * n)) / den
+    half = z * ((phat * (1 - phat) / n + z * z / (4 * n * n)) ** 0.5) / den
+    return mid - half, mid + half
+
+
 def build(res: Path) -> str:
     s = json.loads((res / "summary.json").read_text())
     h, t = s["splits"]["heldout"], s["splits"]["tuning"]
@@ -35,8 +46,14 @@ def build(res: Path) -> str:
         row = h["by_db"][db]
         L.append(f"| {names[db]} | {row['bw']['cases']} | {pr(row['bw'])} | {pr(row['bw_no_snapshot'])} | {pr(row['bw_feed_only'])} | "
                  f"{pr(row.get('bomtrace'))} | {pr(row.get('syft_diff'))} | {pr(row.get('cvebin_diff'))} |")
+    col, una = h["by_db"]["colluding"]["bw"], h["by_db"]["unaware"]["bw"]
+    (c_lo, c_hi), (u_lo, u_hi) = wilson(col["tp"], col["cases"]), wilson(una["tp"], una["cases"])
+    L += ["", f"- BOMwitness recall with 95% Wilson intervals: colluding and stripped {col['recall']:.3f} [{c_lo:.3f}, {c_hi:.3f}], "
+              f"unaware {una['recall']:.3f} [{u_lo:.3f}, {u_hi:.3f}]. Lowest recall on any single held-out image: "
+              f"{col['recall_per_image_min']:.3f} (colluding), {una['recall_per_image_min']:.3f} (unaware). The honest, colluding and stripped "
+              f"rows are the same {col['cases']} cases with three database states, not {3 * col['cases']} independent cases."]
     c = h["clean"]["totals"]
-    L += ["", f"- Clean controls (held-out images, correct BOM): {c['declared']} declared components, "
+    L += [f"- Clean controls (held-out images, correct BOM): {c['declared']} declared components, "
               f"{c['verdicts'].get('verified_A', 0)} verified byte for byte ({c['verified_A_share']:.1%}), {c['verdicts'].get('verified_B', 0)} by version marker, "
               f"{c['verdicts'].get('unverifiable', 0)} unverifiable, {c['bw_hard']} false alarms ({c['clean_false_alarm_rate_per_declared_component']:.2%} of declared components). "
               f"{c['accounted']} of {c['files']} files and {c['code'] - c['orphan_code']} of {c['code']} executables accounted for."]
@@ -53,6 +70,18 @@ def build(res: Path) -> str:
         f = json.loads(far.read_text())["splits"]["heldout"]
         L.append(f"- With the least similar sibling instead of the most similar one ({len(f['images'])} held-out images that have siblings): "
                  f"colluding {pr(f['by_db']['colluding']['bw'])}, unaware {pr(f['by_db']['unaware']['bw'])}.")
+    wide = sorted((res / "wide-index/cases").glob("*.json")) if (res / "wide-index/cases").exists() else []
+    if wide:
+        def m4u(doc):
+            rows = [c for c in doc["cases"] if c["kind"] == "M4u_implant_unindexed_feed"]
+            return sum(c["tools"]["bw"]["tp"] for c in rows), len(rows)
+        after = [m4u(json.loads(p.read_text())) for p in wide]
+        before = [m4u(json.loads((res / "cases" / p.name).read_text())) for p in wide]
+        wi = json.loads((res / "wide-index/index.json").read_text())
+        L.append(f"- Index coverage: with the large `packages`, `routing` and `telephony` feeds indexed too ({len(wide)} held-out images, "
+                 f"{min(w['downloaded_bytes'] for w in wi) / 1e6:.0f} to {max(w['downloaded_bytes'] for w in wi) / 1e6:.0f} MB more per release and architecture), "
+                 f"implants from those feeds are named in {sum(a for a, _ in after)} of {sum(n for _, n in after)} cases "
+                 f"instead of {sum(a for a, _ in before)} of {sum(n for _, n in before)}.")
     ov = json.loads((res / "sibling-overlap.json").read_text())
     with_sib = [v for v in ov.values() if v.get("sibling")]
     L.append(f"- Sibling snapshots: {len(with_sib)} of {len(ov)} images have one; for {sum(1 for v in with_sib if v['identical_root_filesystem_contents'])} "

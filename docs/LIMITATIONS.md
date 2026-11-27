@@ -26,6 +26,8 @@ Read these before relying on a result.
 6. **Unindexed feeds.** The file-path index covers the target, kernel-module, base and LuCI feeds (packages up
    to 4 MB, without translations). A file from the large `packages` feed is always flagged as unaccounted
    executable code, but naming its package depends on a name-similarity search that does not always succeed.
+   Indexing that feed as well removes the gap at the cost of a larger one-time download
+   (`bench/wide_index.py`, `results/r2/wide-index/`).
 7. **Version labels of packages without a marker.** When nothing pins a label (no frozen feed, no manifest
    entry, no sibling, no marker in the bytes), a wrong version on byte-identical files cannot be refuted
    and is reported as `label_unconfirmed`.

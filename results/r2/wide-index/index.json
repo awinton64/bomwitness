@@ -1,0 +1,42 @@
+[
+ {
+  "release": "24.10.8",
+  "target": "ramips/mt76x8",
+  "arch": "mipsel_24kc",
+  "feeds": [
+   "target",
+   "kmods",
+   "base",
+   "luci",
+   "packages",
+   "routing",
+   "telephony"
+  ],
+  "max_package_size": 1500000,
+  "packages": 7183,
+  "files": 47238,
+  "seconds": 69.7,
+  "downloaded": 5097,
+  "downloaded_bytes": 399645814
+ },
+ {
+  "release": "23.05.6",
+  "target": "ramips/mt7621",
+  "arch": "mipsel_24kc",
+  "feeds": [
+   "target",
+   "kmods",
+   "base",
+   "luci",
+   "packages",
+   "routing",
+   "telephony"
+  ],
+  "max_package_size": 1500000,
+  "packages": 6938,
+  "files": 45791,
+  "seconds": 102.2,
+  "downloaded": 5071,
+  "downloaded_bytes": 390245689
+ }
+]

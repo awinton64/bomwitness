@@ -55,8 +55,9 @@ def run(image_id: str, k: int, out_dir: Path, use_baselines: bool) -> dict:
     im = next(i for i in spec["images"] if i["id"] == image_id)
     clean = ROOT / "work/rootfs" / image_id
     cases_dir = ROOT / "work/cases" / image_id
-    ref = Reference(im["release"], im["target"], ROOT / "work/cache")
-    alt = Reference(OTHER[im["release"]], im["target"], ROOT / "work/cache")
+    cache = ROOT / os.environ.get("BW_CACHE_DIR", "work/cache")     # another cache holds another index (wide-index ablation)
+    ref = Reference(im["release"], im["target"], cache)
+    alt = Reference(OTHER[im["release"]], im["target"], cache)
     index, alt_index = ref.index(), alt.index()
     manifest = ref.manifest()
     # BW_SNAPSHOT_DIR selects another set of sibling snapshots (used by the far-sibling robustness check).

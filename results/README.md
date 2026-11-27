@@ -9,6 +9,7 @@
   - `drift.json`, `official-bom.json`, `inventory.json`, `sibling-overlap.json`, `reference-index.json`,
     `case-study-immortalwrt.json`: the other measurements described in `docs/EVALUATION.md`.
   - `far-sibling/`: the benchmark rerun (BOMwitness only) with the least similar sibling as snapshot source.
+  - `wide-index/`: two held-out images rerun with the `packages`, `routing` and `telephony` feeds indexed as well.
   - `postfreeze-check/`: three images rerun after the post-freeze fixes, with `COMPARISON.json`.
 - `spike-r1/` is the round 1 feasibility spike (three images, an earlier and simpler verifier). It is kept
   for the record and is not quoted anywhere. Its scripts are in `scripts/round1/` and no longer run against

@@ -97,6 +97,8 @@ reads the database. The benchmark still runs all three trees and compares, and a
 - `results/r2/official-bom.json`: OpenWrt's published per-target BOM verified against each device image.
 - `results/r2/inventory.json`: component list derived from bytes alone, compared with the package list.
 - `results/r2/sibling-overlap.json`: how much each sibling snapshot overlaps the image it helps verify.
+- `results/r2/far-sibling/` and `results/r2/wide-index/`: the benchmark rerun with the least similar sibling,
+  and with the large feeds indexed as well (BOMwitness only).
 - `results/r2/case-study-immortalwrt.json`: an unmodified image of a downstream fork, checked against
   upstream OpenWrt and against the fork's own signed download tree.
 
