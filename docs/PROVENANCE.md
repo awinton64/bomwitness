@@ -49,6 +49,8 @@ commits was right and is given by git parentage in any case.)
 | `f6b0aba` | 2026-11-27 06:13 | Remove the last 'signed' shorthand for hash-pinned files; label the pooled rows of SUMMARY.md |
 | `155cb60` | 2026-11-27 06:13 | Refresh docs/PROVENANCE.md |
 | `7d5df57` | 2026-11-27 06:51 | Name the input behind each finding; say what grade A and the reference cover |
+| `401c018` | 2026-11-27 06:51 | Refresh docs/PROVENANCE.md |
+| `76ef6b9` | 2026-11-27 07:25 | Name the release behind an other-release wrong_version; scope grade A wording |
 
 The commit that refreshes this file is not listed in it; `git log` is the authority.
 
@@ -59,7 +61,7 @@ reproduces the right-hand column; `git rev-parse rules-frozen-r2a:<file>` the mi
 
 | File | At the freeze | At the time of writing | Changed |
 |---|---|---|---|
-| `bomwitness/verify.py` | `4c429550ad6d` | `93c1b9c72aff` | yes |
+| `bomwitness/verify.py` | `4c429550ad6d` | `7c1218d04142` | yes |
 | `bomwitness/reference.py` | `9c7164c66511` | `9c7164c66511` | no |
 | `bomwitness/crypto.py` | `7c02abaedf52` | `7c02abaedf52` | no |
 | `bomwitness/usign.py` | `650d268a860c` | `650d268a860c` | no |
@@ -77,4 +79,5 @@ Changed after the freeze: `bomwitness/verify.py`, `bench/run_cases.py`. What cha
 (`results/r2/postfreeze-check/COMPARISON.json` for the first change to `verify.py`, three images with all tools;
 `results/r2/r4-verdict-check/COMPARISON.json` for the second, wording-only change, all fourteen images;
 `results/r2/r5-verdict-check/COMPARISON.json` for the third, which changed what findings report about their
-evidence, all fourteen images).
+evidence, all fourteen images; `results/r2/r6-verdict-check/COMPARISON.json` for the fourth, which made one more
+finding name the other release it rests on, all fourteen images).
