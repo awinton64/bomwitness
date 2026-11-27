@@ -2349,6 +2349,11 @@
   "source": "results/r2/r4-verdict-check/COMPARISON.json",
   "value": "14"
  },
+ "verdictLastDiffs": {
+  "how": "changed_code.totals.differences",
+  "source": "results/r2/r6-verdict-check/COMPARISON.json",
+  "value": "0"
+ },
  "verdictRecheckCases": {
   "how": "changed_code.totals.cases",
   "source": "results/r2/r5-verdict-check/COMPARISON.json",

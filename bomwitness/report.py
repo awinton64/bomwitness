@@ -56,10 +56,14 @@ def markdown(rep: dict) -> str:
     out += ["", "What grade A means in this report: no compared file of the package differs from the reference. The files of the "
             "package that are present in the image are compared by SHA-256 with the reference package (or with the hashes recorded "
             "for that package in a sibling snapshot, or, for a file that differs from this release's reference, with another "
-            "release's build of the declared version). Configuration files and three account files count as matches when they "
-            "are identical and are skipped when they differ, a file that differs only inside embedded build-date strings is accepted"
+            "release's build of the declared version). In the comparison with this release's reference package, configuration "
+            "files and three account files count as matches when they are identical and are skipped when they differ, and a file "
+            "that differs only inside embedded build-date strings is accepted"
             + ("" if s["options"].get("normalize_timestamps", True) else " (switched off for this run)")
-            + ", and the package need not be complete. A grade A pass can therefore rest on few matched files, in the extreme "
+            + ". A sibling snapshot's record of a package leaves out its configuration and account files, so those are not "
+            "compared with a snapshot at all; snapshot and other-release comparisons use the raw SHA-256, and a reason says "
+            "how many files matched this release's reference only after build dates were masked. The package need not be "
+            "complete. A grade A pass can therefore rest on few matched files, in the extreme "
             "on none; the line then says that no file was positively matched. Each grade A line below gives the counts. A verdict "
             "or finding that rests on a snapshot, a sibling image or another release names that input, says whether it was "
             "authenticated, and gives the version that input records."]

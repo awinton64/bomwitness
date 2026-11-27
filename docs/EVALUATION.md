@@ -192,6 +192,19 @@ bench/summarize.py` shows every later change to the rule and scoring files. In w
    describes grade A as "no compared file differs". `bench/run_cases.py`, `baselines.py` and
    `summarize.py` are unchanged.
 
+8. After a fourth independent review: **`bomwitness/verify.py`, what one finding reports, no rule.** (a) When
+   the files present match this release's reference build of another version and another release's build of
+   the declared version has different bytes, the `wrong_version` reason used to say only "another release".
+   It now names that release, the key that signed its checksum file, the version it records and how many
+   files were compared, and the verdict carries an `evidence` field like the other other-release verdicts.
+   `alt_lookup` keeps the first such release for that text; whether the branch is taken is decided exactly
+   as before. (b) The other-release grade A reason separates files that have this release's reference
+   SHA-256 from files that match it only after build-date strings are masked. (c) The module docstring and
+   the report's grade A paragraph say that identical configuration files count and differing ones are
+   skipped in the comparison with this release's package, that a snapshot's record leaves configuration
+   and account files out, and that snapshot and other-release comparisons use the raw SHA-256.
+   `bench/run_cases.py`, `baselines.py` and `summarize.py` are unchanged.
+
 The evidence that items 1 and 2 are result-neutral: three images (two held-out, one tuning) were rerun with
 all baselines after those changes: 558 rows, identical labels and scores for every tool, identical
 clean-control findings (`results/r2/postfreeze-check/COMPARISON.json`). Eight of the ten held-out images
@@ -226,6 +239,13 @@ detail text is left out, because it is what changed. Result: 252 runs, 35,814 co
 findings, no difference (`results/r2/r5-verdict-check/FULL-DIGEST.json`). The three declarations are not
 benchmark cases and nothing is scored on them; they make the verifier take its attribution and
 wrong-label branches on real images.
+
+Item 8 was checked the same way, both checks repeated: `bench/verdict_check.py` on reruns of all fourteen
+images with the previous head's code and with the changed code (0 differences each), and
+`bench/full_digest.py`, previous head against changed code (252 runs, 35,814 component records, 13,365
+findings, no difference; the two digest files are byte-identical). Results:
+`results/r2/r6-verdict-check/COMPARISON.json` and `FULL-DIGEST.json`. The unit test that guards the rule
+files now points at these files.
 
 ## Counting, variability and candidate pools
 

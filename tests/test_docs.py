@@ -68,13 +68,13 @@ def test_patch_counts_in_prose_match_the_results():
         assert "signed `profiles.json`" not in text and "signed profiles.json" not in text and "signed image list" not in text, doc
 
 
-@pytest.mark.skipif(not (RESULTS / "r5-verdict-check/COMPARISON.json").exists(), reason="result files not present")
+@pytest.mark.skipif(not (RESULTS / "r6-verdict-check/COMPARISON.json").exists(), reason="result files not present")
 def test_reporting_changes_to_the_rule_file_left_every_verdict_unchanged():
-    """verify.py changed after the freeze in what reasons and findings report, twice. Each change has a recorded rerun of
+    """verify.py changed after the freeze in what reasons and findings report, three times. Each change has a recorded rerun of
     every image with no difference, and the latest one is a rerun of this verify.py."""
     import json
     summary = json.loads((RESULTS / "summary.json").read_text())["splits"]
-    for check in ("r4-verdict-check", "r5-verdict-check"):
+    for check in ("r4-verdict-check", "r5-verdict-check", "r6-verdict-check"):
         c = json.loads((RESULTS / check / "COMPARISON.json").read_text())
         for run in ("unchanged_code", "changed_code"):
             t = c[run]["totals"]
@@ -82,11 +82,11 @@ def test_reporting_changes_to_the_rule_file_left_every_verdict_unchanged():
             assert t["images"] == len(summary["heldout"]["images"]) + len(summary["tuning"]["images"])
             assert t["cases"] == summary["heldout"]["cases"] + summary["tuning"]["cases"] and t["heldout_cases"] == summary["heldout"]["cases"]
         changed, before = c["changed_code"]["totals"]["reason_strings_changed"], c["unchanged_code"]["totals"]["reason_strings_changed"]
-        # round 4 reworded reasons that were still in the frozen wording; in round 5 the previous code's reasons already differed from it
+        # round 4 reworded reasons that were still in the frozen wording; from round 5 on the previous code's reasons already differed from it
         assert (changed > before > 0) if check == "r4-verdict-check" else (changed >= before > 0), check
-    # c is now the round 5 check: it must be a rerun of the rule files as they are in this tree
-    full = json.loads((RESULTS / "r5-verdict-check/FULL-DIGEST.json").read_text())      # old code against new code, bench/full_digest.py
+    # c is now the round 6 check: it must be a rerun of the rule files as they are in this tree
+    full = json.loads((RESULTS / "r6-verdict-check/FULL-DIGEST.json").read_text())      # old code against new code, bench/full_digest.py
     assert full["differences"] == [] and full["images"] == c["changed_code"]["totals"]["images"] and full["component_records"] > 30000
     for f, blob in list(c["rule_file_blobs_at_rerun"].items()) + list(full["new_code_blobs"].items()):
         now = subprocess.run(["git", "hash-object", f], cwd=ROOT, capture_output=True, text=True).stdout.strip()
-        assert now == blob, f"{f} changed after the verdict check in results/r2/r5-verdict-check; rerun bench/verdict_check.py and bench/full_digest.py"
+        assert now == blob, f"{f} changed after the verdict check in results/r2/r6-verdict-check; rerun bench/verdict_check.py and bench/full_digest.py"

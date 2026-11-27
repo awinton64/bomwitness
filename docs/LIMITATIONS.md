@@ -44,8 +44,10 @@ Read these before relying on a result.
    entry, no sibling, no marker in the bytes), a wrong version on files that match the reference cannot be
    refuted and is reported as `label_unconfirmed`.
 8. **Partial presence passes, and grade A is a verdict under stated rules, not byte identity of a
-   package.** Configuration files and three account files count as matches when they are identical and are
-   skipped when they differ, differences inside embedded date strings are accepted, and a component is
+   package.** In the comparison with this release's package, configuration files and three account files
+   count as matches when they are identical and are skipped when they differ, and differences inside embedded
+   date strings are accepted (a sibling snapshot's record leaves configuration and account files out, and
+   snapshot and other-release comparisons use the raw SHA-256); a component is
    verified from the files that are present. A declared package of which only a shared script with the
    reference SHA-256 is in the image (while its executable is missing) is accepted. Three held-out phantom
    cases were missed this way. The rule asks that no compared file differs, not that a file matches: a

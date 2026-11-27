@@ -452,6 +452,55 @@ def test_other_release_verdict_names_the_release_and_gives_coverage_counts(other
     assert "the 98.01.0 release build 1.9-r1" in w["detail"] and w["evidence"]["input"] == "release 98.01.0 feed"
 
 
+def test_a_finding_that_another_release_changes_names_that_release(other_release, tmp_path, signer):
+    """Reviewer's case: primary duo 2.0-r1 bytes declared as 1.9-r1, markers off. Release 98.01.0's build of 1.9-r1
+    has other bytes, which turns label_unconfirmed into wrong_version. The finding names the release, its key and the
+    version it records, and carries the evidence record, like the positive other-release path."""
+    root, r, alt, _fw, _bom = other_release
+    pk = dict(fakefeed.DEFAULT_PACKAGES)
+    pk["duo"] = ("base", "2.0-r1", {"usr/bin/duo": fakefeed.elf(b"duo tool 2.0 build"), "usr/lib/duo.dat": b"data 2.0\n"}, "")
+    names = INSTALLED + ["duo"]
+    fw = fakefeed.make_rootfs(tmp_path / "fw2", names, pk)
+    bom = swap(fakefeed.claims(names, pk), "duo", "1.9-r1")
+    alone = verify(fw, bom, r, use_markers=False)
+    assert next(c for c in alone["components"] if c["name"] == "duo")["verdict"] == "label_unconfirmed"
+    assert not [f for f in alone["findings"] if f["component"] == "duo" and f.get("evidence")]
+    rep = verify(fw, bom, r, [alt], use_markers=False)
+    c = next(c for c in rep["components"] if c["name"] == "duo")
+    key = alt.meta()["sha256sums_signed_by"]
+    assert key and c["verdict"] == "wrong_version" and c["actual_version"] == "2.0-r1"
+    assert c["evidence"] == {"input": "release 98.01.0 feed", "trust": "signed reference", "version": "1.9-r1", "files": 2}
+    f = next(f for f in rep["findings"] if f["class"] == "wrong_version" and f["component"] == "duo")
+    assert f["evidence"] == c["evidence"]
+    assert f["detail"] == ("declared 1.9-r1; actual 2.0-r1. the files present match this release's reference build 2.0-r1; the 98.01.0 "
+                           "release build of the declared version (1.9-r1) has different bytes in 2 of the 2 file(s) compared (that "
+                           f"release's reference is authenticated through its own checksum file, signed by usign key {key}, and feed "
+                           "indexes); 2 of the 2 package file(s) present in the image have the reference package's SHA-256")
+    assert "another release" not in f["detail"]
+
+
+def test_other_release_reason_separates_masked_from_raw_matches(other_release, tmp_path, signer):
+    """A file accepted against this release's reference only after its build date is masked is not counted as a raw SHA-256 match."""
+    root = tmp_path / "rel2"
+    pk = dict(fakefeed.DEFAULT_PACKAGES)
+    pk["duo"] = ("base", "2.0-r1", {"usr/bin/duo": fakefeed.elf(b"duo tool 2.0 build"),
+                                    "usr/lib/duo.txt": b"duo built Nov 27 2026 10:00:00 here\n"}, "")
+    old = dict(pk)
+    old["duo"] = ("base", "1.9-r1", {"usr/bin/duo": fakefeed.elf(b"duo tool 1.9 build"),
+                                     "usr/lib/duo.txt": b"duo built Nov 27 2026 10:00:00 here\n"}, "")
+    fakefeed.make_release(root, signer, packages=pk)
+    fakefeed.make_release(root, signer, release="98.01.0", packages=old)
+    r = fakefeed.reference(root, signer, tmp_path / "c2")
+    alt = fakefeed.reference(root, signer, tmp_path / "c2", release="98.01.0")
+    names = INSTALLED + ["duo"]
+    fw = fakefeed.make_rootfs(tmp_path / "fw3", names, old)
+    (fw / "usr/lib/duo.txt").write_bytes(b"duo built Dec 01 2026 11:22:33 here\n")      # same size, other build date
+    c = next(c for c in verify(fw, fakefeed.claims(names, old), r, [alt])["components"] if c["name"] == "duo")
+    assert c["verdict"] == "verified_A" and c["normalized_build_timestamp"] == ["usr/lib/duo.txt"]
+    assert c["reason"].endswith("0 of the 2 package file(s) present have this release's reference SHA-256 and 1 more match it "
+                                "only after embedded build-date strings are masked (their raw SHA-256 differs)")
+
+
 # ---- ablations -------------------------------------------------------------------------------------------
 def test_grade_b_only_cannot_see_a_patched_byte(rootfs, truth, ref):
     p = rootfs / "usr/bin/alpha"

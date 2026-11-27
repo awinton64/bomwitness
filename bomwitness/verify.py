@@ -5,11 +5,14 @@ Evidence grades
      package (signed checksum file or signed feed index, then the package
      hash, then per-file SHA-256). The files of the package that are present
      in the image are compared. Three things limit that statement, and the
-     reason text of every grade A verdict spells them out with counts:
-     configuration files and three account files count as matches when they
-     are identical and are skipped when they differ; a file that differs only
-     inside embedded build-date strings is accepted (normalize_timestamps);
-     and the package need not be complete. A grade A pass can therefore rest
+     reason text of every grade A verdict spells them out with counts: in the
+     comparison with this release's reference package, configuration files
+     and three account files count as matches when they are identical and are
+     skipped when they differ, and a file that differs only inside embedded
+     build-date strings is accepted (normalize_timestamps); a sibling
+     snapshot's record leaves configuration and account files out, so they
+     are not compared with a snapshot at all, and snapshot and other-release
+     comparisons use the raw SHA-256; and the package need not be complete. A grade A pass can therefore rest
      on few matched files, in the extreme on none (the reason then says so).
      The label for those bytes comes from the feed index and, when available,
      from the release manifest (pinned by hash in the signed checksum file)
@@ -321,7 +324,7 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
 
         def alt_lookup():
             """Compare this component's files with other official releases' builds of the same package."""
-            same_as, declared_build_differs = None, False
+            same_as, declared_build_differs = None, None
             for af in alt_refs:
                 arec = af.index().get(pkg)
                 if not arec:
@@ -331,8 +334,11 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
                 eq = [p for p in shared if apl["files"][p]["sha256"] == files[p]["sha256"]]
                 if differ and any(p in eq for p in differ):
                     same_as = (af.release, arec["version"], sum(1 for p in differ if p in eq))
-                if same_version(ver, arec["version"]) and (len(eq) < len(shared) or (apl["files"] and not shared)):
-                    declared_build_differs = True
+                if (declared_build_differs is None and same_version(ver, arec["version"])
+                        and (len(eq) < len(shared) or (apl["files"] and not shared))):
+                    # reporting only: which release, its signing key, the version it records and what was compared
+                    declared_build_differs = (af.release, arec["version"], len(shared), len(shared) - len(eq), len(apl["files"]),
+                                              af.meta().get("sha256sums_signed_by"))
             return same_as, declared_build_differs
 
         out["files"] = sorted(set(present) | set(sib_paths) | set(snap_hit[2] if snap_hit else ()))
@@ -356,8 +362,11 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
             skipped = len(present) - len(same) - len(differ)
             t = (f"{k} of the {len(differ)} compared file(s) that differ from this release's reference have the SHA-256 of "
                  f"the {release} release build {what} (that release's reference is authenticated through its own signed "
-                 f"checksum file and feed indexes); {len(same)} of the {len(present)} package file(s) present have this "
-                 "release's reference SHA-256")
+                 f"checksum file and feed indexes); {len(same) - len(normalized)} of the {len(present)} package file(s) present "
+                 "have this release's reference SHA-256")
+            if normalized:
+                t += (f" and {len(normalized)} more match it only after embedded build-date strings are masked (their raw "
+                      "SHA-256 differs)")
             if len(differ) - k:
                 t += f"; {len(differ) - k} differ from both builds"
             if skipped:
@@ -403,11 +412,16 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
                 return dict(out, verdict="wrong_version", grade="A", actual_version=vm,
                             reason=f"the files present match the reference build; the release manifest labels it {vm} and the feed {vr}, "
                                    f"neither is the declared version; {matched()}")
-            _same, declared_build_differs = alt_lookup()
-            if declared_build_differs:
+            _same, dbd = alt_lookup()
+            if dbd:
+                rel, aver, n_cmp, n_diff, n_alt, key = dbd
+                how = (f"has different bytes in {n_diff} of the {n_cmp} file(s) compared" if n_cmp else
+                       f"has none of its {n_alt} file(s) in the image")
                 return dict(out, verdict="wrong_version", grade="A", actual_version=vr,
-                            reason="the files present match the reference build of another version; the publisher's build of the declared "
-                                   f"version in another release has different bytes; {matched()}")
+                            evidence={"input": f"release {rel} feed", "trust": "signed reference", "version": aver, "files": n_cmp},
+                            reason=f"the files present match this release's reference build {vr}; the {rel} release build of the declared "
+                                   f"version ({aver}) {how} (that release's reference is authenticated through its own checksum file, "
+                                   f"signed by usign key {key}, and feed indexes); {matched()}")
             marked = [p for p in present if pl["files"][p].get("marker")]
             if use_markers and token and ref_token and token != ref_token and marked:
                 return dict(out, verdict="wrong_version", grade="A", actual_version=vr,

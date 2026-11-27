@@ -200,3 +200,59 @@ The frozen run's result files and the freeze tag are untouched.
   it. It reports names only in the paper (no version accuracy is claimed), and it was left alone.
 - The compact output still cuts a detail at 110 characters, so a long input name can fall outside the line. The
   trust lines at the top name every input, and the JSON and Markdown reports carry the full text.
+
+# Fourth review (of public head `401c018`) and what changed
+
+A fourth independent read confirmed the release, the checksums, the paper's number check and the earlier
+verdict checks, and returned three remaining truthfulness defects. All three are about what a finding or a
+document says. No verdict rule changed.
+
+## 1. A wrong_version finding that another release changes did not name that release
+
+The reviewer's case: the synthetic `duo` package, firmware with the primary release's `2.0-r1` bytes, the BOM
+declaring `1.9-r1`, markers off. Alone the run ends in `label_unconfirmed`. With `--alt-release 98.01.0`, whose
+build of `1.9-r1` has other bytes, it ends in `wrong_version`, and the detail said only "another release", with
+no `evidence` field. The detail now reads "the files present match this release's reference build 2.0-r1; the
+98.01.0 release build of the declared version (1.9-r1) has different bytes in 2 of the 2 file(s) compared
+(that release's reference is authenticated through its own checksum file, signed by usign key ..., and feed
+indexes); ...", and the component and the finding carry `evidence` = {input `release 98.01.0 feed`, trust
+`signed reference`, version `1.9-r1`, files 2}, as the positive other-release path does. The branch is taken
+under exactly the same condition as before; only the first release that triggers it is now remembered for the
+text. Test: `test_a_finding_that_another_release_changes_names_that_release` (it fails on the previous code).
+
+## 2. Grade A wording on configuration files and hash matches
+
+- The statement "identical configuration files count, differing ones are skipped" is now scoped to the
+  comparison with this release's package. A sibling snapshot's record leaves configuration and account files
+  out, so they are not compared with a snapshot at all; snapshot and other-release comparisons use the raw
+  SHA-256. Changed in the paper's Appendix E, the README's grade table, `docs/DESIGN.md`, `docs/LIMITATIONS.md`,
+  the module docstring of `verify.py` and the report's grade A paragraph.
+- The other-release grade A reason said how many files present "have this release's reference SHA-256" and
+  counted files that matched only after a build date was masked. It now gives the raw matches and, separately,
+  "N more match it only after embedded build-date strings are masked (their raw SHA-256 differs)". Test:
+  `test_other_release_reason_separates_masked_from_raw_matches`.
+
+## 3. The harness exit contract in section 5
+
+Section 5 now says that on a completed run the harness exits non-zero only if the SBOM and CBOM findings differ
+from the expected ones, and that a failure in setup, fetching, preprocessing or verification also exits
+non-zero (the scripts use `set -e`).
+
+## Check that no verdict moved
+
+- `bench/verdict_check.py`, previous head's code (`401c018`): 14 images, 2,604 rows (1,860 held-out),
+  0 differences.
+- `bench/verdict_check.py`, this round's code: 14 images, 2,604 rows (1,860 held-out), 0 differences.
+  Output: `results/r2/r6-verdict-check/COMPARISON.json`.
+- `bench/full_digest.py`, previous head against this round's code: 252 runs, 35,814 component records,
+  13,365 findings, 0 differences (the two digest files are byte-identical).
+  Output: `results/r2/r6-verdict-check/FULL-DIGEST.json`.
+
+The unit test that guards the rule files now checks against these files. The example reports in
+`pipeline/4_analysis_output/bomwitness/` were regenerated; only the grade A paragraph changed.
+
+## Not changed
+
+- No verdict rule, the freeze tag or the frozen run's result files.
+- Slides and video: they say "configuration files that differ are skipped", which stays true in every
+  comparison, and they do not describe the harness exit status or the other-release finding.

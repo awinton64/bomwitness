@@ -20,6 +20,9 @@
     counts in the other-release reason). `docs/EVALUATION.md`, "Changes after the freeze", item 7.
   - `r5-verdict-check/FULL-DIGEST.json`: the previous verifier code against the changed code, every
     component verdict and finding on all fourteen images (`bench/full_digest.py`).
+  - `r6-verdict-check/COMPARISON.json` and `FULL-DIGEST.json`: the same two checks after a `wrong_version`
+    finding that another release changes began to name that release, and after reason wording on
+    configuration files and build-date masking. `docs/EVALUATION.md`, "Changes after the freeze", item 8.
 
 The reason strings stored in these result files are the wording of the run that produced them. Files from
 the frozen run and the measurements before the second review still say "every file byte-identical to the

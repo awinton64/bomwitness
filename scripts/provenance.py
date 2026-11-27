@@ -59,6 +59,7 @@ L += ["", "Changed after the freeze: " + (", ".join(f"`{f}`" for f in changed) o
       "(`results/r2/postfreeze-check/COMPARISON.json` for the first change to `verify.py`, three images with all tools;",
       "`results/r2/r4-verdict-check/COMPARISON.json` for the second, wording-only change, all fourteen images;",
       "`results/r2/r5-verdict-check/COMPARISON.json` for the third, which changed what findings report about their",
-      "evidence, all fourteen images).", ""]
+      "evidence, all fourteen images; `results/r2/r6-verdict-check/COMPARISON.json` for the fourth, which made one more",
+      "finding name the other release it rests on, all fourteen images).", ""]
 (ROOT / "docs/PROVENANCE.md").write_text("\n".join(L))
 print("\n".join(L))
