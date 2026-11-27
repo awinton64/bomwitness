@@ -139,6 +139,12 @@ changes, none of which alters a verdict rule used by the benchmark:
 3. New measurement scripts that only consume the verifier: drift, official BOM, inventory, sibling overlap,
    far sibling, case study, error analysis, headline.
 
+4. Round 2b, after all results were produced: the command line entry point silences one third-party deprecation
+   warning (`cryptography` warns about CA certificates with a non-positive serial number; they are still parsed
+   and reported). `bomwitness/verify.py`, `crypto.py` and `reference.py` are unchanged since the commit that
+   produced the post-freeze check, and the benchmark does not go through the command line entry point. The
+   pipeline harness, which compares the example run with its expected findings, still ends with `PASS`.
+
 To confirm the first two are result-neutral, three images (two held-out, one tuning) were rerun with all
 baselines after the changes: 558 cases, zero score differences for any tool, identical clean-control
 findings (`results/r2/postfreeze-check/COMPARISON.json`).

@@ -150,6 +150,11 @@ def _common(p):
 
 
 def main(argv: list[str] | None = None) -> int:
+    # A CA bundle can hold certificates that newer versions of `cryptography` warn about (non-positive serial
+    # numbers). The certificates are still parsed and reported; the warning is noise on the command line.
+    import warnings
+    from cryptography.utils import CryptographyDeprecationWarning
+    warnings.filterwarnings("ignore", category=CryptographyDeprecationWarning)
     ap = argparse.ArgumentParser(prog="bomwitness", description=__doc__)
     sub = ap.add_subparsers(dest="cmd", required=True)
     v = sub.add_parser("verify", help="check a declared SBOM (and CBOM, AI-BOM) against firmware bytes")
