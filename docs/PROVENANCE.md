@@ -47,6 +47,8 @@ commits was right and is given by git parentage in any case.)
 | `501c6bb` | 2026-11-27 06:05 | Describe grade A by what was compared and a snapshot by whether it was authenticated |
 | `afcf399` | 2026-11-27 06:08 | Refresh docs/PROVENANCE.md |
 | `f6b0aba` | 2026-11-27 06:13 | Remove the last 'signed' shorthand for hash-pinned files; label the pooled rows of SUMMARY.md |
+| `155cb60` | 2026-11-27 06:13 | Refresh docs/PROVENANCE.md |
+| `7d5df57` | 2026-11-27 06:51 | Name the input behind each finding; say what grade A and the reference cover |
 
 The commit that refreshes this file is not listed in it; `git log` is the authority.
 
@@ -57,7 +59,7 @@ reproduces the right-hand column; `git rev-parse rules-frozen-r2a:<file>` the mi
 
 | File | At the freeze | At the time of writing | Changed |
 |---|---|---|---|
-| `bomwitness/verify.py` | `4c429550ad6d` | `42a10acffc52` | yes |
+| `bomwitness/verify.py` | `4c429550ad6d` | `93c1b9c72aff` | yes |
 | `bomwitness/reference.py` | `9c7164c66511` | `9c7164c66511` | no |
 | `bomwitness/crypto.py` | `7c02abaedf52` | `7c02abaedf52` | no |
 | `bomwitness/usign.py` | `650d268a860c` | `650d268a860c` | no |
@@ -73,4 +75,6 @@ reproduces the right-hand column; `git rev-parse rules-frozen-r2a:<file>` the mi
 Changed after the freeze: `bomwitness/verify.py`, `bench/run_cases.py`. What changed and why is listed in
 `docs/EVALUATION.md` under "Changes after the freeze", with the reruns that show the scores and verdicts did not move
 (`results/r2/postfreeze-check/COMPARISON.json` for the first change to `verify.py`, three images with all tools;
-`results/r2/r4-verdict-check/COMPARISON.json` for the second, wording-only change, all fourteen images).
+`results/r2/r4-verdict-check/COMPARISON.json` for the second, wording-only change, all fourteen images;
+`results/r2/r5-verdict-check/COMPARISON.json` for the third, which changed what findings report about their
+evidence, all fourteen images).
