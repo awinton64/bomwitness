@@ -56,6 +56,9 @@ commits was right and is given by git parentage in any case.)
 | `ba07b24` | 2026-11-27 07:49 | Refresh docs/PROVENANCE.md |
 | `90cb5cb` | 2026-11-27 08:00 | Reword absence claims so they say what was compared, not what is on disk |
 | `187ebbb` | 2026-11-27 08:12 | Record the sixth reporting change: reruns, digests, tests, docs, paper |
+| `39463a1` | 2026-11-27 08:12 | Refresh docs/PROVENANCE.md |
+| `a0fdd04` | 2026-11-27 08:27 | Say what was compared or matched in twin-file, CBOM and algorithm reasons |
+| `7ccdafe` | 2026-11-27 08:39 | Record the seventh reporting change: reruns, digests, tests, docs, paper |
 
 The commit that refreshes this file is not listed in it; `git log` is the authority.
 
@@ -66,9 +69,9 @@ reproduces the right-hand column; `git rev-parse rules-frozen-r2a:<file>` the mi
 
 | File | At the freeze | At the time of writing | Changed |
 |---|---|---|---|
-| `bomwitness/verify.py` | `4c429550ad6d` | `9315599f019c` | yes |
+| `bomwitness/verify.py` | `4c429550ad6d` | `52f964ed2403` | yes |
 | `bomwitness/reference.py` | `9c7164c66511` | `9c7164c66511` | no |
-| `bomwitness/crypto.py` | `7c02abaedf52` | `cef6bf0568c9` | yes |
+| `bomwitness/crypto.py` | `7c02abaedf52` | `d514914875c3` | yes |
 | `bomwitness/usign.py` | `650d268a860c` | `650d268a860c` | no |
 | `bomwitness/elfinfo.py` | `52dc298d4d80` | `52dc298d4d80` | no |
 | `bomwitness/bomio.py` | `d1d2092ec85b` | `d1d2092ec85b` | no |
@@ -88,4 +91,6 @@ evidence, all fourteen images; `results/r2/r6-verdict-check/COMPARISON.json` for
 finding name the other release it rests on, all fourteen images; `results/r2/r7-verdict-check/COMPARISON.json`
 for the fifth, the wording of that finding's detail when no file could be compared, all fourteen images;
 `results/r2/r8-verdict-check/COMPARISON.json` for the sixth, the wording of every reason that claimed an absence
-from a filtered file list, all fourteen images).
+from a filtered file list, all fourteen images; `results/r2/r9-verdict-check/COMPARISON.json` for the seventh,
+the wording of the twin-file, certificate, key and algorithm reasons and of the snapshot exclusion notes, all
+fourteen images).
