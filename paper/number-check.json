@@ -1,7 +1,7 @@
 {
  "checks": {
   "generated": {
-   "facts": 480,
+   "facts": 481,
    "files": [
     "fig-drift.tex",
     "numbers.json",
@@ -15,7 +15,7 @@
   },
   "source": {
    "literal_numbers_not_allowed": [],
-   "macros_used": 175,
+   "macros_used": 176,
    "allowed_identifiers_present": [
     "1.57.2",
     "2021",
@@ -52,9 +52,9 @@
    ]
   },
   "pdf": {
-   "tokens_with_digits": 589,
+   "tokens_with_digits": 590,
    "explained": {
-    "fact": 451,
+    "fact": 452,
     "allowed": 67,
     "bibliography": 71
    },

@@ -205,6 +205,13 @@ bench/summarize.py` shows every later change to the rule and scoring files. In w
    and account files out, and that snapshot and other-release comparisons use the raw SHA-256.
    `bench/run_cases.py`, `baselines.py` and `summarize.py` are unchanged.
 
+9. After a fifth independent review: **`bomwitness/verify.py`, the wording of one detail, no rule.** When
+   another release's build of the declared version shares no comparable file with the image (its only file
+   in the image is a configuration or account file, which is not compared), the `wrong_version` detail said
+   that build "has none of its N file(s) in the image". It now says it "has none of its N file(s) in the
+   image apart from configuration and account files, so no file was compared". Only the string changed; the
+   condition that picks the verdict and every field are the same.
+
 The evidence that items 1 and 2 are result-neutral: three images (two held-out, one tuning) were rerun with
 all baselines after those changes: 558 rows, identical labels and scores for every tool, identical
 clean-control findings (`results/r2/postfreeze-check/COMPARISON.json`). Eight of the ten held-out images
@@ -244,8 +251,13 @@ Item 8 was checked the same way, both checks repeated: `bench/verdict_check.py` 
 images with the previous head's code and with the changed code (0 differences each), and
 `bench/full_digest.py`, previous head against changed code (252 runs, 35,814 component records, 13,365
 findings, no difference; the two digest files are byte-identical). Results:
-`results/r2/r6-verdict-check/COMPARISON.json` and `FULL-DIGEST.json`. The unit test that guards the rule
-files now points at these files.
+`results/r2/r6-verdict-check/COMPARISON.json` and `FULL-DIGEST.json`.
+
+Item 9 was checked the same way again: `bench/verdict_check.py` on reruns of all fourteen images with the
+previous head's code (`c0a852f`) and with the changed code (2,604 rows, 0 differences each), and
+`bench/full_digest.py`, previous head against changed code (252 runs, 35,814 component records, 13,365
+findings, no difference; the two digest files are byte-identical). Results: `results/r2/r7-verdict-check/COMPARISON.json` and `FULL-DIGEST.json`. The unit test
+that guards the rule files now points at these files.
 
 ## Counting, variability and candidate pools
 

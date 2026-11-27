@@ -416,7 +416,8 @@ def verify(rootfs: Path, declared: list[dict], ref: Reference, alt_refs: list[Re
             if dbd:
                 rel, aver, n_cmp, n_diff, n_alt, key = dbd
                 how = (f"has different bytes in {n_diff} of the {n_cmp} file(s) compared" if n_cmp else
-                       f"has none of its {n_alt} file(s) in the image")
+                       f"has none of its {n_alt} file(s) in the image apart from configuration and account files, "
+                       f"so no file was compared")
                 return dict(out, verdict="wrong_version", grade="A", actual_version=vr,
                             evidence={"input": f"release {rel} feed", "trust": "signed reference", "version": aver, "files": n_cmp},
                             reason=f"the files present match this release's reference build {vr}; the {rel} release build of the declared "

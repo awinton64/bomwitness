@@ -2351,7 +2351,7 @@
  },
  "verdictLastDiffs": {
   "how": "changed_code.totals.differences",
-  "source": "results/r2/r6-verdict-check/COMPARISON.json",
+  "source": "results/r2/r7-verdict-check/COMPARISON.json",
   "value": "0"
  },
  "verdictRecheckCases": {
@@ -2368,6 +2368,11 @@
   "how": "changed_code.totals.images",
   "source": "results/r2/r5-verdict-check/COMPARISON.json",
   "value": "14"
+ },
+ "verdictThirdDiffs": {
+  "how": "changed_code.totals.differences",
+  "source": "results/r2/r6-verdict-check/COMPARISON.json",
+  "value": "0"
  },
  "wideAfter": {
   "how": "M4u cases named with the wide index",

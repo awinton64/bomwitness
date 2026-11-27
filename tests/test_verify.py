@@ -582,3 +582,26 @@ def test_snapshot_and_feed_attribution_are_merged_without_a_path_index(release_r
     snap = snapshot_from_rootfs(fakefeed.make_rootfs(tmp_path / "sib", INSTALLED, pk), "sibling")
     bom = [c for c in fakefeed.claims(INSTALLED, pk) if c["name"] != "gamma"]
     assert hard(verify(fw, bom, r, snapshots=[snap])) == {("undeclared_component", "gamma")}
+
+
+def test_other_release_with_no_comparable_file_says_none_compared(other_release, tmp_path, signer):
+    """Round 6 reviewer's case: the only file the 98.01.0 build shares with the image is a configuration file, which is
+    not compared. The detail must say no file was compared, not that none of its files is present."""
+    root = tmp_path / "rel3"
+    pk = dict(fakefeed.DEFAULT_PACKAGES)
+    pk["duo"] = ("base", "2.0-r1", {"usr/bin/duo": fakefeed.elf(b"duo tool 2.0 build"), "etc/config/duo": b"config duo\n"}, "")
+    old = dict(pk)
+    old["duo"] = ("base", "1.9-r1", {"usr/lib/old-duo.dat": b"old data\n", "etc/config/duo": b"config duo\n"}, "")
+    fakefeed.make_release(root, signer, packages=pk)
+    fakefeed.make_release(root, signer, release="98.01.0", packages=old)
+    r = fakefeed.reference(root, signer, tmp_path / "c3")
+    alt = fakefeed.reference(root, signer, tmp_path / "c3", release="98.01.0")
+    names = INSTALLED + ["duo"]
+    fw = fakefeed.make_rootfs(tmp_path / "fw4", names, pk)
+    assert (fw / "etc/config/duo").read_bytes() == b"config duo\n"
+    rep = verify(fw, swap(fakefeed.claims(names, pk), "duo", "1.9-r1"), r, [alt], use_markers=False)
+    f = next(f for f in rep["findings"] if f["class"] == "wrong_version" and f["component"] == "duo")
+    assert f["evidence"]["files"] == 0
+    assert ("has none of its 2 file(s) in the image apart from configuration and account files, so no file was compared"
+            in f["detail"])
+    assert "has none of its 2 file(s) in the image (" not in f["detail"]     # the round 6 wording

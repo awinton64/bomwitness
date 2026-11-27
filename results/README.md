@@ -23,6 +23,9 @@
   - `r6-verdict-check/COMPARISON.json` and `FULL-DIGEST.json`: the same two checks after a `wrong_version`
     finding that another release changes began to name that release, and after reason wording on
     configuration files and build-date masking. `docs/EVALUATION.md`, "Changes after the freeze", item 8.
+  - `r7-verdict-check/COMPARISON.json` and `FULL-DIGEST.json`: the same two checks after the wording of that
+    finding's detail changed for a build with no comparable file. `docs/EVALUATION.md`, "Changes after the
+    freeze", item 9.
 
 The reason strings stored in these result files are the wording of the run that produced them. Files from
 the frozen run and the measurements before the second review still say "every file byte-identical to the

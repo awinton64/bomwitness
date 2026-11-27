@@ -256,3 +256,32 @@ The unit test that guards the rule files now checks against these files. The exa
 - No verdict rule, the freeze tag or the frozen run's result files.
 - Slides and video: they say "configuration files that differ are skipped", which stays true in every
   comparison, and they do not describe the harness exit status or the other-release finding.
+
+# Fifth review (of public head `c0a852f`) and what changed
+
+A fifth independent read confirmed the three fixes of the fourth round and the release, and returned one new
+defect, in the wording of the detail added in that round. No verdict rule changed.
+
+## A build with no comparable file was described as having no file in the image
+
+The other-release lookup compares only files outside configuration and account paths. When another release's
+build of the declared version shares no such file with the image, the `wrong_version` detail said that build
+"has none of its N file(s) in the image", even when one of its configuration files was in the image (the
+reviewer's case: the 1.9-r1 build of `duo` has `usr/lib/old-duo.dat` and the same `etc/config/duo` as the
+firmware). The detail now says that build "has none of its N file(s) in the image apart from configuration and
+account files, so no file was compared", which matches the `evidence` field (`files` = 0). Only the string
+changed; the condition that picks the verdict is the same. Test:
+`test_other_release_with_no_comparable_file_says_none_compared` (it fails on the previous code).
+
+## Check that no verdict moved
+
+The same two checks as in the fourth round, against the previous head `c0a852f`: `bench/verdict_check.py` on
+reruns of all fourteen images with the previous and the changed code, and `bench/full_digest.py`, previous
+against changed code. Results: `results/r2/r7-verdict-check/COMPARISON.json` and `FULL-DIGEST.json`; the
+numbers are in `docs/EVALUATION.md`, item 9. The unit test that guards the rule files now checks against
+these files, and Appendix F of the paper covers the fourth reporting change.
+
+## Not changed
+
+- No verdict rule, the freeze tag or the frozen run's result files.
+- Slides and video: they do not describe the other-release finding.
