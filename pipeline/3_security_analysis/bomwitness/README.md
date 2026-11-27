@@ -13,7 +13,7 @@ Per component the result is verified (A or B), wrong version, wrong component, a
 review), label unconfirmed (needs review) or unverifiable. Per image it reports undeclared components and
 unaccounted executable files. The CBOM part checks certificates and keys found in the image and requires
 every declared algorithm to be provided by an SBOM component whose bytes verified and whose files carry the
-algorithm's name. The AI-BOM part looks for model files by magic bytes.
+algorithm's name. The AI-BOM part looks for model files by file header (for some formats, header plus file extension).
 
 The verification code is the `bomwitness` Python package at the root of the BOMwitness repository
 (`bomwitness/verify.py`, `crypto.py`, `aibom.py`, `devicedb.py`). `analyze.sh` runs it on the two example

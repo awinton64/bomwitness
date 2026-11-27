@@ -26,6 +26,8 @@ jobs:
           python-version: "3.12"
       - name: Pipeline harness on one official image (downloads about 20 MB)
         run: sh pipeline/pipeline_harness/bomwitness/run.sh
+      - name: SBOM, CBOM and AI-BOM in one run (official image files plus two synthetic model files)
+        run: sh examples/aibom/unified.sh
       - name: Small seeded-error benchmark on one image (downloads about 200 MB)
         run: |
           pip install -e .

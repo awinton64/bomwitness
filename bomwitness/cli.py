@@ -44,14 +44,38 @@ def _base(args) -> dict:
     return {"base": args.base} if getattr(args, "base", None) else {}
 
 
-def _snapshots(args, stack: list) -> list[dict]:
-    snaps = [json.loads(Path(p).read_text()) for p in args.snapshot or []]
+def _snapshots(args, stack: list, ref: Reference) -> tuple[list[dict], list[dict]]:
+    """Release snapshots plus a record of how far each one was authenticated.
+
+    A sibling image is authenticated when its SHA-256 is listed for this release and target in profiles.json,
+    which the usign-signed sha256sums pins. A snapshot JSON file is a local input and is trusted as supplied.
+    """
+    snaps, trust = [], []
+    official = {v: k for k, v in ref.meta().get("images", {}).items()}
+    for p in args.snapshot or []:
+        snap = json.loads(Path(p).read_text())
+        snaps.append(snap)
+        note = "local file, trusted as supplied; make it with `bomwitness snapshot` from an image you have checked"
+        origin = (snap.get("made_from") or {}).get("sha256")
+        if origin:
+            note = ("local file, trusted as supplied; it records that it was made from an image with SHA-256 " + origin[:16] + "..., which is "
+                    + (f"listed as {official[origin]} in the signed profiles.json of {ref.release} {ref.target}" if origin in official else
+                       f"NOT listed in the signed profiles.json of {ref.release} {ref.target}"))
+        trust.append({"kind": "snapshot file", "name": Path(p).name, "authenticated": False, "note": note})
     for img in args.sibling_image or []:
+        digest = hashlib.sha256(Path(img).read_bytes()).hexdigest()
         td = tempfile.TemporaryDirectory()
         stack.append(td)
         unpack.extract(Path(img), Path(td.name) / "rootfs")
         snaps.append(snapshot_from_rootfs(Path(td.name) / "rootfs", f"sibling image {Path(img).name}"))
-    return snaps
+        ok = digest in official
+        trust.append({"kind": "sibling image", "name": Path(img).name, "sha256": digest, "authenticated": ok,
+                      "note": (f"listed as {official[digest]} in the signed profiles.json of {ref.release} {ref.target}" if ok else
+                               f"NOT listed in the signed profiles.json of {ref.release} {ref.target}; trusted as supplied")})
+        if not ok:
+            print(f"warning: sibling image {Path(img).name} is not an official image of {ref.release} {ref.target} "
+                  "according to the signed profiles.json; it is used as supplied", file=sys.stderr)
+    return snaps, trust
 
 
 def cmd_verify(args) -> int:
@@ -62,7 +86,8 @@ def cmd_verify(args) -> int:
     claims = bomio.software_claims(doc)
     alts = [Reference(r, ref.target, Path(args.cache), offline=args.offline, **_base(args)) for r in args.alt_release or []]
     manifest = None if args.no_manifest else ref.manifest()
-    sbom = verify(rootfs, claims, ref, alts, manifest=manifest, snapshots=_snapshots(args, stack),
+    snaps, trust = _snapshots(args, stack, ref)
+    sbom = verify(rootfs, claims, ref, alts, manifest=manifest, snapshots=snaps,
                   use_markers=not args.no_markers, normalize_timestamps=not args.no_normalize)
     db = devicedb.compare(rootfs, claims, sbom["components"]) if args.db == "compare" else None
     cbom_doc = bomio.load(Path(args.cbom)) if args.cbom else (doc if bomio.crypto_assets(doc) else None)
@@ -77,7 +102,8 @@ def cmd_verify(args) -> int:
     ai = {"models_found": len(aibom.discover(rootfs)),
           "findings": aibom.verify_aibom(rootfs, bomio.models(ai_doc) if ai_doc else [])}
     rep = report.build(subject, ref.provenance(), sbom, db, cb, ai,
-                       {"sbom": {"file": Path(args.sbom).name, "format": bomio.detect(doc), "components": len(claims)}})
+                       {"sbom": {"file": Path(args.sbom).name, "format": bomio.detect(doc), "components": len(claims)},
+                        "reference_inputs": trust})
     if args.json:
         Path(args.json).write_text(json.dumps(rep, indent=1))
     if args.md:
@@ -102,7 +128,7 @@ def cmd_inventory(args) -> int:
     rootfs, subject = _rootfs(args, stack)
     ref = _reference(args, rootfs, subject)
     manifest = None if args.no_manifest else ref.manifest()
-    inv = inventory(rootfs, ref, manifest=manifest, snapshots=_snapshots(args, stack))
+    inv = inventory(rootfs, ref, manifest=manifest, snapshots=_snapshots(args, stack, ref)[0])
     doc = bomio.sbom(inv["components"], subject["name"])
     if args.with_cbom:
         rep = verify(rootfs, [{"name": c["name"], "version": c["version"]} for c in inv["components"]], ref, manifest=manifest)
@@ -129,7 +155,9 @@ def cmd_unpack(args) -> int:
 def cmd_snapshot(args) -> int:
     with tempfile.TemporaryDirectory() as td:
         unpack.extract(Path(args.image), Path(td) / "rootfs")
-        Path(args.out).write_text(json.dumps(snapshot_from_rootfs(Path(td) / "rootfs", f"sibling image {Path(args.image).name}")))
+        snap = snapshot_from_rootfs(Path(td) / "rootfs", f"sibling image {Path(args.image).name}")
+        snap["made_from"] = {"file": Path(args.image).name, "sha256": hashlib.sha256(Path(args.image).read_bytes()).hexdigest()}
+        Path(args.out).write_text(json.dumps(snap))
     print(f"wrote {args.out}")
     return 0
 
@@ -141,12 +169,15 @@ def _common(p):
     p.add_argument("--name", help="name of the firmware to show in reports (default: the file or directory name)")
     p.add_argument("--release", help="OpenWrt release to use as reference, e.g. 24.10.8")
     p.add_argument("--target", help="OpenWrt target, e.g. ath79/generic")
-    p.add_argument("--cache", default=str(Path.home() / ".cache/bomwitness"), help="reference cache directory")
+    p.add_argument("--cache", default=str(Path.home() / ".cache/bomwitness"),
+                   help="reference cache directory; signatures and hashes are checked when an item is first fetched, "
+                        "and the cached copy is trusted afterwards, so keep it where only you can write")
     p.add_argument("--offline", action="store_true", help="use only cached reference data")
     p.add_argument("--base", help="base URL of a release mirror (default: downloads.openwrt.org/releases)")
     p.add_argument("--no-manifest", action="store_true", help="do not use the publisher's release manifest for version labels")
-    p.add_argument("--snapshot", action="append", help="release snapshot JSON made by `bomwitness snapshot` (repeatable)")
-    p.add_argument("--sibling-image", action="append", help="official image of another device of the same release and target (repeatable)")
+    p.add_argument("--snapshot", action="append", help="release snapshot JSON made by `bomwitness snapshot` (repeatable); a local file, trusted as supplied")
+    p.add_argument("--sibling-image", action="append", help="official image of another device of the same release and target (repeatable); its SHA-256 is "
+                                                              "looked up in the signed profiles.json and the report says whether it was found")
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -170,7 +201,11 @@ def main(argv: list[str] | None = None) -> int:
     v.add_argument("--as-of", help="date for certificate expiry checks, YYYY-MM-DD (default: today)")
     v.add_argument("--json", help="write the full report here")
     v.add_argument("--md", help="write a Markdown report here")
-    v.add_argument("--fail-on", choices=("findings", "never"), default="findings")
+    v.add_argument("--fail-on", choices=("findings", "never"), default="findings",
+                   help="findings (default): exit status 1 when there is an SBOM finding of class wrong_version, "
+                        "wrong_component, absent, bytes_differ, undeclared_component or undeclared_file, a CBOM finding other "
+                        "than a deprecated-algorithm observation, or an AI-BOM finding. label_unconfirmed, unverifiable "
+                        "components and device-database disagreements do not change the exit status")
     v.set_defaults(fn=cmd_verify)
     i = sub.add_parser("inventory", help="derive a component list from the bytes alone (no BOM, no database needed)")
     _common(i)

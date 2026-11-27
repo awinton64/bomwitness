@@ -9,7 +9,7 @@ AUTOMATIC_PASS = ("verified_A", "verified_B")
 AUTOMATIC_FAIL = ("wrong_version", "wrong_component", "absent")
 NEEDS_REVIEW = ("bytes_differ", "label_unconfirmed")
 VERDICT_TEXT = {
-    "verified_A": "verified, byte-identical to the publisher's build",
+    "verified_A": "verified, files present are byte-identical to the publisher's build",
     "verified_B": "verified by a version marker in the bytes",
     "wrong_version": "wrong version",
     "wrong_component": "wrong component",
@@ -46,6 +46,13 @@ def markdown(rep: dict) -> str:
             f"Evidence used: byte hashes {'on' if s['options']['use_hashes'] else 'off'}, version markers "
             f"{'on' if s['options']['use_markers'] else 'off'}, release manifest {'yes' if s['options']['release_manifest'] else 'no'}, "
             f"sibling-image snapshots {len(s['options'].get('snapshots', []))}, file-path index {'yes' if s['options']['path_index'] else 'no'}.", ""]
+    trust = rep.get("inputs", {}).get("reference_inputs")
+    out += ["Trust of the reference: the signed checksum file is checked against pinned keys and pins the frozen package indexes, "
+            "the release manifest and profiles.json; shared feed indexes carry their own signatures; packages are checked against "
+            "their index hash when first fetched. Cached copies are trusted afterwards."]
+    for item in trust or []:
+        out += [f"- {item['kind']} {item['name']}: {'authenticated, ' if item['authenticated'] else ''}{item['note']}."]
+    out += [""]
     out += ["## Triage", "", "| Outcome | Count | Meaning |", "|---|---|---|",
             f"| Automatic pass | {t['automatic_pass']} | claim supported by grade A or B evidence |",
             f"| Automatic fail | {t['automatic_fail']} | claim contradicted by the bytes, or undeclared content found |",
@@ -87,7 +94,7 @@ def markdown(rep: dict) -> str:
             out += ["None."]
     ai = rep.get("aibom")
     if ai:
-        out += ["", "## AI-BOM", "", f"Model files found by magic bytes: {ai['models_found']}.", ""]
+        out += ["", "## AI-BOM", "", f"Model files found by file header (for some formats, header plus file extension): {ai['models_found']}.", ""]
         out += ([f"- {f['class']}: {f['asset']}. {f['detail']}" for f in ai["findings"]] or ["No findings."])
     out += ["", "## Declared components", "", "| Component | Declared version | Verdict | Evidence |", "|---|---|---|---|"]
     for c in s["components"]:

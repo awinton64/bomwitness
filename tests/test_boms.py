@@ -231,6 +231,14 @@ def test_cli_verify_end_to_end(rootfs, truth, release_root, signer, tmp_path, mo
     assert cli.main(["inventory", *common, "--out", str(tmp_path / "inv.json"), "--with-cbom"]) == 0
     inv = json.loads((tmp_path / "inv.json").read_text())
     assert {c["name"] for c in bomio.software_claims(inv)} >= {"alpha", "gamma", "kmod-foo"}
+    # A snapshot file is a local input: the report must say it was trusted as supplied, not authenticated.
+    from bomwitness.verify import snapshot_from_rootfs
+    snap = tmp_path / "snap.json"
+    snap.write_text(json.dumps(snapshot_from_rootfs(rootfs, "a local tree")))
+    assert cli.main(["verify", *common, "--sbom", str(good), "--snapshot", str(snap), "--json", str(tmp_path / "s.json"), "--md", str(tmp_path / "s.md")]) == 0
+    trust = json.loads((tmp_path / "s.json").read_text())["inputs"]["reference_inputs"]
+    assert trust == [{"kind": "snapshot file", "name": "snap.json", "authenticated": False, "note": trust[0]["note"]}]
+    assert "trusted as supplied" in trust[0]["note"] and "snapshot file snap.json: local file, trusted as supplied" in (tmp_path / "s.md").read_text()
 
 
 # ---- benchmark helpers (bench/baselines.py) --------------------------------------------------------------

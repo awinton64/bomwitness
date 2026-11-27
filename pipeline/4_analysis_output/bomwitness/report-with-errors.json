@@ -3,7 +3,7 @@
   "name": "bomwitness",
   "version": "0.2.0"
  },
- "generated": "2026-11-27T03:42:54+00:00",
+ "generated": "2026-11-27T05:12:46+00:00",
  "subject": {
   "name": "openwrt-24.10.8-ath79-generic-tplink_archer-c7-v5-squashfs-sysupgrade.bin",
   "kind": "directory",
@@ -33,7 +33,15 @@
    "file": "declared-with-errors.cdx.json",
    "format": "CycloneDX 1.6",
    "components": 150
-  }
+  },
+  "reference_inputs": [
+   {
+    "kind": "snapshot file",
+    "name": "snapshot.json",
+    "authenticated": false,
+    "note": "local file, trusted as supplied; it records that it was made from an image with SHA-256 f4d55cb506f1b192..., which is listed as openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin in the signed profiles.json of 24.10.8 ath79/generic"
+   }
+  ]
  },
  "triage": {
   "automatic_pass": 139,
@@ -57,7 +65,7 @@
    "code_files": 161,
    "orphan_code_files": 0,
    "hard_findings": 4,
-   "seconds": 3.43
+   "seconds": 0.16
   },
   "options": {
    "use_hashes": true,

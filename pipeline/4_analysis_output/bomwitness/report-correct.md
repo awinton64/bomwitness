@@ -3,6 +3,9 @@
 Reference: OpenWrt 24.10.8 ath79/generic (mips_24kc), sha256sums signed by usign key d310c6f2833e97f7.
 Evidence used: byte hashes on, version markers on, release manifest yes, sibling-image snapshots 1, file-path index no.
 
+Trust of the reference: the signed checksum file is checked against pinned keys and pins the frozen package indexes, the release manifest and profiles.json; shared feed indexes carry their own signatures; packages are checked against their index hash when first fetched. Cached copies are trusted afterwards.
+- snapshot file snapshot.json: local file, trusted as supplied; it records that it was made from an image with SHA-256 f4d55cb506f1b192..., which is listed as openwrt-24.10.8-ath79-generic-tplink_archer-a7-v5-squashfs-sysupgrade.bin in the signed profiles.json of 24.10.8 ath79/generic.
+
 ## Triage
 
 | Outcome | Count | Meaning |
@@ -87,7 +90,7 @@ Found in the bytes: 121 certificates, 1 keys, 72 (component, algorithm) pairs.
 
 ## AI-BOM
 
-Model files found by magic bytes: 0.
+Model files found by file header (for some formats, header plus file extension): 0.
 
 No findings.
 
@@ -95,156 +98,156 @@ No findings.
 
 | Component | Declared version | Verdict | Evidence |
 |---|---|---|---|
-| ath10k-board-qca988x | 20241110-r2 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| ath10k-firmware-qca988x-ct | 2020.11.08-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| base-files | 1674~443ec4032a | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| busybox | 1.36.1-r3 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| ca-bundle | 20260601-r1 | verified, byte-identical to the publisher's build | 1 file(s) byte-identical to the build in the official sibling image (20260601-r1); the shared feed has since moved to 20260816-r2 |
-| cgi-io | 2026.07.21~31cb3c89-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| dnsmasq | 2.93-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| dropbear | 2024.86-r3 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| firewall4 | 2024.12.18~18fc0ead-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| fstools | 2024.07.14~408c2cc4-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| fwtool | 2019.11.12~8f7fe925-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| getrandom | 2024.04.26~85f10530-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| hostapd-common | 2024.09.15~5ace39b0-r3 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| iw | 6.9-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| iwinfo | 2024.10.20~b94f066e-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| jansson4 | 2.14-r3 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| jshn | 2025.07.23~49056d17-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| jsonfilter | 2025.04.18~8a86fb78-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
+| ath10k-board-qca988x | 20241110-r2 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| ath10k-firmware-qca988x-ct | 2020.11.08-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| base-files | 1674~443ec4032a | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| busybox | 1.36.1-r3 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| ca-bundle | 20260601-r1 | verified, files present are byte-identical to the publisher's build | 1 file(s) byte-identical to the build in the official sibling image (20260601-r1); the shared feed has since moved to 20260816-r2 |
+| cgi-io | 2026.07.21~31cb3c89-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| dnsmasq | 2.93-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| dropbear | 2024.86-r3 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| firewall4 | 2024.12.18~18fc0ead-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| fstools | 2024.07.14~408c2cc4-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| fwtool | 2019.11.12~8f7fe925-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| getrandom | 2024.04.26~85f10530-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| hostapd-common | 2024.09.15~5ace39b0-r3 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| iw | 6.9-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| iwinfo | 2024.10.20~b94f066e-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| jansson4 | 2.14-r3 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| jshn | 2025.07.23~49056d17-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| jsonfilter | 2025.04.18~8a86fb78-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
 | kernel | 6.6.144~70248021204b78344d5fb62a0e7f5bea-r1 | verified by a version marker in the bytes | version marker 6.6.144 found in lib/modules/6.6.144/ath.ko |
-| kmod-ath | 6.6.144.6.12.96-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-ath10k-ct | 6.6.144.2024.07.30~ac71b14d-r2 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-ath9k | 6.6.144.6.12.96-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-ath9k-common | 6.6.144.6.12.96-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-cfg80211 | 6.6.144.6.12.96-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-crypto-acompress | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-crypto-aead | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-crypto-ccm | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-crypto-cmac | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-crypto-crc32c | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-crypto-ctr | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-crypto-gcm | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-crypto-geniv | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-crypto-gf128 | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-crypto-ghash | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-crypto-hash | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-crypto-hmac | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-crypto-manager | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-crypto-null | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-crypto-rng | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-crypto-seqiv | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-crypto-sha3 | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-crypto-sha512 | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-gpio-button-hotplug | 6.6.144-r5 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-hwmon-core | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-lib-crc-ccitt | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-lib-crc32c | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-lib-lzo | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-mac80211 | 6.6.144.6.12.96-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-nf-conntrack | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-ath | 6.6.144.6.12.96-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-ath10k-ct | 6.6.144.2024.07.30~ac71b14d-r2 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-ath9k | 6.6.144.6.12.96-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-ath9k-common | 6.6.144.6.12.96-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-cfg80211 | 6.6.144.6.12.96-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-crypto-acompress | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-crypto-aead | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-crypto-ccm | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-crypto-cmac | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-crypto-crc32c | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-crypto-ctr | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-crypto-gcm | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-crypto-geniv | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-crypto-gf128 | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-crypto-ghash | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-crypto-hash | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-crypto-hmac | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-crypto-manager | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-crypto-null | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-crypto-rng | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-crypto-seqiv | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-crypto-sha3 | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-crypto-sha512 | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-gpio-button-hotplug | 6.6.144-r5 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-hwmon-core | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-lib-crc-ccitt | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-lib-crc32c | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-lib-lzo | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-mac80211 | 6.6.144.6.12.96-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-nf-conntrack | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
 | kmod-nf-conntrack6 | 6.6.144-r1 | unverifiable | metadata-only package with no files to check |
-| kmod-nf-flow | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-nf-log | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-nf-flow | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-nf-log | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
 | kmod-nf-log6 | 6.6.144-r1 | unverifiable | metadata-only package with no files to check |
-| kmod-nf-nat | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-nf-reject | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-nf-reject6 | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-nfnetlink | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-nft-core | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-nft-fib | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-nft-nat | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-nft-offload | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-nls-base | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-phy-ath79-usb | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-ppp | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-pppoe | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-pppox | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-nf-nat | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-nf-reject | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-nf-reject6 | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-nfnetlink | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-nft-core | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-nft-fib | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-nft-nat | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-nft-offload | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-nls-base | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-phy-ath79-usb | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-ppp | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-pppoe | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-pppox | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
 | kmod-random-core | 6.6.144-r1 | unverifiable | metadata-only package with no files to check |
-| kmod-slhc | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-usb-core | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-usb-ehci | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-usb-ledtrig-usbport | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| kmod-usb2 | 6.6.144-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| libblobmsg-json20240329 | 2025.07.23~49056d17-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-slhc | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-usb-core | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-usb-ehci | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-usb-ledtrig-usbport | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| kmod-usb2 | 6.6.144-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| libblobmsg-json20240329 | 2025.07.23~49056d17-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
 | libc | 1.2.5-r4 | verified by a version marker in the bytes | version marker 1.2.5 found in lib/libc.so |
-| libgcc1 | 13.3.0-r4 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| libiwinfo-data | 2024.10.20~b94f066e-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| libiwinfo20230701 | 2024.10.20~b94f066e-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| libjson-c5 | 0.18-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| libjson-script20240329 | 2025.07.23~49056d17-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| liblucihttp-ucode | 2023.03.15~9b5b683f-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| liblucihttp0 | 2023.03.15~9b5b683f-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| libmbedtls21 | 3.6.6-r2 | verified, byte-identical to the publisher's build | 3 file(s) byte-identical to the build in the official sibling image (3.6.6-r2); the shared feed has since moved to 3.6.7-r1 |
-| libmnl0 | 1.0.5-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| libnftnl11 | 1.2.8-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| libnl-tiny1 | 2025.03.19~c0df580a-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
+| libgcc1 | 13.3.0-r4 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| libiwinfo-data | 2024.10.20~b94f066e-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| libiwinfo20230701 | 2024.10.20~b94f066e-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| libjson-c5 | 0.18-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| libjson-script20240329 | 2025.07.23~49056d17-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| liblucihttp-ucode | 2023.03.15~9b5b683f-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| liblucihttp0 | 2023.03.15~9b5b683f-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| libmbedtls21 | 3.6.6-r2 | verified, files present are byte-identical to the publisher's build | 3 file(s) byte-identical to the build in the official sibling image (3.6.6-r2); the shared feed has since moved to 3.6.7-r1 |
+| libmnl0 | 1.0.5-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| libnftnl11 | 1.2.8-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| libnl-tiny1 | 2025.03.19~c0df580a-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
 | libpthread | 1.2.5-r4 | unverifiable | metadata-only package with no files to check |
-| libubox20240329 | 2025.07.23~49056d17-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| libubus20250102 | 2025.10.17~60e04048-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| libuci20250120 | 2025.01.20~16ff0bad-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| libuclient20201210 | 2024.10.22~88ae8f20-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| libucode20230711 | 2025.07.18~3f64c808-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2) |
-| libudebug | 2025.08.24~edeb4d6d | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| libustream-mbedtls20201210 | 2024.07.28~99bd3d2b-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| logd | 2024.04.26~85f10530-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
+| libubox20240329 | 2025.07.23~49056d17-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| libubus20250102 | 2025.10.17~60e04048-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| libuci20250120 | 2025.01.20~16ff0bad-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| libuclient20201210 | 2024.10.22~88ae8f20-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| libucode20230711 | 2025.07.18~3f64c808-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2) |
+| libudebug | 2025.08.24~edeb4d6d | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| libustream-mbedtls20201210 | 2024.07.28~99bd3d2b-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| logd | 2024.04.26~85f10530-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
 | luci | 26.205.85413~cac97ed | unverifiable | metadata-only package with no files to check |
-| luci-app-firewall | 26.205.85413~cac97ed | verified, byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e) |
-| luci-app-package-manager | 26.205.85413~cac97ed | verified, byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e) |
-| luci-base | 26.205.85413~cac97ed | verified, byte-identical to the publisher's build | 72 file(s) byte-identical to the build in the official sibling image (26.205.85413~cac97ed); the shared feed has since moved to 26.301.70438~aa4865e |
+| luci-app-firewall | 26.205.85413~cac97ed | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e) |
+| luci-app-package-manager | 26.205.85413~cac97ed | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e) |
+| luci-base | 26.205.85413~cac97ed | verified, files present are byte-identical to the publisher's build | 72 file(s) byte-identical to the build in the official sibling image (26.205.85413~cac97ed); the shared feed has since moved to 26.301.70438~aa4865e |
 | luci-light | 26.205.85413~cac97ed | unverifiable | metadata-only package with no files to check |
 | luci-mod-admin-full | 26.205.85413~cac97ed | unverifiable | metadata-only package with no files to check |
-| luci-mod-network | 26.205.85413~cac97ed | verified, byte-identical to the publisher's build | 16 file(s) byte-identical to the build in the official sibling image (26.205.85413~cac97ed); the shared feed has since moved to 26.301.70438~aa4865e |
-| luci-mod-status | 26.205.85413~cac97ed | verified, byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e) |
-| luci-mod-system | 26.205.85413~cac97ed | verified, byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e) |
-| luci-proto-ipv6 | 26.205.85413~cac97ed | verified, byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e) |
-| luci-proto-ppp | 26.205.85413~cac97ed | verified, byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e) |
+| luci-mod-network | 26.205.85413~cac97ed | verified, files present are byte-identical to the publisher's build | 16 file(s) byte-identical to the build in the official sibling image (26.205.85413~cac97ed); the shared feed has since moved to 26.301.70438~aa4865e |
+| luci-mod-status | 26.205.85413~cac97ed | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e) |
+| luci-mod-system | 26.205.85413~cac97ed | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e) |
+| luci-proto-ipv6 | 26.205.85413~cac97ed | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e) |
+| luci-proto-ppp | 26.205.85413~cac97ed | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 26.205.85413~cac97ed (the shared feed now labels the same bytes 26.301.70438~aa4865e) |
 | luci-ssl | 26.205.85413~cac97ed | unverifiable | metadata-only package with no files to check |
-| luci-theme-bootstrap | 26.205.85413~cac97ed | verified, byte-identical to the publisher's build | 10 file(s) byte-identical to the build in the official sibling image (26.205.85413~cac97ed); the shared feed has since moved to 26.301.70438~aa4865e |
-| mtd | 26 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| netifd | 2025.05.23~7901e66c-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| nftables-json | 1.1.1-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| odhcp6c | 2024.09.25~b6ae9ffa-r2 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| odhcpd-ipv6only | 2025.10.02~b14cf98c-r3 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| openwrt-keyring | 2024.11.01~fbae29d7-r2 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| opkg | 2024.10.16~38eccbb1-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| ppp | 2.5.1-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| ppp-mod-pppoe | 2.5.1-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| procd | 2026.03.14~c59f2d80-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| procd-seccomp | 2026.03.14~c59f2d80-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| procd-ujail | 2026.03.14~c59f2d80-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| px5g-mbedtls | 11 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| rpcd | 2025.09.01~bba95191-r2 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| rpcd-mod-file | 2025.09.01~bba95191-r2 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| rpcd-mod-iwinfo | 2025.09.01~bba95191-r2 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| rpcd-mod-luci | 20240305-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| rpcd-mod-rrdns | 20170710 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| rpcd-mod-ucode | 2025.09.01~bba95191-r2 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| swconfig | 12 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| uboot-envtools | 2024.07-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| ubox | 2024.04.26~85f10530-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| ubus | 2025.10.17~60e04048-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| ubusd | 2025.10.17~60e04048-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| uci | 2025.01.20~16ff0bad-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| uclient-fetch | 2024.10.22~88ae8f20-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| ucode | 2025.07.18~3f64c808-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2) |
-| ucode-mod-fs | 2025.07.18~3f64c808-r1 | verified, byte-identical to the publisher's build | 1 file(s) byte-identical to the build in the official sibling image (2025.07.18~3f64c808-r1); the shared feed has since moved to 2025.07.18~3f64c808-r2 |
-| ucode-mod-html | 1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| ucode-mod-math | 2025.07.18~3f64c808-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2) |
-| ucode-mod-nl80211 | 2025.07.18~3f64c808-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2) |
-| ucode-mod-rtnl | 2025.07.18~3f64c808-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2) |
-| ucode-mod-ubus | 2025.07.18~3f64c808-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2) |
-| ucode-mod-uci | 2025.07.18~3f64c808-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2) |
-| ucode-mod-uloop | 2025.07.18~3f64c808-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2) |
-| uhttpd | 2025.07.06~7e64e8ba-r5 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| uhttpd-mod-ubus | 2025.07.06~7e64e8ba-r5 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| urandom-seed | 3 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| urngd | 2023.11.01~44365eb1-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| usign | 2020.05.23~f1f65026-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| wifi-scripts | 1.0-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| wireless-regdb | 2026.05.30-r1 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
-| wpad-basic-mbedtls | 2024.09.15~5ace39b0-r3 | verified, byte-identical to the publisher's build | every file byte-identical to the reference package |
+| luci-theme-bootstrap | 26.205.85413~cac97ed | verified, files present are byte-identical to the publisher's build | 10 file(s) byte-identical to the build in the official sibling image (26.205.85413~cac97ed); the shared feed has since moved to 26.301.70438~aa4865e |
+| mtd | 26 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| netifd | 2025.05.23~7901e66c-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| nftables-json | 1.1.1-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| odhcp6c | 2024.09.25~b6ae9ffa-r2 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| odhcpd-ipv6only | 2025.10.02~b14cf98c-r3 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| openwrt-keyring | 2024.11.01~fbae29d7-r2 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| opkg | 2024.10.16~38eccbb1-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| ppp | 2.5.1-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| ppp-mod-pppoe | 2.5.1-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| procd | 2026.03.14~c59f2d80-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| procd-seccomp | 2026.03.14~c59f2d80-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| procd-ujail | 2026.03.14~c59f2d80-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| px5g-mbedtls | 11 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| rpcd | 2025.09.01~bba95191-r2 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| rpcd-mod-file | 2025.09.01~bba95191-r2 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| rpcd-mod-iwinfo | 2025.09.01~bba95191-r2 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| rpcd-mod-luci | 20240305-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| rpcd-mod-rrdns | 20170710 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| rpcd-mod-ucode | 2025.09.01~bba95191-r2 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| swconfig | 12 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| uboot-envtools | 2024.07-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| ubox | 2024.04.26~85f10530-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| ubus | 2025.10.17~60e04048-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| ubusd | 2025.10.17~60e04048-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| uci | 2025.01.20~16ff0bad-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| uclient-fetch | 2024.10.22~88ae8f20-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| ucode | 2025.07.18~3f64c808-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2) |
+| ucode-mod-fs | 2025.07.18~3f64c808-r1 | verified, files present are byte-identical to the publisher's build | 1 file(s) byte-identical to the build in the official sibling image (2025.07.18~3f64c808-r1); the shared feed has since moved to 2025.07.18~3f64c808-r2 |
+| ucode-mod-html | 1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| ucode-mod-math | 2025.07.18~3f64c808-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2) |
+| ucode-mod-nl80211 | 2025.07.18~3f64c808-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2) |
+| ucode-mod-rtnl | 2025.07.18~3f64c808-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2) |
+| ucode-mod-ubus | 2025.07.18~3f64c808-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2) |
+| ucode-mod-uci | 2025.07.18~3f64c808-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2) |
+| ucode-mod-uloop | 2025.07.18~3f64c808-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package; the release manifest labels it 2025.07.18~3f64c808-r1 (the shared feed now labels the same bytes 2025.07.18~3f64c808-r2) |
+| uhttpd | 2025.07.06~7e64e8ba-r5 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| uhttpd-mod-ubus | 2025.07.06~7e64e8ba-r5 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| urandom-seed | 3 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| urngd | 2023.11.01~44365eb1-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| usign | 2020.05.23~f1f65026-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| wifi-scripts | 1.0-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| wireless-regdb | 2026.05.30-r1 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
+| wpad-basic-mbedtls | 2024.09.15~5ace39b0-r3 | verified, files present are byte-identical to the publisher's build | every file byte-identical to the reference package |
 
 ## What this report does not establish
 
