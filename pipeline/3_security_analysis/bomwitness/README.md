@@ -4,7 +4,7 @@
 grades the evidence:
 
 - **A**: the component's files are byte-identical to the publisher's package (signed index, per-file SHA-256),
-  with the version label taken from the feed index, the signed release manifest or the official sibling image.
+  with the version label taken from the feed index, the release manifest (pinned by the signed checksum file) or the official sibling image.
 - **B**: evidence inside the bytes themselves, such as the version marker that the reference build carries.
 - **C**: the device's own package database. It is shown in its own section of the report and never decides
   a verdict, so a database that was edited to agree with a wrong BOM, or removed, changes nothing.

@@ -149,7 +149,7 @@ BOM & Finding & Subject & Grade & Evidence \\
 \toprule
  & & \multicolumn{3}{c}{\tool{}, reference sources used} & \multicolumn{3}{c}{Baselines} \\
 \cmidrule(lr){3-5}\cmidrule(lr){6-8}
-Device database & Cases & signed feeds only & + signed manifest & + sibling (default) & BomTrace & Syft-diff & cve-bin-tool-diff \\
+Device database & Cases & signed feeds only & + release manifest & + sibling (default) & BomTrace & Syft-diff & cve-bin-tool-diff \\
 \midrule
 \tabmainrows
 \bottomrule
@@ -178,7 +178,7 @@ Largely yes, and three facts bound how much.
 
 \emph{The sibling is a twin.} Of the \nImages{} images, \sibHave{} have a sibling of the same target; for \sibTwins{} of those the sibling has the same regular-file paths and contents as the tested image (symlinks, file metadata and the SquashFS container were not compared), and the other \sibRest{} share \sibRestMinPct\% to \sibRestMaxPct\% of files. The snapshot is the publisher's frozen release filesystem, not an independent witness: right for auditing firmware built from a release, but in this benchmark it nearly hands over the answer, so Table~\ref{tab:main} leads with the columns that do not use it. Replacing each sibling by the least similar one on the \farImages{} held-out images that have one changes little (colluding recall \farColR, unaware \farUnaR).
 
-\emph{Without the twin the task is not trivial.} With feeds only, half of the fabricated versions go unrefuted (\kMTwoBFo{} of \kMTwoBCases{} found): on identical bytes, a label that differs from a shared feed's cannot be told from the feed's own relabelling, so the verdict is \vd{label\_unconfirmed} and not a failure. The signed manifest recovers most of them (\kMTwoBNs). Even a one-byte patch goes unreported \emph{without} the snapshot in \patchMissNoSnap{} of \kMSixCases{} cases: all are in ucode and LuCI packages whose shared-feed copy has since moved to a newer version, which leaves no same-version reference to differ from. A patch is found only when a comparable reference covers the file, and never inside the masked date strings.
+\emph{Without the twin the task is not trivial.} With feeds only, half of the fabricated versions go unrefuted (\kMTwoBFo{} of \kMTwoBCases{} found): on identical bytes, a label that differs from a shared feed's cannot be told from the feed's own relabelling, so the verdict is \vd{label\_unconfirmed} and not a failure. The hash-pinned manifest recovers most of them (\kMTwoBNs). Even a one-byte patch goes unreported \emph{without} the snapshot in \patchMissNoSnap{} of \kMSixCases{} cases: all are in ucode and LuCI packages whose shared-feed copy has since moved to a newer version, which leaves no same-version reference to differ from. A patch is found only when a comparable reference covers the file, and never inside the masked date strings.
 
 \emph{Official images against their own publisher's packages are the favourable case} (\S\ref{sec:fork}). Grade B alone, markers without hashes, reaches recall \rColBo{} on BOM-level errors and \rUnaBo{} on unaware ones.
 

@@ -52,7 +52,7 @@ M4 to M6 are **unaware**: the firmware changed and neither BOM nor database ment
 
 ## Tools compared
 
-- **BOMwitness**, default configuration: byte hashes, version markers, signed release manifest, one sibling
+- **BOMwitness**, default configuration: byte hashes, version markers, the release manifest (pinned by the signed checksum file), one sibling
   snapshot where the target has another device, file-path index.
 - **BOMwitness ablations**: without the sibling snapshot; feeds only (no manifest, no snapshot); grade A
   only; grade B only; without timestamp normalisation; and with the device database's disagreements counted
@@ -235,7 +235,7 @@ listed in `results/r2/ERROR-ANALYSIS.md`.
   publisher's frozen release root filesystem for this target", not as an independent witness. The
   no-snapshot and feeds-only columns show what remains without it.
 - **Drift.** The older the image, the less of it today's shared feed can confirm byte for byte, and the
-  more false alarms the feed alone produces. The signed manifest recovers labels, and the snapshot recovers
+  more false alarms the feed alone produces. The release manifest recovers labels, and the snapshot recovers
   bytes.
 - **Published BOMs.** Of 1868 claims, 1674 verify at grade A and 31 at grade B, 122 are unverifiable, 34
   are `wrong_version`, 4 are `bytes_differ` (`e2fsprogs` and `ucode-mod-fs`) and 3 are absent from the

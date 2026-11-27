@@ -393,7 +393,7 @@ def build() -> dict[str, str]:
     ticks = ",".join(r["release"] for r in order)
     ticklabels = ",".join("." + r["release"].rsplit(".", 1)[1] for r in order)
     plots = []
-    styles = {"feeds_only": ("feeds only", "mark=o, mark size=1.3pt, densely dashed"), "feeds_manifest": ("+ signed manifest", "mark=triangle*, mark size=1.5pt"),
+    styles = {"feeds_only": ("feeds only", "mark=o, mark size=1.3pt, densely dashed"), "feeds_manifest": ("+ release manifest", "mark=triangle*, mark size=1.5pt"),
               "feeds_manifest_snapshot": ("+ sibling snapshot", "mark=square*, mark size=1.1pt, thick")}
     series = sorted({r["release"].rsplit(".", 1)[0] for r in order})
     for cfg, _ in keys:
