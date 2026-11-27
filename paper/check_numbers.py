@@ -49,6 +49,11 @@ ALLOWED = {
     "AArch64": "architecture name", "ARMv7": "architecture name", "x86-64": "architecture name",
     "23.05.x": "plot axis label", "24.10.x": "plot axis label",
     "github.com/awinton64/bomwitness": "repository URL",
+    "github.com/awinton64": "repository URL when the line breaks after the account name",
+    "awinton64/bomwitness": "repository URL when the line breaks after the host name",
+    "2027": "year from which the Cyber Resilience Act applies in general (Article 71)",
+    "2021": "year of NTIA's minimum elements report (also in the bibliography)",
+    "rules-frozen-r2a": "name of the git tag on the freeze commit",
 }
 STAGES = ("Collect", "Extract", "Normalize", "Compare", "Cross-check", "Report")
 
@@ -132,7 +137,7 @@ def main() -> int:
 
     scan = text
     scan = re.sub(r"\[\d+(,\s*\d+)*\]", " ", scan)                                   # citations and reference labels
-    scan = re.sub(r"(Table|Figure|Appendix|§)\s*[A-C0-9]+(\.\d+)?(\s+(to|and)\s+§\s*\d+(\.\d+)?)?", " ", scan)   # cross references
+    scan = re.sub(r"(Table|Figure|Appendix|§)\s*[A-F0-9]+(\.\d+)?(\s+(to|and)\s+§\s*\d+(\.\d+)?)?", " ", scan)   # cross references
     for title in re.findall(r"\\section\{([^}]*)\}", tex):                             # section headings (set in capitals)
         scan = re.sub(r"\b\d\s+(?=%s)" % re.escape(title.upper()), " ", scan)
     for title in re.findall(r"\\subsection\{([^}]*)\}", tex):                          # subsection headings

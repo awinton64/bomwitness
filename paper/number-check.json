@@ -1,7 +1,7 @@
 {
  "checks": {
   "generated": {
-   "facts": 435,
+   "facts": 470,
    "files": [
     "fig-drift.tex",
     "numbers.json",
@@ -15,16 +15,17 @@
   },
   "source": {
    "literal_numbers_not_allowed": [],
-   "macros_used": 155,
+   "macros_used": 173,
    "allowed_identifiers_present": [
     "1.57.2",
+    "2021",
+    "2027",
     "23.05.6",
     "24.10",
     "24.10.0",
     "24.10.8",
     "25.12",
     "3.4",
-    "3DES",
     "95",
     "AArch64",
     "ARMv7",
@@ -38,9 +39,6 @@
     "M4u",
     "M5",
     "M6",
-    "MD5",
-    "RC4",
-    "SHA-1",
     "SHA-256",
     "X.509",
     "cfg80211",
@@ -48,26 +46,27 @@
     "mac80211",
     "mt76",
     "results/r2",
+    "rules-frozen-r2a",
     "sha256sums",
     "x86-64"
    ]
   },
   "pdf": {
-   "tokens_with_digits": 535,
+   "tokens_with_digits": 589,
    "explained": {
-    "fact": 420,
-    "allowed": 56,
-    "bibliography": 59
+    "fact": 454,
+    "allowed": 64,
+    "bibliography": 71
    },
-   "distinct_fact_values_seen": 170,
+   "distinct_fact_values_seen": 183,
    "unexplained": [],
    "macros_used_but_value_not_in_pdf": [],
-   "references": 22
+   "references": 25
   },
   "pages": {
-   "pages": 6,
+   "pages": 7,
    "body_ends_on_page": 5,
-   "references_start_on_page": 5,
+   "references_start_on_page": null,
    "limit_body": 5,
    "limit_total": 7
   }

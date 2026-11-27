@@ -74,6 +74,8 @@ def build() -> dict[str, str]:
     s = load(SJ)
     h, t = s["splits"]["heldout"], s["splits"]["tuning"]
     run = load("results/r2/RUN.json")
+    RV = "results/r2/review-r3.json"
+    rv = load(RV)
 
     # ---- data set
     fact("nHeldImages", len(h["images"]), SJ, "len(splits.heldout.images)")
@@ -87,6 +89,10 @@ def build() -> dict[str, str]:
     fact("nHeldCases", n(h["cases"]), SJ, "splits.heldout.cases")
     fact("nTuneCases", n(t["cases"]), SJ, "splits.tuning.cases")
     fact("nAllCases", n(h["cases"] + t["cases"]), SJ, "held-out plus tuning cases")
+    de = rv["distinct_errors"]
+    assert de["heldout"]["condition_rows"] == h["cases"] and de["tuning"]["condition_rows"] == t["cases"]
+    fact("nDistinctErr", n(de["heldout"]["distinct_errors"]), RV, "distinct_errors.heldout.distinct_errors")
+    fact("nAllDistinctErr", n(de["heldout"]["distinct_errors"] + de["tuning"]["distinct_errors"]), RV, "distinct errors, held-out plus tuning")
     fact("kPerClass", s["k"], SJ, "k")
     fact("seed", s["seed"], SJ, "seed")
     fact("freezeCommit", run["commit"][:7], "results/r2/RUN.json", "commit[:7]")
@@ -107,7 +113,9 @@ def build() -> dict[str, str]:
             p = "n/a" if m["precision"] is None else fact(f"p{dbl}{tl}", f3(m["precision"]), SJ, src + ".precision")
             r = fact(f"r{dbl}{tl}", f3(m["recall"]), SJ, src + ".recall")
             fact(f"tp{dbl}{tl}", n(m["tp"]), SJ, src + ".tp")
-            cells.append(f"{p} / {r}")
+            # BomTrace needs the database as input: where its verifier produced no result at all, say so instead of "found none".
+            ran = rv["baselines_without_database"]["bomtrace"].get(db, {}).get("verifier_produced_a_result", 1)
+            cells.append("unsupported" if tool == "bomtrace" and not ran else f"{p} / {r}")
         cases = fact(f"cases{dbl}", n(h["by_db"][db]["bw"]["cases"]), SJ, f"splits.heldout.by_db.{db}.bw.cases")
         rule = "\\midrule\n" if db == "all" else ""
         rows.append(f"{rule}{names[db]} & {cases} & " + " & ".join(cells) + " \\\\")
@@ -121,6 +129,22 @@ def build() -> dict[str, str]:
             fact(f"lo{dbl}{tl}", f3(lo), SJ, f"Wilson 95% lower bound from by_db.{db}.{tool}.tp and cases")
             fact(f"hi{dbl}{tl}", f3(hi), SJ, f"Wilson 95% upper bound from by_db.{db}.{tool}.tp and cases")
             fact(f"min{dbl}{tl}", f3(m["recall_per_image_min"]), SJ, f"by_db.{db}.{tool}.recall_per_image_min")
+    pv = rv["recall_per_heldout_image"]
+    for cond, dbl in (("bom_level", "Col"), ("unaware", "Una")):
+        for tool, tl in (("bw", "Bw"), ("bw_no_snapshot", "Ns"), ("bw_feed_only", "Fo")):
+            v = pv[cond][tool]
+            assert f3(v["min"]) == f3(h["by_db"]["colluding" if cond == "bom_level" else "unaware"][tool]["recall_per_image_min"])
+            src = f"recall_per_heldout_image.{cond}.{tool}"
+            fact(f"imgMin{dbl}{tl}", f3(v["min"]), RV, src + ".min")
+            fact(f"imgMax{dbl}{tl}", f3(v["max"]), RV, src + ".max")
+            fact(f"imgMed{dbl}{tl}", f3(v["median"]), RV, src + ".median")
+            fact(f"imgPerfect{dbl}{tl}", v["images_with_every_error_found"], RV, src + ".images_with_every_error_found")
+    bwd = rv["baselines_without_database"]
+    fact("btStrNoResult", bwd["bomtrace"]["stripped"]["rows"] - bwd["bomtrace"]["stripped"]["verifier_produced_a_result"], RV,
+         "baselines_without_database.bomtrace.stripped: rows - verifier_produced_a_result")
+    fact("btColRan", bwd["bomtrace"]["colluding"]["verifier_produced_a_result"], RV, "baselines_without_database.bomtrace.colluding.verifier_produced_a_result")
+    fact("syStrCredited", bwd["syft_diff_stripped_credited_total"], RV, "baselines_without_database.syft_diff_stripped_credited_total")
+    assert set(k for k, v in bwd["syft_diff_stripped_by_class"].items() if v["credited"]) == {"M3_phantom"}
     fact("caseFp", h["by_db"]["all"]["bw"]["case_fp"], SJ, "splits.heldout.by_db.all.bw.case_fp")
     fact("nErrFalsePositives", len(h["errors"]["false_positives"]), SJ, "len(splits.heldout.errors.false_positives)")
 
@@ -202,6 +226,10 @@ def build() -> dict[str, str]:
     fact("exDeclared", ex["sbom"]["summary"]["declared"], EJ, "sbom.summary.declared")
     fact("exPass", tri["automatic_pass"], EJ, "triage.automatic_pass")
     fact("exFail", tri["automatic_fail"], EJ, "triage.automatic_fail")
+    exv = ex["sbom"]["summary"]["verdicts"]
+    fact("exFailDeclared", sum(exv.get(k_, 0) for k_ in ("wrong_version", "wrong_component", "absent")), EJ,
+         "sbom.summary.verdicts: wrong_version + wrong_component + absent (declared claims that fail)")
+    assert tri["automatic_pass"] + int(FACTS["exFailDeclared"]["value"]) + tri["needs_review"] + tri["unverifiable"] == ex["sbom"]["summary"]["declared"]
     fact("exReview", tri["needs_review"], EJ, "triage.needs_review")
     fact("exUnver", tri["unverifiable"], EJ, "triage.unverifiable")
     fact("exFiles", ex["sbom"]["summary"]["rootfs_files"], EJ, "sbom.summary.rootfs_files")
@@ -229,6 +257,11 @@ def build() -> dict[str, str]:
             ev = d_
         rows.append(f"SBOM & \\vd{{{tex(f_['class'])}}} & {tex(f_['component'])} & {f_['grade']} & {tex(ev)} \\\\")
     for f_ in cb:
+        if f_["class"] == "undeclared_certificate":
+            m_ = re.match(r"CN=([^,]+),", f_["detail"])
+            rows.append(f"CBOM & \\vd{{{tex(f_['class'])}}} & certificate {tex(m_.group(1)) if m_ else ''} & {f_['grade']} & in the image's CA bundle, not in the CBOM \\\\")
+        elif f_["class"] not in ("deprecated_algorithm", "provider_unverified", "algorithm_not_evidenced"):
+            raise AssertionError(f"example finding of class {f_['class']} is not in the table")
         if f_["class"] in ("provider_unverified", "algorithm_not_evidenced"):
             who = f_["asset"]
             d_ = f_["detail"]
@@ -387,6 +420,11 @@ def build() -> dict[str, str]:
     fact("obAbsent", sum(v["verdicts"].get("absent", 0) for v in ob.values()), BJ, "sum verdicts.absent")
     fact("obUnverifiable", sum(v["verdicts"].get("unverifiable", 0) for v in ob.values()), BJ, "sum verdicts.unverifiable")
     fact("obBytesDiffer", sum(v["verdicts"].get("bytes_differ", 0) for v in ob.values()), BJ, "sum verdicts.bytes_differ")
+    fact("obVerA", n(sum(v["verdicts"].get("verified_A", 0) for v in ob.values())), BJ, "sum verdicts.verified_A")
+    fact("obVerB", sum(v["verdicts"].get("verified_B", 0) for v in ob.values()), BJ, "sum verdicts.verified_B")
+    assert rv["official_bom"]["verdicts"]["verified_A"] == sum(v["verdicts"].get("verified_A", 0) for v in ob.values())
+    assert sum(sum(v["verdicts"].values()) for v in ob.values()) == sum(v["bom_components"] for v in ob.values())
+    assert rv["official_bom"]["wrong_version_where_the_reference_label_extends_the_declared_one"] == rv["official_bom"]["wrong_version_total"]
     beyond = [len(v["components_in_image_not_in_bom"]) for v in ob.values()]
     fact("obBeyondMin", min(beyond), BJ, "min len(components_in_image_not_in_bom)")
     fact("obBeyondMax", max(beyond), BJ, "max len(components_in_image_not_in_bom)")
@@ -400,6 +438,7 @@ def build() -> dict[str, str]:
     inv = load(IJ)
     fact("invNamed", n(sum(v["correct_names"] for v in inv.values())), IJ, "sum correct_names")
     fact("invInstalled", n(sum(v["installed_packages_with_files"] for v in inv.values())), IJ, "sum installed_packages_with_files")
+    fact("invInstalledAll", n(sum(v["installed_packages"] for v in inv.values())), IJ, "sum installed_packages")
     fact("invWrong", sum(len(v["extra"]) for v in inv.values()), IJ, "sum len(extra)")
     fact("invSyftMin", min(v["syft_components_database_removed"] for v in inv.values()), IJ, "min syft_components_database_removed")
     fact("invSyftMax", max(v["syft_components_database_removed"] for v in inv.values()), IJ, "max syft_components_database_removed")
@@ -435,6 +474,10 @@ def build() -> dict[str, str]:
     fact("secMax", f"{max(x['bw'] for x in secs):.2f}", SJ, "max clean.images[*].seconds_median.bw")
     fact("secBomtrace", f"{max(x['bomtrace'] for x in secs):.2f}", SJ, "max seconds_median.bomtrace")
     fact("secSyft", f"{max(x['syft'] for x in secs):.1f}", SJ, "max seconds_median.syft")
+    TJ = "results/r2/timing-e2e.json"
+    te = load(TJ)
+    fact("eTwoEWarm", f"{te['warm_cache_seconds_median']:.1f}", TJ, "warm_cache_seconds_median (post-freeze cost measurement)")
+    fact("eTwoECold", f"{te['cold_cache_seconds']:.1f}", TJ, "cold_cache_seconds (post-freeze cost measurement)")
     RJ = "results/r2/reference-index.json"
     ri = load(RJ)
     full = [r for r in ri["targets"] if r["downloaded_bytes"] > 100e6]

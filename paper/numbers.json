@@ -14,6 +14,16 @@
   "source": "results/r2/summary.json",
   "value": "64e5264"
  },
+ "btColRan": {
+  "how": "baselines_without_database.bomtrace.colluding.verifier_produced_a_result",
+  "source": "results/r2/review-r3.json",
+  "value": "480"
+ },
+ "btStrNoResult": {
+  "how": "baselines_without_database.bomtrace.stripped: rows - verifier_produced_a_result",
+  "source": "results/r2/review-r3.json",
+  "value": "480"
+ },
  "caseFp": {
   "how": "splits.heldout.by_db.all.bw.case_fp",
   "source": "results/r2/summary.json",
@@ -364,6 +374,16 @@
   "source": "results/r2/drift.json",
   "value": "92.5"
  },
+ "eTwoECold": {
+  "how": "cold_cache_seconds (post-freeze cost measurement)",
+  "source": "results/r2/timing-e2e.json",
+  "value": "13.7"
+ },
+ "eTwoEWarm": {
+  "how": "warm_cache_seconds_median (post-freeze cost measurement)",
+  "source": "results/r2/timing-e2e.json",
+  "value": "5.2"
+ },
  "exDbDisagree": {
   "how": "len(device_db.findings)",
   "source": "pipeline/4_analysis_output/bomwitness/report-with-errors.json",
@@ -383,6 +403,11 @@
   "how": "triage.automatic_fail",
   "source": "pipeline/4_analysis_output/bomwitness/report-with-errors.json",
   "value": "4"
+ },
+ "exFailDeclared": {
+  "how": "sbom.summary.verdicts: wrong_version + wrong_component + absent (declared claims that fail)",
+  "source": "pipeline/4_analysis_output/bomwitness/report-with-errors.json",
+  "value": "3"
  },
  "exFiles": {
   "how": "sbom.summary.rootfs_files",
@@ -412,7 +437,7 @@
  "example:table": {
   "how": "sbom.findings and cbom.findings, classes and versions as reported (table only)",
   "source": "pipeline/4_analysis_output/bomwitness/report-with-errors.json",
-  "value": "SBOM & \\vd{wrong\\_version} & busybox & A & declared 1.36.2-r3; bytes are the publisher's build 1.36.1-r3 \\\\ SBOM & \\vd{wrong\\_version} & dropbear & A & declared 2022.82-6; bytes are the publisher's build 2024.86-r3 \\\\ SBOM & \\vd{absent} & tcpdump & A & no file of the reference package is in the image \\\\ SBOM & \\vd{undeclared\\_component} & dnsmasq & A & 12 files byte-identical to dnsmasq 2.93-r1, not in the BOM \\\\ cross & \\vd{provider\\_unverified} & busybox & A & CBOM names it as provider of MD5, but its SBOM check ended in \\vd{wrong\\_version} \\\\ cross & \\vd{provider\\_unverified} & dropbear & A & CBOM names it as provider of AES, but its SBOM check ended in \\vd{wrong\\_version} \\\\ cross & \\vd{algorithm\\_not\\_evidenced} & ML-KEM in libmbedtls21 & B & no file of the named provider carries the algorithm's name \\\\"
+  "value": "SBOM & \\vd{wrong\\_version} & busybox & A & declared 1.36.2-r3; bytes are the publisher's build 1.36.1-r3 \\\\ SBOM & \\vd{wrong\\_version} & dropbear & A & declared 2022.82-6; bytes are the publisher's build 2024.86-r3 \\\\ SBOM & \\vd{absent} & tcpdump & A & no file of the reference package is in the image \\\\ SBOM & \\vd{undeclared\\_component} & dnsmasq & A & 12 files byte-identical to dnsmasq 2.93-r1, not in the BOM \\\\ CBOM & \\vd{undeclared\\_certificate} & certificate DigiCert TLS ECC P384 Root G5 & A & in the image's CA bundle, not in the CBOM \\\\ cross & \\vd{provider\\_unverified} & busybox & A & CBOM names it as provider of MD5, but its SBOM check ended in \\vd{wrong\\_version} \\\\ cross & \\vd{provider\\_unverified} & dropbear & A & CBOM names it as provider of AES, but its SBOM check ended in \\vd{wrong\\_version} \\\\ cross & \\vd{algorithm\\_not\\_evidenced} & ML-KEM in libmbedtls21 & B & no file of the named provider carries the algorithm's name \\\\"
  },
  "farColCases": {
   "how": "by_db.colluding.bw.cases",
@@ -584,6 +609,126 @@
   "source": "results/r2/summary.json and results/r2/sibling-overlap.json",
   "value": "edgerouter-x & 23.05.6 & mipsel\\_24kc & 114 & 105 & 2 & 7 & 0 & twin \\\\ gl-b1300 & 23.05.6 & arm\\_cortex-a7\\_neon-vfpv4 & 144 & 134 & 2 & 8 & 0 & twin \\\\ gl-mt3000 & 23.05.6 & aarch64\\_cortex-a53 & 155 & 143 & 2 & 10 & 0 & 99.7\\% \\\\ rpi-4 & 23.05.6 & aarch64\\_cortex-a72 & 157 & 143 & 2 & 11 & 1 & none \\\\ x86-64 & 23.05.6 & x86\\_64 & 150 & 134 & 2 & 13 & 1 & none \\\\ archer-c50-v4 & 24.10.8 & mipsel\\_24kc & 140 & 131 & 2 & 7 & 0 & twin \\\\ gl-b1300 & 24.10.8 & arm\\_cortex-a7\\_neon-vfpv4 & 148 & 138 & 2 & 8 & 0 & twin \\\\ unifi-6-lr-v1 & 24.10.8 & aarch64\\_cortex-a53 & 149 & 138 & 2 & 9 & 0 & 99.5\\% \\\\ wrt1900acs & 24.10.8 & arm\\_cortex-a9\\_vfpv3-d16 & 138 & 129 & 2 & 7 & 0 & twin \\\\ x86-64 & 24.10.8 & x86\\_64 & 175 & 153 & 5 & 16 & 1 & none \\\\"
  },
+ "imgMaxColBw": {
+  "how": "recall_per_heldout_image.bom_level.bw.max",
+  "source": "results/r2/review-r3.json",
+  "value": "1.000"
+ },
+ "imgMaxColFo": {
+  "how": "recall_per_heldout_image.bom_level.bw_feed_only.max",
+  "source": "results/r2/review-r3.json",
+  "value": "0.958"
+ },
+ "imgMaxColNs": {
+  "how": "recall_per_heldout_image.bom_level.bw_no_snapshot.max",
+  "source": "results/r2/review-r3.json",
+  "value": "1.000"
+ },
+ "imgMaxUnaBw": {
+  "how": "recall_per_heldout_image.unaware.bw.max",
+  "source": "results/r2/review-r3.json",
+  "value": "0.976"
+ },
+ "imgMaxUnaFo": {
+  "how": "recall_per_heldout_image.unaware.bw_feed_only.max",
+  "source": "results/r2/review-r3.json",
+  "value": "0.976"
+ },
+ "imgMaxUnaNs": {
+  "how": "recall_per_heldout_image.unaware.bw_no_snapshot.max",
+  "source": "results/r2/review-r3.json",
+  "value": "0.976"
+ },
+ "imgMedColBw": {
+  "how": "recall_per_heldout_image.bom_level.bw.median",
+  "source": "results/r2/review-r3.json",
+  "value": "0.990"
+ },
+ "imgMedColFo": {
+  "how": "recall_per_heldout_image.bom_level.bw_feed_only.median",
+  "source": "results/r2/review-r3.json",
+  "value": "0.875"
+ },
+ "imgMedColNs": {
+  "how": "recall_per_heldout_image.bom_level.bw_no_snapshot.median",
+  "source": "results/r2/review-r3.json",
+  "value": "0.979"
+ },
+ "imgMedUnaBw": {
+  "how": "recall_per_heldout_image.unaware.bw.median",
+  "source": "results/r2/review-r3.json",
+  "value": "0.952"
+ },
+ "imgMedUnaFo": {
+  "how": "recall_per_heldout_image.unaware.bw_feed_only.median",
+  "source": "results/r2/review-r3.json",
+  "value": "0.952"
+ },
+ "imgMedUnaNs": {
+  "how": "recall_per_heldout_image.unaware.bw_no_snapshot.median",
+  "source": "results/r2/review-r3.json",
+  "value": "0.952"
+ },
+ "imgMinColBw": {
+  "how": "recall_per_heldout_image.bom_level.bw.min",
+  "source": "results/r2/review-r3.json",
+  "value": "0.958"
+ },
+ "imgMinColFo": {
+  "how": "recall_per_heldout_image.bom_level.bw_feed_only.min",
+  "source": "results/r2/review-r3.json",
+  "value": "0.771"
+ },
+ "imgMinColNs": {
+  "how": "recall_per_heldout_image.bom_level.bw_no_snapshot.min",
+  "source": "results/r2/review-r3.json",
+  "value": "0.958"
+ },
+ "imgMinUnaBw": {
+  "how": "recall_per_heldout_image.unaware.bw.min",
+  "source": "results/r2/review-r3.json",
+  "value": "0.929"
+ },
+ "imgMinUnaFo": {
+  "how": "recall_per_heldout_image.unaware.bw_feed_only.min",
+  "source": "results/r2/review-r3.json",
+  "value": "0.881"
+ },
+ "imgMinUnaNs": {
+  "how": "recall_per_heldout_image.unaware.bw_no_snapshot.min",
+  "source": "results/r2/review-r3.json",
+  "value": "0.881"
+ },
+ "imgPerfectColBw": {
+  "how": "recall_per_heldout_image.bom_level.bw.images_with_every_error_found",
+  "source": "results/r2/review-r3.json",
+  "value": "5"
+ },
+ "imgPerfectColFo": {
+  "how": "recall_per_heldout_image.bom_level.bw_feed_only.images_with_every_error_found",
+  "source": "results/r2/review-r3.json",
+  "value": "0"
+ },
+ "imgPerfectColNs": {
+  "how": "recall_per_heldout_image.bom_level.bw_no_snapshot.images_with_every_error_found",
+  "source": "results/r2/review-r3.json",
+  "value": "3"
+ },
+ "imgPerfectUnaBw": {
+  "how": "recall_per_heldout_image.unaware.bw.images_with_every_error_found",
+  "source": "results/r2/review-r3.json",
+  "value": "0"
+ },
+ "imgPerfectUnaFo": {
+  "how": "recall_per_heldout_image.unaware.bw_feed_only.images_with_every_error_found",
+  "source": "results/r2/review-r3.json",
+  "value": "0"
+ },
+ "imgPerfectUnaNs": {
+  "how": "recall_per_heldout_image.unaware.bw_no_snapshot.images_with_every_error_found",
+  "source": "results/r2/review-r3.json",
+  "value": "0"
+ },
  "indexGbTotal": {
   "how": "total_downloaded_bytes / 1e9",
   "source": "results/r2/reference-index.json",
@@ -638,6 +783,11 @@
   "how": "sum installed_packages_with_files",
   "source": "results/r2/inventory.json",
   "value": "1,950"
+ },
+ "invInstalledAll": {
+  "how": "sum installed_packages",
+  "source": "results/r2/inventory.json",
+  "value": "2,083"
  },
  "invNamed": {
   "how": "sum correct_names",
@@ -1154,6 +1304,11 @@
   "source": "results/r2/summary.json",
   "value": "2,604"
  },
+ "nAllDistinctErr": {
+  "how": "distinct errors, held-out plus tuning",
+  "source": "results/r2/review-r3.json",
+  "value": "1,260"
+ },
  "nArchAll": {
   "how": "distinct arch over both splits",
   "source": "results/r2/summary.json",
@@ -1168,6 +1323,11 @@
   "how": "splits.heldout.by_db.colluding.bw.cases",
   "source": "results/r2/summary.json",
   "value": "480"
+ },
+ "nDistinctErr": {
+  "how": "distinct_errors.heldout.distinct_errors",
+  "source": "results/r2/review-r3.json",
+  "value": "900"
  },
  "nErrFalsePositives": {
   "how": "len(splits.heldout.errors.false_positives)",
@@ -1273,6 +1433,16 @@
   "how": "sum verdicts.unverifiable",
   "source": "results/r2/official-bom.json",
   "value": "122"
+ },
+ "obVerA": {
+  "how": "sum verdicts.verified_A",
+  "source": "results/r2/official-bom.json",
+  "value": "1,674"
+ },
+ "obVerB": {
+  "how": "sum verdicts.verified_B",
+  "source": "results/r2/official-bom.json",
+  "value": "31"
  },
  "obVerified": {
   "how": "sum verified_A + verified_B",
@@ -1928,6 +2098,11 @@
   "how": "identical_root_filesystem_contents",
   "source": "results/r2/sibling-overlap.json",
   "value": "8"
+ },
+ "syStrCredited": {
+  "how": "baselines_without_database.syft_diff_stripped_credited_total",
+  "source": "results/r2/review-r3.json",
+  "value": "120"
  },
  "syftCleanMax": {
   "how": "max clean.images[*].clean_findings_honest.syft_diff",

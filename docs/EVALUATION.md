@@ -24,7 +24,8 @@ Anything changed after the freeze is listed under "Changes after the freeze" bel
 ## Ground truth and seeded errors
 
 The correct BOM for an image is its package list (name and version of every installed package, read from the
-image's own database, which is trustworthy for an unmodified official image). Each case applies one
+image's own database, which we take as correct for an unmodified official image whose hash is in the signed
+image list). Each case applies one
 mutation and has one label, `(class, component)`.
 
 | Class | What changes | Label |
@@ -59,9 +60,12 @@ M4 to M6 are **unaware**: the firmware changed and neither BOM nor database ment
 - **BomTrace** (`ssophiz/bomtrace-iot-bom-verifier`, commit `64e5264`): its published
   `verify_openwrt_bom.py`, unmodified, through its own command line. Our adapter writes the declared BOM as
   CycloneDX 1.4 and a tar archive holding the tree's package database, and maps its three rule ids to our
-  classes. BomTrace is designed for published BOMs and an intact database and says so. Its second mode
-  (`bomtrace.py`) checks BOMs that carry per-file hashes; the BOMs in this benchmark, like OpenWrt's
-  published ones, carry names and versions only, so that mode has no input here.
+  classes. BomTrace is designed for published BOMs and an intact database and says so. When the archive
+  holds no database its verifier exits with an error and no result; the tables show that as "unsupported
+  input, 0 labels returned", not as a run that found nothing. Its experimental second mode (`bomtrace.py`)
+  checks BOMs that carry per-file paths and hashes, certificate fields, a TensorFlow Lite header and
+  configuration references; the BOMs in this benchmark, like OpenWrt's published ones, carry names and
+  versions only, so that mode has no input here.
 - **Syft-diff**: Syft 1.57.2 inventories the tree; our script compares that inventory with the declared BOM
   by name and version. Syft is an SBOM generator. The diff is ours.
 - **cve-bin-tool-diff**: cve-bin-tool 3.4's version scanner (signature checkers over file contents, no CVE
@@ -124,16 +128,28 @@ index downloads about 2.5 GB in total and keeps only per-file hash manifests.
 The shared OpenWrt feeds change over time. A rerun months later will see more drift than the committed
 results; the frozen feeds, the manifests and the images do not change.
 
-## Changes after the freeze
+## What the freeze covers, and changes after it
 
-The full run recorded in `results/r2/RUN.json` used commit `0f83a98` with a clean working tree. Later
-changes, none of which alters a verdict rule used by the benchmark:
+The freeze applies to the **primary evaluation**: the held-out table, the per-class table and the clean
+controls, produced by the one full run that `results/r2/RUN.json` records (commit `0f83a98`, clean working
+tree). The ablation columns come from that same run. Everything else (drift, published BOMs, inventory,
+sibling overlap, far sibling, wide index, the fork case study, the CBOM benchmark's summary, the timing
+measurement and the review analysis) was scripted and run after the freeze, and for those the freeze is not
+a claim.
 
-1. **Bug fix in on-demand mode** (no file-path index, sibling snapshot present): files that a snapshot leaves
-   out of a package's list (configuration files) could be attributed to a second package shipping identical
-   defaults. Found by the pipeline example, which runs without the index. The benchmark always runs with the
-   index and does not take that code path. Regression test:
-   `test_snapshot_and_feed_attribution_are_merged_without_a_path_index`.
+The history is public, so `git diff rules-frozen-r2a -- bomwitness bench/run_cases.py bench/baselines.py
+bench/summarize.py` shows every later change to the rule and scoring files. In words:
+
+1. **`bomwitness/verify.py`, one commit, two edits.** (a) The text of one `wrong_version` message when the
+   sibling image and the feed index give the same label. (b) Candidate attribution for files that no
+   declared component explains: candidates found through the feed are now merged with what a sibling
+   snapshot already attributed to the same package, instead of being skipped. The fault showed up in the
+   pipeline example, which runs without a file-path index, where a configuration file could be attributed
+   to a second package shipping identical defaults. Regression test:
+   `test_snapshot_and_feed_attribution_are_merged_without_a_path_index`. An earlier version of this
+   document said the benchmark does not take that code path. That was too strong: the merged function is
+   also called when a path index is present. What can be said is narrower and is the evidence below: the
+   frozen run stands as recorded, and a rerun of three images after the change reproduced it exactly.
 2. Wording of one report message, a `--name` option for the report title, and an environment variable in
    `bench/run_cases.py` that selects another snapshot directory (for the far-sibling check).
 3. New measurement scripts that only consume the verifier: drift, official BOM, inventory, sibling overlap,
@@ -145,9 +161,47 @@ changes, none of which alters a verdict rule used by the benchmark:
    produced the post-freeze check, and the benchmark does not go through the command line entry point. The
    pipeline harness, which compares the example run with its expected findings, still ends with `PASS`.
 
-To confirm the first two are result-neutral, three images (two held-out, one tuning) were rerun with all
-baselines after the changes: 558 cases, zero score differences for any tool, identical clean-control
-findings (`results/r2/postfreeze-check/COMPARISON.json`).
+5. After an independent review: the command line looks a sibling image up in the signed image list and the
+   report states how far each reference input was authenticated; report wording for grade A and for model
+   detection was narrowed; `bench/review_r3.py` and `bench/timing_e2e.py` were added. None of these touches
+   `verify.py`, `crypto.py`, `reference.py` or the benchmark scripts. See `docs/REVIEW-RESPONSE.md`.
+
+The evidence that items 1 and 2 are result-neutral: three images (two held-out, one tuning) were rerun with
+all baselines after those changes: 558 rows, identical labels and scores for every tool, identical
+clean-control findings (`results/r2/postfreeze-check/COMPARISON.json`). Seven held-out images were not
+rerun, so for them the claim rests on the frozen run itself.
+
+## Counting, variability and candidate pools
+
+`results/r2/review-r3.json` (from `bench/review_r3.py`, a post-freeze analysis of the committed case files
+that reruns nothing) records:
+
+- **Distinct errors.** A BOM-level error (M1 to M3) is one (image, class, component) scored under three
+  database states; an unaware error (M4 to M6) is scored once. Held-out: 480 + 420 = 900 distinct errors in
+  1860 rows. Tuning: 360 in 744.
+- **Variability.** Errors on one image share its packages and its reference, so they are not independent,
+  and the Wilson intervals quoted in the headline only describe these cases. The file gives recall per
+  held-out image for the three BOMwitness configurations, with minimum, median and maximum.
+- **Baselines without a database.** For each condition, how many rows BomTrace's verifier produced a result
+  for (0 of 480 when the database is stripped: unsupported input) and which rows the Syft-based diff was
+  credited with (the 120 phantom rows).
+
+**Candidate pools.** Seeded targets are sampled, per image, from packages the reference can speak about:
+M1 and M2b from installed packages that have a reference entry and at least one file in the image; M2 and
+M5 from those whose version differs between the two release series; M3 and M4 from base-feed packages that
+are not installed (up to 4 MB, no kernel modules or translations); M4u from the `packages` feed; M6 from
+components that verified at grade A on the clean image and ship an executable. Components without a
+reference package are therefore never targets; on clean images they end as `unverifiable`. Images of the
+same target also share most packages, so targets repeat across images of one family.
+
+## Timing
+
+`seconds_median` in the case files is the median duration of one in-process `verify()` call per case, with
+the root filesystem already unpacked and hashed and the reference cache warm. BomTrace and Syft were timed as
+separate command-line processes (and BomTrace's stripped runs exit immediately). These figures are not
+comparable with each other. `bench/timing_e2e.py` measures what a user waits for, the command line from
+image to report: `results/r2/timing-e2e.json` (one machine, the repository example, measured after the
+freeze).
 
 ## What the results show, and what they do not
 
@@ -155,8 +209,11 @@ All numbers are in `results/r2/HEADLINE.md` (also in the README) and `results/r2
 listed in `results/r2/ERROR-ANALYSIS.md`.
 
 - **Database dependence.** With an honest database, BomTrace and the Syft-based diff find every BOM-level
-  error and BOMwitness misses a few. With a colluding or missing database they find none. This is the
-  designed behaviour of those tools, shown here so the dependence is measured and not just asserted.
+  error and BOMwitness misses a few. With a colluding database both run and return no label. With a missing
+  database BomTrace's verifier cannot run (unsupported input, 0 labels returned), and the Syft-based diff
+  reports every declared component as absent, which credits it with the 120 phantom rows of 480 at a
+  precision of 0.055. This is the designed behaviour of the database-reading modes of those tools, shown
+  here so the dependence is measured and not just asserted. It says nothing about tools that were not run.
 - **Where BOMwitness misses.** (a) An implanted package from the unindexed `packages` feed is always flagged
   as unaccounted executable code but is named only about two times in three. (b) Three phantom packages
   (hostapd and wpa_supplicant variants) were accepted: the firmware contains one of their two files, a
@@ -172,16 +229,22 @@ listed in `results/r2/ERROR-ANALYSIS.md`.
   shared feed's build under the same label. The tool says `bytes_differ`, which is true, and cannot say
   which build is the odd one.
 - **Sibling snapshots.** Devices of one target share nearly all packages. For most benchmark images the
-  most similar sibling has a byte-identical root filesystem, and even the least similar one shares 80 to 100
+  most similar sibling has the same regular-file paths and contents (`bench/sibling_overlap.py` does not
+  compare symlinks, file metadata or the SquashFS container), and even the least similar one shares 80 to 100
   percent of the tested image's packages (`bench/far-siblings.lock.json`). The snapshot is therefore best read as "the
   publisher's frozen release root filesystem for this target", not as an independent witness. The
   no-snapshot and feeds-only columns show what remains without it.
 - **Drift.** The older the image, the less of it today's shared feed can confirm byte for byte, and the
   more false alarms the feed alone produces. The signed manifest recovers labels, and the snapshot recovers
   bytes.
-- **Published BOMs.** OpenWrt's per-target BOMs verify for the default package set. They list
+- **Published BOMs.** Of 1868 claims, 1674 verify at grade A and 31 at grade B, 122 are unverifiable, 34
+  are `wrong_version`, 4 are `bytes_differ` (`e2fsprogs` and `ucode-mod-fs`) and 3 are absent from the
+  device image. The 34 are a disagreement about label granularity, not about code: the BOMs list
   out-of-tree kernel-module packages (mac80211 backports, mt76, ath10k-ct) with the kernel version only,
-  which the bytes contradict at package granularity, and they do not list device-specific packages. We
+  while the frozen feed labels the same bytes with the kernel and the driver version. The BOMs also do not
+  list device-specific packages. `bench/official_bom.py` runs BOMwitness only; it uses the device database
+  just to confirm that packages beyond the BOM are installed. No database-reading verifier was run on
+  these BOMs, so nothing here says what one would report. We
   have not found a statement that the per-target BOM is meant to describe each device image, so this is a
   coverage observation.
 - **A second publisher and a fork.** The ImmortalWrt image verifies against its own signed download tree
