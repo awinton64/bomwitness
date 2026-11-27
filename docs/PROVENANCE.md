@@ -45,6 +45,8 @@ commits was right and is given by git parentage in any case.)
 | `cbdda3a` | 2026-11-27 05:31 | Call the manifest what it is: pinned by the signed checksum file, not signed itself |
 | `3087589` | 2026-11-27 05:31 | Refresh docs/PROVENANCE.md |
 | `501c6bb` | 2026-11-27 06:05 | Describe grade A by what was compared and a snapshot by whether it was authenticated |
+| `afcf399` | 2026-11-27 06:08 | Refresh docs/PROVENANCE.md |
+| `f6b0aba` | 2026-11-27 06:13 | Remove the last 'signed' shorthand for hash-pinned files; label the pooled rows of SUMMARY.md |
 
 The commit that refreshes this file is not listed in it; `git log` is the authority.
 
