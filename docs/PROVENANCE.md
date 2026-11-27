@@ -55,6 +55,7 @@ commits was right and is given by git parentage in any case.)
 | `ff13709` | 2026-11-27 07:49 | Say that no file was compared when another release's build shares none |
 | `ba07b24` | 2026-11-27 07:49 | Refresh docs/PROVENANCE.md |
 | `90cb5cb` | 2026-11-27 08:00 | Reword absence claims so they say what was compared, not what is on disk |
+| `187ebbb` | 2026-11-27 08:12 | Record the sixth reporting change: reruns, digests, tests, docs, paper |
 
 The commit that refreshes this file is not listed in it; `git log` is the authority.
 
